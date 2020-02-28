@@ -1,0 +1,81 @@
+<div class="wrapper">
+  <div class="main">
+    <div class="slice-container">
+      <h1>Welcome to your dashboard</h1>
+        <p>Here you can manage appointments with immigration advisors.</p>
+        <% if @current_user.user_type == "user" %>
+        <div class="dashboard-row">
+          <h1>My Appointments</h1>
+        </div>
+          <% if @appointments.empty? %>
+          <div class="dashboard-row">
+            <p>No appointments scheduled yet</p>
+          </div>
+           <% else %>
+          <% @appointments.each do |appointment| %>
+              <div class="dashboard-row">
+                <div class="dashboard-appointment-container">
+                  <h1><%= Service.find(appointment.service_id).service_type.upcase %></h1>
+                  <h2><strong>Immigration path:</strong> <%= Service.find(appointment.service_id).path %></h2>
+                  <p><strong>Advisor:</strong> <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></p>
+                  <p><strong>Date:</strong><%= appointment.date %></p>
+                  <p><strong>Status:</strong> <%= appointment.status %></p>
+                  <pre><%= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre>
+                </div>
+              </div>
+          <% end %>
+        <% end %>
+      <% else %>
+
+      <!-- // CONFIGURED ADVISOR SERVICES -->
+      <div class="dashboard-row">
+        <h1>Your active services</h1>
+      </div>
+      <% if @services.empty? %>
+        <p>No services</p>
+        <pre><%= link_to "Add", "#" %></pre>
+      <% else %>
+        <% @services.each do |service| %>
+          <div class="dashboard-service-container">
+            <h1><%= service.service_type.upcase %></h1>
+            <h2><strong>Immigration path:</strong> <%= service.path %></h2>
+            <p><strong>Description:</strong> <%= service.description %></p>
+            <p><strong>Pricing:</strong> $<%= service.price %>/hour</p>
+            <pre><%= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre>
+          </div>
+        <% end %>
+      <% end %>
+
+        <!-- // ADVISOR APPOINTMENTS -->
+        <h2>My Appointments</h2>
+        <% if @advisor_appointments.empty? %>
+          <p>No appointments scheduled yet</p>
+        <% else %>
+          <% @advisor_appointments.each do |appointment| %>
+            <div class="dashboard-appointment-container">
+              <% service = Service.find(appointment.service_id) %>
+              <h1><%= service.service_type.upcase %></h1>
+              <div class="appointment-card-image">
+                <img src="<%= service.user.imgUrl %>">
+              </div>
+              <p><strong>Advisor:</strong> <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %></p>
+              <p><strong>Immigration path:</strong> <%= service.path %></p>
+              <p><strong>Date:</strong> <%= appointment.date %></p>
+              <p id="appointment-status"><strong>Status:</strong> <%= appointment.status.capitalize %></p>
+              <% if appointment.status == 'declined' %>
+                <pre><%= link_to "Delete", service_appointment_path(service, appointment), method: :delete %></pre>
+              <% end %>
+              <% if appointment.status == 'pending confirmation' %>
+                <div class="appointment-actions">
+                 <button class="btn-appointment"> <%= link_to "Confirm", service_appointment_path(service, appointment, status: :confirmed), method: :patch %> </button>
+                 <button class="btn-appointment"> <%= link_to 'Decline', service_appointment_path(service, appointment, status: :declined), method: :patch %> </button>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+     </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Add a Review for <strong><%= @service.service_type %></strong>  by <strong> <%= User.find(@service.user_id).first_name %> <%= User.find(@service.user_id).last_name %> </strong></h2>
+  <%= simple_form_for [@service, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
+    <%= f.submit "Add a Review", class: "btn btn-primary" %>
+  <% end %>
+</div>
+

@@ -1,0 +1,19 @@
+.service-booking-details-row {
+  display: flex;
+  flex-direction: row;
+  min-width: 240px;
+  margin-bottom: 40px;
+}
+
+.service-booking-advisor-info {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 480px;
+  height: auto;
+  padding: 10px;
+}
+
+.booking-calendar-container {
+  padding: 10px;
+}

@@ -1,0 +1,55 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "/", class: "navbar-brand" do %>
+    <%= image_tag "https://res.cloudinary.com/p-m-b/image/upload/v1582383940/canaduh/_Logo_r38qps.png" %>
+    <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Home", "/", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Browse services", "/services", class: "nav-link" %>
+        </li>
+        <% if current_user.user_type == "advisor" %>
+          <li class="nav-item">
+            <%= link_to "Add a service", "/services/new", class: "nav-link" %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <% if current_user.user_type == "user" %>
+            <%= link_to "Dashboard", "/dashboard", class: "nav-link"%>
+          <% else %>
+            <% if Notification.unread_count(current_user) == 0 %>
+                <%= link_to "Dashboard", "/dashboard", method: :delete, class: "nav-link", id:"notifications-count"%>
+              <% else %>
+                <%= link_to "Dashboard #{Notification.unread_count(current_user)}", "/dashboard", method: :delete, class: "nav-link", id:"notifications-count"%>
+                <%= link_to "","#", method: :delete, class: "nav-link", id:"clean-notifications"%>
+            <% end %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Messages", "/dashboard", class: "nav-link" %>
+        </li>
+
+        <li class="nav-item dropdown">
+          <%= image_tag current_user.imgUrl, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Profile", "/profile", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

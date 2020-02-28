@@ -1,0 +1,24 @@
+<div class="service-result-card">
+  <div class="service-result-card-image">
+    <img src="<%= service.user.imgUrl %>">
+  </div>
+
+  <div class="service-result-card-info">
+    <div class="service-result-card-row">
+      <% if service.user.featured == true %>
+        <p class="service-result-card-feature-badge">FEATURED</p>
+      <% end %>
+      <p class="service-result-card-path"><%= service.path %></p>
+    </div>
+    <div class="service-result-card-row">
+      <h2><%= service.service_type.upcase %></h2>
+    </div>
+    <div class="service-result-card-row">
+      <p><%= service.description %></p>
+    </div>
+    <div class="service-result-card-price">
+      <p>$<%= service.price %> CAD/hour</p>
+      <p><%= link_to 'See availability', service, class: "btn-availability"  %> </p>
+    </div>
+  </div>
+</div>

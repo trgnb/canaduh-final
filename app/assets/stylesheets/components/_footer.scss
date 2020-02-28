@@ -1,0 +1,57 @@
+.footer {
+  background: #1a1a1a;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 300px;
+  width: 100vw;
+  padding: 20px 150px;
+  color: #f9fafb;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 120px;
+  text-decoration: none;
+}
+
+.footer-column > h1 {
+  font-size: 1.5em;
+}
+
+.footer-column > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column > li {
+  text-decoration: none;
+  font-size: 1em;
+  list-style: none;
+}
+
+.footer-link > a {
+  color: #f9fafb;
+  opacity: 1;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.footer-link > a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-link > a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-link > a:hover {
+  opacity: 0.8;
+}
+
+
+

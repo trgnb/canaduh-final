@@ -1,0 +1,94 @@
+
+<div class="wrapper">
+  <div class="main">
+    <div class="slice-container">
+      <h1>Book an appointment</h1>
+      <div class="cards">
+        <div class="service-result-card">
+         <div class="service-result-card-image">
+            <img src="<%= @service.user.imgUrl %>">
+         </div>
+          <div class="service-result-card-info">
+            <div class="service-result-card-row">
+              <% if @service.user.featured == true %>
+              <p class="service-result-card-feature-badge">FEATURED</p>
+              <% end %>
+              <p class="service-result-card-path"><%= @service.path %></p>
+            </div>
+            <div class="service-result-card-row">
+              <h2><%= @service.service_type.upcase %></h2>
+            </div>
+            <div class="service-result-card-row">
+              <p><%= @service.description %></p>
+            </div>
+            <div class="service-result-card-price">
+              <p>$<%= @service.price %> CAD/hour</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service-booking-details-row">
+        <div class="service-booking-advisor-info">
+          <h2><strong><%= @service.user.first_name %> <%= @service.user.last_name %></strong></h2>
+          <p><strong>Biography:</strong> <%= @service.user.user_bio %></p>
+          </div>
+        <div class="booking-calendar-container">
+          <div class="form-wrapper">
+            <!-- BYPASSED IF STATEMENT FOR STYLING -->
+            <!-- <#% if current_user.user_type == "user" %> -->
+              <h2>Schedule an appointment with <%= @service.user.first_name %></h2>
+              <%= simple_form_for [@service, @appointment] do |f| %>
+                <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <button id="sweet-alert" class="btn btn-primary">Add Appointment</button>
+                <%= link_to "", dashboard_path, id: "book-appointment", class: "hidden" %>
+
+                <%#= f.button :submit, "Book appointment", class: "btn btn-primary", id:"sweet-alert" %>
+              <!-- <#% end %> -->
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <!-- REVIEWS -->
+    <div class="review-container">
+      <h1>Reviews</h1>
+      <!-- REVIEWS AVERAGE -->
+      <% if @average == 'not rated' %>
+        <p><%= @average %></p>
+        <% else %>
+         <p> <%= @service.reviews.count %> Reviews
+          <% @average.times do %>
+            <i id="rating-stars" class="fas fa-star"></i>
+          <% end %>
+        </p>
+      <% end %>
+      <!-- REVIEWS LIST -->
+        <% @service.reviews.each do |review| %>
+          <div class="review-card">
+            <h1 class="review-title"><%= review.title %></h1>
+                <p id="rating-stars"><% review.rating.times do %>
+                  <i class="fas fa-star"></i>
+                  <% end %>
+                </p>
+            <div class="review-card-row">
+              <div class="review-card-image">
+                <img src="<%= review.user.imgUrl %>">
+              </div>
+              <div class="review-card-content">
+                <p><%= review.content %> - <em><%= review.user.first_name %></em></p>
+              </div>
+            </div>
+                <p><%= review.user.first_name %> <%= review.created_at %></p>
+              </div>
+            <% end %>
+
+      <% if current_user.user_type == "user" %>
+        <%= link_to new_service_review_path(@service)  do %>
+          <i class="fas fa-pen"></i> Add a Review
+        <% end %>
+      <% end %>
+
+
+      <button class="btn-appointment"><%= link_to "Back to services", services_path %></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Add a new service</h1>
+  <%= simple_form_for @service do |f| %>
+    <%= f.input :service_type, collection: ['General Consultation', 'Test Prep', 'Ongoing Assistance'], required:true %>
+    <%= f.input :description %>
+    <%= f.input :price, label:'Price/hour' %>
+    <%= f.submit "Add a new service" %>
+  <% end %>
+<button type='button'>Back to list</button>
+</div>\
