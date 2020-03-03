@@ -11,9 +11,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-<!--         <li class="nav-item">
-          <%= link_to "Home", "/", class: "nav-link" %>
-        </li> -->
+        <li class="nav-item">
+          <%= link_to "Home", "/advisor_homepage", class: "nav-link" %>
+        </li>
 
         <li class="nav-item">
           <% if current_user.user_type == "user" %>
@@ -29,16 +29,13 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to "Find an advisor", "/advisor_homepage", class: "nav-link" %>
+          <%= link_to "Browse services", "/services", class: "nav-link" %>
         </li>
-
-        <li class="nav-item">
-          <%= link_to "Task list", "#", class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Carpool", "#", class: "nav-link" %>
-        </li>
+        <% if current_user.user_type == "advisor" %>
+          <li class="nav-item">
+            <%= link_to "Add a service", "/services/new", class: "nav-link" %>
+          </li>
+        <% end %>
 
         <li class="nav-item">
           <%= link_to "Messages", "/dashboard", class: "nav-link" %>

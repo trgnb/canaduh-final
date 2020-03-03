@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   delete "dashboard", to: "pages#destroy"
   get "profile", to: "pages#profile"
+  get "advisor_homepage", to: "pages#advisor_homepage"
 
 end
 
