@@ -2,20 +2,7 @@
   <!-- HOMEPAGE BANNER WITH BUTTON -->
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/p-m-b/image/upload/v1582387301/canaduh/banner_dyx0ad.png);">
     <div class="banner-container">
-      <h1><strong>CHANGE HOMEPAGE</h1>
-      <div class="banner-search">
-        <p>
-          <%= form_tag services_path(current_user), method: :get do %>
-            <%= text_field_tag :query,
-            params[:query],
-            class: "search-field",
-            placeholder: 'Try "general consultation"'
-            %>
-            <a id="banner-link" class="btn btn-banner"><%= submit_tag "Get started"%></a>
-            <% end %>
-          </p>
-        <!-- <a id="banner-link" class="btn btn-banner" href="/services">Get started</a> -->
-      </div>
+      <h1><strong>WELCOME TO CANADUH</h1>
     </div>
   </div>
 </div>

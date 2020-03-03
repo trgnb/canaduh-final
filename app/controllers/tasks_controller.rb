@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i(show edit update destroy mark_as_done)
 
   def index
+    @user_type = current_user.user_type
     @tasks = Task.all
   end
 
