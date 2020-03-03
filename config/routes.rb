@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
+  resources :tasks
+  patch 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
+
   get "dashboard", to: "pages#dashboard"
   delete "dashboard", to: "pages#destroy"
   get "profile", to: "pages#profile"

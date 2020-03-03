@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="main">
+    <div class="slice-container">
+      <h2><%= @task.title %></h2>
+      <p><%= @task.details %></p>
+
+      <% if @task.status == true %>
+        <p> This task is completed </p>
+          <% else %>
+        <p> This task is not completed yet </p>
+      <% end %>
+
+      <div style="display: flex">
+        <%= link_to "Edit", edit_task_path(@task) %>
+        <%= link_to "Delete", task_path(@task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      </div>
+      <%= link_to tasks_path  do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
