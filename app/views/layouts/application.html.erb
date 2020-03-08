@@ -15,14 +15,6 @@
     <!-- <p class="notice"><%= notice %></p> -->
     <!-- <p class="alert"><%= alert %></p> -->
 
-    <!-- Change logic -->
-
-    <% if current_page?('/') %>
-      <%= render 'shared/navbar' %>
-    <% else %>
-      <%= render 'shared/advisor_navbar' %>
-    <% end %>
-
     <%= render 'shared/flashes' %>
 
     <%= yield %>
