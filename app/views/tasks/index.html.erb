@@ -46,13 +46,13 @@
                       data: { confirm: "Are you sure?" } do %>
                       <i class="fa fa-trash"></i>
                       <% end %>
+                  <%= link_to new_task_path  do %>
+                      <i class="fa fa-plus"></i> Add a new task
+                  <% end %>
                 </div>
               </li>
             </ul>
           <% end %>
-        <% end %>
-        <%= link_to new_task_path  do %>
-          <i class="fa fa-plus"></i> Add a new task
         <% end %>
     </div>
   </div>

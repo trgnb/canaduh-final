@@ -294,7 +294,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="420" y="345" name="ride_bookings">
+<table x="421" y="382" name="ride_bookings">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -334,7 +334,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="239" y="64.11111259460449" name="recomended_tasks">
+<table x="13" y="52" name="recomended_tasks">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -342,14 +342,6 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="recommended_tasks_description" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="796" y="151.1111125946045" name="new table">
-<row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
