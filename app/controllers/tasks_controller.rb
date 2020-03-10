@@ -37,7 +37,7 @@ class TasksController < ApplicationController
   end
 
   def mark_as_done
-    @task.toggle(:status)
+    @task.toggle(:task_status)
     @task.save
     # @task.update(completed: true)
     redirect_to tasks_path
@@ -50,6 +50,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :status)
+    params.require(:task).permit(:task_name, :task_details, :task_status)
   end
 end

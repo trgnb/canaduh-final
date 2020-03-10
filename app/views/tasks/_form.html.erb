@@ -1,13 +1,13 @@
 <%= form_for(@task) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label :task_name %>
+  <%= f.text_field :task_name %>
 
-  <%= f.label :details %>
-  <%= f.text_field :details %>
+  <%= f.label :task_details %>
+  <%= f.text_field :task_details %>
 
   <% if @task.id %>
-    <%= f.label :status %>
-    <%= f.check_box :status %>
+    <%= f.label :task_status %>
+    <%= f.check_box :task_status %>
   <% end %>
 
   <%= f.submit %>

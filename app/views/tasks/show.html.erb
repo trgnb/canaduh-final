@@ -1,10 +1,10 @@
 <div class="wrapper">
   <div class="main">
     <div class="slice-container">
-      <h2><%= @task.title %></h2>
-      <p><%= @task.details %></p>
+      <h2><%= @task.task_name %></h2>
+      <p><%= @task.task_details %></p>
 
-      <% if @task.status == true %>
+      <% if @task.task_status == true %>
         <p> This task is completed </p>
           <% else %>
         <p> This task is not completed yet </p>
