@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TimelineTest < ActiveSupport::TestCase
+class MilestoneTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

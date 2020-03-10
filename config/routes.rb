@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :tasks
   patch 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
 
-  resources :timelines
+  resources :milestones, only: [:new, :create, :edit, :update]
 
   get "dashboard", to: "pages#dashboard"
   delete "dashboard", to: "pages#destroy"

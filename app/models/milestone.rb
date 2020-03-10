@@ -1,7 +1,7 @@
-class Timeline < ApplicationRecord
+class Milestone < ApplicationRecord
   belongs_to :user
 
   validates :milestone_date, presence: true
   validates :milestone_title, presence: true
-  validates :mmilestone_path, presence: true
+  validates :milestone_path, presence: true
 end

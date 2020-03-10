@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @user_type = current_user.user_type
+    @path_type = current_user.path_type
     @tasks = Task.all
   end
 

@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :advisor_appointments, through: :services, source: :appointments
   has_many :reviews, dependent: :destroy
   has_many :tasks, dependent: :destroy
-  has_many :timelines, dependent: :destroy
+  has_many :milestones, dependent: :destroy
 
   # validates_inclusion_of :user_type, in: USER_TYPE_OPTIONS
 end
