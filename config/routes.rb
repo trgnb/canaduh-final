@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :tasks
   patch 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
 
+  resources :timelines
+
   get "dashboard", to: "pages#dashboard"
   delete "dashboard", to: "pages#destroy"
   get "profile", to: "pages#profile"

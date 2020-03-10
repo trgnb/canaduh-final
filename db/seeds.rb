@@ -31,7 +31,6 @@ mickael = User.create!(
   specialty: "work visa",
   featured: true
 )
-
 peter = User.create!(
   first_name:"Peter",
   last_name:"Segura",
@@ -46,7 +45,6 @@ peter = User.create!(
   specialty: "student visa",
   featured: true
 )
-
 alex = User.create!(
   first_name:"Alex",
   last_name:"George",
@@ -61,7 +59,6 @@ alex = User.create!(
   specialty: "permanent residency",
   featured: false
 )
-
 celine = User.create!(
   first_name:"Celine",
   last_name:"Dion",
@@ -76,7 +73,6 @@ celine = User.create!(
   specialty: "canadian citizenship",
   featured: false
 )
-
 guy = User.create!(
   first_name:"Guy",
   last_name:"Lazarte",
@@ -91,7 +87,6 @@ guy = User.create!(
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: true
 )
-
 victor = User.create!(
   first_name:"Victor",
   last_name:"Bianchi",
@@ -107,7 +102,6 @@ victor = User.create!(
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: false
 )
-
 paul = User.create!(
   first_name:"Paul",
   last_name:"McCarthy",
@@ -123,7 +117,6 @@ paul = User.create!(
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: true
 )
-
 benjamin = User.create!(
   first_name:"Benjamin",
   last_name:"Marquis",
@@ -138,7 +131,6 @@ benjamin = User.create!(
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: true
 )
-
 travis = User.create!(
   first_name:"Travis",
   last_name:"Scott",
@@ -153,7 +145,6 @@ travis = User.create!(
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: false
 )
-
 ## Users ##
 belis = User.create!(
   first_name:"Belis",
@@ -168,7 +159,6 @@ belis = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: "work visa"
 )
-
 rmb = User.create!(
   first_name:"Rose",
   last_name:"Marie",
@@ -181,7 +171,6 @@ rmb = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP329CGQG-2cc8e859810d-512',
   path_type: "student visa"
 )
-
 lou = User.create!(
   first_name:"Lou",
   last_name:"Reed",
@@ -194,7 +183,6 @@ lou = User.create!(
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243262/user3female_brq6od.jpg',
   path_type: "canadian citizenship"
 )
-
 patrick = User.create!(
   first_name:"Patrick",
   last_name:"Bourget",
@@ -207,7 +195,6 @@ patrick = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T72Z71-ad292a4d361a-512',
   path_type: "canadian citizenship"
 )
-
 diana = User.create!(
   first_name:"Diana",
   last_name:"Ross",
@@ -235,7 +222,6 @@ jean = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
 )
-
 mariepier = User.create!(
   first_name:"Marie",
   last_name:"Pier",
@@ -248,7 +234,6 @@ mariepier = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
 )
-
 sarah = User.create!(
   first_name:"Sarah",
   last_name:"Ziani",
@@ -261,7 +246,6 @@ sarah = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
 )
-
 pablo = User.create!(
   first_name:"Pablo",
   last_name:"Escbobar",
@@ -274,7 +258,6 @@ pablo = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
 )
-
 jackie = User.create!(
   first_name:"Jackie",
   last_name:"Chan",
@@ -287,7 +270,6 @@ jackie = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
 )
-
 brad = User.create!(
   first_name:"Brad",
   last_name:"Pitt",
@@ -300,7 +282,6 @@ brad = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
 )
-
 harry = User.create!(
   first_name:"Harry",
   last_name:"Potter",
@@ -313,6 +294,8 @@ harry = User.create!(
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
   path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
 )
+
+### Users for Timeline ###
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
@@ -328,7 +311,6 @@ service1 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
-
 service2 = Service.create!(
   user: mickael,
   service_type: "Test Prep",
@@ -336,7 +318,6 @@ service2 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
-
 service3 = Service.create!(
   user: mickael,
   service_type: "Ongoing Assistance",
@@ -344,7 +325,6 @@ service3 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
-## mickael ##
 
 ## peter ##
 service4 = Service.create!(
@@ -354,7 +334,6 @@ service4 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
-
 service5 = Service.create!(
   user: peter,
   service_type: "Test Prep",
@@ -362,7 +341,6 @@ service5 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
-
 service6 = Service.create!(
   user: peter,
   service_type: "Ongoing Assistance",
@@ -370,7 +348,6 @@ service6 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
-## peter ##
 
 ## alex ##
 service7 = Service.create!(
@@ -380,7 +357,6 @@ service7 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
-
 service8 = Service.create!(
   user: alex,
   service_type: "Test Prep",
@@ -388,7 +364,6 @@ service8 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
-
 service9 = Service.create!(
   user: alex,
   service_type: "Ongoing Assistance",
@@ -396,7 +371,6 @@ service9 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
-## alex ##
 
 ## celine ##
 service10 = Service.create!(
@@ -420,7 +394,6 @@ service12 = Service.create!(
   path: "Canadian Citizenship",
   price: "300"
 )
-## celine ##
 
 ## guy ##
 service13 = Service.create!(
@@ -430,7 +403,6 @@ service13 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
-
 service14 = Service.create!(
   user: guy,
   service_type: "Test Prep",
@@ -438,7 +410,6 @@ service14 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
-
 service15 = Service.create!(
   user: guy,
   service_type: "Ongoing Assistance",
@@ -446,7 +417,6 @@ service15 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
-## guy ##
 
 ## victor ##
 service16 = Service.create!(
@@ -456,7 +426,6 @@ service16 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
-
 service17 = Service.create!(
   user: victor,
   service_type: "Test Prep",
@@ -464,7 +433,6 @@ service17 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
-
 service18 = Service.create!(
   user: victor,
   service_type: "Ongoing Assistance",
@@ -472,7 +440,6 @@ service18 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
-## victor ##
 
 ## paul ##
 service19 = Service.create!(
@@ -482,7 +449,6 @@ service19 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
-
 service20 = Service.create!(
   user: paul,
   service_type: "Test Prep",
@@ -490,7 +456,6 @@ service20 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
-
 service21 = Service.create!(
   user: paul,
   service_type: "Ongoing Assistance",
@@ -498,7 +463,6 @@ service21 = Service.create!(
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
-## paul ##
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
@@ -513,14 +477,12 @@ appointment1 = Appointment.create!(
   service: service1,
   user: rmb,
 )
-
 appointment2 = Appointment.create!(
   date: Faker::Date.in_date_period,
   status: ["pending confirmation", "confirmed", "declined"].sample,
   service: service2,
   user: patrick,
 )
-## mickael ##
 
 ## peter ##
 appointment3 = Appointment.create!(
@@ -529,14 +491,12 @@ appointment3 = Appointment.create!(
   service: service4,
   user: lou,
 )
-
 appointment4 = Appointment.create!(
   date: Faker::Date.in_date_period,
   status: ["pending confirmation", "confirmed", "declined"].sample,
   service: service5,
   user: diana,
 )
-## peter ##
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
@@ -544,6 +504,7 @@ appointment4 = Appointment.create!(
 Review.destroy_all
 puts 'Creating "Reviews"...'
 
+## service1 ##
 review1 = Review.create!(
   title: "Great service all around!!",
   service: service1,
@@ -551,7 +512,6 @@ review1 = Review.create!(
   rating: 5,
   content: "My experience was wonderful with Canaduh! I would be lost without Mikael Merle. The advisor was extremely helpful and I got exactly what I needed. 5 stars and will continue on my journey!"
 )
-
 review2 = Review.create!(
   title: "What an incredible experience",
   service: service1,
@@ -559,7 +519,6 @@ review2 = Review.create!(
   rating: 5,
   content: "Canaduh has completely surpassed our expectations. Just what I was looking for. Canaduh is the real deal! Very easy to use. Canaduh did exactly what you said it does. I could probably go into sales for you. I'm good to go. I would like to personally thank you for your outstanding product. I wish I would have thought of it first. We're loving it."
 )
-
 review3 = Review.create!(
   title: "Time saver for sure",
   service: service1,
@@ -567,7 +526,6 @@ review3 = Review.create!(
   rating: 5,
   content: "I love your system. I like Canaduh more and more each day because it makes my life a lot easier. Canaduh is exactly what our business has been lacking. No matter where you go, Canaduh is the coolest, most happening thing around!"
 )
-
 review4 = Review.create!(
   title: "Quite possibly the simplest way to get",
   service: service1,
@@ -575,7 +533,6 @@ review4 = Review.create!(
   rating: 5,
   content: "The best on the net! The advisor impressed me on multiple levels. Thank you so much for your help."
 )
-
 review5 = Review.create!(
   title: "Great service!!",
   service: service1,
@@ -583,7 +540,6 @@ review5 = Review.create!(
   rating: 5,
   content: "My experience was wonderful with Canaduh! The advisor was extremely helpful and I got exactly what I needed. 5 stars and will continue on my journey!"
 )
-
 review6 = Review.create!(
   title: "Great service!!",
   service: service1,
@@ -593,5 +549,79 @@ review6 = Review.create!(
 )
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
+
+# TASKS #
+Task.destroy_all
+puts 'Creating "Tasks"...'
+
+## belis ##
+Task.create!(
+  task_name: "Meet with Immigration Advisor",
+  task_details: "Don't forget student visa and passport",
+  task_status: true,
+  user: belis
+)
+Task.create!(
+  task_name: "Fill out Family Information form",
+  task_details: "Family Information form (IMM 5707)",
+  task_status: true,
+  user: belis
+)
+Task.create!(
+  task_name: "Ask mom for birth certificate",
+  task_details: "",
+  task_status: true,
+  user: belis
+)
+Task.create!(
+  task_name: "Pay the Fees",
+  task_details: "Open Work Permit Holder fee: $100",
+  user: belis
+)
+Task.create!(
+  task_name: "Photocopy of passport or travel document",
+  task_details: "Includes: Passport number, issuance and expiry dates, photo, name, date and place of birth",
+  user: belis
+)
+Task.create!(
+  task_name: "Get 2 photos",
+  task_details: "",
+  task_status: true,
+  user: belis
+)
+Task.create!(
+  task_name: "Proof of current status",
+  task_details: "",
+  user: belis
+)
+Task.create!(
+  task_name: "Get Labour Market Impact Assessment (LMIA)",
+  task_details: "",
+  user: belis
+)
+Task.create!(
+  task_name: "Get CAQ",
+  task_details: "",
+  task_status: true,
+  user: belis
+)
+Task.create!(
+  task_name: "Get University Final Transcript",
+  task_details: "",
+  task_status: true,
+  user: belis
+)
+Task.create!(
+  task_name: "Get letter from the institution and/or the formal notice of graduation",
+  task_details: "",
+  task_status: true,
+  user: belis
+)
+
+# ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
+
+# TIMELINE #
+
+## belis ##
 
 puts 'Finished!'
