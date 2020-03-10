@@ -29,16 +29,18 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to "Find an advisor", "/advisor_homepage", class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
           <%= link_to "Task Manager", "/tasks", class: "nav-link" %>
         </li>
 
-        <li class="nav-item">
-          <%= link_to "Carpool", "#", class: "nav-link" %>
-        </li>
+        <% if current_user.user_type == "user" %>
+          <li class="nav-item">
+            <%= link_to "Find an advisor", "/advisor_homepage", class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Carpool", "#", class: "nav-link" %>
+          </li>
+        <% end %>
 
         <li class="nav-item">
           <%= link_to "Messages", "/dashboard", class: "nav-link" %>

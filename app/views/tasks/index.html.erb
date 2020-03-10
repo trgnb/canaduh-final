@@ -1,6 +1,13 @@
 <%= render 'shared/navbar' %>
 <div class="wrapper">
   <div class="main">
+
+  <% if current_user.user_type == "user" %>
+    <div class="slice-container">
+      <h1>Timeline/Milestone</h1>
+    </div>
+  <% end %>
+
     <div class="slice-container">
       <h1>Task Manager</h1>
       <% if @current_user.user_type == "user" %>
