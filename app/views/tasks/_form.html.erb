@@ -1,14 +1,9 @@
 <%= form_for(@task) do |f| %>
-  <%= f.label :task_name %>
+  <%= f.label "Task" %>
   <%= f.text_field :task_name %>
 
-  <%= f.label :task_details %>
-  <%= f.text_field :task_details %>
+  <%= f.label "Priority" %>
+  <%= f.select :priority, ["high", "medium", "low"], :prompt => "Select" %>
 
-  <% if @task.id %>
-    <%= f.label :task_status %>
-    <%= f.check_box :task_status %>
-  <% end %>
-
-  <%= f.submit %>
+  <%= f.submit "Add", class: "btn btn-primary"%>
 <% end %>

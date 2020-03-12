@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: [:index, :new, :create, :edit, :update, :destroy]
+  patch 'tasks/:id/edit_priority', to: 'tasks#edit'
   patch 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
 
   resources :milestones, only: [:index, :new, :create, :edit, :update]

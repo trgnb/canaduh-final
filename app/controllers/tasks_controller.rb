@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = current_user
     if @task.save!
-      redirect_to task_path(@task)
+      redirect_to tasks_path
     else
       render :new
     end
@@ -49,6 +49,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:task_name, :task_details, :task_status)
+    params.require(:task).permit(:task_name, :task_status, :priority)
   end
 end
