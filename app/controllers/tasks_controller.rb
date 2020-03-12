@@ -5,6 +5,7 @@ class TasksController < ApplicationController
     @user_type = current_user.user_type
     @path_type = current_user.path_type
     @tasks = current_user.tasks
+    @recommended_tasks = Task.where(task_path: current_user.path_type)
   end
 
   def new

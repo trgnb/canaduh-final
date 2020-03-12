@@ -147,18 +147,44 @@ travis = User.create!(
 )
 
 ## Users ##
-belis = User.create!(
+belis1 = User.create!(
   first_name:"Belis",
   last_name:"Turegun",
-  email:"belis@test.com",
-  password:"belistest",
+  email:"belis1@test.com",
+  password:"belis1test",
   user_type: "user",
-  username: "belist",
+  username: "belist1",
   location: "Montreal",
   user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
   I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: "work visa"
+  path_type: "permanent residency"
+)
+belis2 = User.create!(
+  first_name:"Belis",
+  last_name:"Turegun",
+  email:"belis2@test.com",
+  password:"belis2test",
+  user_type: "user",
+  username: "belist2",
+  location: "Montreal",
+  user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
+  I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
+  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  path_type: "permanent residency"
+)
+belis3 = User.create!(
+  first_name:"Belis",
+  last_name:"Turegun",
+  email:"belis3@test.com",
+  password:"belis3test",
+  user_type: "user",
+  username: "belist3",
+  location: "Montreal",
+  user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
+  I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
+  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  path_type: "permanent residency"
 )
 rmb = User.create!(
   first_name:"Rose",
@@ -194,7 +220,7 @@ patrick = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T72Z71-ad292a4d361a-512',
-  path_type: "canadian citizenship"
+  path_type: "permanent residency"
 )
 diana = User.create!(
   first_name:"Diana",
@@ -207,7 +233,7 @@ diana = User.create!(
   user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
   I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 
 ### Users for Reviews ###
@@ -221,7 +247,7 @@ jean = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 mariepier = User.create!(
   first_name:"Marie",
@@ -233,7 +259,7 @@ mariepier = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 sarah = User.create!(
   first_name:"Sarah",
@@ -245,7 +271,7 @@ sarah = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 pablo = User.create!(
   first_name:"Pablo",
@@ -257,7 +283,7 @@ pablo = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 jackie = User.create!(
   first_name:"Jackie",
@@ -269,7 +295,7 @@ jackie = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 brad = User.create!(
   first_name:"Brad",
@@ -281,7 +307,7 @@ brad = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 harry = User.create!(
   first_name:"Harry",
@@ -293,7 +319,7 @@ harry = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
-  path_type: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample
+  path_type: "permanent residency"
 )
 
 ### Users for Timeline ###
@@ -308,21 +334,21 @@ puts 'Creating "Services"...'
 service1 = Service.create!(
   user: mickael,
   service_type: "General Consultation",
-  path: "Permanent Residency",,
+  path: "Permanent Residency",
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
 service2 = Service.create!(
   user: mickael,
   service_type: "Test Prep",
-  path: "Permanent Residency",,
+  path: "Permanent Residency",
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
 service3 = Service.create!(
   user: mickael,
   service_type: "Ongoing Assistance",
-  path: "Permanent Residency",,
+  path: "Permanent Residency",
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
@@ -474,28 +500,8 @@ puts 'Creating "Appointments"...'
 ## mickael ##
 appointment1 = Appointment.create!(
   date: Faker::Date.in_date_period,
-  status: ["pending confirmation", "confirmed", "declined"].sample,
+  status: "confirmed",
   service: service1,
-  user: rmb,
-)
-appointment2 = Appointment.create!(
-  date: Faker::Date.in_date_period,
-  status: ["pending confirmation", "confirmed", "declined"].sample,
-  service: service2,
-  user: patrick,
-)
-
-## peter ##
-appointment3 = Appointment.create!(
-  date: Faker::Date.in_date_period,
-  status: ["pending confirmation", "confirmed", "declined"].sample,
-  service: service4,
-  user: lou,
-)
-appointment4 = Appointment.create!(
-  date: Faker::Date.in_date_period,
-  status: ["pending confirmation", "confirmed", "declined"].sample,
-  service: service5,
   user: diana,
 )
 
@@ -555,73 +561,86 @@ review6 = Review.create!(
 Task.destroy_all
 puts 'Creating "Tasks"...'
 
-## recommended ##
-Task.create!(
+## recommended for permanent residency ##
+# demander sur la validation "User must exist" #
+recommended_task1 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
   task_name: "Fill-out financial self-sufficiency Form (A-0522-OA)",
-  task_status: true,
-  recommended: false,
+  recommended_task: true,
 )
-Task.create!(
+recommended_task2 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  task_name: "Proof of temporary resident status in a country other than your country of citizenship or permanent residence",
+  recommended_task: true,
+)
+recommended_task3 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  task_name: "Pass Evaluation of English language knowledge",
+  recommended_task: true,
+)
+recommended_task4 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
   task_name: "Get act or certificate of marriage",
-  task_status: true,
-  recommended: false,
+  recommended_task: true,
+)
+recommended_task5 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  task_name: "Payment of fees",
+  recommended_task: true,
 )
 
-## belis ##
-Task.create!(
-  user: belis,
+## belis1' to do list##
+belis1_task1 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  recommended_task: false,
   task_name: "Meet with my Immigration Advisor",
+  priority: "medium",
   task_status: true,
-  recommended: false,
 )
-Task.create!(
-  user: belis,
+belis1_task2 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  recommended_task: false,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
+  priority: "medium",
   task_status: false,
-  priority: "",
-  recommended: false,
 )
-Task.create!(
-  user: belis,
-  task_name: "Ask mom for Certificate of birth",
-  task_status: false,
+belis1_task2 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  recommended_task: false,
+  task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
   priority: "high",
-  recommended: false,
+  task_status: false,
 )
-Task.create!(
-  user: belis,
-  task_name: "Pay the Fees",
-)
-Task.create!(
-  user: belis,
-  task_name: "Photocopy of passport or travel document",
-)
-Task.create!(
-  user: belis,
-  task_name: "Get 2 photos",
+belis1_task3 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  recommended_task: false,
+  task_name: "Get work attestation and proof of legalty of work experience",
+  priority: "",
   task_status: true,
 )
-Task.create!(
-  user: belis,
-  task_name: "Proof of current status",
+belis1_task4 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  recommended_task: false,
+  task_name: "Pass evaluation of French language knowledge",
+  priority: "high",
+  task_status: false,
 )
-Task.create!(
-  user: belis,
-  task_name: "Get Labour Market Impact Assessment (LMIA)",
-)
-Task.create!(
-  user: belis,
-  task_name: "Get CAQ",
-  task_status: true,
-)
-Task.create!(
-  user: belis,
-  task_name: "Get University Final Transcript",
-  task_status: true,
-)
-Task.create!(
-  user: belis,
-  task_name: "Get letter from the institution and/or the formal notice of graduation",
+belis1_task5 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  recommended_task: false,
+  task_name: "Proof of temporary resident status in Quebec",
+  priority: "",
   task_status: true,
 )
 
@@ -629,6 +648,10 @@ Task.create!(
 
 # TIMELINE #
 
-## belis ##
+## belis1 ##
+
+## belis2 ##
+
+## belis3 ##
 
 puts 'Finished!'

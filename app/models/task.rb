@@ -1,7 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
 
-  PROPERTY_OPTIONS = ['high', 'medium', 'low']
   validates :task_name, presence: true
-  validates_inclusion_of :priority, in: PROPERTY_OPTIONS
+  validates_inclusion_of :task_path, in: ['work visa', 'student visa', 'permanent residency' ,'citizenship']
 end

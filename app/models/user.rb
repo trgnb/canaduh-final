@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :milestones, dependent: :destroy
+  validates :username, uniqueness: true
 
   # validates_inclusion_of :user_type, in: USER_TYPE_OPTIONS
 end
