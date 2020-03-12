@@ -4,18 +4,18 @@
 
   <% if current_user.user_type == "user" %>
     <div class="slice-container">
-      <h1>Timeline</h1>
+      <h1>My Progress</h1>
     </div>
   <% end %>
 
     <div class="slice-container">
-      <h1>Task Manager</h1>
+      <h1>TO DO</h1>
       <% if @current_user.user_type == "user" %>
         <h2>Recommended tasks</h2>
           <i class="fa fa-plus"></i> Add to my list
       <% end %>
 
-      <h2>My Task List</h2>
+      <h2>My list</h2>
 
         <% if @tasks.empty? %>
           <p>No tasks</p>
@@ -37,7 +37,7 @@
                       <% end %>
                     <% end %>
 
-                  <%= link_to task.task_name, task_path(task) %>
+                  <strong><%= task.task_name%></strong>
                   <%= link_to edit_task_path(task) do %>
                     <i class="fa fa-edit"></i>
                   <% end %>
@@ -46,12 +46,12 @@
                       data: { confirm: "Are you sure?" } do %>
                       <i class="fa fa-trash"></i>
                       <% end %>
-                  <%= link_to new_task_path  do %>
-                      <i class="fa fa-plus"></i> Add a new task
-                  <% end %>
                 </div>
               </li>
             </ul>
+          <% end %>
+          <%= link_to new_task_path  do %>
+            <i class="fa fa-plus"></i> Add a new task
           <% end %>
         <% end %>
     </div>

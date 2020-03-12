@@ -1,13 +1,10 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: %i(show edit update destroy mark_as_done)
+  before_action :find_task, only: %i(edit update destroy mark_as_done)
 
   def index
     @user_type = current_user.user_type
     @path_type = current_user.path_type
     @tasks = current_user.tasks
-  end
-
-  def show
   end
 
   def new

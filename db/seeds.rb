@@ -556,68 +556,72 @@ Task.destroy_all
 puts 'Creating "Tasks"...'
 
 ## recommended ##
+Task.create!(
+  task_name: "Fill-out financial self-sufficiency Form (A-0522-OA)",
+  task_status: true,
+  recommended: false,
+)
+Task.create!(
+  task_name: "Get act or certificate of marriage",
+  task_status: true,
+  recommended: false,
+)
 
 ## belis ##
 Task.create!(
   user: belis,
-  task_name: "Meet with Immigration Advisor",
-  task_details: "Don't forget student visa and passport",
-  task_status: true
+  task_name: "Meet with my Immigration Advisor",
+  task_status: true,
+  recommended: false,
 )
 Task.create!(
   user: belis,
-  task_name: "Fill out Family Information form",
-  task_details: "Family Information form (IMM 5707)",
-  task_status: true
+  task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
+  task_status: false,
+  priority: "",
+  recommended: false,
 )
 Task.create!(
   user: belis,
-  task_name: "Ask mom for birth certificate",
-  task_details: "",
-  task_status: true
+  task_name: "Ask mom for Certificate of birth",
+  task_status: false,
+  priority: "high",
+  recommended: false,
 )
 Task.create!(
   user: belis,
   task_name: "Pay the Fees",
-  task_details: "Open Work Permit Holder fee: $100",
 )
 Task.create!(
   user: belis,
   task_name: "Photocopy of passport or travel document",
-  task_details: "Includes: Passport number, issuance and expiry dates, photo, name, date and place of birth",
 )
 Task.create!(
   user: belis,
   task_name: "Get 2 photos",
-  task_details: "",
   task_status: true,
 )
 Task.create!(
   user: belis,
   task_name: "Proof of current status",
-  task_details: "",
 )
 Task.create!(
   user: belis,
   task_name: "Get Labour Market Impact Assessment (LMIA)",
-  task_details: "",
 )
 Task.create!(
   user: belis,
   task_name: "Get CAQ",
-  task_details: "",
   task_status: true,
 )
 Task.create!(
   user: belis,
   task_name: "Get University Final Transcript",
-  task_details: "",
   task_status: true,
 )
 Task.create!(
   user: belis,
   task_name: "Get letter from the institution and/or the formal notice of graduation",
-  task_details: "",
   task_status: true,
 )
 
