@@ -555,68 +555,70 @@ review6 = Review.create!(
 Task.destroy_all
 puts 'Creating "Tasks"...'
 
+## recommended ##
+
 ## belis ##
 Task.create!(
+  user: belis,
   task_name: "Meet with Immigration Advisor",
   task_details: "Don't forget student visa and passport",
-  task_status: true,
-  user: belis,
+  task_status: true
 )
 Task.create!(
+  user: belis,
   task_name: "Fill out Family Information form",
   task_details: "Family Information form (IMM 5707)",
-  task_status: true,
-  user: belis,
+  task_status: true
 )
 Task.create!(
+  user: belis,
   task_name: "Ask mom for birth certificate",
   task_details: "",
-  task_status: true,
-  user: belis,
+  task_status: true
 )
 Task.create!(
+  user: belis,
   task_name: "Pay the Fees",
   task_details: "Open Work Permit Holder fee: $100",
-  user: belis,
 )
 Task.create!(
+  user: belis,
   task_name: "Photocopy of passport or travel document",
   task_details: "Includes: Passport number, issuance and expiry dates, photo, name, date and place of birth",
-  user: belis,
 )
 Task.create!(
+  user: belis,
   task_name: "Get 2 photos",
   task_details: "",
   task_status: true,
-  user: belis,
 )
 Task.create!(
+  user: belis,
   task_name: "Proof of current status",
   task_details: "",
-  user: belis,
 )
 Task.create!(
+  user: belis,
   task_name: "Get Labour Market Impact Assessment (LMIA)",
   task_details: "",
-  user: belis,
 )
 Task.create!(
+  user: belis,
   task_name: "Get CAQ",
   task_details: "",
   task_status: true,
-  user: belis,
 )
 Task.create!(
+  user: belis,
   task_name: "Get University Final Transcript",
   task_details: "",
   task_status: true,
-  user: belis,
 )
 Task.create!(
+  user: belis,
   task_name: "Get letter from the institution and/or the formal notice of graduation",
   task_details: "",
   task_status: true,
-  user: belis,
 )
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
