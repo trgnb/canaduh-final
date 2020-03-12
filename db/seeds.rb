@@ -308,21 +308,21 @@ puts 'Creating "Services"...'
 service1 = Service.create!(
   user: mickael,
   service_type: "General Consultation",
-  path: "Work Visa",
+  path: "Permanent Residency",,
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
 service2 = Service.create!(
   user: mickael,
   service_type: "Test Prep",
-  path: "Work Visa",
+  path: "Permanent Residency",,
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
 service3 = Service.create!(
   user: mickael,
   service_type: "Ongoing Assistance",
-  path: "Work Visa",
+  path: "Permanent Residency",,
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
