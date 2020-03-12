@@ -3,8 +3,8 @@ class MilestonesController < ApplicationController
 
   def index
     @user_type = current_user.user_type
-    @path_type = current_user.path_type
-    @milestones = Milestone.all
+    @milestone_path = current_user.path_type
+    @milestones = current_user.milestones
   end
 
   def new

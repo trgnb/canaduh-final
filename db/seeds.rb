@@ -594,59 +594,47 @@ recommended_task5 = Task.create!(
   recommended_task: true,
 )
 
-## belis1' to do list##
+## belis1' TO DO list ##
 belis1_task1 = Task.create!(
   user: belis1,
-  task_path: "permanent residency",
-  recommended_task: false,
   task_name: "Meet with my Immigration Advisor",
   priority: "medium",
   task_status: true,
 )
 belis1_task2 = Task.create!(
   user: belis1,
-  task_path: "permanent residency",
-  recommended_task: false,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
   priority: "medium",
-  task_status: false,
-)
-belis1_task2 = Task.create!(
-  user: belis1,
-  task_path: "permanent residency",
-  recommended_task: false,
-  task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
-  priority: "high",
-  task_status: false,
 )
 belis1_task3 = Task.create!(
   user: belis1,
-  task_path: "permanent residency",
-  recommended_task: false,
+  task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
+  priority: "high",
+)
+belis1_task4 = Task.create!(
+  user: belis1,
   task_name: "Get work attestation and proof of legalty of work experience",
   priority: "",
   task_status: true,
 )
-belis1_task4 = Task.create!(
-  user: belis1,
-  task_path: "permanent residency",
-  recommended_task: false,
-  task_name: "Pass evaluation of French language knowledge",
-  priority: "high",
-  task_status: false,
-)
 belis1_task5 = Task.create!(
   user: belis1,
-  task_path: "permanent residency",
-  recommended_task: false,
+  task_name: "Pass evaluation of French language knowledge",
+  priority: "high",
+)
+belis1_task6 = Task.create!(
+  user: belis1,
   task_name: "Proof of temporary resident status in Quebec",
   priority: "",
-  task_status: true,
 )
+
+## belis2' TO DO list ##
+
+## belis3' TO DO list ##
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
-# TIMELINE #
+# MILESTONE #
 
 ## belis1 ##
 
