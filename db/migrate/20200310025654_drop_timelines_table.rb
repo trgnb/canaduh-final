@@ -1,0 +1,5 @@
+class DropTimelinesTable < ActiveRecord::Migration[6.0]
+  def change
+    drop_table :timelines
+  end
+end

@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def advisor_homepage
+  end
+
   def dashboard
     # USER #
     @appointments = current_user.appointments
