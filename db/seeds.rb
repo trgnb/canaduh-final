@@ -31,7 +31,6 @@ admin = User.create!(
   featured: true
 )
 
-
 ## Advisors ##
 mickael = User.create!(
   first_name:"Mickael",
@@ -576,36 +575,17 @@ review6 = Review.create!(
 Task.destroy_all
 puts 'Creating "Tasks"...'
 
-## recommended for permanent residency ##
-# demander sur la validation "User must exist" #
+## recommended tasks ##
 recommended_task1 = Task.create!(
   user: admin,
   task_path: "permanent residency",
-  task_name: "Fill-out Annex A Background/Declaration (IMM 5669)",
+  task_name: "TEST 1",
   recommended_task: true,
 )
 recommended_task2 = Task.create!(
   user: admin,
-  task_path: "permanent residency",
-  task_name: "Copy of your Quebec Selection Certificate",
-  recommended_task: true,
-)
-recommended_task3 = Task.create!(
-  user: admin,
-  task_path: "permanent residency",
-  task_name: "Pass Evaluation of French language knowledge",
-  recommended_task: true,
-)
-recommended_task4 = Task.create!(
-  user: admin,
-  task_path: "permanent residency",
-  task_name: "Get your identification and civil data acts (act of birth, mariage, criminal case)",
-  recommended_task: true,
-)
-recommended_task5 = Task.create!(
-  user: admin,
-  task_path: "permanent residency",
-  task_name: "Additional information - Travel List (IMM5562)",
+  task_path: "student visa",
+  task_name: "TEST 2",
   recommended_task: true,
 )
 
@@ -640,7 +620,7 @@ belis1_task5 = Task.create!(
 belis1_task6 = Task.create!(
   user: belis1,
   task_name: "Proof of temporary resident status in Quebec",
-  priority: "",
+  priority: "low",
 )
 
 ## belis2' TO DO list ##
@@ -651,9 +631,51 @@ belis1_task6 = Task.create!(
 
 # MILESTONE #
 
+## PR Path ##
+admin_milestone1 = Milestone.create!(
+  user: admin,
+  milestone_title: "CSQ Application",
+  milestone_path: "permanent residency",
+  order: 1,
+)
+admin_milestone2 = Milestone.create!(
+  user: admin,
+  milestone_title: "CSQ Reception",
+  milestone_path: "permanent residency",
+  order: 2,
+)
+admin_milestone3 = Milestone.create!(
+  user: admin,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: "permanent residency",
+  order: 3,
+)
+admin_milestone4 = Milestone.create!(
+  user: admin,
+  milestone_title:  "PR Application",
+  milestone_path: "permanent residency",
+  order: 4,
+)
+admin_milestone5 = Milestone.create!(
+  user: admin,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: "permanent residency",
+  order: 5,
+)
+admin_milestone6 = Milestone.create!(
+  user: admin,
+  milestone_title: "Medical Exam",
+  milestone_path: "permanent residency",
+  order: 6,
+)
+admin_milestone7 = Milestone.create!(
+  user: admin,
+  milestone_title: "PR Reception",
+  milestone_path: "permanent residency",
+  order: 7,
+)
 
 ## belis1 ##
-
 
 ## belis2 ##
 
