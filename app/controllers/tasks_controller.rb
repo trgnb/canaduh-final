@@ -6,10 +6,14 @@ class TasksController < ApplicationController
     @task_path = current_user.path_type
     @tasks = current_user.tasks
     @recommended_tasks = Task.where(task_path: current_user.path_type)
+
+    @milestones = current_user.milestones
+    @milestone_path = current_user.path_type
   end
 
   def new
     @task = Task.new
+    @milestone = Milestone.new
   end
 
   def create

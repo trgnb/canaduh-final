@@ -2,26 +2,23 @@
 <div class="wrapper">
   <div class="main">
 
-  <% if current_user.user_type == "user" %>
-    <div class="slice-container">
-      <h1>My Progress</h1>
+    <% if current_user.user_type == "user" %>
+      <div class="slice-container">
+        <h1>My Progress</h1>
 
+        <% @milestones.each do |milestone| %>
+          <ol>
+            <li>
+              <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>: <%= milestone.milestone_date %>
+            </li>
+          </ol>
+        <% end %>
 
-      <% if @current_user.path_type == "permanent residency" %>
-
-        <strong>CSQ Application</strong>
-        <strong>CSQ Reception</strong>
-        <strong>Temporary Work Visa Activation</strong>
-        <strong>PR Application</strong>
-        <strong>PR Application Receipt Confirmation</strong>
-        <strong>Medical Exam</strong>
-        <strong>PR Reception</strong>
-
-      <% end %>
-
-
-    </div>
-  <% end %>
+        <%= link_to new_milestone_path  do %>
+            <i class="fa fa-plus"></i>
+        <% end %>
+      </div>
+    <% end %>
 
     <div class="slice-container">
       <h1>TO DO</h1>

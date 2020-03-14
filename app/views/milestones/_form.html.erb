@@ -1,0 +1,5 @@
+<%= form_for(@milestone) do |f| %>
+    <%= f.select :milestone_title, ["CSQ Application", "CSQ Reception", "Temporary Work Visa Activation", "PR Application", "PR Application Receipt Confirmation", "Medical Exam", "PR Reception"], :prompt => "Select" %>
+    <%= f.text_field :milestone_date, hide_label: true, class: 'datepicker' %>
+  <%= f.submit "Add", class: "btn btn-primary"%>
+<% end %>
