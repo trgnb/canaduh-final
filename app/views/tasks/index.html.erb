@@ -25,9 +25,18 @@
 
     <div class="slice-container">
       <h1>TO DO</h1>
-      <% if @current_user.user_type == "user" %>
+      <% if @current_user.user_type == "user" || @current_user.user_type == "admin" %>
         <h2>Recommended tasks</h2>
-          <i class="fa fa-plus"></i> Add to my list
+        <% @recommended_tasks.each do |recommended_task| %>
+            <ul>
+              <li>
+                <div style="display: flex">
+                  <strong><%= recommended_task.task_name%></strong>
+                    <i class="fa fa-plus"></i>
+                </div>
+              </li>
+            </ul>
+        <% end %>
       <% end %>
 
       <h2>My list</h2>

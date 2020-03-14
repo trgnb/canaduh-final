@@ -16,6 +16,21 @@ puts 'Cleaning database...'
 # USERS #
 User.destroy_all
 puts 'Creating "Users"...'
+## Admin ##
+admin = User.create!(
+  first_name:"Admin",
+  last_name:"Admin",
+  email:"admin@test.com",
+  password:"admintest",
+  user_type: "admin",
+  username: "admin",
+  location: "Montreal",
+  user_bio: "",
+  imgUrl: '',
+  specialty: "",
+  featured: true
+)
+
 
 ## Advisors ##
 mickael = User.create!(
@@ -246,7 +261,7 @@ jean = User.create!(
   username: "jdujardin",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058923/leonel-hernandez-arteaga-jns8BPueAgU-unsplash_ghftkz.jpg',
   path_type: "permanent residency"
 )
 mariepier = User.create!(
@@ -258,7 +273,7 @@ mariepier = User.create!(
   username: "mpier",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058920/icons8-team-FcLyt7lW5wg-unsplash_xvvrjl.jpg',
   path_type: "permanent residency"
 )
 sarah = User.create!(
@@ -270,7 +285,7 @@ sarah = User.create!(
   username: "sziani",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058918/john-torcasio-tgVm0tkbf1U-unsplash_hinxgz.jpg',
   path_type: "permanent residency"
 )
 pablo = User.create!(
@@ -282,7 +297,7 @@ pablo = User.create!(
   username: "pescobar",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058919/joseph-gonzalez-iFgRcqHznqg-unsplash_p6ep50.jpg',
   path_type: "permanent residency"
 )
 jackie = User.create!(
@@ -294,7 +309,7 @@ jackie = User.create!(
   username: "jchan",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058920/mihai-stefan-0_G9UHXy39c-unsplash_cmn2cg.jpg',
   path_type: "permanent residency"
 )
 brad = User.create!(
@@ -306,7 +321,7 @@ brad = User.create!(
   username: "bpitt",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058919/davids-kokainis-wtaanJVi3Ig-unsplash_ocjuph.jpg',
   path_type: "permanent residency"
 )
 harry = User.create!(
@@ -318,7 +333,7 @@ harry = User.create!(
   username: "hpotter",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058918/eduardo-dutra-_cDUnoCOvMo-unsplash_qd4wc1.jpg',
   path_type: "permanent residency"
 )
 
@@ -564,33 +579,33 @@ puts 'Creating "Tasks"...'
 ## recommended for permanent residency ##
 # demander sur la validation "User must exist" #
 recommended_task1 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Fill-out financial self-sufficiency Form (A-0522-OA)",
+  task_name: "Fill-out Annex A Background/Declaration (IMM 5669)",
   recommended_task: true,
 )
 recommended_task2 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Proof of temporary resident status in a country other than your country of citizenship or permanent residence",
+  task_name: "Copy of your Quebec Selection Certificate",
   recommended_task: true,
 )
 recommended_task3 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Pass Evaluation of English language knowledge",
+  task_name: "Pass Evaluation of French language knowledge",
   recommended_task: true,
 )
 recommended_task4 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Get act or certificate of marriage",
+  task_name: "Get your identification and civil data acts (act of birth, mariage, criminal case)",
   recommended_task: true,
 )
 recommended_task5 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Payment of fees",
+  task_name: "Additional information - Travel List (IMM5562)",
   recommended_task: true,
 )
 
@@ -636,10 +651,13 @@ belis1_task6 = Task.create!(
 
 # MILESTONE #
 
+
 ## belis1 ##
+
 
 ## belis2 ##
 
 ## belis3 ##
+
 
 puts 'Finished!'
