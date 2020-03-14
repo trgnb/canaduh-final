@@ -76,6 +76,24 @@
           <% end %>
         <% end %>
       <% end %>
+
+      <!-- TASK REMINDER -->
+        <div class="dashboard-row">
+          <h1>Reminder</h1>
+        </div>
+        <% if @high_priority_tasks.empty? %>
+          <div class="dashboard-row">
+            <p>No urgent tasks</p>
+          </div>
+        <% else %>
+          <% @high_priority_tasks.each do |task| %>
+            <div class="dashboard-row">
+              <strong><%= task.task_name%></strong>
+              <%= task.priority %>
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to "See full list", tasks_path %>
      </div>
     </div>
   </div>
