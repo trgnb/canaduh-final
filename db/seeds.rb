@@ -581,12 +581,28 @@ recommended_task1 = Task.create!(
   task_path: "permanent residency",
   task_name: "TEST 1",
   recommended_task: true,
+  priority: "low",
 )
 recommended_task2 = Task.create!(
   user: admin,
   task_path: "student visa",
   task_name: "TEST 2",
   recommended_task: true,
+  priority: "low",
+)
+recommended_task3 = Task.create!(
+  user: admin,
+  task_path: "permanent residency",
+  task_name: "TEST 3",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task4 = Task.create!(
+  user: admin,
+  task_path: "permanent residency",
+  task_name: "TEST 4",
+  recommended_task: true,
+  priority: "low",
 )
 
 ## belis1' TO DO list ##
@@ -609,7 +625,7 @@ belis1_task3 = Task.create!(
 belis1_task4 = Task.create!(
   user: belis1,
   task_name: "Get work attestation and proof of legalty of work experience",
-  priority: "",
+  priority: "low",
   task_status: true,
 )
 belis1_task5 = Task.create!(

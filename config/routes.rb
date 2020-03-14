@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :tasks, only: [:index, :new, :create, :edit, :update, :destroy]
   patch 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
+  patch 'tasks/:id/add_to_checklist', to: 'tasks#add_to_checklist', as: :add_to_checklist
 
   resources :milestones, only: [:index, :new, :create, :edit, :update]
 

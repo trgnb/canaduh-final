@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: %i(edit update destroy mark_as_done)
-  before_action :set_admin, only: %i(index)
-  before_action :set_path, only: %i(index)
+  before_action :find_task, only: %i(edit update destroy mark_as_done add_to_checklist)
+  before_action :set_admin, only: %i(index add_to_checklist)
+  before_action :set_path, only: %i(index add_to_checklist)
 
   def index
     @user_type = current_user.user_type
@@ -54,6 +54,13 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def add_to_checklist
+    @task.user_id = current_user.id
+    @task.recommended_task = false
+    @task.save
+    redirect_to tasks_path
+  end
+
   private
 
   def find_task
@@ -61,12 +68,13 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:task_name, :task_status, :priority)
+    params.require(:task).permit(:task_name, :task_status, :priority, :user_id, :recommended_task)
   end
 
   def set_admin
     @admin = User.find_by_email("admin@test.com")
     @admin.path_type = current_user.path_type
+    @admin.id = current_user.id
   end
 
   def set_path

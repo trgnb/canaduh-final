@@ -5,17 +5,13 @@
     <!-- TIMELINE -->
     <% if current_user.user_type == "user" %>
       <div class="slice-container">
-        <h1>My Progress</h1>
+        <h1>My Progress <%= link_to new_milestone_path  do %> <i class="fa fa-plus"></i> <% end %></h1>
         <% @milestones.each do |milestone| %>
           <ol>
             <li>
               <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>: <%= milestone.milestone_date %>
             </li>
           </ol>
-        <% end %>
-
-        <%= link_to new_milestone_path  do %>
-            <i class="fa fa-plus"></i>
         <% end %>
       </div>
     <% end %>
@@ -31,10 +27,11 @@
             <ul>
               <li>
                 <div style="display: flex">
-                  <strong><%= recommended_task.task_name%></strong>
-                  <%= link_to new_milestone_path  do %>
-                      <i class="fa fa-plus"></i>
-                  <% end %>
+                      <strong><%= recommended_task.task_name%></strong>
+                      <%= link_to add_to_checklist_path(recommended_task),
+                          method: :patch do %>
+                        <i class="fa fa-plus"></i>
+                      <% end %>
                 </div>
               </li>
             </ul>
@@ -42,7 +39,7 @@
       <% end %>
 
       <!-- MY TASKS LIST -->
-      <h2>My check list</h2>
+      <h2>My check list <%= link_to new_task_path  do %> <i class="fa fa-plus"></i> <% end %> </h2>
         <% if @tasks.empty? %>
           <p>No tasks</p>
           <%= link_to new_task_path  do %>
@@ -140,10 +137,6 @@
                 </div>
               </li>
             </ul>
-          <% end %>
-
-          <%= link_to new_task_path  do %>
-            <i class="fa fa-plus"></i> Add a new task
           <% end %>
         <% end %>
     </div>
