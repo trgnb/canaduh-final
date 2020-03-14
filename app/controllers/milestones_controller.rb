@@ -1,12 +1,6 @@
 class MilestonesController < ApplicationController
   before_action :find_milestone, only: %i(edit update)
 
-  def index
-    @user_type = current_user.user_type
-    @milestone_path = current_user.path_type
-    @milestones = current_user.milestones
-  end
-
   def new
     @milestone = Milestone.new
   end
@@ -36,6 +30,7 @@ class MilestonesController < ApplicationController
   end
 
   def milestone_params
-    params.require(:milestone).permit(:milestone_date, :milestone_title, :milestone_path, :completion, :achieved)
+    params.require(:milestone).permit(:milestone_date, :milestone_title, :milestone_path, :completion, :achieved, :order)
   end
+
 end

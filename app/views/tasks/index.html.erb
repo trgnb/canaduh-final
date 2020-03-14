@@ -3,15 +3,11 @@
   <div class="main">
 
     <!-- TIMELINE -->
-    <% if current_user.user_type == "user" %>
+    <% if current_user.user_type == "user" || current_user.user_type == "admin" %>
       <div class="slice-container">
         <h1>My Progress <%= link_to new_milestone_path  do %> <i class="fa fa-plus"></i> <% end %></h1>
-        <% @milestones.each do |milestone| %>
-          <ol>
-            <li>
-              <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>: <%= milestone.milestone_date %>
-            </li>
-          </ol>
+        <% @ordered_list.each do |milestone| %>
+            <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %> <%= milestone.milestone_date %>
         <% end %>
       </div>
     <% end %>

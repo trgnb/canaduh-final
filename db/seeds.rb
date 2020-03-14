@@ -647,7 +647,7 @@ belis1_task6 = Task.create!(
 
 # MILESTONE #
 
-## PR Path ##
+## Admin PR Path ##
 admin_milestone1 = Milestone.create!(
   user: admin,
   milestone_title: "CSQ Application",
@@ -689,6 +689,26 @@ admin_milestone7 = Milestone.create!(
   milestone_title: "PR Reception",
   milestone_path: "permanent residency",
   order: 7,
+)
+
+## Admin Student Visa Path ##
+admin_milestone8 = Milestone.create!(
+  user: admin,
+  milestone_title: "Milestone 1",
+  milestone_path: "student visa",
+  order: 1,
+)
+admin_milestone9 = Milestone.create!(
+  user: admin,
+  milestone_title: "Milestone 2",
+  milestone_path: "student visa",
+  order: 2,
+)
+admin_milestone10 = Milestone.create!(
+  user: admin,
+  milestone_title: "Milestone 3",
+  milestone_path: "student visa",
+  order: 3,
 )
 
 ## belis1 ##

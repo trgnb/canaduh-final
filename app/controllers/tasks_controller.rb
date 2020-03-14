@@ -4,9 +4,11 @@ class TasksController < ApplicationController
   before_action :set_path, only: %i(index add_to_checklist)
 
   def index
+    # USER #
     @user_type = current_user.user_type
+
+    # TASKS #
     @tasks = current_user.tasks
-    @milestones = current_user.milestones
     @high_priority_tasks = @tasks.filter do |task|
       task.priority == "high"
     end
@@ -16,12 +18,17 @@ class TasksController < ApplicationController
     @low_priority_tasks = @tasks.filter do |task|
       task.priority == "low"
     end
+
+    # RECOMMENDED TASKS #
     @recommended_tasks = Task.where(recommended_task: true, task_path: @admin.path_type)
+
+    # MILESTONES #
+    @milestones = Milestone.where(milestone_path: current_user.path_type)
+    @ordered_list = @milestones.order(:order)
   end
 
   def new
     @task = Task.new
-    @milestone = Milestone.new
   end
 
   def create
@@ -50,7 +57,6 @@ class TasksController < ApplicationController
   def mark_as_done
     @task.toggle(:task_status)
     @task.save
-    # @task.update(completed: true)
     redirect_to tasks_path
   end
 
@@ -60,6 +66,10 @@ class TasksController < ApplicationController
     @task.save
     redirect_to tasks_path
   end
+
+  # MILESTONES #
+
+
 
   private
 
