@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   resources :tasks, only: [:index, :new, :create, :edit, :update, :destroy]
   patch 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
   patch 'tasks/:id/add_to_checklist', to: 'tasks#add_to_checklist', as: :add_to_checklist
+  patch 'tasks/:id/mark_as_achieved', to: 'tasks#mark_as_achieved', as: :mark_milestone
 
-  resources :milestones, only: [:index, :new, :create, :edit, :update]
+  resources :milestones, only: [:index, :edit, :update]
 
   get "dashboard", to: "pages#dashboard"
   delete "dashboard", to: "pages#destroy"

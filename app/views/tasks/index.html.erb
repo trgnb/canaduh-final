@@ -3,12 +3,9 @@
   <div class="main">
 
     <!-- TIMELINE -->
-    <% if current_user.user_type == "user" || current_user.user_type == "admin" %>
+    <% if current_user.user_type == "user" %>
       <div class="slice-container">
-        <h1>My Progress <%= link_to new_milestone_path  do %> <i class="fa fa-plus"></i> <% end %></h1>
-        <% @ordered_list.each do |milestone| %>
-            <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %> <%= milestone.milestone_date %>
-        <% end %>
+        <h1>My Journey</h1>
       </div>
     <% end %>
 
@@ -57,7 +54,7 @@
 
                   <strong><%= task.task_name%></strong>
                   <%= link_to edit_task_path(task) do %>
-                    <%= task.priority %>
+                    <% task.priority %>
                     <i class="fas fa-exclamation-triangle"></i>
                   <% end %>
                   <%= link_to edit_task_path(task) do %>
@@ -88,7 +85,7 @@
 
                   <strong><%= task.task_name%></strong>
                   <%= link_to edit_task_path(task) do %>
-                    <%= task.priority %>
+                    <% task.priority %>
                     <i class="fas fa-exclamation-triangle"></i>
                   <% end %>
                   <%= link_to edit_task_path(task) do %>
@@ -119,7 +116,7 @@
 
                   <strong><%= task.task_name%></strong>
                   <%= link_to edit_task_path(task) do %>
-                    <%= task.priority %>
+                    <% task.priority %>
                     <i class="fas fa-exclamation-triangle"></i>
                   <% end %>
                   <%= link_to edit_task_path(task) do %>

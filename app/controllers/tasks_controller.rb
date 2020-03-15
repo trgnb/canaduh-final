@@ -21,10 +21,6 @@ class TasksController < ApplicationController
 
     # RECOMMENDED TASKS #
     @recommended_tasks = Task.where(recommended_task: true, task_path: @admin.path_type)
-
-    # MILESTONES #
-    @milestones = Milestone.where(milestone_path: current_user.path_type)
-    @ordered_list = @milestones.order(:order)
   end
 
   def new
@@ -66,10 +62,6 @@ class TasksController < ApplicationController
     @task.save
     redirect_to tasks_path
   end
-
-  # MILESTONES #
-
-
 
   private
 
