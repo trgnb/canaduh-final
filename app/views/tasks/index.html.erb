@@ -2,52 +2,44 @@
 <div class="wrapper">
   <div class="main">
 
-  <% if current_user.user_type == "user" %>
-    <div class="slice-container">
-      <h1>My Progress</h1>
+    <!-- TIMELINE -->
+    <% if current_user.user_type == "user" %>
+      <div class="slice-container">
+        <h1>My Journey</h1>
+      </div>
+    <% end %>
 
-
-      <% if @current_user.path_type == "permanent residency" %>
-
-        <strong>CSQ Application</strong>
-        <strong>CSQ Reception</strong>
-        <strong>Temporary Work Visa Activation</strong>
-        <strong>PR Application</strong>
-        <strong>PR Application Receipt Confirmation</strong>
-        <strong>Medical Exam</strong>
-        <strong>PR Reception</strong>
-
-      <% end %>
-
-
-    </div>
-  <% end %>
-
+    <!-- TASKS -->
     <div class="slice-container">
       <h1>TO DO</h1>
-      <% if @current_user.user_type == "user" || @current_user.user_type == "admin" %>
-        <h2>Recommended tasks</h2>
+      <% if @current_user.user_type == "user"%>
+
+      <!-- RECOMMENDED TASKS -->
+        <h2>Recommended</h2>
         <% @recommended_tasks.each do |recommended_task| %>
             <ul>
               <li>
                 <div style="display: flex">
-                  <strong><%= recommended_task.task_name%></strong>
-                    <i class="fa fa-plus"></i>
+                      <strong><%= recommended_task.task_name%></strong>
+                      <%= link_to add_to_checklist_path(recommended_task),
+                          method: :patch do %>
+                        <i class="fa fa-plus"></i>
+                      <% end %>
                 </div>
               </li>
             </ul>
         <% end %>
       <% end %>
 
-      <h2>My list</h2>
-
+      <!-- MY TASKS LIST -->
+      <h2>My check list <%= link_to new_task_path  do %> <i class="fa fa-plus"></i> <% end %> </h2>
         <% if @tasks.empty? %>
           <p>No tasks</p>
           <%= link_to new_task_path  do %>
             <i class="fa fa-plus"></i> Add a new task
           <% end %>
         <% else %>
-          <% @tasks.each do |task| %>
+          <% @high_priority_tasks.each do |task| %>
             <ul>
               <li>
                 <div style="display: flex">
@@ -62,7 +54,7 @@
 
                   <strong><%= task.task_name%></strong>
                   <%= link_to edit_task_path(task) do %>
-                    <%= task.priority %>
+                    <% task.priority %>
                     <i class="fas fa-exclamation-triangle"></i>
                   <% end %>
                   <%= link_to edit_task_path(task) do %>
@@ -77,8 +69,67 @@
               </li>
             </ul>
           <% end %>
-          <%= link_to new_task_path  do %>
-            <i class="fa fa-plus"></i> Add a new task
+
+          <% @medium_priority_tasks.each do |task| %>
+            <ul>
+              <li>
+                <div style="display: flex">
+                  <%= link_to mark_task_path(task),
+                    method: :patch do %>
+                      <% if task.task_status %>
+                        <i class="fa fa-check-square"></i>
+                      <% else %>
+                        <i class="fa fa-square"></i>
+                      <% end %>
+                    <% end %>
+
+                  <strong><%= task.task_name%></strong>
+                  <%= link_to edit_task_path(task) do %>
+                    <% task.priority %>
+                    <i class="fas fa-exclamation-triangle"></i>
+                  <% end %>
+                  <%= link_to edit_task_path(task) do %>
+                    <i class="fa fa-edit"></i>
+                  <% end %>
+                  <%= link_to task_path(task),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } do %>
+                      <i class="fa fa-trash"></i>
+                      <% end %>
+                </div>
+              </li>
+            </ul>
+          <% end %>
+
+          <% @low_priority_tasks.each do |task| %>
+            <ul>
+              <li>
+                <div style="display: flex">
+                  <%= link_to mark_task_path(task),
+                    method: :patch do %>
+                      <% if task.task_status %>
+                        <i class="fa fa-check-square"></i>
+                      <% else %>
+                        <i class="fa fa-square"></i>
+                      <% end %>
+                    <% end %>
+
+                  <strong><%= task.task_name%></strong>
+                  <%= link_to edit_task_path(task) do %>
+                    <% task.priority %>
+                    <i class="fas fa-exclamation-triangle"></i>
+                  <% end %>
+                  <%= link_to edit_task_path(task) do %>
+                    <i class="fa fa-edit"></i>
+                  <% end %>
+                  <%= link_to task_path(task),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } do %>
+                      <i class="fa fa-trash"></i>
+                      <% end %>
+                </div>
+              </li>
+            </ul>
           <% end %>
         <% end %>
     </div>

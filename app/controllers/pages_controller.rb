@@ -14,6 +14,12 @@ class PagesController < ApplicationController
     # ADVISOR #
     @services = current_user.services
     @advisor_appointments = current_user.advisor_appointments
+
+    # TASK REMINDER #
+    tasks = current_user.tasks
+    @high_priority_tasks = tasks.filter do |task|
+      task.priority == "high"
+    end
   end
 
   def profile

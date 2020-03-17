@@ -1,11 +1,26 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: %i(edit update destroy mark_as_done)
+  before_action :find_task, only: %i(edit update destroy mark_as_done add_to_checklist)
+  before_action :set_admin, only: %i(index add_to_checklist)
+  before_action :set_path, only: %i(index add_to_checklist)
 
   def index
+    # USER #
     @user_type = current_user.user_type
-    @task_path = current_user.path_type
+
+    # TASKS #
     @tasks = current_user.tasks
-    @recommended_tasks = Task.where(recommended_task: true)
+    @high_priority_tasks = @tasks.filter do |task|
+      task.priority == "high"
+    end
+    @medium_priority_tasks = @tasks.filter do |task|
+      task.priority == "medium"
+    end
+    @low_priority_tasks = @tasks.filter do |task|
+      task.priority == "low"
+    end
+
+    # RECOMMENDED TASKS #
+    @recommended_tasks = Task.where(recommended_task: true, task_path: @admin.path_type)
   end
 
   def new
@@ -38,7 +53,13 @@ class TasksController < ApplicationController
   def mark_as_done
     @task.toggle(:task_status)
     @task.save
-    # @task.update(completed: true)
+    redirect_to tasks_path
+  end
+
+  def add_to_checklist
+    @task.user_id = current_user.id
+    @task.recommended_task = false
+    @task.save
     redirect_to tasks_path
   end
 
@@ -49,6 +70,17 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:task_name, :task_status, :priority)
+    params.require(:task).permit(:task_name, :task_status, :priority, :user_id, :recommended_task)
+  end
+
+  def set_admin
+    @admin = User.find_by_email("admin@test.com")
+    @admin.path_type = current_user.path_type
+    @admin.id = current_user.id
+  end
+
+  def set_path
+    @task_path = current_user.path_type
+    @milestone_path = current_user.path_type
   end
 end
