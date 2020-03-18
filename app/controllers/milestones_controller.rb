@@ -6,7 +6,6 @@ class MilestonesController < ApplicationController
 
   def update
     @milestone.update(milestone_params)
-    @milestone.achieved = true
     redirect_to tasks_path
   end
 
@@ -17,6 +16,6 @@ class MilestonesController < ApplicationController
   end
 
   def milestone_params
-    params.require(:milestone).permit(:milestone_date)
+    params.require(:milestone).permit(:milestone_date, :achieved)
   end
 end

@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   before_action :find_task, only: %i(edit update destroy mark_as_done add_to_checklist)
-  before_action :set_admin, only: %i(index add_to_checklist)
   before_action :set_path, only: %i(index add_to_checklist)
 
   def index
@@ -68,6 +67,9 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def percent_completed
+  end
+
   private
 
   def find_task
@@ -76,12 +78,6 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:task_name, :task_status, :priority, :user_id, :recommended_task)
-  end
-
-  def set_admin
-    @admin = User.find_by_email("admin@test.com")
-    @admin.path_type = current_user.path_type
-    @admin.id = current_user.id
   end
 
   def set_path
