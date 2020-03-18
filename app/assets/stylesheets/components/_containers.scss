@@ -80,3 +80,13 @@
   flex-direction: column;
   margin-left: 10px;
 }
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: ($bottom / 2);
+}
+
+.filter-row {
+  padding: 8px;
+}

@@ -2,6 +2,19 @@
 <div class="wrapper-container">
   <div class="main-container">
       <h1>Browse services</h1>
+        <div class="filter-container">
+          <div class="filter-row">
+            <a class="btn-filter" href="/services.15?query=citizenship&commit=Search>">Citizenship</a>
+            <a class="btn-filter" href="/services.15?query=permanent+residency&commit=Search>">Permanent residency</a>
+            <a class="btn-filter" href="/services.15?query=student+visa&commit=Search>">Student visa</a>
+            <a class="btn-filter" href="/services.15?query=work+visa&commit=Search">Work visa</a>
+          </div>
+          <div class="filter-row">
+            <a class="btn-filter" href="/services.15?query=general+consultation&commit=Search>">General consultation</a>
+            <a class="btn-filter" href="/services.15?query=ongoing+assistance&commit=Search>">Ongoing assistance</a>
+            <a class="btn-filter" href="/services.15?query=test+preparation&commit=Search>">Test preparation</a>
+          </div>
+        </div>
         <div class="cards">
             <% @services.each do |service| %>
               <div class="service-result-card">
@@ -15,6 +28,7 @@
                       <p class="service-result-card-feature-badge">FEATURED</p>
                     <% end %>
                     <p class="service-result-card-path"><%= service.path %></p>
+                    <!-- TODO : ADD RATING TO SERVICE ON CARD -->
                   </div>
                   <div class="service-result-card-row">
                     <h2><%= service.service_type.upcase %></h2>
