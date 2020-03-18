@@ -575,32 +575,186 @@ review6 = Review.create!(
 Task.destroy_all
 puts 'Creating "Tasks"...'
 
-## recommended tasks ##
-recommended_task1 = Task.create!(
-  user: admin,
+## Recommended Tasks ##
+### Admin ###
+# recommended_task1_admin = Task.create!(
+#   user: admin,
+#   task_path: "permanent residency",
+#   task_name: "ADMIN - TEST 1",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task2_admin = Task.create!(
+#   user: admin,
+#   task_path: "permanent residency",
+#   task_name: "ADMIN - TEST 2",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task3_admin = Task.create!(
+#   user: admin,
+#   task_path: "permanent residency",
+#   task_name: "ADMIN - TEST 3",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task4_admin = Task.create!(
+#   user: admin,
+#   task_path: "permanent residency",
+#   task_name: "ADMIN - TEST 4",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task5_admin = Task.create!(
+#   user: admin,
+#   task_path: "permanent residency",
+#   task_name: "ADMIN - TEST 5",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task6_admin = Task.create!(
+#   user: admin,
+#   task_path: "student visa",
+#   task_name: "ADMIN - TEST 6",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task7_admin = Task.create!(
+#   user: admin,
+#   task_path: "student visa",
+#   task_name: "ADMIN - TEST 7",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task8_admin = Task.create!(
+#   user: admin,
+#   task_path: "student visa",
+#   task_name: "ADMIN - TEST 8",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task9_admin = Task.create!(
+#   user: admin,
+#   task_path: "student visa",
+#   task_name: "ADMIN - TEST 9",
+#   recommended_task: true,
+#   priority: "low",
+# )
+# recommended_task10_admin = Task.create!(
+#   user: admin,
+#   task_path: "student visa",
+#   task_name: "ADMIN - TEST 10",
+#   recommended_task: true,
+#   priority: "low",
+# )
+
+### Belis 1 ###
+recommended_task1_belis1 = Task.create!(
+  user: belis1,
   task_path: "permanent residency",
-  task_name: "TEST 1",
+  task_name: "BELIS 1 - TEST 1",
   recommended_task: true,
   priority: "low",
 )
-recommended_task2 = Task.create!(
-  user: admin,
-  task_path: "student visa",
-  task_name: "TEST 2",
+recommended_task2_belis1 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  task_name: "BELIS 1 - TEST 2",
   recommended_task: true,
   priority: "low",
 )
-recommended_task3 = Task.create!(
-  user: admin,
+recommended_task3_belis1 = Task.create!(
+  user: belis1,
   task_path: "permanent residency",
-  task_name: "TEST 3",
+  task_name: "BELIS 1 - TEST 3",
   recommended_task: true,
   priority: "low",
 )
-recommended_task4 = Task.create!(
-  user: admin,
+recommended_task4_belis1 = Task.create!(
+  user: belis1,
   task_path: "permanent residency",
-  task_name: "TEST 4",
+  task_name: "BELIS 1 - TEST 4",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task5_belis1 = Task.create!(
+  user: belis1,
+  task_path: "permanent residency",
+  task_name: "BELIS 1 - TEST 5",
+  recommended_task: true,
+  priority: "low",
+)
+
+# ### Belis 2 ###
+recommended_task1_belis2 = Task.create!(
+  user: belis2,
+  task_path: "permanent residency",
+  task_name: "BELIS 2 - TEST 1",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task2_belis2 = Task.create!(
+  user: belis2,
+  task_path: "permanent residency",
+  task_name: "BELIS 2 - TEST 2",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task3_belis2 = Task.create!(
+  user: belis2,
+  task_path: "permanent residency",
+  task_name: "BELIS 2 - TEST 3",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task4_belis2 = Task.create!(
+  user: belis2,
+  task_path: "permanent residency",
+  task_name: "BELIS 2 - TEST 4",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task5_belis2 = Task.create!(
+  user: belis2,
+  task_path: "permanent residency",
+  task_name: "BELIS 2 - TEST 5",
+  recommended_task: true,
+  priority: "low",
+)
+
+# ### Belis 3 ###
+recommended_task1_belis3 = Task.create!(
+  user: belis3,
+  task_path: "permanent residency",
+  task_name: "BELIS 3 - TEST 1",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task2_belis3 = Task.create!(
+  user: belis3,
+  task_path: "permanent residency",
+  task_name: "BELIS 3 - TEST 2",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task3_belis3 = Task.create!(
+  user: belis3,
+  task_path: "permanent residency",
+  task_name: "BELIS 3 - TEST 3",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task4_belis3 = Task.create!(
+  user: belis3,
+  task_path: "permanent residency",
+  task_name: "BELIS 3 - TEST 4",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task5_belis3 = Task.create!(
+  user: belis3,
+  task_path: "permanent residency",
+  task_name: "BELIS 3 - TEST 5",
   recommended_task: true,
   priority: "low",
 )
@@ -611,32 +765,38 @@ belis1_task1 = Task.create!(
   task_name: "Meet with my Immigration Advisor",
   priority: "medium",
   task_status: true,
+  recommended_task: false,
 )
 belis1_task2 = Task.create!(
   user: belis1,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
   priority: "medium",
+  recommended_task: false,
 )
 belis1_task3 = Task.create!(
   user: belis1,
   task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
   priority: "high",
+  recommended_task: false,
 )
 belis1_task4 = Task.create!(
   user: belis1,
   task_name: "Get work attestation and proof of legalty of work experience",
   priority: "low",
   task_status: true,
+  recommended_task: false,
 )
 belis1_task5 = Task.create!(
   user: belis1,
   task_name: "Pass evaluation of French language knowledge",
   priority: "high",
+  recommended_task: false,
 )
 belis1_task6 = Task.create!(
   user: belis1,
   task_name: "Proof of temporary resident status in Quebec",
   priority: "low",
+  recommended_task: false,
 )
 
 ## belis2' TO DO list ##

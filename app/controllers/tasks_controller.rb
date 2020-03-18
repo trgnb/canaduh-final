@@ -8,19 +8,21 @@ class TasksController < ApplicationController
     @user_type = current_user.user_type
 
     # TASKS #
-    @tasks = current_user.tasks
-    @high_priority_tasks = @tasks.filter do |task|
+    @tasks = current_user.tasks.order('created_at asc')
+    @user_tasks = @tasks.where(recommended_task: false)
+    @high_priority_tasks = @user_tasks.filter do |task|
       task.priority == "high"
     end
-    @medium_priority_tasks = @tasks.filter do |task|
+
+    @medium_priority_tasks = @user_tasks.filter do |task|
       task.priority == "medium"
     end
-    @low_priority_tasks = @tasks.filter do |task|
+    @low_priority_tasks = @user_tasks.filter do |task|
       task.priority == "low"
     end
 
     # RECOMMENDED TASKS #
-    @recommended_tasks = Task.where(recommended_task: true, task_path: @admin.path_type)
+    @recommended_tasks = @tasks.where(recommended_task: true)
   end
 
   def new
@@ -57,8 +59,8 @@ class TasksController < ApplicationController
   end
 
   def add_to_checklist
-    @task.user_id = current_user.id
     @task.recommended_task = false
+    @task.priority = "low"
     @task.save
     redirect_to tasks_path
   end
