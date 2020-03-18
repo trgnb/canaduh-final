@@ -6,6 +6,15 @@
     <% if current_user.user_type == "user" %>
       <div class="slice-container">
         <h1>My Journey</h1>
+          <% @milestones.each do |milestone| %>
+            <ul>
+              <li>
+                <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
+                <%= milestone.milestone_date %>
+                <%= milestone.achieved %>
+              </li>
+            </ul>
+          <% end %>
       </div>
     <% end %>
 

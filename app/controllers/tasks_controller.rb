@@ -23,6 +23,9 @@ class TasksController < ApplicationController
 
     # RECOMMENDED TASKS #
     @recommended_tasks = @tasks.where(recommended_task: true)
+
+    # MILESTONES #
+    @milestones = current_user.milestones.order(:order)
   end
 
   def new
