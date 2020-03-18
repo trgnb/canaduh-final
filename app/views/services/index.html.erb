@@ -1,24 +1,24 @@
 <%= render 'shared/advisor_navbar' %>
-<div class="wrapper-container">
   <div class="main-container">
       <h1>Browse services</h1>
-        <div class="filter-container">
-          <div class="filter-row">
-            <a class="btn-filter" href="/services.15?query=citizenship&commit=Search>">Citizenship</a>
-            <a class="btn-filter" href="/services.15?query=permanent+residency&commit=Search>">Permanent residency</a>
-            <a class="btn-filter" href="/services.15?query=student+visa&commit=Search>">Student visa</a>
-            <a class="btn-filter" href="/services.15?query=work+visa&commit=Search">Work visa</a>
-          </div>
-          <div class="filter-row">
-            <a class="btn-filter" href="/services.15?query=general+consultation&commit=Search>">General consultation</a>
-            <a class="btn-filter" href="/services.15?query=ongoing+assistance&commit=Search>">Ongoing assistance</a>
-            <a class="btn-filter" href="/services.15?query=test+preparation&commit=Search>">Test preparation</a>
-          </div>
+      <div class="filter-container">
+        <div class="filter-row">
+          <a class="btn-filter" href="/services.15?query=citizenship&commit=Search>">Citizenship</a>
+          <a class="btn-filter" href="/services.15?query=permanent+residency&commit=Search>">Permanent residency</a>
+          <a class="btn-filter" href="/services.15?query=student+visa&commit=Search>">Student visa</a>
+          <a class="btn-filter" href="/services.15?query=work+visa&commit=Search">Work visa</a>
         </div>
+        <div class="filter-row">
+          <a class="btn-filter" href="/services.15?query=general+consultation&commit=Search>">General consultation</a>
+          <a class="btn-filter" href="/services.15?query=ongoing+assistance&commit=Search>">Ongoing assistance</a>
+          <a class="btn-filter" href="/services.15?query=test+preparation&commit=Search>">Test preparation</a>
+        </div>
+      </div>
         <div class="cards">
             <% @services.each do |service| %>
               <div class="service-result-card">
-               <div class="service-result-card-image">
+               <div class="service-result-card-image" style="position: relative;">
+                <i class="far fa-heart" style="font-size:24px; position: absolute; top: 20px; left: 16px; color: $black;"></i>
                   <img src="<%= service.user.imgUrl %>">
                </div>
 
@@ -40,13 +40,12 @@
                   </div>
                     <div class="service-result-card-price">
                       <p>$<%= service.price %> CAD/hour</p>
-                      <p><%= link_to 'See availability', service, class: "btn-availability"  %> </p>
+                      <p><%= link_to 'See availability', service, class: "btn-availability"  %></p>
                     </div>
-
                   </div>
                 </div>
               <% end %>
         </div>
     </div>
-</div>
+
 
