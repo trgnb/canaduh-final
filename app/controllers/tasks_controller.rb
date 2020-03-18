@@ -25,6 +25,9 @@ class TasksController < ApplicationController
 
     # MILESTONES #
     @milestones = current_user.milestones.order(:order)
+    @total_milestones = @milestones.count
+    @achieved_milestones = @milestones.where(achieved: true)
+    @percent_completion = (@achieved_milestones.count - 1) * (1 / (@total_milestones - 1).to_f)
   end
 
   def new
@@ -65,9 +68,6 @@ class TasksController < ApplicationController
     @task.priority = "low"
     @task.save
     redirect_to tasks_path
-  end
-
-  def percent_completed
   end
 
   private

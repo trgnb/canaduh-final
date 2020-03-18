@@ -6,6 +6,7 @@
     <% if current_user.user_type == "user" %>
       <div class="slice-container">
         <h1>My Journey</h1>
+        <p>Percentage of completion: <%= (@percent_completion.round(1) * 100).to_i %> %</p>
           <% @milestones.each do |milestone| %>
             <ul>
               <li>
