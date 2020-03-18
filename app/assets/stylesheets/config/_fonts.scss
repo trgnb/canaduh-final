@@ -1,10 +1,6 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 
-// Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Open Sans", "Helvetica", "sans-serif";
-
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
@@ -14,3 +10,18 @@ $headers-font: "Open Sans", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+$default: "Open Sans", "Helvetica", "sans-serif";
+$body-font: "Open Sans", "Helvetica", "sans-serif";
+$headers-font: "Open Sans", "Helvetica", "sans-serif";
+
+// Font size variables
+$jumbo: 2em;
+$h1: 1.8em;
+$h2: 1.6em;
+$h3: 1.4em;
+$h4: 1.2em;
+$p: 1em;
+
+// Font effect variables
+$dropshadow: 1px 1px 3px rgba(0,0,0,0.2);

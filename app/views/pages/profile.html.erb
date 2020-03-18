@@ -1,23 +1,20 @@
 <%= render 'shared/navbar' %>
-<div class="wrapper">
-  <div class="main">
-    <div class="container">
-      <h1>Welcome <strong><%= @first_name %></strong></h1>
-      <div class="profile-card-image">
-        <img src="<%= @user.imgUrl %>">
-      </div>
-      <div class="profile-info">
+<div class="main-container">
+    <h1>Welcome <strong><%= @first_name %></strong></h1>
+    <div class="profile-card-image">
+      <img src="<%= @user.imgUrl %>">
+    </div>
+    <div class="profile-info">
       <p><strong>First Name:</strong> <%= @first_name %></p></pre>
       <p><strong>Last Name:</strong> <%= @last_name %></p>
       <p><strong>Location:</strong> <%= @location%></p>
       <p><strong>Biography:</strong> <%= @bio %></p>
       <p><strong>Email:</strong> <%= @email%></p>
-      <% if @user_type == "advisor" %>
-      <h2>Advisor properties</h2>
-        <p><strong>Specialty:</strong> <%= @specialty %></p>
-      <% end %>
-      <pre><%= link_to "Edit profile",  edit_user_registration_path %>
-        </div>
+        <% if @user_type == "advisor" %>
+          <h2>Advisor properties</h2>
+          <p><strong>Specialty:</strong> <%= @specialty %></p>
+        <% end %>
+      <pre><%= link_to "Edit profile",  edit_user_registration_path %></pre>
+      <pre><%= link_to "Add a service", "/services/new" %></pre>
     </div>
-  </div>
 </div>

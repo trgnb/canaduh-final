@@ -1,48 +1,35 @@
 .card-service {
-  background-size: cover;
-  background-position: center;
-  height: 270px;
-  width: 330px;
-  margin-left: 10px;
-  margin-right: 10px;
   display: flex;
   flex-direction: column;
   flex-shrink: 1;
   justify-content: left;
   align-items: top;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
-
-.card-service:hover {
   background-size: cover;
-  background-position: center;
   height: 270px;
   width: 330px;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: top;
-  opacity: 1;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
 
-.card-service > hr {
-  width: 70%;
-  height: 4px;
-  margin-left: 10px;
-  margin-bottom: 3px;
-  background-color: #f9fafb;
-}
+  &:hover {
+    opacity: 1;
+  }
 
-.card-service > h1 {
-  padding-left: 10px;
-  max-width: 40px;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #f9fafb;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  hr {
+    height: 4px;
+    width: 70%;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    background-color: $offwhite;
+  }
+
+  h1 {
+    max-width: 40px;
+    padding-left: 10px;
+    font-size: $h4;
+    font-weight: bold;
+    color: $offwhite;
+    text-shadow: $dropshadow;
+  }
 }

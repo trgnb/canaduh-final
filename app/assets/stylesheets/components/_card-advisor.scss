@@ -1,65 +1,51 @@
 .card-advisor {
-  height: 300px;
-  width: 240px;
-  padding: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  height: $longcard;
+  width: 240px;
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
   opacity: 0.9;
-  transition: opacity 0.2s ease;
+  transition: $transition;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  img {
+    align-self: center;
+    object-fit: cover;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    box-shadow: $dropshadow;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    margin-left: 15px;
+    color: $black;
+    font-size: $h4;
+  }
+
+  p {
+    margin-left: 15px;
+    color: $black;
+    font-size: $p;
+  }
+
+  button {
+    max-width: 100px;
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+  }
 }
 
-.card-advisor:hover {
-  height: 300px;
-  width: 240px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  opacity: 1;
-}
-
-.card-advisor > img {
-  width: 125px;
-  height: 125px;
-  align-self: center;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  object-fit: cover;
-}
-
-.card-advisor > h1 {
-  margin-left: 15px;
-  color: #1a1a1a;
-  font-size: 18px;
-}
-
-.card-advisor > i {
-  margin-left: 15px;
-  font-size: 10px;
-  color: #fd1237;
-}
-
-
-
-.card-advisor > p {
-  margin-left: 15px;
-  color: #1a1a1a;
-  font-size: 14px;
-}
-
-.card-advisor button {
-  margin-left: 15px;
-  max-width: 100px;
-  display: flex;
-  justify-content: center;
-}
+// .card-advisor > i {
+//   margin-left: 15px;
+//   font-size: 10px;
+//   color: #fd1237;
+// }

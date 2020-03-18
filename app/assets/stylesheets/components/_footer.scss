@@ -1,12 +1,10 @@
 .footer {
-  background: #1a1a1a;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: 300px;
-  width: 100vw;
-  padding: 20px 150px;
-  color: #f9fafb;
+  flex-direction: row;
+  background-size: cover;
+  padding: 40px $sides 0px;
+  background: $black;
+  color: $offwhite;
 }
 
 .footer-column {
@@ -32,25 +30,11 @@
 }
 
 .footer-link > a {
-  color: #f9fafb;
+  color: #f9fafb !important;
   opacity: 1;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
-}
-
-.footer-link > a:link {
-  text-decoration: none;
-  color: black;
-}
-
-.footer-link > a:visited {
-  text-decoration: none;
-  color: black;
-}
-
-.footer-link > a:hover {
-  opacity: 0.8;
 }
 
 

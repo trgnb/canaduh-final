@@ -1,7 +1,14 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
+@import "config/spacings";
 @import "config/bootstrap_variables";
+
+// Components
+@import "components/containers";
+@import "components/alert";
+@import "components/avatar";
+@import "components/navbar";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -11,8 +18,6 @@
 // Your CSS partials
 @import "pages/index";
 
-@import "components/wrapper";
-@import "components/slice-container";
 @import "components/login-container";
 @import "components/index";
 
@@ -44,3 +49,12 @@
 
 // Reviews on service show page
 @import "components/review-container";
+
+// Tasks
+@import "components/planner-container";
+
+
+a {
+  text-decoration: none !important;
+}
+

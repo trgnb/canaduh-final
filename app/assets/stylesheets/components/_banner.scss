@@ -1,52 +1,25 @@
 .banner {
-  background-size: cover;
-  background-position: center;
-  // padding: 80px;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  margin-bottom: 40px;
-  min-height: 50vh;
-}
-
-.banner .banner-container {
   display: flex;
   flex-direction: column;
   justify-items: center;
   justify-content: center;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin: 0px $sides $bottom;
+  color: $offwhite;
+
+    h1 {
+      max-width: 66%;
+      margin-bottom: $bottom;
+      font-size: $jumbo;
+      font-weight: bold;
+      text-shadow: $dropshadow;
+    }
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 50px;
-  max-width: 55%;
-}
-
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.banner .banner-search {
-  display: flex;
-  display: row;
-}
-
-.search-field {
-  width: 350px;
-  color: #1a1a1a;
-  border: 1px solid #f9fafb;
-  padding: 8px 24px;
-  border-radius: 5px;
-  font-weight: lighter;
-  opacity: 1;
-  transition: opacity 0.1s ease;
-}
+  .search-field {
+      width: 350px;
+      color: $black;
+      border: 1px solid #f9fafb;
+      padding: 8px 24px;
+      border-radius: 5px;
+      opacity: 1;
+  }

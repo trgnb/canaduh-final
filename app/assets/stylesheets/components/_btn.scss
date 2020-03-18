@@ -14,6 +14,15 @@
   color: #f9fafb;
 }
 
+.btn-connect {
+  color: $red;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #fd1237;
+  transition: $transition;
+}
+
+
 .btn-light-ghost {
   color: #f9fafb;
   border: 1px solid #f9fafb;
