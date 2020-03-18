@@ -1,3 +1,10 @@
+.login-container {
+  width: 300px;
+  height: 600px;
+  padding:auto;
+  margin:auto;
+}
+
 .wrapper-container {
   display: flex;
   flex-direction: column;
@@ -66,3 +73,10 @@
           font-size: $h4;
         }
       }
+
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}

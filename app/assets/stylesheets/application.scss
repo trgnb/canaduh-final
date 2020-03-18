@@ -18,22 +18,18 @@
 // Your CSS partials
 @import "pages/index";
 
-@import "components/login-container";
 @import "components/index";
 
 @import "components/banner";
+@import "components/cards";
+@import "components/btns";
+
 @import "components/card-row";
 
-@import "components/btn";
-
-@import "components/card-path";
-@import "components/card-service";
-@import "components/card-advisor";
 @import "components/footer";
 
 
 // Services index components
-@import "components/service-result-card";
 
 
 // Services show components
@@ -46,9 +42,6 @@
 
 // Profile components
 @import "components/profile";
-
-// Reviews on service show page
-@import "components/review-container";
 
 // Tasks
 @import "components/planner-container";

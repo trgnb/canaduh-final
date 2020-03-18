@@ -1,9 +1,35 @@
 <%= render 'shared/navbar' %>
-<div class="wrapper">
-  <!-- HOMEPAGE BANNER WITH BUTTON -->
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/p-m-b/image/upload/v1582387301/canaduh/banner_dyx0ad.png);">
-    <div class="banner-container">
-      <h1><strong>WELCOME TO CANADUH</h1>
+<div class="fullwidth-container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/p-m-b/image/upload/v1582387301/canaduh/banner_dyx0ad.png);">
+    <div class="banner">
+      <h1>Find your path, plan the journey, join a community. Welcome to Canaduh.</h1>
+      <div class="btn-banner">Get started</div>
+     <!-- TODO: ADD GET STARTED BTN -->
     </div>
   </div>
-</div>
+
+  <div class="main-container">
+    <!--       HOMEPAGE PATH CARD ROW -->
+    <div class="slice-container">
+      <!-- HOMEPAGE CARD ROW HEADER -->
+      <h1>Discover your path</h1>
+          <div class="card-row">
+            <a class="card-path" href="/services.15?query=student+visa&commit=Search" style="background-image: url(<%= image_path 'student-visa-path.jpg' %>)">
+              <hr>
+              <h1>STUDENT VISA</h1>
+            </a>
+            <a class="card-path" href="/services.15?query=work+visa&commit=Search" style="background-image: url(<%= image_path 'work-visa-path.jpg' %>)">
+              <hr>
+              <h1>WORK VISA</h1>
+            </a>
+            <a class="card-path" href="/services.15?query=permanent+residency&commit=Search" style="background-image: url(<%= image_path 'permanent-residency-path.jpg' %>)">
+              <hr>
+              <h1>PERMANENT RESIDENCY</h1>
+            </a>
+            <a class="card-path" href="/services.15?query=canadian+citizenship&commit=Search" style="background-image: url(<%= image_path 'citizenship-path.jpg' %>)">
+              <hr>
+              <h1>CANADIAN CITIZENSHIP</h1>
+            </a>
+          </div>
+      <a id="card-row-sub-link" href="/services" style="color:#1a1a1a">Browse paths <i class='fas fa-long-arrow-alt-right' style='font-size:24px'></i></a>
+    </div>
+  </div>

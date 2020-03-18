@@ -1,14 +1,12 @@
 <%= render 'shared/navbar' %>
-<div class="wrapper">
-  <div class="main">
-    <div class="slice-container">
+  <div class="main-container">
     <!-- TIMELINE -->
       <% if current_user.user_type == "user" %>
         <h1>My Journey</h1>
       <% end %>
 
     <!-- PATH PLANNER -->
-      <h1>Welcome to your planner</h1>
+      <h1>Path planner</h1>
       <p>Here you can manage the tasks you need to complete on your journey.</p>
 
     <!-- RECOMMENDED TASKS -->
@@ -28,7 +26,7 @@
       <!-- </div> -->
 
       <!-- MY TASKS LIST -->
-      <h2>My check list</h2>
+      <h2>Task list</h2>
         <% if @tasks.empty? %>
           <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
         <% else %>
@@ -42,25 +40,27 @@
         </div>
         <!-- HIGH PRIORITY TASKS -->
         <% @high_priority_tasks.each do |task| %>
-          <div class="planner-row">
-            <!-- TASK CHECKBOX -->
-            <%= link_to mark_task_path(task), method: :patch do %>
-              <% if task.task_status %>
-                  <i class="fa fa-check-square"></i>
-                <% else %>
-                  <i class="fa fa-square"></i>
+          <div class="planner-container">
+            <div class="planner-row">
+              <!-- TASK CHECKBOX -->
+              <%= link_to mark_task_path(task), method: :patch do %>
+                <% if task.task_status %>
+                    <i class="fa fa-check-square"></i>
+                  <% else %>
+                    <i class="fa fa-square"></i>
+                  <% end %>
                 <% end %>
+              <!-- TASK NAME -->
+              <strong><%= task.task_name%></strong>
+              <!-- TASK PRIORITY -->
+              <p><%= task.priority %></p>
+              <!-- TASK EDIT -->
+              <%= link_to edit_task_path(task) do %><i class="fa fa-edit"></i><% end %>
+              <!-- TASK DELETE -->
+              <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-trash"></i>
               <% end %>
-            <!-- TASK NAME -->
-            <strong><%= task.task_name%></strong>
-            <!-- TASK PRIORITY -->
-            <p><%= task.priority %></p>
-            <!-- TASK EDIT -->
-            <%= link_to edit_task_path(task) do %><i class="fa fa-edit"></i><% end %>
-            <!-- TASK DELETE -->
-            <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash"></i>
-            <% end %>
+            </div>
           </div>
         <% end %>
         <!-- MEDIUM PRIORITY TASKS -->
@@ -116,4 +116,3 @@
       </div>
     </div>
   </div>
-</div>
