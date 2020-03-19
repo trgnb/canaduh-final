@@ -15,26 +15,29 @@
 }
 
 .btn-cta {
-  color: $red;
+  color: $white;
+  background: $red;
   border: 1px solid $red;
-  max-width: 120px;
+  max-width: 115px;
   max-height: 48px;
   padding: 8px 14px;
   border-radius: 5px;
+  text-align: center;
   opacity: 0.9;
   transition: opacity 0.1s ease;
   text-decoration: none;
 
   &:hover {
     opacity: 1;
+    color: $white;
   }
 }
 
 
 .btn-cta-outline {
-  color: $offwhite;
-  border: 1px solid $offwhite;
-  max-width: 120px;
+  color: $white;
+  border: 1px solid $white;
+  max-width: 115px;
   max-height: 48px;
   padding: 8px 14px;
   border-radius: 5px;
@@ -44,7 +47,7 @@
 
   &:hover {
     opacity: 0.9;
-    color: $offwhite;
+    color: $white;
   }
 }
 

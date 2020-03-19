@@ -45,6 +45,39 @@
     }
 }
 
+// HOMEPAGE REVIEW CARDS
+.card-review {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  height: $longcard;
+  width: 240px;
+  // border-radius: 5px;
+  // box-shadow: $dropshadow;
+
+    img {
+      // align-self: center;
+      object-fit: cover;
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      // margin-left: 15px;
+      color: $black;
+      font-size: $h4 !important;
+      margin-bottom: 4px !important;
+    }
+    #rating-stars {
+      font-size: 12px !important;
+      margin: 0px !important;
+      padding: 0px !important;
+    }
+}
+
+
 // PATH CARDS ON HOMEPAGE
 .card-path {
   display: flex;
@@ -261,7 +294,7 @@
 
 #rating-stars {
   margin-left: 5px;
-  color: #fd1237;
+  color: $red;
 }
 
 
@@ -348,3 +381,11 @@
   }
 }
 
+
+.value-card {
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 360px;
+}

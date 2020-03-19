@@ -8,9 +8,15 @@
   </div>
 
   <div class="main-container">
-    <!--       HOMEPAGE PATH CARD ROW -->
+    <!-- DISCOVER YOUR PATH SLICE -->
+    <div class="slice-container" style="color: $offwhite;">
+      <p>Discover your journey today</p>
+      <a class="btn-cta" href="/dashboard">Get started</a>
+    </div>
+
+
+    <!-- HOMEPAGE PATH CARD ROW -->
     <div class="slice-container">
-      <!-- HOMEPAGE CARD ROW HEADER -->
       <h1>Discover your path</h1>
           <div class="card-row">
             <a class="card-path" href="/services.15?query=student+visa&commit=Search" style="background-image: url(<%= image_path 'student-visa-path.jpg' %>)">
@@ -32,4 +38,68 @@
           </div>
       <a id="card-row-sub-link" href="/services" style="color:#1a1a1a">Browse paths <i class='fas fa-long-arrow-alt-right' style='font-size:24px'></i></a>
     </div>
+    <!-- ADVISOR REVIEWS -->
+    <div class="slice-container">
+      <!-- HEADER  -->
+      <h2>What people are saying about services at Canaduh</h2>
+      <p><i class="fas fa-ribbon" style="color: red; font-size: 21px;"></i> Canaduh services were rated <strong>4.7 out of 5 stars</strong> with <strong>3,000+ reviews</strong></p>
+      <!-- REVIEW CARDS -->
+      <div class="card-row">
+        <div class="card-review">
+          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242431/John_Doe_advisor.jpg">
+          <h1>John Doe</h1>
+          <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
+          <p>"Completely surpassed our expectations."</p>
+        </div>
+        <div class="card-review">
+          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242430/Trevor_McGill_advisor.jpg">
+          <h1>Trevor McGill</h1>
+          <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
+          <p>"The advisor impressed me on so many levels."</p>
+        </div>
+        <div class="card-review">
+          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242674/Lisa_Goodwill_advisor.jpg">
+          <h1>Lisa Goodwill</h1>
+          <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
+          <p>"The advisor was extremely helpful!"</p>
+        </div>
+        <div class="card-review">
+          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242674/Alice_Fraser_advisor.jpg">
+          <h1>Alice Fraser</h1>
+          <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
+          <p>"Just what I was looking for. She's is the real deal."</p>
+        </div>
+      </div>
+    </div>
+    <!-- VALUE PROPS -->
+    <div class="slice-container">
+      <h2>Immigration with Canaduh</h2>
+      <div class="value-container">
+        <div class="value-card">
+          <i class="fas fa-tasks" style="color: red; font-size: 36px;"></i>
+          <br>
+          <p><strong>Plan smarter</strong></p>
+          <p>Stay on track with a task manager and path planner. Personalized task recommendations guide the way to success.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-users" style="color: red; font-size: 36px;"></i>
+          <br>
+          <p><strong>Support community</strong></p>
+          <p>Find companionship on your path by connecting with people that share your journey.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-award" style="color: red; font-size: 36px;"></i>
+          <br>
+          <p><strong>Expert advisors</strong></p>
+          <p>Get immigration services from qualified professionals. Book an appointment directly onsite to discuss the most suitable path for your entry to Canada.</p>
+        </div>
+      </div>
+    </div>
+    <!-- GET STARTED CTA -->
+    <div class="slice-container">
+      <h2>What's your path?</h2>
+      <p>Discover a new life in Canada.</p>
+      <a class="btn-cta" href="/dashboard">Get started</a>
+    </div>
   </div>
+</div>
