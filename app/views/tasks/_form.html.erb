@@ -4,6 +4,7 @@
 
   <%= f.label "Priority" %>
   <%= f.select :priority, ["high", "medium", "low"], :prompt => "Select" %>
+  <%= f.hidden_field :recommended_task, value: 0 %>
 
   <%= f.submit "Add", class: "btn btn-primary"%>
 <% end %>

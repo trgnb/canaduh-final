@@ -3,7 +3,34 @@
     <!-- TIMELINE -->
       <% if current_user.user_type == "user" %>
         <h1>My Journey</h1>
-      <% end %>
+    
+          <p>Percentage of completion: <%= (@percent_completion.round(1) * 100).to_i %> %</p>
+            <% @milestones.each do |milestone| %>
+              <ul>
+                <li>
+                  <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
+                  <%= milestone.milestone_date %>
+                  <% milestone.achieved %>
+                </li>
+              </ul>
+            <% end %>
+
+            <p>DB AVERAGE WIP</p>
+
+            <%= @db_milestones.count %>
+            <p>USER's</p>
+            <p>Total processing time: <%= @total_processing_time %></p>
+            <ol>
+              <li>CSQ Reception: <%= @a %></li>
+              <li>Temporary Work Visa Activation: <%= @b %></li>
+              <li>PR Application: <%= @c %></li>
+              <li>PR Application Receipt Confirmation: <%= @d %></li>
+              <li>Medical Exam: <%= @e %></li>
+              <li>PR Reception: <%= @f %></li>
+            </ol>
+            <p>DB</p>
+      </div>
+    <% end %>
 
     <!-- PATH PLANNER -->
       <h1>Path planner</h1>
@@ -27,8 +54,9 @@
 
       <!-- MY TASKS LIST -->
       <h2>Task list</h2>
-        <% if @tasks.empty? %>
+        <% if @user_tasks.empty? %>
           <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
+
         <% else %>
         <!-- TASK TABLE HEADER -->
         <div class="planner-row">
