@@ -727,6 +727,36 @@ belis1_task6 = Task.create!(
   recommended_task: false,
 )
 
+#testing for chatroom
+
+chat_room = ChatRoom.create!(name: "general")
+
+message_1 = Message.create!(
+  content: "Hello",
+  chat_room: chat_room,
+  user: belis1
+)
+
+message_2 = Message.create!(
+  content: "Hello again",
+  chat_room: chat_room,
+  user: belis1
+)
+
+message_3 = Message.create!(
+  content: "Good to see you",
+  chat_room: chat_room,
+  user: belis1
+)
+
+message_4 = Message.create!(
+  content: "Sorry I missed your message",
+  chat_room: chat_room,
+  user: victor
+)
+
+
+
 ## belis2' TO DO list ##
 
 ## belis3' TO DO list ##
