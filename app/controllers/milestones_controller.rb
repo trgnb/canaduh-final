@@ -3,22 +3,9 @@ class MilestonesController < ApplicationController
 
   def index
     @user_type = current_user.user_type
-    @milestone_path = current_user.path_type
-    @milestones = current_user.milestones
-  end
-
-  def new
-    @milestone = Milestone.new
-  end
-
-  def create
-    @milestone = Milestone.new(milestone_params)
-    @milestone.user = current_user
-    if @milestone.save!
-      redirect_to tasks_path
-    else
-      render :new
-    end
+    # @user_milestones = current_user.milestones
+    @milestones = Milestone.where(milestone_path: current_user.path_type).order(:order)
+    @user_milestones = current_user.milestones
   end
 
   def edit
@@ -26,6 +13,8 @@ class MilestonesController < ApplicationController
 
   def update
     @milestone.update(milestone_params)
+    @milestone.achieved = true
+    @milestone.user_id = current_user.id
     redirect_to tasks_path
   end
 
@@ -36,6 +25,13 @@ class MilestonesController < ApplicationController
   end
 
   def milestone_params
-    params.require(:milestone).permit(:milestone_date, :milestone_title, :milestone_path)
+    params.require(:milestone).permit(:milestone_date)
   end
+
+  # def set_milestones
+  #   @milestones = Milestone.where(milestone_path: current_user.path_type).order(:order)
+  #   @user_milestones = @milestones.each do |milestone|
+  #     milestone.user_id = current_user.id
+  #   end
+  # end
 end

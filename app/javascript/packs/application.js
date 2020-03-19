@@ -10,3 +10,10 @@ require("channels")
 import "bootstrap";
 import "../plugins/flatpickr"
 import "./sweetalert"
+
+require("flickity")
+import "flickity/dist/flickity.min.css";
+
+$(".main-carousel").flickity({
+  contain: true
+});

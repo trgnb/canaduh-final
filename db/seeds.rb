@@ -16,6 +16,20 @@ puts 'Cleaning database...'
 # USERS #
 User.destroy_all
 puts 'Creating "Users"...'
+## Admin ##
+admin = User.create!(
+  first_name:"Admin",
+  last_name:"Admin",
+  email:"admin@test.com",
+  password:"admintest",
+  user_type: "admin",
+  username: "admin",
+  location: "Montreal",
+  user_bio: "",
+  imgUrl: '',
+  specialty: "",
+  featured: true
+)
 
 ## Advisors ##
 mickael = User.create!(
@@ -246,7 +260,7 @@ jean = User.create!(
   username: "jdujardin",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058923/leonel-hernandez-arteaga-jns8BPueAgU-unsplash_ghftkz.jpg',
   path_type: "permanent residency"
 )
 mariepier = User.create!(
@@ -258,7 +272,7 @@ mariepier = User.create!(
   username: "mpier",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058920/icons8-team-FcLyt7lW5wg-unsplash_xvvrjl.jpg',
   path_type: "permanent residency"
 )
 sarah = User.create!(
@@ -270,7 +284,7 @@ sarah = User.create!(
   username: "sziani",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058918/john-torcasio-tgVm0tkbf1U-unsplash_hinxgz.jpg',
   path_type: "permanent residency"
 )
 pablo = User.create!(
@@ -282,7 +296,7 @@ pablo = User.create!(
   username: "pescobar",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058919/joseph-gonzalez-iFgRcqHznqg-unsplash_p6ep50.jpg',
   path_type: "permanent residency"
 )
 jackie = User.create!(
@@ -294,7 +308,7 @@ jackie = User.create!(
   username: "jchan",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058920/mihai-stefan-0_G9UHXy39c-unsplash_cmn2cg.jpg',
   path_type: "permanent residency"
 )
 brad = User.create!(
@@ -306,7 +320,7 @@ brad = User.create!(
   username: "bpitt",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058919/davids-kokainis-wtaanJVi3Ig-unsplash_ocjuph.jpg',
   path_type: "permanent residency"
 )
 harry = User.create!(
@@ -318,7 +332,7 @@ harry = User.create!(
   username: "hpotter",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058918/eduardo-dutra-_cDUnoCOvMo-unsplash_qd4wc1.jpg',
   path_type: "permanent residency"
 )
 
@@ -561,37 +575,34 @@ review6 = Review.create!(
 Task.destroy_all
 puts 'Creating "Tasks"...'
 
-## recommended for permanent residency ##
-# demander sur la validation "User must exist" #
+## recommended tasks ##
 recommended_task1 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Fill-out financial self-sufficiency Form (A-0522-OA)",
+  task_name: "TEST 1",
   recommended_task: true,
+  priority: "low",
 )
 recommended_task2 = Task.create!(
-  user: belis1,
-  task_path: "permanent residency",
-  task_name: "Proof of temporary resident status in a country other than your country of citizenship or permanent residence",
+  user: admin,
+  task_path: "student visa",
+  task_name: "TEST 2",
   recommended_task: true,
+  priority: "low",
 )
 recommended_task3 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Pass Evaluation of English language knowledge",
+  task_name: "TEST 3",
   recommended_task: true,
+  priority: "low",
 )
 recommended_task4 = Task.create!(
-  user: belis1,
+  user: admin,
   task_path: "permanent residency",
-  task_name: "Get act or certificate of marriage",
+  task_name: "TEST 4",
   recommended_task: true,
-)
-recommended_task5 = Task.create!(
-  user: belis1,
-  task_path: "permanent residency",
-  task_name: "Payment of fees",
-  recommended_task: true,
+  priority: "low",
 )
 
 ## belis1' TO DO list ##
@@ -614,7 +625,7 @@ belis1_task3 = Task.create!(
 belis1_task4 = Task.create!(
   user: belis1,
   task_name: "Get work attestation and proof of legalty of work experience",
-  priority: "",
+  priority: "low",
   task_status: true,
 )
 belis1_task5 = Task.create!(
@@ -625,7 +636,7 @@ belis1_task5 = Task.create!(
 belis1_task6 = Task.create!(
   user: belis1,
   task_name: "Proof of temporary resident status in Quebec",
-  priority: "",
+  priority: "low",
 )
 
 #testing for chatroom
@@ -666,10 +677,75 @@ message_4 = Message.create!(
 
 # MILESTONE #
 
+## Admin PR Path ##
+admin_milestone1 = Milestone.create!(
+  user: admin,
+  milestone_title: "CSQ Application",
+  milestone_path: "permanent residency",
+  order: 1,
+)
+admin_milestone2 = Milestone.create!(
+  user: admin,
+  milestone_title: "CSQ Reception",
+  milestone_path: "permanent residency",
+  order: 2,
+)
+admin_milestone3 = Milestone.create!(
+  user: admin,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: "permanent residency",
+  order: 3,
+)
+admin_milestone4 = Milestone.create!(
+  user: admin,
+  milestone_title:  "PR Application",
+  milestone_path: "permanent residency",
+  order: 4,
+)
+admin_milestone5 = Milestone.create!(
+  user: admin,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: "permanent residency",
+  order: 5,
+)
+admin_milestone6 = Milestone.create!(
+  user: admin,
+  milestone_title: "Medical Exam",
+  milestone_path: "permanent residency",
+  order: 6,
+)
+admin_milestone7 = Milestone.create!(
+  user: admin,
+  milestone_title: "PR Reception",
+  milestone_path: "permanent residency",
+  order: 7,
+)
+
+## Admin Student Visa Path ##
+admin_milestone8 = Milestone.create!(
+  user: admin,
+  milestone_title: "Milestone 1",
+  milestone_path: "student visa",
+  order: 1,
+)
+admin_milestone9 = Milestone.create!(
+  user: admin,
+  milestone_title: "Milestone 2",
+  milestone_path: "student visa",
+  order: 2,
+)
+admin_milestone10 = Milestone.create!(
+  user: admin,
+  milestone_title: "Milestone 3",
+  milestone_path: "student visa",
+  order: 3,
+)
+
 ## belis1 ##
 
 ## belis2 ##
 
 ## belis3 ##
+
 
 puts 'Finished!'
