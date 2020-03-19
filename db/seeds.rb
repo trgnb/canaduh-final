@@ -742,7 +742,6 @@ belis1_milestone1 = Milestone.create!(
   milestone_path: belis1.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 belis1_milestone2 = Milestone.create!(
@@ -789,7 +788,6 @@ belis2_milestone1 = Milestone.create!(
   milestone_path: belis2.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 belis2_milestone2 = Milestone.create!(
@@ -798,7 +796,6 @@ belis2_milestone2 = Milestone.create!(
   milestone_path: belis2.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 belis2_milestone3 = Milestone.create!(
@@ -839,7 +836,6 @@ belis3_milestone1 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 belis3_milestone2 = Milestone.create!(
@@ -848,7 +844,6 @@ belis3_milestone2 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 belis3_milestone3 = Milestone.create!(
@@ -857,7 +852,6 @@ belis3_milestone3 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 belis3_milestone4 = Milestone.create!(
@@ -866,7 +860,6 @@ belis3_milestone4 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 belis3_milestone5 = Milestone.create!(
@@ -875,7 +868,6 @@ belis3_milestone5 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 belis3_milestone6 = Milestone.create!(
@@ -884,7 +876,6 @@ belis3_milestone6 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 belis3_milestone7 = Milestone.create!(
@@ -893,7 +884,6 @@ belis3_milestone7 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 
@@ -905,7 +895,6 @@ jean_milestone1 = Milestone.create!(
   milestone_path: jean.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 jean_milestone2 = Milestone.create!(
@@ -914,7 +903,6 @@ jean_milestone2 = Milestone.create!(
   milestone_path: jean.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 jean_milestone3 = Milestone.create!(
@@ -923,7 +911,6 @@ jean_milestone3 = Milestone.create!(
   milestone_path: jean.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 jean_milestone4 = Milestone.create!(
@@ -932,7 +919,6 @@ jean_milestone4 = Milestone.create!(
   milestone_path: jean.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 jean_milestone5 = Milestone.create!(
@@ -941,7 +927,6 @@ jean_milestone5 = Milestone.create!(
   milestone_path: jean.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 jean_milestone6 = Milestone.create!(
@@ -950,7 +935,6 @@ jean_milestone6 = Milestone.create!(
   milestone_path: jean.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 jean_milestone7 = Milestone.create!(
@@ -959,7 +943,6 @@ jean_milestone7 = Milestone.create!(
   milestone_path: jean.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 ## mariepier ##
@@ -969,7 +952,6 @@ mariepier_milestone1 = Milestone.create!(
   milestone_path: mariepier.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 mariepier_milestone2 = Milestone.create!(
@@ -978,7 +960,6 @@ mariepier_milestone2 = Milestone.create!(
   milestone_path: mariepier.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 mariepier_milestone3 = Milestone.create!(
@@ -987,7 +968,6 @@ mariepier_milestone3 = Milestone.create!(
   milestone_path: mariepier.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 mariepier_milestone4 = Milestone.create!(
@@ -996,7 +976,6 @@ mariepier_milestone4 = Milestone.create!(
   milestone_path: mariepier.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 mariepier_milestone5 = Milestone.create!(
@@ -1005,7 +984,6 @@ mariepier_milestone5 = Milestone.create!(
   milestone_path: mariepier.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 mariepier_milestone6 = Milestone.create!(
@@ -1014,7 +992,6 @@ mariepier_milestone6 = Milestone.create!(
   milestone_path: mariepier.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 mariepier_milestone7 = Milestone.create!(
@@ -1023,7 +1000,6 @@ mariepier_milestone7 = Milestone.create!(
   milestone_path: mariepier.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 ## sarah ##
@@ -1033,7 +1009,6 @@ sarah_milestone1 = Milestone.create!(
   milestone_path: sarah.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 sarah_milestone2 = Milestone.create!(
@@ -1042,7 +1017,6 @@ sarah_milestone2 = Milestone.create!(
   milestone_path: sarah.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 sarah_milestone3 = Milestone.create!(
@@ -1051,7 +1025,6 @@ sarah_milestone3 = Milestone.create!(
   milestone_path: sarah.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 sarah_milestone4 = Milestone.create!(
@@ -1060,7 +1033,6 @@ sarah_milestone4 = Milestone.create!(
   milestone_path: sarah.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 sarah_milestone5 = Milestone.create!(
@@ -1069,7 +1041,6 @@ sarah_milestone5 = Milestone.create!(
   milestone_path: sarah.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 sarah_milestone6 = Milestone.create!(
@@ -1078,7 +1049,6 @@ sarah_milestone6 = Milestone.create!(
   milestone_path: sarah.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 sarah_milestone7 = Milestone.create!(
@@ -1087,7 +1057,6 @@ sarah_milestone7 = Milestone.create!(
   milestone_path: sarah.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 ## pablo ##
@@ -1097,7 +1066,6 @@ pablo_milestone1 = Milestone.create!(
   milestone_path: pablo.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 pablo_milestone2 = Milestone.create!(
@@ -1106,7 +1074,6 @@ pablo_milestone2 = Milestone.create!(
   milestone_path: pablo.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 pablo_milestone3 = Milestone.create!(
@@ -1115,7 +1082,6 @@ pablo_milestone3 = Milestone.create!(
   milestone_path: pablo.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 pablo_milestone4 = Milestone.create!(
@@ -1124,7 +1090,6 @@ pablo_milestone4 = Milestone.create!(
   milestone_path: pablo.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 pablo_milestone5 = Milestone.create!(
@@ -1133,7 +1098,6 @@ pablo_milestone5 = Milestone.create!(
   milestone_path: pablo.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 pablo_milestone6 = Milestone.create!(
@@ -1142,7 +1106,6 @@ pablo_milestone6 = Milestone.create!(
   milestone_path: pablo.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 pablo_milestone7 = Milestone.create!(
@@ -1151,7 +1114,6 @@ pablo_milestone7 = Milestone.create!(
   milestone_path: pablo.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 ## jackie ##
@@ -1161,7 +1123,6 @@ jackie_milestone1 = Milestone.create!(
   milestone_path: jackie.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 jackie_milestone2 = Milestone.create!(
@@ -1170,7 +1131,6 @@ jackie_milestone2 = Milestone.create!(
   milestone_path: jackie.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 jackie_milestone3 = Milestone.create!(
@@ -1179,7 +1139,6 @@ jackie_milestone3 = Milestone.create!(
   milestone_path: jackie.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 jackie_milestone4 = Milestone.create!(
@@ -1188,7 +1147,6 @@ jackie_milestone4 = Milestone.create!(
   milestone_path: jackie.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 jackie_milestone5 = Milestone.create!(
@@ -1197,7 +1155,6 @@ jackie_milestone5 = Milestone.create!(
   milestone_path: jackie.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 jackie_milestone6 = Milestone.create!(
@@ -1206,7 +1163,6 @@ jackie_milestone6 = Milestone.create!(
   milestone_path: jackie.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 jackie_milestone7 = Milestone.create!(
@@ -1215,7 +1171,6 @@ jackie_milestone7 = Milestone.create!(
   milestone_path: jackie.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 ## brad ##
@@ -1225,7 +1180,6 @@ brad_milestone1 = Milestone.create!(
   milestone_path: brad.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 brad_milestone2 = Milestone.create!(
@@ -1234,7 +1188,6 @@ brad_milestone2 = Milestone.create!(
   milestone_path: brad.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 brad_milestone3 = Milestone.create!(
@@ -1243,7 +1196,6 @@ brad_milestone3 = Milestone.create!(
   milestone_path: brad.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 brad_milestone4 = Milestone.create!(
@@ -1252,7 +1204,6 @@ brad_milestone4 = Milestone.create!(
   milestone_path: brad.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 brad_milestone5 = Milestone.create!(
@@ -1261,7 +1212,6 @@ brad_milestone5 = Milestone.create!(
   milestone_path: brad.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 brad_milestone6 = Milestone.create!(
@@ -1270,7 +1220,6 @@ brad_milestone6 = Milestone.create!(
   milestone_path: brad.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 brad_milestone7 = Milestone.create!(
@@ -1279,7 +1228,6 @@ brad_milestone7 = Milestone.create!(
   milestone_path: brad.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 ## harry ##
@@ -1289,7 +1237,6 @@ harry_milestone1 = Milestone.create!(
   milestone_path: harry.path_type,
   milestone_date: "2019-01-01 12:00:00",
   achieved: true,
-  completion: 0,
   order: 1,
 )
 harry_milestone2 = Milestone.create!(
@@ -1298,7 +1245,6 @@ harry_milestone2 = Milestone.create!(
   milestone_path: harry.path_type,
   milestone_date: "2019-02-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 2,
 )
 harry_milestone3 = Milestone.create!(
@@ -1307,7 +1253,6 @@ harry_milestone3 = Milestone.create!(
   milestone_path: harry.path_type,
   milestone_date: "2019-02-07 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 3,
 )
 harry_milestone4 = Milestone.create!(
@@ -1316,7 +1261,6 @@ harry_milestone4 = Milestone.create!(
   milestone_path: harry.path_type,
   milestone_date: "2019-03-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 4,
 )
 harry_milestone5 = Milestone.create!(
@@ -1325,7 +1269,6 @@ harry_milestone5 = Milestone.create!(
   milestone_path: harry.path_type,
   milestone_date: "2019-06-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 5,
 )
 harry_milestone6 = Milestone.create!(
@@ -1334,7 +1277,6 @@ harry_milestone6 = Milestone.create!(
   milestone_path: harry.path_type,
   milestone_date: "2020-01-01 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 6,
 )
 bharry_milestone7 = Milestone.create!(
@@ -1343,7 +1285,6 @@ bharry_milestone7 = Milestone.create!(
   milestone_path: harry.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
-  completion: 1/6,
   order: 7,
 )
 
