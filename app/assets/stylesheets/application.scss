@@ -1,3 +1,8 @@
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -5,36 +10,22 @@
 @import "config/bootstrap_variables";
 
 // Components
-@import "components/containers";
 @import "components/alert";
 @import "components/avatar";
+@import "components/banner";
+@import "components/btns";
+@import "components/cards";
+@import "components/card-row";
+@import "components/containers";
 @import "components/navbar";
-
-// External libraries
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
 
 // Your CSS partials
 @import "pages/index";
-
 @import "components/index";
-
-@import "components/banner";
-@import "components/cards";
-@import "components/btns";
-
-@import "components/card-row";
-
 @import "components/footer";
-
-
-// Services index components
-
 
 // Services show components
 @import "components/service-booking-details-row";
-
 
 // Dashboard components
 @import "components/dashboard-row";
@@ -44,10 +35,14 @@
 @import "components/profile";
 
 // Tasks
-@import "components/planner-container";
+@import "components/planner";
 
 
 a {
   text-decoration: none !important;
+
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 
