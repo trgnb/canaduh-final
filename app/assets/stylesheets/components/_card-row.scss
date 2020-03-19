@@ -1,11 +1,14 @@
 .card-row {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: ($bottom / 3)
 }
 
-.card-row > h1 {
-  align-items: flex-start;
-  font-size: 1em;
-}
+  #card-row-sub-link {
+    display: flex;
+    flex-direction: row;
+
+    i {
+      margin-left: 3px;
+    }
+  }
