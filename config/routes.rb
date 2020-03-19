@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
   get "advisor_homepage", to: "pages#advisor_homepage"
 
-  resources :chat_rooms, only: [ :show ] do
+  resources :chat_rooms, only: [ :show, :index, :new ] do
     resources :messages, only: [ :create ]
   end
 
