@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :milestones, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :chat_rooms, dependent: :destroy, through: :messages
   validates :username, uniqueness: true
 
   # validates_inclusion_of :user_type, in: USER_TYPE_OPTIONS

@@ -1,0 +1,47 @@
+<%= render "shared/advisor_navbar" %>
+<div class="my-container">
+  <div class="row no-gutters">
+    <div class="col-sm-2">
+      <div class="chat-header"> <h4> Active Chats </h4> </div>
+        <form class="form-inline d-flex justify-content-left md-form form-sm"> <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search Chats" aria-label="Search"> <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+        <div>
+          <%= render "shared/active_chats.html.erb" %>
+        </div>
+      </div>
+    <div class="col-sm-10 col-sm-offset-3">
+      <div class="chat-header"> <h4> # <%= @chat_room.name %> </h4> </div>
+      <div class="messages">
+        <% @chat_room.messages.each do |message| %>
+          <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
+          <% end %>
+        </div>
+        <div>
+        <div id="create-message">
+          <%= simple_form_for [@chat_room, Message.new], remote: true do |f| %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= f.input :content, label: false %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% content_for :after_js do %>
+  <script>
+    scrollLastMessageIntoView();
+    App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> },
+      {
+        received: (data) => {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
+          }
+        }
+      }
+    )
+  </script>
+<% end %>

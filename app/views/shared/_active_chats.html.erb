@@ -1,0 +1,16 @@
+<% users = [] %>
+  <% @chat_room.messages.each do |message| %>
+    <% all_users = User.find(message.user_id) %>
+    <% users << all_users %>
+  <% end %>
+  <% unique_users = users.uniq %>
+  <div class="center">
+    <% unique_users.each do |user| %>
+      <% if user != current_user %>
+      <%= image_tag user.imgUrl, class: "big-avatar" %>
+      <div class=active_chats_user>
+          <%= user.first_name %> <%= user.last_name %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
