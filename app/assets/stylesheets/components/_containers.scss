@@ -19,9 +19,16 @@
   flex-direction: column;
   justify-content: center;
   background-size: cover;
-  min-height: 640px;
-  max-height: 640px;
-  // margin-bottom: $bottom;
+  min-height: 600px;
+  max-height: 600px;
+  margin-bottom: $bottom;
+}
+
+.hero-form {
+  min-height: 390px;
+  max-height: 390px;
+  min-width: 400px;
+  max-width: 400px;
 }
 
 
@@ -42,7 +49,6 @@
   display: flex;
   flex-direction: column;
   align-items: space-between;
-
   background: $white;
   margin: $top $sides;
 }
@@ -111,7 +117,6 @@
 .filter-container {
   display: flex;
   flex-direction: column;
-
 }
 
 .filter-row {

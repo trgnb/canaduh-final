@@ -109,7 +109,7 @@
     h1 {
       padding-left: 10px;
       max-width: 40px;
-      font-size: $h4;
+      font-size: $h4 !important;
       font-weight: bold;
       color: $offwhite;
       text-shadow: $dropshadow;
