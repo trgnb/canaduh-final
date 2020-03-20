@@ -78,7 +78,7 @@ class TasksController < ApplicationController
   def add_to_checklist
     @task.recommended_task = false
     @task.priority = "low"
-    @task.save
+    @task.save!
     redirect_to tasks_path
   end
 
