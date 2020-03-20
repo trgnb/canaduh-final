@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
   get "advisor_homepage", to: "pages#advisor_homepage"
 
-  resources :chat_rooms, only: [ :show, :index, :new ] do
+  patch 'chat_rooms/:id', controller: 'chat_room', action: :patch
+
+  resources :chat_rooms, only: [ :show, :index, :new, :create ] do
     resources :messages, only: [ :create ]
   end
 

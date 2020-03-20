@@ -4,13 +4,19 @@
     <% users << all_users %>
   <% end %>
   <% unique_users = users.uniq %>
-  <div class="center">
+<!--   <div class="center"> -->
     <% unique_users.each do |user| %>
       <% if user != current_user %>
-      <%= image_tag user.imgUrl, class: "big-avatar" %>
-      <div class=active_chats_user>
-          <%= user.first_name %> <%= user.last_name %>
-      </div>
-      <% end %>
+        <ul>
+          <li>
+            <div class="user-card">
+              <%= image_tag user.imgUrl, class: "big-avatar" %>
+              <div class=active_chats_user>
+                <%= user.first_name %> <%= user.last_name %>
+              </div>
+            </div>
+          <% end %>
+            </li>
+          </ul>
     <% end %>
-  </div>
+  <!-- </div> -->

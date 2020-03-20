@@ -8,7 +8,6 @@
   border-radius: 3px;
 }
 
-
 .my-container {
   margin-left: 10px;
 }
@@ -82,11 +81,22 @@ input.form-control {
   }
 }
 
-.active_chats_user {
+.user-card {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  flex-wrap: wrap;
   color: #868686;
   text-align: center;
   padding-top: 20px;
   padding-left: 5px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .no-gutters {
