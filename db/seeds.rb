@@ -580,35 +580,42 @@ puts 'Creating "Tasks"...'
 recommended_task1_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 1",
+  task_name: "Valid passport or other travel documents",
   recommended_task: true,
   priority: "low",
 )
 recommended_task2_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 2",
+  task_name: "Criminal record check",
   recommended_task: true,
   priority: "low",
 )
 recommended_task3_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 3",
+  task_name: "Pay the fees",
   recommended_task: true,
   priority: "low",
 )
 recommended_task4_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 4",
+  task_name: "Fill-out the Use of a Representative Form",
   recommended_task: true,
   priority: "low",
 )
 recommended_task5_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 5",
+  task_name: "Civil union contract or a civil union certificate",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task6_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "Academic transcripts and diplomas",
   recommended_task: true,
   priority: "low",
 )
@@ -617,35 +624,35 @@ recommended_task5_belis1 = Task.create!(
 recommended_task1_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
-  task_name: "BELIS 2 - TEST 1",
+  task_name: "Copy of Certificat de sélection du Québec",
   recommended_task: true,
   priority: "low",
 )
 recommended_task2_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
-  task_name: "BELIS 2 - TEST 2",
+  task_name: "Get valid passport or other travel documents",
   recommended_task: true,
   priority: "low",
 )
 recommended_task3_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
-  task_name: "BELIS 2 - TEST 3",
+  task_name: "Reference letters from previous and current employers",
   recommended_task: true,
   priority: "low",
 )
 recommended_task4_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
-  task_name: "BELIS 2 - TEST 4",
+  task_name: "Financial proofs (loan payments, bank references, bank statements)",
   recommended_task: true,
   priority: "low",
 )
 recommended_task5_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
-  task_name: "BELIS 2 - TEST 5",
+  task_name: "Up-to-date curriculum vitæ",
   recommended_task: true,
   priority: "low",
 )
@@ -654,35 +661,35 @@ recommended_task5_belis2 = Task.create!(
 recommended_task1_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
-  task_name: "BELIS 3 - TEST 1",
+  task_name: "Up-to-date curriculum vitæ",
   recommended_task: true,
   priority: "low",
 )
 recommended_task2_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
-  task_name: "BELIS 3 - TEST 2",
+  task_name: "Reference letters from previous and current employers",
   recommended_task: true,
   priority: "low",
 )
 recommended_task3_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
-  task_name: "BELIS 3 - TEST 3",
+  task_name: "Travel documents and passports",
   recommended_task: true,
   priority: "low",
 )
 recommended_task4_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
-  task_name: "BELIS 3 - TEST 4",
+  task_name: "Schedule 4: Economic Classes",
   recommended_task: true,
   priority: "low",
 )
 recommended_task5_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
-  task_name: "BELIS 3 - TEST 5",
+  task_name: "Civil union contract or a civil union certificate",
   recommended_task: true,
   priority: "low",
 )
@@ -709,7 +716,7 @@ belis1_task3 = Task.create!(
 )
 belis1_task4 = Task.create!(
   user: belis1,
-  task_name: "Get work attestation and proof of legalty of work experience",
+  task_name: "Get Work Attestation and Proof of Legalty of Work Experience",
   priority: "low",
   task_status: true,
   recommended_task: false,
@@ -722,11 +729,138 @@ belis1_task5 = Task.create!(
 )
 belis1_task6 = Task.create!(
   user: belis1,
-  task_name: "Proof of temporary resident status in Quebec",
+  task_name: "Proof of Temporary Resident Status in Quebec",
   priority: "low",
   recommended_task: false,
 )
 
+## belis2' TO DO list ##
+belis2_task1 = Task.create!(
+  user: belis2,
+  task_name: "Meet with my Immigration Advisor",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis2_task2 = Task.create!(
+  user: belis2,
+  task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis2_task3 = Task.create!(
+  user: belis2,
+  task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis2_task4 = Task.create!(
+  user: belis2,
+  task_name: "Get Work Attestation and Proof of Legalty of Work Experience",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis2_task5 = Task.create!(
+  user: belis2,
+  task_name: "Pass evaluation of French language knowledge",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis2_task6 = Task.create!(
+  user: belis2,
+  task_name: "Proof of Temporary Resident Status in Quebec",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis2_task7 = Task.create!(
+  user: belis2,
+  task_name: "Activate Temporary work visa",
+  priority: "high",
+  recommended_task: false,
+)
+belis2_task7 = Task.create!(
+  user: belis2,
+  task_name: "Get all PR required documents",
+  priority: "high",
+  recommended_task: false,
+)
+
+## belis3' TO DO list ##
+belis3_task1 = Task.create!(
+  user: belis3,
+  task_name: "Fill-out Application Form (IMM008)",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task2 = Task.create!(
+  user: belis3,
+  task_name: "Copy of Certificat de sélection du Québec",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task3 = Task.create!(
+  user: belis3,
+  task_name: "Fill-out My Travels Form (IMM5562)",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task4 = Task.create!(
+  user: belis3,
+  task_name: "Schedule 5: Declaration of intent to reside in Quebec",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task5 = Task.create!(
+  user: belis3,
+  task_name: "Proof of language proficiency",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task6 = Task.create!(
+  user: belis3,
+  task_name: "2 photos",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task7 = Task.create!(
+  user: belis3,
+  task_name: "Birth certificates",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task8 = Task.create!(
+  user: belis3,
+  task_name: "Police certificates",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task9 = Task.create!(
+  user: belis3,
+  task_name: "Pay fees",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
+belis3_task10 = Task.create!(
+  user: belis3,
+  task_name: "Send forms",
+  priority: "low",
+  task_status: true,
+  recommended_task: false,
+)
 
 
 #testing for chatroom
@@ -772,8 +906,6 @@ belis1_milestone1 = Milestone.create!(
   user: belis1,
   milestone_title: "CSQ Application",
   milestone_path: belis1.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
   order: 1,
 )
 belis1_milestone2 = Milestone.create!(
@@ -826,9 +958,6 @@ belis2_milestone2 = Milestone.create!(
   user: belis2,
   milestone_title: "CSQ Reception",
   milestone_path: belis2.path_type,
-  milestone_date: "2019-02-01 12:00:00",
-  achieved: true,
-  processing_time: 1,
   order: 2,
 )
 belis2_milestone3 = Milestone.create!(
@@ -969,11 +1098,6 @@ diana_milestone7 = Milestone.create!(
   order: 7,
 )
 
-# ## Test ##
-# first_convo = Conversation.create!(
-#   sender_id: '263',
-#   receiver_id: '259',
-# )
 
 # DB Milstones#
 ## jean ##

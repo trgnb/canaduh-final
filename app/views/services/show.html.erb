@@ -1,32 +1,33 @@
 <%= render 'shared/advisor_navbar' %>
   <div class="main-container">
       <h1>Service details</h1>
-      <div class="slice-container">
-      <div class="cards">
+      <!-- SERVICE CARD -->
+      <div class="col">
         <div class="service-result-card" style="opacity:1">
-         <div class="service-result-card-image" style="position: relative;">
+         <div class="image" style="position: relative;">
           <i class="far fa-heart" style="font-size:24px; position: absolute; top: 20px; left: 16px; color: $black;"></i>
           <img src="<%= @service.user.imgUrl %>">
          </div>
-          <div class="service-result-card-info">
-            <div class="service-result-card-row">
+          <div class="info">
+            <div class="row">
               <% if @service.user.featured == true %>
-              <p class="service-result-card-feature-badge">FEATURED</p>
+              <p class="feature-badge">FEATURED</p>
               <% end %>
-              <p class="service-result-card-path"><%= @service.path %></p>
+              <p class="path"><%= @service.path %></p>
             </div>
-            <div class="service-result-card-row">
+            <div class="row">
               <h2><%= @service.service_type.upcase %></h2>
             </div>
-            <div class="service-result-card-row">
+            <div class="row">
               <p><%= @service.description %></p>
             </div>
-            <div class="service-result-card-price">
+            <div class="service-price">
               <p>$<%= @service.price %> CAD/hour</p>
             </div>
           </div>
         </div>
       </div>
+      <!-- BOOKING DETAILS -->
       <div class="service-booking-details-row">
         <div class="service-booking-advisor-info">
           <h2><strong><%= @service.user.first_name %> <%= @service.user.last_name %></strong></h2>
@@ -86,5 +87,4 @@
           <i class="fas fa-pen"></i> Add a Review
         <% end %>
       <% end %>
-  </div>
 </div>

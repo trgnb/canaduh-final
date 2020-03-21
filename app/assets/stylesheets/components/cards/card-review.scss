@@ -1,0 +1,92 @@
+// HOMEPAGE REVIEW CARDS
+.card-review {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  height: $longcard;
+  width: 240px;
+  // border-radius: 5px;
+  // box-shadow: $dropshadow;
+
+    img {
+      // align-self: center;
+      object-fit: cover;
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      // margin-left: 15px;
+      color: $black;
+      font-size: $h4 !important;
+      margin-bottom: 4px !important;
+    }
+    #rating-stars {
+      font-size: 12px !important;
+      margin: 0px !important;
+      padding: 0px !important;
+    }
+}
+
+
+
+// REVIEWS ON SERVICES SHOW
+.review-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.review-card {
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #f9fafb;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.review-title {
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.review-card-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.review-card-image {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+.review-card-image > img {
+  width: 120px;
+  height: 120px;
+  align-self: center;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.review-card-content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#rating-stars {
+  margin-left: 5px;
+  color: $red;
+}
