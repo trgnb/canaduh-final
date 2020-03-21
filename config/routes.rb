@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'private_messages/index'
+  get 'privatemessages/index'
+  get 'conversations/index'
   get 'chat_rooms/index'
   mount Notifications::Engine => "/notifications"
   devise_for :users, controllers: { registrations: 'registrations'}
@@ -25,8 +28,13 @@ end
   get "profile", to: "pages#profile"
   get "advisor_homepage", to: "pages#advisor_homepage"
 
-  resources :chat_rooms, only: [ :show, :index, :new ] do
+  patch 'chat_rooms/:id', controller: 'chat_room', action: :patch
+
+  resources :chat_rooms, only: [ :show, :index, :new, :create ] do
     resources :messages, only: [ :create ]
   end
 
+  resources :conversations, only: [:index, :create] do
+    resources :private_messages, only: [:index, :create]
+  end
 end

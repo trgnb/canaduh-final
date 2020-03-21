@@ -969,6 +969,13 @@ diana_milestone7 = Milestone.create!(
   order: 7,
 )
 
+<<<<<<< HEAD
+## Test ##
+
+first_convo = Conversation.create!(
+  sender_id: '263',
+  receiver_id: '259',
+=======
 # DB Milstones#
 ## jean ##
 jean_milestone1 = Milestone.create!(
@@ -1396,6 +1403,7 @@ bharry_milestone7 = Milestone.create!(
   achieved: true,
   processing_time: 3,
   order: 7,
+>>>>>>> 161734546935392dfe4ff3392212ba91ab70c012
 )
 
 puts 'Finished!'

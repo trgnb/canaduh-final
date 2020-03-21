@@ -1,10 +1,10 @@
 new.html.erb
 <h1>Add chat room</h1>
 
-<%= form_for [@user, @chat_room, ChatRoom.new] do |f| %>
+<%= form_for (@chat_room) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
   <%= f.submit "Add!", class: 'btn btn-primary' %>
