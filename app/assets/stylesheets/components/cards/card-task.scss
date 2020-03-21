@@ -9,7 +9,7 @@
     flex-direction: row;
 
     #status {
-      margin-right: 20px;
+      margin-right: 40px;
     }
 
     #task-name {
@@ -22,7 +22,12 @@
     flex-direction:row;
 
     #task-action {
-      margin-left: 5px;
+      margin-left: 20px;
+      color: $red;
     }
   }
+
+  i {
+      color: $red;
+    }
 }
