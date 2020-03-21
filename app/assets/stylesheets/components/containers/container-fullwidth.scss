@@ -1,0 +1,9 @@
+.fullwidth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  min-height: 50vh;
+  max-height: 400px;
+  margin-bottom: $bottom;
+}

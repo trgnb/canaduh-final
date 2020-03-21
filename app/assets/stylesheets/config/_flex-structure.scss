@@ -1,0 +1,20 @@
+//Generic flex structures
+.container-rows {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-cols {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}

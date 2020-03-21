@@ -1,0 +1,36 @@
+// SERVICE CARDS ON HOME PAGE SERVICES
+.card-service {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  justify-content: left;
+  align-items: top;
+  background-size: cover;
+  height: 270px;
+  width: 330px;
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    hr {
+      height: 4px;
+      width: 70%;
+      margin-left: 10px;
+      margin-bottom: 3px;
+      background-color: $offwhite;
+    }
+
+    h1 {
+      max-width: 40px;
+      padding-left: 10px;
+      font-size: $h4;
+      font-weight: bold;
+      color: $offwhite;
+      text-shadow: $dropshadow;
+    }
+}

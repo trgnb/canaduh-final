@@ -1,0 +1,11 @@
+.planner-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  h1 {
+    align-items: flex-start;
+    font-size: $h2;
+  }
+}

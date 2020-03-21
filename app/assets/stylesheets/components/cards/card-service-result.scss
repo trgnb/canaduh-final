@@ -1,0 +1,68 @@
+// SERVICE CARDS ON SERVICES
+.service-result-card {
+  display: flex;
+  border-radius: $border-radius;
+  max-width: 90vw;
+  margin-bottom: ($bottom / 4);
+  opacity: 0.9;
+  transition: $transition;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .image {
+  display: flex;
+  justify-content: center;
+  width: 33vw;
+  height: $longcard;
+  border-radius: $border-radius;
+  background: $offwhite;
+  box-shadow: $dropshadow;
+
+    img {
+      width: 240px;
+      height: 240px;
+      align-self: center;
+      border-radius: 50%;
+      box-shadow: $dropshadow;
+      border: white 1px solid;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 840px;
+    height: $longcard;
+    padding: 10px;
+    margin-left: 20px;
+  }
+
+    h2 {
+    font-size: $h2;
+  }
+
+  .feature-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+    height: 25px;
+    background: $red;
+    color: $offwhite;
+    font-size: 0.8em;
+    margin-right: 5px;
+    border-radius: 2px;
+  }
+
+  .service-price {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 700;
+  }
+}
