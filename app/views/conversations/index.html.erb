@@ -12,9 +12,9 @@
 </ul>
 
 <!-- //SHOWS ONLY THE USERS YOU STARTED A CHAT WITH -->
+<!-- // FILTERS CONNECTIONS for users; you can only see people who you messaged/who messaged you-->
 <h2>Your Connections</h2>
 <ul>
-  <!-- // FILTERS CONNECTIONS for users; you can only see people you messaged/who messaged you-->
   <% @conversations.each do |conversation| %>
     <% if conversation.receiver_id == current_user.id %>
       <%= link_to User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name, conversations_path(sender_id: conversation.sender_id, receiver_id: current_user.id), method: :post %>
