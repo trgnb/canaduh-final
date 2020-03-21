@@ -3,7 +3,7 @@
     <!-- TIMELINE -->
       <% if current_user.user_type == "user" %>
         <h1>My Journey</h1>
-    
+
           <p>Percentage of completion: <%= (@percent_completion.round(1) * 100).to_i %> %</p>
             <% @milestones.each do |milestone| %>
               <ul>
@@ -21,12 +21,12 @@
             <p>USER's</p>
             <p>Total processing time: <%= @total_processing_time %></p>
             <ol>
-              <li>CSQ Reception: <%= @a %></li>
-              <li>Temporary Work Visa Activation: <%= @b %></li>
-              <li>PR Application: <%= @c %></li>
-              <li>PR Application Receipt Confirmation: <%= @d %></li>
-              <li>Medical Exam: <%= @e %></li>
-              <li>PR Reception: <%= @f %></li>
+              <li>CSQ Reception: <%= %></li>
+              <li>Temporary Work Visa Activation: <%= %></li>
+              <li>PR Application: <%= %></li>
+              <li>PR Application Receipt Confirmation: <%= %></li>
+              <li>Medical Exam: <%=  %></li>
+              <li>PR Reception: <%=  %></li>
             </ol>
             <p>DB</p>
       </div>

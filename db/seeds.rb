@@ -727,6 +727,8 @@ belis1_task6 = Task.create!(
   recommended_task: false,
 )
 
+
+
 #testing for chatroom
 
 chat_room = ChatRoom.create!(name: "general")
@@ -914,6 +916,50 @@ belis3_milestone7 = Milestone.create!(
   milestone_path: belis3.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
+  order: 7,
+)
+
+## Diana ##
+diana_milestone1 = Milestone.create!(
+  user: diana,
+  milestone_title: "CSQ Application",
+  milestone_path: diana.path_type,
+  order: 1,
+)
+diana_milestone2 = Milestone.create!(
+  user: diana,
+  milestone_title: "CSQ Reception",
+  milestone_path: diana.path_type,
+  order: 2,
+)
+diana_milestone3 = Milestone.create!(
+  user: diana,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: belis1.path_type,
+  order: 3,
+)
+diana_milestone4 = Milestone.create!(
+  user: diana,
+  milestone_title:  "PR Application",
+  milestone_path: belis1.path_type,
+  order: 4,
+)
+diana_milestone5 = Milestone.create!(
+  user: diana,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: belis1.path_type,
+  order: 5,
+)
+diana_milestone6 = Milestone.create!(
+  user: diana,
+  milestone_title: "Medical Exam",
+  milestone_path: belis1.path_type,
+  order: 6,
+)
+diana_milestone7 = Milestone.create!(
+  user: diana,
+  milestone_title: "PR Reception",
+  milestone_path: belis1.path_type,
   order: 7,
 )
 

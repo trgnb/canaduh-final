@@ -5,13 +5,7 @@ class MilestonesController < ApplicationController
 
   def update
     @milestone.update(milestone_params)
-    if @milestone.order == 1
-      @milestone.processing_time == 0
-    else
-      @previous_milestone = @milestone.find_by(order: @milestone.oder - 1)
-      @milestone.processing_time = @milestone.milestone_date - @previous_milestone.milestone_date
-    end
-      redirect_to tasks_path
+    redirect_to tasks_path
   end
 
   private
