@@ -3,7 +3,7 @@
     <!-- TIMELINE -->
       <% if current_user.user_type == "user" %>
         <h1>My Journey</h1>
-    
+
           <p>Percentage of completion: <%= (@percent_completion.round(1) * 100).to_i %> %</p>
             <% @milestones.each do |milestone| %>
               <ul>
@@ -15,20 +15,36 @@
               </ul>
             <% end %>
 
-            <p>DB AVERAGE WIP</p>
+        <br>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 17%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= @csq_processing_time %> month</div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 17%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr1_processing_time %> months</div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 17%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr2_processing_time %> months</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr3_processing_time %> months</div>
+          </div>
+        <br>
+        bg-success
 
-            <%= @db_milestones.count %>
-            <p>USER's</p>
-            <p>Total processing time: <%= @total_processing_time %></p>
+
+            <p>User' processing time: <%= @total_processing_time %></p>
             <ol>
-              <li>CSQ Reception: <%= @a %></li>
-              <li>Temporary Work Visa Activation: <%= @b %></li>
-              <li>PR Application: <%= @c %></li>
-              <li>PR Application Receipt Confirmation: <%= @d %></li>
-              <li>Medical Exam: <%= @e %></li>
-              <li>PR Reception: <%= @f %></li>
+              <li>CSQ Reception: <%= @csq_processing_time %> months</li>
+              <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
+              <li>Medical Exam: <%= @pr2_processing_time %> months</li>
+              <li>PR Reception: <%= @pr3_processing_time %> months</li>
+              <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
             </ol>
-            <p>DB</p>
+            <br>
+            <p>DB average processing time: <%= @total_processing_time %></p>
+            <ol>
+              <li>CSQ Reception: <%= @av_db_csq_processing_time %> months</li>
+              <li>PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</li>
+              <li>Medical Exam: <%= @av_db_pr2_processing_time %> months</li>
+              <li>PR Reception: <%= @av_db_pr3_processing_time %> months</li>
+              <li>PR Processing Time: <%= @total_av_processing_time %> months</li>
+            </ol>
       </div>
     <% end %>
 
