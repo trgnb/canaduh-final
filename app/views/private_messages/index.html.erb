@@ -2,7 +2,7 @@
 <p>Find me in app/views/private_messages/index.html.erb</p>
 
 <ul>
-  <% @private_messages.each do |message| %>
+  <% @private_messages.each do |private_message| %>
     <% if private_message.body %>
       <li>
         <h4><%= private_message.user.username %></h4>
