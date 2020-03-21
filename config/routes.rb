@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'private_messages/index'
+  get 'privatemessages/index'
+  get 'conversations/index'
   get 'chat_rooms/index'
   mount Notifications::Engine => "/notifications"
   devise_for :users, controllers: { registrations: 'registrations'}
@@ -28,4 +31,7 @@ Rails.application.routes.draw do
     resources :messages, only: [ :create ]
   end
 
+  resources :conversations, only: [:index, :create] do
+    resources :private_messages, only: [:index, :create]
+  end
 end

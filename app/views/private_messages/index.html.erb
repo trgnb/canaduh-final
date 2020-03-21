@@ -1,0 +1,21 @@
+<h1>PrivateMessages#index</h1>
+<p>Find me in app/views/private_messages/index.html.erb</p>
+
+<ul>
+  <% @private_messages.each do |message| %>
+    <% if private_message.body %>
+      <li>
+        <h4><%= private_message.user.username %></h4>
+        <p><%= private_message.body %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= form_for [@conversation, @private_message] do |f| %>
+  <div class="field">
+    <%= f.text_area :body, placeholder: "Your message" %>
+  </div>
+
+  <%= f.submit "Send" %>
+<% end %>

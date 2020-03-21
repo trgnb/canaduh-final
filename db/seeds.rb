@@ -747,5 +747,11 @@ admin_milestone10 = Milestone.create!(
 
 ## belis3 ##
 
+## Test ##
+
+first_convo = Conversation.create!(
+  sender_id: '263',
+  receiver_id: '259',
+)
 
 puts 'Finished!'

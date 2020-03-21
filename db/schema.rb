@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_14_162533) do
+ActiveRecord::Schema.define(version: 2020_03_20_160746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2020_03_14_162533) do
 
   create_table "chat_rooms", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,6 +77,17 @@ ActiveRecord::Schema.define(version: 2020_03_14_162533) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "notify_type"], name: "index_notifications_on_user_id_and_notify_type"
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "private_messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "read", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_private_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -136,6 +154,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_162533) do
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "milestones", "users"
+  add_foreign_key "private_messages", "conversations"
+  add_foreign_key "private_messages", "users"
   add_foreign_key "reviews", "services"
   add_foreign_key "reviews", "users"
   add_foreign_key "services", "users"
