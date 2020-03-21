@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     end
 
     # RECOMMENDED TASKS #
-    @recommended_tasks = @tasks.where(recommended_task: true)
+    @recommended_tasks = @tasks.where(recommended_task: true).first(5)
 
     # DB MILESTONES #
   end
@@ -93,7 +93,7 @@ class TasksController < ApplicationController
     if @achieved_pr_milestones.count == 0
       @percent_completion = 0
     else
-      @percent_completion = (@achieved_pr_milestones.count - 1) * (1 / (@total_pr_milestones - 1).to_f)
+      @percent_completion = (@achieved_pr_milestones.count) * (1 / (@total_pr_milestones).to_f)
     end
 
     ## USER PR PROCESSING TIME ##
@@ -184,7 +184,7 @@ class TasksController < ApplicationController
 
   def set_db_milestones
     if current_user.path_type = "permanent residency"
-      @db_pr_milestones = Milestone.all.where(milestone_path: current_user.path_type).where.not(processing_time: nil)
+      @db_pr_milestones = Milestone.where(milestone_path: current_user.path_type).where.not(processing_time: nil)
       @db_pr_milestones2 = @db_pr_milestones.where(order: 2)
       @db_pr_milestones5 = @db_pr_milestones.where(order: 5)
       @db_pr_milestones6 = @db_pr_milestones.where(order: 6)
