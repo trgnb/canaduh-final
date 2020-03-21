@@ -1,5 +1,6 @@
 <%= render 'shared/navbar' %>
 <h1>Inbox</h1>
+<!-- //SHOWS ONLY THE UNREAD MESSAGES -->
 <h2>Unread Messages</h2>
 <ul>
   <% @conversations.each do |conversation| %>
@@ -10,35 +11,15 @@
   <% end %>
 </ul>
 
-  <!-- //SHOWS ONLY THE USERS YOU STARTED A CHAT WITH -->
+<!-- //SHOWS ONLY THE USERS YOU STARTED A CHAT WITH -->
 <h2>Your Connections</h2>
 <ul>
-  <!-- // FILTERS CONNECTIONS for users-->
-  <% if @current_user.user_type == "user" %>
-     <% @conversations.each do |conversation| %>
-          <% @appointments.each do |appointment| %>
-                <% @users.each do |user| %>
-                  <% if conversation.unread_private_message_count(current_user).zero? &&  Service.find(appointment.service_id).user.id == user.id %>
-                      <li> <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
-                  <% end %>
-                </li>
-              <% end %>
-        <% end %>
-      <% end %>
-
-   <% else %>
+  <!-- // FILTERS CONNECTIONS for users; you can only see people you messaged/who messaged you-->
+  <% @conversations.each do |conversation| %>
+    <% if conversation.receiver_id == current_user.id %>
+      <%= link_to User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name, conversations_path(sender_id: conversation.sender_id, receiver_id: current_user.id), method: :post %>
+    <% else %>
+      <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
     <% end %>
-<!-- // FILTERS CONNECTIONS for advisors-->
-  <% if @current_user.user_type == "advisor" %>
-    <% @conversations.each do |conversation| %>
-      <% @appointments.each do |appointment| %>
-          <% @users.each do |user| %>
-            <%# if conversation.unread_private_message_count(current_user).zero? || User.find(appointment.user_id).id == user.id %>
-                <li><%= link_to user.first_name, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
-                <li> <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %> </li>
-                  <%# end %>
-                <% end %>
-              <% end %>
-            <% end %>
-          <% end %>
+  <% end %>
 </ul>
