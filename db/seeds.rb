@@ -969,13 +969,12 @@ diana_milestone7 = Milestone.create!(
   order: 7,
 )
 
-<<<<<<< HEAD
 ## Test ##
-
 first_convo = Conversation.create!(
   sender_id: '263',
   receiver_id: '259',
-=======
+)
+
 # DB Milstones#
 ## jean ##
 jean_milestone1 = Milestone.create!(
@@ -1395,7 +1394,7 @@ harry_milestone6 = Milestone.create!(
   processing_time: 7,
   order: 6,
 )
-bharry_milestone7 = Milestone.create!(
+harry_milestone7 = Milestone.create!(
   user: harry,
   milestone_title: "PR Reception",
   milestone_path: harry.path_type,
@@ -1403,7 +1402,6 @@ bharry_milestone7 = Milestone.create!(
   achieved: true,
   processing_time: 3,
   order: 7,
->>>>>>> 161734546935392dfe4ff3392212ba91ab70c012
 )
 
 puts 'Finished!'
