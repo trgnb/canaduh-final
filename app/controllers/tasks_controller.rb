@@ -24,8 +24,6 @@ class TasksController < ApplicationController
 
     # RECOMMENDED TASKS #
     @recommended_tasks = @tasks.where(recommended_task: true).first(5)
-
-    # DB MILESTONES #
   end
 
   def new

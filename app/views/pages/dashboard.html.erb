@@ -7,6 +7,32 @@
   </div>
 
 <div class="main-container">
+  <!-- JOURNEY -->
+  <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
+    <h1>My Journey</h1>
+
+      <p>Percentage of completion: <%= (@percent_completion.round(1) * 100).to_i %> %</p>
+        <% @milestones.each do |milestone| %>
+          <ul>
+            <li>
+              <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
+              <%= milestone.milestone_date %>
+              <% milestone.achieved %>
+            </li>
+          </ul>
+        <% end %>
+    <br>
+        <p>Real time processing time: <%= @total_processing_time %></p>
+        <ol>
+          <li>CSQ Reception: <%= @av_db_csq_processing_time %> months</li>
+          <li>PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</li>
+          <li>Medical Exam: <%= @av_db_pr2_processing_time %> months</li>
+          <li>PR Reception: <%= @av_db_pr3_processing_time %> months</li>
+          <li>PR Processing Time: <%= @total_av_processing_time %> months</li>
+        </ol>
+    <% end %>
+  </div>
+
   <!-- USER APPOINTMENTS -->
   <% if @current_user.user_type == "user" %>
       <h1>Appointments</h1>
@@ -100,6 +126,7 @@
           <% end %>
         <% end %>
         <%= link_to "Go to planner", tasks_path %>
+
 
    </div>
 </div>
