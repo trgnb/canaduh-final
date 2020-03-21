@@ -1,4 +1,4 @@
-.dashboard-appointment-container {
+.card-appointment {
   display:flex;
   flex-direction: column;
   padding: 10px;
@@ -7,12 +7,7 @@
   border-radius: $border-radius;
   background: $offwhite;
   box-shadow: $dropshadow;
-  // opacity: 0.9;
   transition: $transition;
-
-  // &:hover {
-  //     opacity: 1;
-  // }
 
   h1 {
     font-size: $h2;
@@ -23,15 +18,11 @@
   }
 }
 
-
-.appointment-card-image {
+.image {
   display: flex;
   justify-content: center;
-  // border-radius: 5px;
   width: 100px;
   height: 100px;
-  // background: white;
-  // box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 
   img {
     width: 80px;
@@ -39,7 +30,6 @@
     align-self: center;
     border-radius: 50%;
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    border: white 1px solid;
     margin-top: 10px;
     margin-bottom: 20px;
   }
