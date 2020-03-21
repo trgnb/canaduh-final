@@ -24,8 +24,6 @@ class TasksController < ApplicationController
 
     # RECOMMENDED TASKS #
     @recommended_tasks = @tasks.where(recommended_task: true).first(5)
-
-    # DB MILESTONES #
   end
 
   def new
@@ -57,6 +55,7 @@ class TasksController < ApplicationController
 
   def mark_as_done
     @task.toggle(:task_status)
+    @task.priority = "low"
     @task.save
     redirect_to tasks_path
   end
