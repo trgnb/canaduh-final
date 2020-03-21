@@ -3,7 +3,50 @@
     <!-- TIMELINE -->
       <% if current_user.user_type == "user" %>
         <h1>My Journey</h1>
-      <% end %>
+
+          <p>Percentage of completion: <%= (@percent_completion.round(1) * 100).to_i %> %</p>
+            <% @milestones.each do |milestone| %>
+              <ul>
+                <li>
+                  <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
+                  <%= milestone.milestone_date %>
+                  <% milestone.achieved %>
+                </li>
+              </ul>
+            <% end %>
+
+        <br>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 17%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= @csq_processing_time %> month</div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 17%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr1_processing_time %> months</div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 17%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr2_processing_time %> months</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr3_processing_time %> months</div>
+          </div>
+        <br>
+        bg-success
+
+
+            <p>User' processing time: <%= @total_processing_time %></p>
+            <ol>
+              <li>CSQ Reception: <%= @csq_processing_time %> months</li>
+              <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
+              <li>Medical Exam: <%= @pr2_processing_time %> months</li>
+              <li>PR Reception: <%= @pr3_processing_time %> months</li>
+              <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
+            </ol>
+            <br>
+            <p>DB average processing time: <%= @total_processing_time %></p>
+            <ol>
+              <li>CSQ Reception: <%= @av_db_csq_processing_time %> months</li>
+              <li>PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</li>
+              <li>Medical Exam: <%= @av_db_pr2_processing_time %> months</li>
+              <li>PR Reception: <%= @av_db_pr3_processing_time %> months</li>
+              <li>PR Processing Time: <%= @total_av_processing_time %> months</li>
+            </ol>
+      </div>
+    <% end %>
 
     <!-- PATH PLANNER -->
       <h1>Path planner</h1>
@@ -27,8 +70,9 @@
 
       <!-- MY TASKS LIST -->
       <h2>Task list</h2>
-        <% if @tasks.empty? %>
+        <% if @user_tasks.empty? %>
           <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
+
         <% else %>
         <!-- TASK TABLE HEADER -->
         <div class="planner-row">

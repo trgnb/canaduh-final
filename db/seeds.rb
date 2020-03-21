@@ -575,32 +575,114 @@ review6 = Review.create!(
 Task.destroy_all
 puts 'Creating "Tasks"...'
 
-## recommended tasks ##
-recommended_task1 = Task.create!(
-  user: admin,
-  task_path: "permanent residency",
-  task_name: "TEST 1",
+## Recommended Tasks ##
+### Belis 1 ###
+recommended_task1_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "BELIS 1 - TEST 1",
   recommended_task: true,
   priority: "low",
 )
-recommended_task2 = Task.create!(
-  user: admin,
-  task_path: "student visa",
-  task_name: "TEST 2",
+recommended_task2_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "BELIS 1 - TEST 2",
   recommended_task: true,
   priority: "low",
 )
-recommended_task3 = Task.create!(
-  user: admin,
-  task_path: "permanent residency",
-  task_name: "TEST 3",
+recommended_task3_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "BELIS 1 - TEST 3",
   recommended_task: true,
   priority: "low",
 )
-recommended_task4 = Task.create!(
-  user: admin,
-  task_path: "permanent residency",
-  task_name: "TEST 4",
+recommended_task4_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "BELIS 1 - TEST 4",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task5_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "BELIS 1 - TEST 5",
+  recommended_task: true,
+  priority: "low",
+)
+
+### Belis 2 ###
+recommended_task1_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "BELIS 2 - TEST 1",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task2_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "BELIS 2 - TEST 2",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task3_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "BELIS 2 - TEST 3",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task4_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "BELIS 2 - TEST 4",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task5_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "BELIS 2 - TEST 5",
+  recommended_task: true,
+  priority: "low",
+)
+
+# ### Belis 3 ###
+recommended_task1_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "BELIS 3 - TEST 1",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task2_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "BELIS 3 - TEST 2",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task3_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "BELIS 3 - TEST 3",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task4_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "BELIS 3 - TEST 4",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task5_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "BELIS 3 - TEST 5",
   recommended_task: true,
   priority: "low",
 )
@@ -611,33 +693,41 @@ belis1_task1 = Task.create!(
   task_name: "Meet with my Immigration Advisor",
   priority: "medium",
   task_status: true,
+  recommended_task: false,
 )
 belis1_task2 = Task.create!(
   user: belis1,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
   priority: "medium",
+  recommended_task: false,
 )
 belis1_task3 = Task.create!(
   user: belis1,
   task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
   priority: "high",
+  recommended_task: false,
 )
 belis1_task4 = Task.create!(
   user: belis1,
   task_name: "Get work attestation and proof of legalty of work experience",
   priority: "low",
   task_status: true,
+  recommended_task: false,
 )
 belis1_task5 = Task.create!(
   user: belis1,
   task_name: "Pass evaluation of French language knowledge",
   priority: "high",
+  recommended_task: false,
 )
 belis1_task6 = Task.create!(
   user: belis1,
   task_name: "Proof of temporary resident status in Quebec",
   priority: "low",
+  recommended_task: false,
 )
+
+
 
 #testing for chatroom
 
@@ -677,81 +767,643 @@ message_4 = Message.create!(
 
 # MILESTONE #
 
-## Admin PR Path ##
-admin_milestone1 = Milestone.create!(
-  user: admin,
+## Belis 1 ##
+belis1_milestone1 = Milestone.create!(
+  user: belis1,
   milestone_title: "CSQ Application",
-  milestone_path: "permanent residency",
+  milestone_path: belis1.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
   order: 1,
 )
-admin_milestone2 = Milestone.create!(
-  user: admin,
+belis1_milestone2 = Milestone.create!(
+  user: belis1,
   milestone_title: "CSQ Reception",
-  milestone_path: "permanent residency",
+  milestone_path: belis1.path_type,
   order: 2,
 )
-admin_milestone3 = Milestone.create!(
-  user: admin,
+belis1_milestone3 = Milestone.create!(
+  user: belis1,
   milestone_title: "Temporary Work Visa Activation",
-  milestone_path: "permanent residency",
+  milestone_path: belis1.path_type,
   order: 3,
 )
-admin_milestone4 = Milestone.create!(
-  user: admin,
+belis1_milestone4 = Milestone.create!(
+  user: belis1,
   milestone_title:  "PR Application",
-  milestone_path: "permanent residency",
+  milestone_path: belis1.path_type,
   order: 4,
 )
-admin_milestone5 = Milestone.create!(
-  user: admin,
+belis1_milestone5 = Milestone.create!(
+  user: belis1,
   milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: "permanent residency",
+  milestone_path: belis1.path_type,
   order: 5,
 )
-admin_milestone6 = Milestone.create!(
-  user: admin,
+belis1_milestone6 = Milestone.create!(
+  user: belis1,
   milestone_title: "Medical Exam",
-  milestone_path: "permanent residency",
+  milestone_path: belis1.path_type,
   order: 6,
 )
-admin_milestone7 = Milestone.create!(
-  user: admin,
+belis1_milestone7 = Milestone.create!(
+  user: belis1,
   milestone_title: "PR Reception",
-  milestone_path: "permanent residency",
+  milestone_path: belis1.path_type,
   order: 7,
 )
 
-## Admin Student Visa Path ##
-admin_milestone8 = Milestone.create!(
-  user: admin,
-  milestone_title: "Milestone 1",
-  milestone_path: "student visa",
+## belis2 ##
+belis2_milestone1 = Milestone.create!(
+  user: belis2,
+  milestone_title: "CSQ Application",
+  milestone_path: belis2.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
   order: 1,
 )
-admin_milestone9 = Milestone.create!(
-  user: admin,
-  milestone_title: "Milestone 2",
-  milestone_path: "student visa",
+belis2_milestone2 = Milestone.create!(
+  user: belis2,
+  milestone_title: "CSQ Reception",
+  milestone_path: belis2.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
   order: 2,
 )
-admin_milestone10 = Milestone.create!(
-  user: admin,
-  milestone_title: "Milestone 3",
-  milestone_path: "student visa",
+belis2_milestone3 = Milestone.create!(
+  user: belis2,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: belis2.path_type,
   order: 3,
 )
-
-## belis1 ##
-
-## belis2 ##
+belis2_milestone4 = Milestone.create!(
+  user: belis2,
+  milestone_title:  "PR Application",
+  milestone_path: belis2.path_type,
+  order: 4,
+)
+belis2_milestone5 = Milestone.create!(
+  user: belis2,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: belis2.path_type,
+  order: 5,
+)
+belis2_milestone6 = Milestone.create!(
+  user: belis2,
+  milestone_title: "Medical Exam",
+  milestone_path: belis2.path_type,
+  order: 6,
+)
+belis2_milestone7 = Milestone.create!(
+  user: belis2,
+  milestone_title: "PR Reception",
+  milestone_path: belis2.path_type,
+  order: 7,
+)
 
 ## belis3 ##
+@belis3_milestone1 = Milestone.create!(
+  user: belis3,
+  milestone_title: "CSQ Application",
+  milestone_path: belis3.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
 
+@belis3_milestone2 = Milestone.create!(
+  user: belis3,
+  milestone_title: "CSQ Reception",
+  milestone_path: belis3.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+@belis3_milestone3 = Milestone.create!(
+  user: belis3,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: belis3.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+@belis3_milestone4 = Milestone.create!(
+  user: belis3,
+  milestone_title:  "PR Application",
+  milestone_path: belis3.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+@belis3_milestone5 = Milestone.create!(
+  user: belis3,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: belis3.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+@belis3_milestone6 = Milestone.create!(
+  user: belis3,
+  milestone_title: "Medical Exam",
+  milestone_path: belis3.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+@belis3_milestone7 = Milestone.create!(
+  user: belis3,
+  milestone_title: "PR Reception",
+  milestone_path: belis3.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+)
+
+## Diana ##
+diana_milestone1 = Milestone.create!(
+  user: diana,
+  milestone_title: "CSQ Application",
+  milestone_path: diana.path_type,
+  order: 1,
+)
+diana_milestone2 = Milestone.create!(
+  user: diana,
+  milestone_title: "CSQ Reception",
+  milestone_path: diana.path_type,
+  order: 2,
+)
+diana_milestone3 = Milestone.create!(
+  user: diana,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: belis1.path_type,
+  order: 3,
+)
+diana_milestone4 = Milestone.create!(
+  user: diana,
+  milestone_title:  "PR Application",
+  milestone_path: belis1.path_type,
+  order: 4,
+)
+diana_milestone5 = Milestone.create!(
+  user: diana,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: belis1.path_type,
+  order: 5,
+)
+diana_milestone6 = Milestone.create!(
+  user: diana,
+  milestone_title: "Medical Exam",
+  milestone_path: belis1.path_type,
+  order: 6,
+)
+diana_milestone7 = Milestone.create!(
+  user: diana,
+  milestone_title: "PR Reception",
+  milestone_path: belis1.path_type,
+  order: 7,
+)
+
+<<<<<<< HEAD
 ## Test ##
 
 first_convo = Conversation.create!(
   sender_id: '263',
   receiver_id: '259',
+=======
+# DB Milstones#
+## jean ##
+jean_milestone1 = Milestone.create!(
+  user: jean,
+  milestone_title: "CSQ Application",
+  milestone_path: jean.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
+jean_milestone2 = Milestone.create!(
+  user: jean,
+  milestone_title: "CSQ Reception",
+  milestone_path: jean.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+jean_milestone3 = Milestone.create!(
+  user: jean,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: jean.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+jean_milestone4 = Milestone.create!(
+  user: jean,
+  milestone_title:  "PR Application",
+  milestone_path: jean.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+jean_milestone5 = Milestone.create!(
+  user: jean,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: jean.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+jean_milestone6 = Milestone.create!(
+  user: jean,
+  milestone_title: "Medical Exam",
+  milestone_path: jean.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+jean_milestone7 = Milestone.create!(
+  user: jean,
+  milestone_title: "PR Reception",
+  milestone_path: jean.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+)
+## mariepier ##
+mariepier_milestone1 = Milestone.create!(
+  user: mariepier,
+  milestone_title: "CSQ Application",
+  milestone_path: mariepier.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
+mariepier_milestone2 = Milestone.create!(
+  user: mariepier,
+  milestone_title: "CSQ Reception",
+  milestone_path: mariepier.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+mariepier_milestone3 = Milestone.create!(
+  user: mariepier,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: mariepier.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+mariepier_milestone4 = Milestone.create!(
+  user: mariepier,
+  milestone_title:  "PR Application",
+  milestone_path: mariepier.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+mariepier_milestone5 = Milestone.create!(
+  user: mariepier,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: mariepier.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+mariepier_milestone6 = Milestone.create!(
+  user: mariepier,
+  milestone_title: "Medical Exam",
+  milestone_path: mariepier.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+mariepier_milestone7 = Milestone.create!(
+  user: mariepier,
+  milestone_title: "PR Reception",
+  milestone_path: mariepier.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+)
+## sarah ##
+sarah_milestone1 = Milestone.create!(
+  user: sarah,
+  milestone_title: "CSQ Application",
+  milestone_path: sarah.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
+sarah_milestone2 = Milestone.create!(
+  user: sarah,
+  milestone_title: "CSQ Reception",
+  milestone_path: sarah.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+sarah_milestone3 = Milestone.create!(
+  user: sarah,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: sarah.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+sarah_milestone4 = Milestone.create!(
+  user: sarah,
+  milestone_title:  "PR Application",
+  milestone_path: sarah.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+sarah_milestone5 = Milestone.create!(
+  user: sarah,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: sarah.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+sarah_milestone6 = Milestone.create!(
+  user: sarah,
+  milestone_title: "Medical Exam",
+  milestone_path: sarah.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+sarah_milestone7 = Milestone.create!(
+  user: sarah,
+  milestone_title: "PR Reception",
+  milestone_path: sarah.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+)
+## pablo ##
+pablo_milestone1 = Milestone.create!(
+  user: pablo,
+  milestone_title: "CSQ Application",
+  milestone_path: pablo.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
+pablo_milestone2 = Milestone.create!(
+  user: pablo,
+  milestone_title: "CSQ Reception",
+  milestone_path: pablo.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+pablo_milestone3 = Milestone.create!(
+  user: pablo,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: pablo.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+pablo_milestone4 = Milestone.create!(
+  user: pablo,
+  milestone_title:  "PR Application",
+  milestone_path: pablo.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+pablo_milestone5 = Milestone.create!(
+  user: pablo,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: pablo.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+pablo_milestone6 = Milestone.create!(
+  user: pablo,
+  milestone_title: "Medical Exam",
+  milestone_path: pablo.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+pablo_milestone7 = Milestone.create!(
+  user: pablo,
+  milestone_title: "PR Reception",
+  milestone_path: pablo.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+)
+## jackie ##
+jackie_milestone1 = Milestone.create!(
+  user: jackie,
+  milestone_title: "CSQ Application",
+  milestone_path: jackie.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
+jackie_milestone2 = Milestone.create!(
+  user: jackie,
+  milestone_title: "CSQ Reception",
+  milestone_path: jackie.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+jackie_milestone3 = Milestone.create!(
+  user: jackie,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: jackie.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+jackie_milestone4 = Milestone.create!(
+  user: jackie,
+  milestone_title:  "PR Application",
+  milestone_path: jackie.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+jackie_milestone5 = Milestone.create!(
+  user: jackie,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: jackie.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+jackie_milestone6 = Milestone.create!(
+  user: jackie,
+  milestone_title: "Medical Exam",
+  milestone_path: jackie.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+jackie_milestone7 = Milestone.create!(
+  user: jackie,
+  milestone_title: "PR Reception",
+  milestone_path: jackie.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+)
+## brad ##
+brad_milestone1 = Milestone.create!(
+  user: brad,
+  milestone_title: "CSQ Application",
+  milestone_path: brad.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
+brad_milestone2 = Milestone.create!(
+  user: brad,
+  milestone_title: "CSQ Reception",
+  milestone_path: brad.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+brad_milestone3 = Milestone.create!(
+  user: brad,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: brad.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+brad_milestone4 = Milestone.create!(
+  user: brad,
+  milestone_title:  "PR Application",
+  milestone_path: brad.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+brad_milestone5 = Milestone.create!(
+  user: brad,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: brad.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+brad_milestone6 = Milestone.create!(
+  user: brad,
+  milestone_title: "Medical Exam",
+  milestone_path: brad.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+brad_milestone7 = Milestone.create!(
+  user: brad,
+  milestone_title: "PR Reception",
+  milestone_path: brad.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+)
+## harry ##
+harry_milestone1 = Milestone.create!(
+  user: harry,
+  milestone_title: "CSQ Application",
+  milestone_path: harry.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
+  order: 1,
+)
+harry_milestone2 = Milestone.create!(
+  user: harry,
+  milestone_title: "CSQ Reception",
+  milestone_path: harry.path_type,
+  milestone_date: "2019-02-01 12:00:00",
+  achieved: true,
+  processing_time: 1,
+  order: 2,
+)
+harry_milestone3 = Milestone.create!(
+  user: harry,
+  milestone_title: "Temporary Work Visa Activation",
+  milestone_path: harry.path_type,
+  milestone_date: "2019-02-07 12:00:00",
+  achieved: true,
+  order: 3,
+)
+harry_milestone4 = Milestone.create!(
+  user: harry,
+  milestone_title:  "PR Application",
+  milestone_path: harry.path_type,
+  milestone_date: "2019-03-01 12:00:00",
+  achieved: true,
+  order: 4,
+)
+harry_milestone5 = Milestone.create!(
+  user: harry,
+  milestone_title: "PR Application Receipt Confirmation",
+  milestone_path: harry.path_type,
+  milestone_date: "2019-06-01 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 5,
+)
+harry_milestone6 = Milestone.create!(
+  user: harry,
+  milestone_title: "Medical Exam",
+  milestone_path: harry.path_type,
+  milestone_date: "2020-01-01 12:00:00",
+  achieved: true,
+  processing_time: 7,
+  order: 6,
+)
+bharry_milestone7 = Milestone.create!(
+  user: harry,
+  milestone_title: "PR Reception",
+  milestone_path: harry.path_type,
+  milestone_date: "2020-04-04 12:00:00",
+  achieved: true,
+  processing_time: 3,
+  order: 7,
+>>>>>>> 161734546935392dfe4ff3392212ba91ab70c012
 )
 
 puts 'Finished!'

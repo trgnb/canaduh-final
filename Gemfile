@@ -7,7 +7,6 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
-gem 'faker'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -21,6 +20,7 @@ gem 'devise'
 gem 'faker'
 gem 'pg_search'
 gem 'notifications'
+gem 'time_difference'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

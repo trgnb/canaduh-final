@@ -13,29 +13,34 @@
   flex-direction: column;
   margin-right: 120px;
   text-decoration: none;
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    text-decoration: none;
+    font-size: 1em;
+    list-style: none;
+    color: $white;
+  }
 }
 
-.footer-column > h1 {
-  font-size: 1.5em;
-}
+.footer-link {
+color: $white !important;
 
-.footer-column > ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-column > li {
-  text-decoration: none;
-  font-size: 1em;
-  list-style: none;
-}
-
-.footer-link > a {
-  color: #f9fafb !important;
-  opacity: 1;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
+  a {
+    color: #f9fafb !important;
+    opacity: 1;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+  }
 }
 
 
