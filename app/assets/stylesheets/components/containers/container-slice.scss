@@ -5,6 +5,12 @@
   // min-height: 40vh;
   margin-bottom: $bottom;
 
+.row {
+    justify-content: space-between;
+    margin-bottom: ($bottom / 3)
+}
+
+
   #black-line {
       height: 0.2px;
       opacity: 0.1;

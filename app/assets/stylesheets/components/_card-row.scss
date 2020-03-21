@@ -1,14 +1,7 @@
 .card-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: ($bottom / 3)
+  // margin-bottom: ($bottom / 3)
 }
 
-  #card-row-sub-link {
-    display: flex;
-    flex-direction: row;
 
-    i {
-      margin-left: 3px;
-    }
-  }
