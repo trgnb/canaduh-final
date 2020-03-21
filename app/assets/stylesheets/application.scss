@@ -1,42 +1,13 @@
-// External libraries
+// // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/spacings";
-@import "config/bootstrap_variables";
 
-// Components
-@import "components/alert";
-@import "components/avatar";
-@import "components/banner";
-@import "components/btns";
-@import "components/cards";
-@import "components/card-row";
-@import "components/containers";
-@import "components/navbar";
-
-// Your CSS partials
-@import "pages/index";
+// // Your CSS partials
+@import "config/index";
 @import "components/index";
-@import "components/footer";
-
-// Services show components
-@import "components/service-booking-details-row";
-
-// Dashboard components
-@import "components/dashboard-row";
-@import "components/appointment-card-image";
-
-// Profile components
-@import "components/profile";
-
-// Tasks
-@import "components/planner";
-
+@import "pages/index";
 
 a {
   text-decoration: none !important;
@@ -45,4 +16,38 @@ a {
     text-decoration: none !important;
   }
 }
+
+
+// // Graphical variables
+// // @import "config/fonts";
+// // @import "config/colors";
+// // @import "config/spacings";
+// @import "config/bootstrap_variables";
+
+// // Components
+// @import "components/alert";
+// @import "components/avatar";
+// @import "components/banner";
+// @import "components/btns";
+// @import "components/cards";
+// @import "components/card-row";
+// @import "components/containers";
+// @import "components/navbar";
+
+
+
+// // Services show components
+// @import "components/service-booking-details-row";
+
+// // Dashboard components
+// @import "components/dashboard-row";
+// // @import "components/appointment-card-image";
+
+// // Profile components
+// @import "components/profile";
+
+// // Tasks
+// @import "components/planner";
+
+
 
