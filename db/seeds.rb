@@ -969,12 +969,6 @@ diana_milestone7 = Milestone.create!(
   order: 7,
 )
 
-## Test ##
-first_convo = Conversation.create!(
-  sender_id: '263',
-  receiver_id: '259',
-)
-
 # DB Milstones#
 ## jean ##
 jean_milestone1 = Milestone.create!(
