@@ -16,17 +16,13 @@
             <% end %>
 
             <p>DB AVERAGE WIP</p>
-
-            <%= @db_milestones.count %>
-            <p>USER's</p>
-            <p>Total processing time: <%= @total_processing_time %></p>
+            <p>User' processing time: <%= @total_processing_time %></p>
             <ol>
-              <li>CSQ Reception: <%= %></li>
-              <li>Temporary Work Visa Activation: <%= %></li>
-              <li>PR Application: <%= %></li>
-              <li>PR Application Receipt Confirmation: <%= %></li>
-              <li>Medical Exam: <%=  %></li>
-              <li>PR Reception: <%=  %></li>
+              <li>CSQ Reception: <%= @csq_processing_time %> months</li>
+              <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
+              <li>Medical Exam: <%= @pr2_processing_time %> months</li>
+              <li>PR Reception: <%= @pr3_processing_time %> months</li>
+              <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
             </ol>
             <p>DB</p>
       </div>

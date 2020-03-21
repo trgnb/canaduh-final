@@ -862,7 +862,7 @@ belis2_milestone7 = Milestone.create!(
 )
 
 ## belis3 ##
-belis3_milestone1 = Milestone.create!(
+@belis3_milestone1 = Milestone.create!(
   user: belis3,
   milestone_title: "CSQ Application",
   milestone_path: belis3.path_type,
@@ -870,7 +870,8 @@ belis3_milestone1 = Milestone.create!(
   achieved: true,
   order: 1,
 )
-belis3_milestone2 = Milestone.create!(
+
+@belis3_milestone2 = Milestone.create!(
   user: belis3,
   milestone_title: "CSQ Reception",
   milestone_path: belis3.path_type,
@@ -878,7 +879,7 @@ belis3_milestone2 = Milestone.create!(
   achieved: true,
   order: 2,
 )
-belis3_milestone3 = Milestone.create!(
+@belis3_milestone3 = Milestone.create!(
   user: belis3,
   milestone_title: "Temporary Work Visa Activation",
   milestone_path: belis3.path_type,
@@ -886,7 +887,7 @@ belis3_milestone3 = Milestone.create!(
   achieved: true,
   order: 3,
 )
-belis3_milestone4 = Milestone.create!(
+@belis3_milestone4 = Milestone.create!(
   user: belis3,
   milestone_title:  "PR Application",
   milestone_path: belis3.path_type,
@@ -894,7 +895,7 @@ belis3_milestone4 = Milestone.create!(
   achieved: true,
   order: 4,
 )
-belis3_milestone5 = Milestone.create!(
+@belis3_milestone5 = Milestone.create!(
   user: belis3,
   milestone_title: "PR Application Receipt Confirmation",
   milestone_path: belis3.path_type,
@@ -902,7 +903,7 @@ belis3_milestone5 = Milestone.create!(
   achieved: true,
   order: 5,
 )
-belis3_milestone6 = Milestone.create!(
+@belis3_milestone6 = Milestone.create!(
   user: belis3,
   milestone_title: "Medical Exam",
   milestone_path: belis3.path_type,
@@ -910,7 +911,7 @@ belis3_milestone6 = Milestone.create!(
   achieved: true,
   order: 6,
 )
-belis3_milestone7 = Milestone.create!(
+@belis3_milestone7 = Milestone.create!(
   user: belis3,
   milestone_title: "PR Reception",
   milestone_path: belis3.path_type,
