@@ -1,10 +1,10 @@
 <%= render 'shared/navbar' %>
-<div class="fullwidth-container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'dashboard-banner.svg' %>);">
-    <div class="banner">
-      <h1>Welcome to your dashboard</h1>
-      <h4>Here you can manage appointents, bookings, messages and tasks in your planner.</h4>
-    </div>
+<div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
+  <div class="banner">
+    <h1 style="margin-bottom: 5px;">Welcome to your dashboard <%= @current_user.first_name %></h1>
+    <p>Here you can manage and keep track of tasks you'll need to complete to get where your going.</p>
   </div>
+</div>
 
 <div class="main-container">
   <!-- USER APPOINTMENTS -->
@@ -61,45 +61,71 @@
       <% end %>
   <% end %>
 
-
-
-
-          <!-- // CONFIGURED ADVISOR SERVICES -->
-            <h2>Your active services</h2>
-            <% if @services.empty? %>
-              <p>No services</p>
-              <pre><%= link_to "Add", "#" %></pre>
-            <% else %>
-              <% @services.each do |service| %>
-                <div class="dashboard-service-container">
-                  <h1><%= service.service_type.upcase %></h1>
-                  <h2><strong>Immigration path:</strong> <%= service.path %></h2>
-                  <p><strong>Description:</strong> <%= service.description %></p>
-                  <p><strong>Pricing:</strong> $<%= service.price %>/hour</p>
-                  <pre><%= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre>
-                </div>
-              <% end %>
-            <% end %>
-          <% else %>
-          <% end %>
-
-      <!-- TASK REMINDER -->
-        <div class="dashboard-row">
-          <h1>Reminder</h1>
+  <!-- // CONFIGURED ADVISOR SERVICES -->
+    <h2>Your active services</h2>
+    <% if @services.empty? %>
+      <p>No services</p>
+      <pre><%= link_to "Add", "#" %></pre>
+    <% else %>
+      <% @services.each do |service| %>
+        <div class="dashboard-service-container">
+          <h1><%= service.service_type.upcase %></h1>
+          <h2><strong>Immigration path:</strong> <%= service.path %></h2>
+          <p><strong>Description:</strong> <%= service.description %></p>
+          <p><strong>Pricing:</strong> $<%= service.price %>/hour</p>
+          <pre><%= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre>
         </div>
-        <% if @high_priority_tasks.empty? %>
-          <div class="dashboard-row">
-            <p>No urgent tasks</p>
-          </div>
-        <% else %>
-          <% @high_priority_tasks.each do |task| %>
-            <div class="dashboard-row">
-              <strong><%= task.task_name%></strong>
-              <%= task.priority %>
-            </div>
+      <% end %>
+    <% end %>
+  <% else %>
+  <% end %>
+
+<!-- TASK REMINDER -->
+  <div class="dashboard-row">
+    <h1>Reminder</h1>
+  </div>
+  <% if @high_priority_tasks.empty? %>
+    <div class="dashboard-row">
+      <p>No urgent tasks</p>
+    </div>
+  <% else %>
+
+    <% @high_priority_tasks.each do |task| %>
+      <div class="card-task">
+        <div class="task-details">
+        <!-- TASK CHECKBOX -->
+        <div id="status">
+          <%= link_to mark_task_path(task), method: :patch do %>
+            <% if task.task_status %>
+              <i class="fa fa-check-square"></i>
+            <% else %>
+              <i class="fa fa-square"></i>
+            <% end %>
           <% end %>
-        <% end %>
-        <%= link_to "Go to planner", tasks_path %>
+        </div>
+        <!-- TASK NAME -->
+        <div id="task-name">
+        <p><strong><%= task.task_name%></strong></p>
+        </div>
+        </div>
+        <!-- TASK ACTIONS -->
+        <div class="task-actions">
+          <!-- TASK PRIORITY -->
+          <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+          <!-- TASK EDIT -->
+          <div id="task-action"><%= link_to edit_task_path(task) do %>
+            <i class="fa fa-edit"></i>
+            <% end %>
+          </div>
+          <!-- TASK DELETE -->
+          <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to "Go to planner", tasks_path %>
 
    </div>
-</div>
