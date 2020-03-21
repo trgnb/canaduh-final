@@ -43,7 +43,7 @@
       <p>These are recommended tasks for your path.</p>
 
       <% @recommended_tasks.each do |recommended_task| %>
-        <div class="planner-row">
+        <div class="card-task">
           <strong><%= recommended_task.task_name%></strong>
           <%= link_to add_to_checklist_path(recommended_task), method: :patch do %>
             <i class="fa fa-plus"></i>
@@ -57,7 +57,6 @@
       <% if @user_tasks.empty? %>
         <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
       <% else %>
-
     <!-- HIGH PRIORITY TASKS -->
     <div class="container-col">
       <% @high_priority_tasks.each do |task| %>
@@ -83,7 +82,7 @@
           <!-- TASK ACTIONS -->
           <div class="task-actions">
             <!-- TASK PRIORITY -->
-            <div id="task-action"><%= task.priority %></div>
+            <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
             <!-- TASK EDIT -->
             <div id="task-action"><%= link_to edit_task_path(task) do %>
               <i class="fa fa-edit"></i>
@@ -126,7 +125,7 @@
           <!-- TASK ACTIONS -->
           <div class="task-actions">
             <!-- TASK PRIORITY -->
-            <div id="task-action"><%= task.priority %></div>
+            <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
             <!-- TASK EDIT -->
             <div id="task-action"><%= link_to edit_task_path(task) do %>
               <i class="fa fa-edit"></i>
@@ -167,7 +166,7 @@
           <!-- TASK ACTIONS -->
           <div class="task-actions">
             <!-- TASK PRIORITY -->
-            <div id="task-action"><%= task.priority %></div>
+            <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
             <!-- TASK EDIT -->
             <div id="task-action"><%= link_to edit_task_path(task) do %>
               <i class="fa fa-edit"></i>
@@ -189,3 +188,4 @@
       <!-- <button class="btn-appointment"><%#= link_to new_task_path  do %>Add a new task<% end %></button> -->
     </div>
   </div>
+</div>
