@@ -1,0 +1,31 @@
+.slice-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: $bottom;
+
+.row {
+    justify-content: space-between;
+    margin-bottom: ($bottom / 3)
+}
+
+
+  #black-line {
+      height: 0.2px;
+      opacity: 0.1;
+      width: 100%;
+      // margin-bottom: 3px;
+      background-color: $black;
+  }
+
+  h1 {
+    font-family: Helvetica, sans-serif;
+    font-size: $h1;
+    margin-bottom: ($bottom / 3);
+  }
+
+  h2 {
+    font-family: Helvetica, sans-serif;
+    font-size: $h2;
+  }
+}

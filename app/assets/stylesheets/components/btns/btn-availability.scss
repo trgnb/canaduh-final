@@ -1,0 +1,18 @@
+.btn-availability {
+  color: $offwhite;
+  padding: 10px 10px;
+  margin-left: 5px;
+  border-radius: ($border-radius / 2);
+  background: $red;
+  transition: $transition;
+  text-decoration: none;
+  opacity: 1;
+
+  &:hover {
+  opacity: 0.9;
+  color: $offwhite;
+  }
+  a {
+    color: $offwhite;
+  }
+}

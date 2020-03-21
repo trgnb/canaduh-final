@@ -1,6 +1,11 @@
 // Import your components CSS files here.
-@import "alert";
-@import "avatar";
-@import "navbar";
+@import "dashboard-row";
 @import "message";
+@import "service-booking-details-row";
 
+// Import component folders
+@import "btns/index";
+@import "cards/index";
+@import "containers/index";
+@import "forms/index";
+@import "misc/index";

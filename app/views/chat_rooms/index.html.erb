@@ -1,6 +1,9 @@
-<h1>ChatRooms#index</h1>
-<p>Find me in app/views/chat_rooms/index.html.erb</p>
-
 <h1>Chat rooms</h1>
+
+<% @chat_rooms.each do |chat_room| %>
+  <%= link_to chat_room.name, chat_room_path(chat_room) %>
+  <br>
+ <% end %>
+
 
 <p class="lead"><%= link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary' %></p>

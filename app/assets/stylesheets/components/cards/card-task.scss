@@ -1,0 +1,53 @@
+.card-task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  padding: 0px 16px;
+  margin-bottom: 8px;
+  background: $white;
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
+
+    &:hover {
+      opacity: 1;
+    }
+
+
+
+  .task-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #status {
+      margin-right: 40px;
+      justify-content: left;
+    }
+
+    #task-name {
+      margin-right: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .task-actions {
+    display: flex;
+    flex-direction:row;
+
+    #task-action {
+      margin-left: 20px;
+      color: $red;
+    }
+  }
+
+  i {
+      color: $red;
+    }
+}
