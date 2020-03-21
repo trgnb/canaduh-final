@@ -1,3 +1,33 @@
 .card-task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-right: 8px;
+
+  .task-details {
+    display: flex;
+    flex-direction: row;
+
+    #status {
+      margin-right: 40px;
+    }
+
+    #task-name {
+      margin-right: 20px;
+    }
+  }
+
+  .task-actions {
+    display: flex;
+    flex-direction:row;
+
+    #task-action {
+      margin-left: 20px;
+      color: $red;
+    }
+  }
+
+  i {
+      color: $red;
+    }
 }
