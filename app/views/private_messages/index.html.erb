@@ -1,12 +1,13 @@
-<h1>PrivateMessages#index</h1>
-<p>Find me in app/views/private_messages/index.html.erb</p>
-
 <ul>
+<h1>Your Chat with <%= User.find(@conversation.receiver_id).first_name %></h1>
   <% @private_messages.each do |private_message| %>
     <% if private_message.body %>
       <li>
-        <h4><%= private_message.user.username %></h4>
-        <p><%= private_message.body %></p>
+        <div class= "private_message-chatbox">
+         <h4><%= private_message.user.first_name %></h4>
+         <%= image_tag private_message.user.imgUrl, class: "avatar" %>
+         <p><%= private_message.body %></p>
+       </div>
       </li>
     <% end %>
   <% end %>
@@ -19,3 +20,5 @@
 
   <%= f.submit "Send" %>
 <% end %>
+
+<%= link_to "Back to Inbox", conversations_path %>

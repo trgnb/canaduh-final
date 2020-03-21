@@ -1,46 +1,44 @@
-<h1>Conversations#index</h1>
+<%= render 'shared/navbar' %>
 <h1>Inbox</h1>
+<h2>Unread Messages</h2>
 <ul>
   <% @conversations.each do |conversation| %>
-    <li> <%= link_to conversation.recipient(current_user).username, conversation_private_messages_path(conversation) %>
       <% if !conversation.unread_private_message_count(current_user).zero? %>
+          <li> <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
         (<%= conversation.unread_private_message_count(current_user) %>)
       <% end %> </li>
   <% end %>
 </ul>
 
-
+  <!-- //SHOWS ONLY THE USERS YOU STARTED A CHAT WITH -->
 <h2>Your Connections</h2>
 <ul>
-  <!-- // FILTERS CONNECTIONS VIA APPOINTMENTS; ONLY SHOWS ADVISORS YOU HAVE AN APPOINTMENT WITH AS A CONNECTION -->
+  <!-- // FILTERS CONNECTIONS for users-->
   <% if @current_user.user_type == "user" %>
-        <% @appointments.each do |appointment| %>
-<!--             <div class="dashboard-row">
-              <div class="dashboard-appointment-container"> -->
+     <% @conversations.each do |conversation| %>
+          <% @appointments.each do |appointment| %>
                 <% @users.each do |user| %>
-                  <% if Service.find(appointment.service_id).user.id == user.id %>
-                    <li><%= link_to user.first_name + ' ' + user.last_name, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
-                <% end %>
-<!--               </div>
-            </div> -->
+                  <% if conversation.unread_private_message_count(current_user).zero? &&  Service.find(appointment.service_id).user.id == user.id %>
+                      <li> <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
+                  <% end %>
+                </li>
+              <% end %>
         <% end %>
       <% end %>
 
    <% else %>
     <% end %>
-<!-- // FILTERS CONNECTIONS VIA APPOINTMENTS; ONLY SHOWS USERS THAT BOOKED AN APPOINTMENT WITH YOU AS A CONNECTION -->
+<!-- // FILTERS CONNECTIONS for advisors-->
   <% if @current_user.user_type == "advisor" %>
-   <% @appointments.each do |appointment| %>
-            <div class="dashboard-row">
-              <div class="dashboard-appointment-container">
-                <% @users.each do |user| %>
-                  <% if User.find(appointment.user_id).id == user.id %>
-                    <li><%= link_to user.first_name, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
+    <% @conversations.each do |conversation| %>
+      <% @appointments.each do |appointment| %>
+          <% @users.each do |user| %>
+            <%# if conversation.unread_private_message_count(current_user).zero? || User.find(appointment.user_id).id == user.id %>
+                <li><%= link_to user.first_name, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
+                <li> <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %> </li>
+                  <%# end %>
                 <% end %>
-              </div>
-            </div>
-        <% end %>
-      <% end %>
-    <% end %>
-
+              <% end %>
+            <% end %>
+          <% end %>
 </ul>
