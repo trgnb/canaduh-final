@@ -580,35 +580,42 @@ puts 'Creating "Tasks"...'
 recommended_task1_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 1",
+  task_name: "Get valid passport or other travel documents",
   recommended_task: true,
   priority: "low",
 )
 recommended_task2_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 2",
+  task_name: "Get criminal record check",
   recommended_task: true,
   priority: "low",
 )
 recommended_task3_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 3",
+  task_name: "Pay the fees",
   recommended_task: true,
   priority: "low",
 )
 recommended_task4_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 4",
+  task_name: "Fill-out the Use of a Representative Form",
   recommended_task: true,
   priority: "low",
 )
 recommended_task5_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "BELIS 1 - TEST 5",
+  task_name: "Get civil union contract or a civil union certificate",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task6_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "Get academic transcripts",
   recommended_task: true,
   priority: "low",
 )
@@ -709,7 +716,7 @@ belis1_task3 = Task.create!(
 )
 belis1_task4 = Task.create!(
   user: belis1,
-  task_name: "Get work attestation and proof of legalty of work experience",
+  task_name: "Get Work Attestation and Proof of Legalty of Work Experience",
   priority: "low",
   task_status: true,
   recommended_task: false,
@@ -722,7 +729,7 @@ belis1_task5 = Task.create!(
 )
 belis1_task6 = Task.create!(
   user: belis1,
-  task_name: "Proof of temporary resident status in Quebec",
+  task_name: "Proof of Temporary Resident Status in Quebec",
   priority: "low",
   recommended_task: false,
 )
