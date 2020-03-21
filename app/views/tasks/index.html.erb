@@ -1,38 +1,5 @@
 <%= render 'shared/navbar' %>
   <div class="main-container">
-    <!-- USER JOURNEY -->
-    <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-      <h1>My Journey</h1>
-      <div class="row">
-        <h3>Percentage of completion: </h3>
-        <h3><strong><%= (@percent_completion.round(1) * 100).to_i %>%</strong></h3>
-      </div>
-
-      <!-- COMPLETED MILESTONES    -->
-      <div class="container-cols">
-        <% @milestones.each do |milestone| %>
-          <div class="row">
-            <p>
-              <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
-              <%= milestone.milestone_date %>
-              <% milestone.achieved %>
-            </p>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- DYNAMIC PROCESSING TIMES -->
-      <h2>Real time processing times</h2>
-      <p>Total journey time: <%= @total_processing_time %></p>
-      <div class="container-cols">
-        <p>CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p>PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p>Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p>PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p>PR Processing Time: <%= @total_av_processing_time %> months</p>
-      </div>
-    <% end %>
-
     <!-- PATH PLANNER -->
     <h2>Path planner</h2>
     <p>Here you can manage the tasks you need to complete on your journey.</p>
@@ -74,6 +41,7 @@
                 <% end %>
               <% end %>
             </div>
+
             <!-- TASK NAME -->
             <div id="task-name">
             <p><strong><%= task.task_name%></strong></p>
@@ -90,8 +58,8 @@
               <% end %>
             </div>
             <!-- TASK DELETE -->
-            <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash"></i>
+            <div id="task-action"><%= link_to task_path(task), method: :destroy do %>
+                <i class="fa fa-trash"></i>
               <% end %>
             </div>
           </div>
@@ -116,12 +84,12 @@
                 <% end %>
               <% end %>
             </div>
+
             <!-- TASK NAME -->
             <div id="task-name">
             <p><strong><%= task.task_name%></strong></p>
             </div>
           </div>
-
 
           <!-- TASK ACTIONS -->
           <div class="task-actions">
@@ -133,8 +101,8 @@
               <% end %>
             </div>
             <!-- TASK DELETE -->
-            <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash"></i>
+            <div id="task-action"><%= link_to task_path(task), method: :destroy do %>
+                <i class="fa fa-trash"></i>
               <% end %>
             </div>
           </div>
@@ -148,6 +116,7 @@
 
           <!-- TASK DETAILS -->
           <div class="task-details">
+
             <!-- TASK CHECKBOX -->
             <div id="status">
               <%= link_to mark_task_path(task), method: :patch do %>
@@ -158,6 +127,7 @@
                 <% end %>
               <% end %>
             </div>
+
             <!-- TASK NAME -->
             <div id="task-name">
             <p><strong><%= task.task_name%></strong></p>
@@ -174,14 +144,13 @@
               <% end %>
             </div>
             <!-- TASK DELETE -->
-            <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash"></i>
+            <div id="task-action"><%= link_to task_path(task), method: :destroy do %>
+                <i class="fa fa-trash"></i>
               <% end %>
             </div>
           </div>
         </div>
       <% end %>
-
 
     </div>
 

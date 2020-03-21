@@ -5,7 +5,7 @@ class MilestonesController < ApplicationController
 
   def update
     @milestone.update(milestone_params)
-    redirect_to tasks_path
+    redirect_to dashboard_path
   end
 
   private
