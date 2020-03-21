@@ -93,7 +93,7 @@ class TasksController < ApplicationController
     if @achieved_pr_milestones.count == 0
       @percent_completion = 0
     else
-      @percent_completion = (@achieved_pr_milestones.count - 1) * (1 / (@total_pr_milestones - 1).to_f)
+      @percent_completion = (@achieved_pr_milestones.count) * (1 / (@total_pr_milestones).to_f)
     end
 
     ## USER PR PROCESSING TIME ##
