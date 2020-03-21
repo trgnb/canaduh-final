@@ -5,3 +5,9 @@
   margin-bottom: 10px;
   width: 360px;
 }
+
+.value-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

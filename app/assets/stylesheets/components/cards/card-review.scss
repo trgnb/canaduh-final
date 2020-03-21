@@ -33,6 +33,12 @@
 
 
 // REVIEWS ON SERVICES SHOW
+.review-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
 .review-card {
   display:flex;
   flex-direction: column;

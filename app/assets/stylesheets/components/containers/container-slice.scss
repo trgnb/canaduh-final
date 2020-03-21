@@ -1,0 +1,26 @@
+.slice-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // min-height: 40vh;
+  margin-bottom: $bottom;
+
+  #black-line {
+      height: 0.2px;
+      opacity: 0.1;
+      width: 100%;
+      // margin-bottom: 3px;
+      background-color: $black;
+  }
+
+  h1 {
+    font-family: Helvetica, sans-serif;
+    font-size: $h1;
+    margin-bottom: ($bottom / 3);
+  }
+
+  h2 {
+    font-family: Helvetica, sans-serif;
+    font-size: $h2;
+  }
+}

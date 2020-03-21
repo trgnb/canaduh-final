@@ -1,9 +1,27 @@
+.dashboard-appointment-container {
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  // width: 90vw;
+  margin-bottom: $bottom;
+  border-radius: $border-radius;
+  background: $offwhite;
+  box-shadow: $dropshadow;
+  // opacity: 0.9;
+  transition: $transition;
 
+  // &:hover {
+  //     opacity: 1;
+  // }
 
+  h1 {
+    font-size: $h2;
+  }
 
-
-
-
+  h2 {
+    font-size: $h4;
+  }
+}
 
 
 .appointment-card-image {
