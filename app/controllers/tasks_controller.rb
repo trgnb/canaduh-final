@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i(edit update destroy mark_as_done add_to_checklist)
   before_action :set_path, only: %i(index add_to_checklist)
   before_action :set_milestones, only: %i(index)
+  before_action :set_db_milestones, only: %i(index)
 
   def index
     # USER #
@@ -23,6 +24,8 @@ class TasksController < ApplicationController
 
     # RECOMMENDED TASKS #
     @recommended_tasks = @tasks.where(recommended_task: true)
+
+    # DB MILESTONES #
   end
 
   def new
@@ -102,6 +105,7 @@ class TasksController < ApplicationController
       @pr2_processing_time = 0
       @pr3_processing_time = 0
       @pr_processing_time = 0
+
       @total_pr_processing_time = 0
     else
       @milestone1 = @achieved_pr_milestones.find_by order: 1
@@ -142,8 +146,6 @@ class TasksController < ApplicationController
         @milestone7_date = @milestone7.milestone_date
       end
 
-      # USER PR PROCESSING TIME #
-
       ## CSQ ##
       if @milestone1_date.nil? || @milestone2_date.nil?
         @csq_processing_time = 0
@@ -175,7 +177,50 @@ class TasksController < ApplicationController
         @milestone7.processing_time = TimeDifference.between(@milestone6_date, @milestone7_date).in_months.round
         @pr3_processing_time = @milestone7.processing_time
       end
+      ## TOTAL PR ##
       @total_pr_processing_time = @csq_processing_time + @pr1_processing_time + @pr2_processing_time + @pr3_processing_time
+    end
+  end
+
+  def set_db_milestones
+    if current_user.path_type = "permanent residency"
+      @db_pr_milestones = Milestone.all.where(milestone_path: current_user.path_type).where.not(processing_time: nil)
+      @db_pr_milestones2 = @db_pr_milestones.where(order: 2)
+      @db_pr_milestones5 = @db_pr_milestones.where(order: 5)
+      @db_pr_milestones6 = @db_pr_milestones.where(order: 6)
+      @db_pr_milestones7 = @db_pr_milestones.where(order: 7)
+
+      ## AVERAGE CSQ ##
+      @db_csq_processing_time = 0
+      @db_pr_milestones2.each do |db_pr_milestone2|
+        @db_csq_processing_time += db_pr_milestone2.processing_time
+      end
+      @av_db_csq_processing_time = @db_csq_processing_time / @db_pr_milestones2.count
+
+      ## AVERAGE PR1 ##
+      @db_pr1_processing_time = 0
+      @db_pr_milestones5.each do |db_pr_milestone5|
+        @db_pr1_processing_time += db_pr_milestone5.processing_time
+      end
+      @av_db_pr1_processing_time = @db_pr1_processing_time / @db_pr_milestones5.count
+
+      ## AVERAGE PR2 ##
+      @db_pr2_processing_time = 0
+      @db_pr_milestones6.each do |db_pr_milestone6|
+        @db_pr2_processing_time += db_pr_milestone6.processing_time
+      end
+      @av_db_pr2_processing_time = @db_pr2_processing_time / @db_pr_milestones6.count
+
+      ## AVERAGE PR3 ##
+      @db_pr3_processing_time = 0
+      @db_pr_milestones7.each do |db_pr_milestone7|
+        @db_pr3_processing_time += db_pr_milestone7.processing_time
+      end
+      @av_db_pr3_processing_time = @db_pr3_processing_time / @db_pr_milestones7.count
+
+      ## AVERAGE PR ##
+      @total_av_processing_time = @av_db_csq_processing_time + @av_db_pr1_processing_time + @av_db_pr2_processing_time + @av_db_pr3_processing_time
+    else
     end
   end
 end

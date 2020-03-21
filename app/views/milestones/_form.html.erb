@@ -1,5 +1,6 @@
 <%= form_for(@milestone) do |f| %>
   <%= f.text_field :milestone_date, class: 'datepicker' %>
   <%= f.hidden_field :achieved, value: 1 %>
+
 <%= f.submit "Add", class: "btn btn-primary"%>
 <% end %>
