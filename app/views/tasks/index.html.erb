@@ -57,32 +57,43 @@
       <% if @user_tasks.empty? %>
         <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
       <% else %>
-      <!-- TASK TABLE HEADER -->
+
     <!-- HIGH PRIORITY TASKS -->
     <div class="container-col">
       <% @high_priority_tasks.each do |task| %>
-        <div class="row">
-          <div class="card-task">
-          <!-- TASK CHECKBOX -->
-          <%= link_to mark_task_path(task), method: :patch do %>
-            <% if task.task_status %>
-                <i class="fa fa-check-square"></i>
-              <% else %>
-                <i class="fa fa-square"></i>
-            <% end %>
-          <% end %>
-          <!-- TASK NAME -->
-          <p><strong><%= task.task_name%></strong></p>
-          <!-- TASK PRIORITY -->
-          <p><%= task.priority %></p>
-          <!-- TASK EDIT -->
-          <%= link_to edit_task_path(task) do %>
-            <i class="fa fa-edit"></i>
-          <% end %>
-          <!-- TASK DELETE -->
-          <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fa fa-trash"></i>
-          <% end %>
+        <div class="card-task">
+          <!-- TASK DETAILS -->
+          <div class="task-details">
+            <!-- TASK CHECKBOX -->
+            <div id="status">
+              <%= link_to mark_task_path(task), method: :patch do %>
+                <% if task.task_status %>
+                  <i class="fa fa-check-square"></i>
+                <% else %>
+                  <i class="fa fa-square"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- TASK NAME -->
+            <div id="task-name">
+            <p><strong><%= task.task_name%></strong></p>
+            </div>
+          </div>
+
+          <!-- TASK ACTIONS -->
+          <div class="task-actions">
+            <!-- TASK PRIORITY -->
+            <div id="task-action"><%= task.priority %></div>
+            <!-- TASK EDIT -->
+            <div id="task-action"><%= link_to edit_task_path(task) do %>
+              <i class="fa fa-edit"></i>
+              <% end %>
+            </div>
+            <!-- TASK DELETE -->
+            <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
@@ -91,58 +102,88 @@
     <!-- MEDIUM PRIORITY TASKS -->
     <div class="container-col">
       <% @medium_priority_tasks.each do |task| %>
-        <div class="row">
-          <!-- TASK CHECKBOX -->
-          <%= link_to mark_task_path(task), method: :patch do %>
-            <% if task.task_status %>
-              <i class="fa fa-check-square"></i>
-            <% else %>
-              <i class="fa fa-square"></i>
-            <% end %>
-          <% end %>
-          <!-- TASK NAME -->
-          <p><strong><%= task.task_name%></strong></p>
-          <!-- TASK PRIORITY -->
-          <p><%= task.priority %></p>
-          <!-- TASK EDIT -->
-          <%= link_to edit_task_path(task) do %>
-            <i class="fa fa-edit"></i>
-          <% end %>
-          <!-- TASK DELETE -->
-          <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fa fa-trash"></i>
-          <% end %>
+        <div class="card-task">
+
+          <!-- TASK DETAILS -->
+          <div class="task-details">
+            <!-- TASK CHECKBOX -->
+            <div id="status">
+              <%= link_to mark_task_path(task), method: :patch do %>
+                <% if task.task_status %>
+                  <i class="fa fa-check-square"></i>
+                <% else %>
+                  <i class="fa fa-square"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- TASK NAME -->
+            <div id="task-name">
+            <p><strong><%= task.task_name%></strong></p>
+            </div>
+          </div>
+
+
+          <!-- TASK ACTIONS -->
+          <div class="task-actions">
+            <!-- TASK PRIORITY -->
+            <div id="task-action"><%= task.priority %></div>
+            <!-- TASK EDIT -->
+            <div id="task-action"><%= link_to edit_task_path(task) do %>
+              <i class="fa fa-edit"></i>
+              <% end %>
+            </div>
+            <!-- TASK DELETE -->
+            <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
         </div>
       <% end %>
-    </div>
 
-      <!-- LOW PRIORITY TASKS -->
-      <div class="container-col">
-        <% @low_priority_tasks.each do |task| %>
-          <div class="row">
+    <!-- LOW PRIORITY TASKS -->
+    <div class="container-col">
+      <% @low_priority_tasks.each do |task| %>
+        <div class="card-task">
+
+          <!-- TASK DETAILS -->
+          <div class="task-details">
             <!-- TASK CHECKBOX -->
-            <%= link_to mark_task_path(task), method: :patch do %>
-              <% if task.task_status %>
-                <i class="fa fa-check-square"></i>
-              <% else %>
-                <i class="fa fa-square"></i>
+            <div id="status">
+              <%= link_to mark_task_path(task), method: :patch do %>
+                <% if task.task_status %>
+                  <i class="fa fa-check-square"></i>
+                <% else %>
+                  <i class="fa fa-square"></i>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
             <!-- TASK NAME -->
+            <div id="task-name">
             <p><strong><%= task.task_name%></strong></p>
-            <!-- TASK PRIORITY -->
-            <p><%= task.priority %></p>
-            <!-- TASK EDIT -->
-            <%= link_to edit_task_path(task) do %>
-              <i class="fa fa-edit"></i>
-            <% end %>
-            <!-- TASK DELETE -->
-            <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash"></i>
-            <% end %>
+            </div>
           </div>
-        <% end %>
-      </div>
+
+          <!-- TASK ACTIONS -->
+          <div class="task-actions">
+            <!-- TASK PRIORITY -->
+            <div id="task-action"><%= task.priority %></div>
+            <!-- TASK EDIT -->
+            <div id="task-action"><%= link_to edit_task_path(task) do %>
+              <i class="fa fa-edit"></i>
+              <% end %>
+            </div>
+            <!-- TASK DELETE -->
+            <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+    </div>
 
     <div class="appointment-actions">
       <!-- <button class="btn-appointment"><%#= link_to new_task_path  do %>Add a new task<% end %></button> -->
