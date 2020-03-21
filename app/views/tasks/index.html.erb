@@ -1,148 +1,148 @@
 <%= render 'shared/navbar' %>
   <div class="main-container">
-    <!-- TIMELINE -->
-      <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-        <h1>My Journey</h1>
+    <!-- USER JOURNEY -->
+    <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
+      <h1>My Journey</h1>
+      <div class="row">
+        <h3>Percentage of completion: </h3>
+        <h3><strong><%= (@percent_completion.round(1) * 100).to_i %>%</strong></h3>
+      </div>
 
-          <p>Percentage of completion: <%= (@percent_completion.round(1) * 100).to_i %> %</p>
-            <% @milestones.each do |milestone| %>
-              <ul>
-                <li>
-                  <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
-                  <%= milestone.milestone_date %>
-                  <% milestone.achieved %>
-                </li>
-              </ul>
-            <% end %>
-        <br>
-<!--           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 17%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= @csq_processing_time %> month</div>
-            <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 17%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr1_processing_time %> months</div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 17%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr2_processing_time %> months</div>
-            <div class="progress-bar bg-info" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><%= @pr3_processing_time %> months</div>
-          </div> -->
-            <p>Real time processing time: <%= @total_processing_time %></p>
-            <ol>
-              <li>CSQ Reception: <%= @av_db_csq_processing_time %> months</li>
-              <li>PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</li>
-              <li>Medical Exam: <%= @av_db_pr2_processing_time %> months</li>
-              <li>PR Reception: <%= @av_db_pr3_processing_time %> months</li>
-              <li>PR Processing Time: <%= @total_av_processing_time %> months</li>
-            </ol>
+      <!-- COMPLETED MILESTONES    -->
+      <div class="container-cols">
+        <% @milestones.each do |milestone| %>
+          <div class="row">
+            <p>
+              <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
+              <%= milestone.milestone_date %>
+              <% milestone.achieved %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- DYNAMIC PROCESSING TIMES -->
+      <h2>Real time processing times</h2>
+      <p>Total journey time: <%= @total_processing_time %></p>
+      <div class="container-cols">
+        <p>CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
+        <p>PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
+        <p>Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
+        <p>PR Reception: <%= @av_db_pr3_processing_time %> months</p>
+        <p>PR Processing Time: <%= @total_av_processing_time %> months</p>
       </div>
     <% end %>
 
     <!-- PATH PLANNER -->
-      <h1>Path planner</h1>
-      <p>Here you can manage the tasks you need to complete on your journey.</p>
+    <h2>Path planner</h2>
+    <p>Here you can manage the tasks you need to complete on your journey.</p>
 
     <!-- RECOMMENDED TASKS -->
-        <% if @current_user.user_type == "user"%>
-          <h2>Recommended tasks</h2>
-          <p>These are recommended tasks for your path.</p>
+    <% if @current_user.user_type == "user"%>
+      <h2>Recommended tasks</h2>
+      <p>These are recommended tasks for your path.</p>
 
-          <% @recommended_tasks.each do |recommended_task| %>
-            <div class="planner-row">
-              <strong><%= recommended_task.task_name%></strong>
-              <%= link_to add_to_checklist_path(recommended_task), method: :patch do %>
-                <i class="fa fa-plus"></i>
-              <% end %>
-            </div>
-          <% end %>
-        <% end %>
-      <!-- </div> -->
-
-      <!-- MY TASKS LIST -->
-      <h2>Task list</h2>
-        <% if @user_tasks.empty? %>
-          <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
-
-        <% else %>
-        <!-- TASK TABLE HEADER -->
+      <% @recommended_tasks.each do |recommended_task| %>
         <div class="planner-row">
-          <p>Status</p>
-          <p>Description</p>
-          <p>Priority</p>
-          <p>Edit</p>
-          <p>Delete</p>
+          <strong><%= recommended_task.task_name%></strong>
+          <%= link_to add_to_checklist_path(recommended_task), method: :patch do %>
+            <i class="fa fa-plus"></i>
+          <% end %>
         </div>
-        <!-- HIGH PRIORITY TASKS -->
-        <% @high_priority_tasks.each do |task| %>
-          <div class="planner-container">
-            <div class="planner-row">
-              <!-- TASK CHECKBOX -->
-              <%= link_to mark_task_path(task), method: :patch do %>
-                <% if task.task_status %>
-                    <i class="fa fa-check-square"></i>
-                  <% else %>
-                    <i class="fa fa-square"></i>
-                  <% end %>
-                <% end %>
-              <!-- TASK NAME -->
-              <strong><%= task.task_name%></strong>
-              <!-- TASK PRIORITY -->
-              <p><%= task.priority %></p>
-              <!-- TASK EDIT -->
-              <%= link_to edit_task_path(task) do %><i class="fa fa-edit"></i><% end %>
-              <!-- TASK DELETE -->
-              <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-                <i class="fa fa-trash"></i>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-        <!-- MEDIUM PRIORITY TASKS -->
-        <% @medium_priority_tasks.each do |task| %>
-            <div class="planner-row">
-            <!-- TASK CHECKBOX -->
-            <%= link_to mark_task_path(task), method: :patch do %>
-              <% if task.task_status %>
-                  <i class="fa fa-check-square"></i>
-                <% else %>
-                  <i class="fa fa-square"></i>
-                <% end %>
-              <% end %>
-            <!-- TASK NAME -->
-            <strong><%= task.task_name%></strong>
-            <!-- TASK PRIORITY -->
-            <p><%= task.priority %></p>
-            <!-- TASK EDIT -->
-            <%= link_to edit_task_path(task) do %><i class="fa fa-edit"></i><% end %>
-            <!-- TASK DELETE -->
-            <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash"></i>
-            <% end %>
-          </div>
-        <% end %>
+      <% end %>
+    <% end %>
 
-          <% @low_priority_tasks.each do |task| %>
-            <div class="planner-row">
+    <!-- MY TASKS LIST -->
+    <h2>Task list</h2>
+      <% if @user_tasks.empty? %>
+        <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
+      <% else %>
+      <!-- TASK TABLE HEADER -->
+    <!-- HIGH PRIORITY TASKS -->
+    <div class="container-col">
+      <% @high_priority_tasks.each do |task| %>
+        <div class="row">
+          <!-- TASK CHECKBOX -->
+          <%= link_to mark_task_path(task), method: :patch do %>
+            <% if task.task_status %>
+                <i class="fa fa-check-square"></i>
+              <% else %>
+                <i class="fa fa-square"></i>
+            <% end %>
+          <% end %>
+          <!-- TASK NAME -->
+          <p><strong><%= task.task_name%></strong></p>
+          <!-- TASK PRIORITY -->
+          <p><%= task.priority %></p>
+          <!-- TASK EDIT -->
+          <%= link_to edit_task_path(task) do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+          <!-- TASK DELETE -->
+          <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- MEDIUM PRIORITY TASKS -->
+    <div class="container-col">
+      <% @medium_priority_tasks.each do |task| %>
+        <div class="row">
+          <!-- TASK CHECKBOX -->
+          <%= link_to mark_task_path(task), method: :patch do %>
+            <% if task.task_status %>
+              <i class="fa fa-check-square"></i>
+            <% else %>
+              <i class="fa fa-square"></i>
+            <% end %>
+          <% end %>
+          <!-- TASK NAME -->
+          <p><strong><%= task.task_name%></strong></p>
+          <!-- TASK PRIORITY -->
+          <p><%= task.priority %></p>
+          <!-- TASK EDIT -->
+          <%= link_to edit_task_path(task) do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+          <!-- TASK DELETE -->
+          <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+      <!-- LOW PRIORITY TASKS -->
+      <div class="container-col">
+        <% @low_priority_tasks.each do |task| %>
+          <div class="row">
             <!-- TASK CHECKBOX -->
             <%= link_to mark_task_path(task), method: :patch do %>
               <% if task.task_status %>
-                  <i class="fa fa-check-square"></i>
-                <% else %>
-                  <i class="fa fa-square"></i>
-                <% end %>
+                <i class="fa fa-check-square"></i>
+              <% else %>
+                <i class="fa fa-square"></i>
               <% end %>
+            <% end %>
             <!-- TASK NAME -->
-            <strong><%= task.task_name%></strong>
+            <p><strong><%= task.task_name%></strong></p>
             <!-- TASK PRIORITY -->
             <p><%= task.priority %></p>
             <!-- TASK EDIT -->
-            <%= link_to edit_task_path(task) do %><i class="fa fa-edit"></i><% end %>
+            <%= link_to edit_task_path(task) do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
             <!-- TASK DELETE -->
             <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fa fa-trash"></i>
             <% end %>
           </div>
         <% end %>
-        <% end %>
-        <div class="appointment-actions">
-          <button class="btn-appointment"> <%= link_to new_task_path  do %>Add a new task<% end %> </button>
-        </div>
       </div>
+
+    <div class="appointment-actions">
+      <!-- <button class="btn-appointment"><%#= link_to new_task_path  do %>Add a new task<% end %></button> -->
     </div>
   </div>
