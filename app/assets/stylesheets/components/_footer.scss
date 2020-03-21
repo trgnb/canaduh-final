@@ -8,9 +8,7 @@
   color: $offwhite;
 }
 
-.footer-column {
-  display: flex;
-  flex-direction: column;
+.footer .col {
   margin-right: 120px;
   text-decoration: none;
 
@@ -31,17 +29,14 @@
   }
 }
 
-.footer-link {
+.footer .link {
 color: $white !important;
 
   a {
-    color: #f9fafb !important;
+    color: $white !important;
     opacity: 1;
     text-decoration: none;
     font-size: 24px;
     padding: 0px 10px;
   }
 }
-
-
-
