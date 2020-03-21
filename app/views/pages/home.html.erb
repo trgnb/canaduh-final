@@ -1,8 +1,9 @@
 <%= render 'shared/navbar' %>
+
+<!-- HEREO BANNER WITH ONBOARDING FORM -->
 <div class="hero-container" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)), url(<%= image_path 'herobanner.png' %>);">
   <div class="banner">
     <div class="hero-form" style="background-image: url(<%= image_path 'tempform.png' %>);">
-
     </div>
   </div>
 </div>
@@ -14,7 +15,7 @@
     <h2>What people are saying about services at Canaduh</h2>
     <p><i class="fas fa-ribbon" style="color: red; font-size: 21px;"></i> Canaduh services were rated <strong>4.7 out of 5 stars</strong> with <strong>3,000+ reviews</strong></p>
     <!-- REVIEW CARDS -->
-    <div class="card-row">
+    <div class="row">
       <div class="card-review">
         <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242431/John_Doe_advisor.jpg">
         <h1>John Doe</h1>
@@ -41,32 +42,36 @@
       </div>
     </div>
   </div>
+
   <!-- VALUE PROPS -->
   <div class="slice-container">
     <h2>Immigration with Canaduh</h2>
     <hr id="black-line">
     <div class="value-container">
-      <div class="value-card">
-        <i class="fas fa-tasks" style="color: red; font-size: 36px;"></i>
-        <br>
-        <p><strong>Plan smarter</strong></p>
-        <p>Stay on track with a task manager and path planner. Personalized task recommendations guide the way to success.</p>
-      </div>
-      <div class="value-card">
-        <i class="fas fa-users" style="color: red; font-size: 36px;"></i>
-        <br>
-        <p><strong>Support community</strong></p>
-        <p>Find companionship on your path by connecting with people that share your journey.</p>
-      </div>
-      <div class="value-card">
-        <i class="fas fa-award" style="color: red; font-size: 36px;"></i>
-        <br>
-        <p><strong>Expert advisors</strong></p>
-        <p>Get immigration services from qualified professionals. Book an appointment directly onsite to discuss the most suitable path for your entry to Canada.</p>
+      <div class="row">
+        <div class="value-card">
+          <i class="fas fa-tasks" style="color: red; font-size: 36px;"></i>
+          <br>
+          <p><strong>Plan smarter</strong></p>
+          <p>Stay on track with a task manager and path planner. Personalized task recommendations guide the way to success.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-users" style="color: red; font-size: 36px;"></i>
+          <br>
+          <p><strong>Support community</strong></p>
+          <p>Find companionship on your path by connecting with people that share your journey.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-award" style="color: red; font-size: 36px;"></i>
+          <br>
+          <p><strong>Expert advisors</strong></p>
+          <p>Get immigration services from qualified professionals. Book an appointment directly onsite to discuss the most suitable path for your entry to Canada.</p>
+        </div>
       </div>
     </div>
     <hr id="black-line">
   </div>
+
   <!-- GET STARTED BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/p-m-b/image/upload/v1582387301/canaduh/banner_dyx0ad.png);">
       <div class="banner">
@@ -76,26 +81,27 @@
         <a class="btn-cta-outline" href="/dashboard">Get started</a>
       </div>
   </div>
+
   <!-- SERVICES BY PATH CARDS -->
   <div class="slice-container">
     <h2>Browse services by path</h2>
-          <div class="card-row">
-            <a class="card-path" href="/services.15?query=student+visa&commit=Search" style="background-image: url(<%= image_path 'student-visa-path.jpg' %>)">
-              <hr>
-              <h1>STUDENT VISA</h1>
-            </a>
-            <a class="card-path" href="/services.15?query=work+visa&commit=Search" style="background-image: url(<%= image_path 'work-visa-path.jpg' %>)">
-              <hr>
-              <h1>WORK VISA</h1>
-            </a>
-            <a class="card-path" href="/services.15?query=permanent+residency&commit=Search" style="background-image: url(<%= image_path 'permanent-residency-path.jpg' %>)">
-              <hr>
-              <h1>PERMANENT RESIDENCY</h1>
-            </a>
-            <a class="card-path" href="/services.15?query=canadian+citizenship&commit=Search" style="background-image: url(<%= image_path 'citizenship-path.jpg' %>)">
-              <hr>
-              <h1>CANADIAN CITIZENSHIP</h1>
-            </a>
-          </div>
+    <div class="row">
+      <a class="card-path" href="/services.15?query=student+visa&commit=Search" style="background-image: url(<%= image_path 'student-visa-path.jpg' %>)">
+        <hr>
+        <h1>STUDENT VISA</h1>
+      </a>
+      <a class="card-path" href="/services.15?query=work+visa&commit=Search" style="background-image: url(<%= image_path 'work-visa-path.jpg' %>)">
+        <hr>
+        <h1>WORK VISA</h1>
+      </a>
+      <a class="card-path" href="/services.15?query=permanent+residency&commit=Search" style="background-image: url(<%= image_path 'permanent-residency-path.jpg' %>)">
+        <hr>
+        <h1>PERMANENT RESIDENCY</h1>
+      </a>
+      <a class="card-path" href="/services.15?query=canadian+citizenship&commit=Search" style="background-image: url(<%= image_path 'citizenship-path.jpg' %>)">
+        <hr>
+        <h1>CANADIAN CITIZENSHIP</h1>
+      </a>
+    </div>
   </div>
 </div>
