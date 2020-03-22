@@ -114,40 +114,19 @@
     <% end %>
   </div>
 
-
-
-
-
-  <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
-  <p>User' processing time: <%= @total_processing_time %></p>
-  <ol>
-    <li>CSQ Reception: <%= @csq_processing_time %> months</li>
-    <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
-    <li>Medical Exam: <%= @pr2_processing_time %> months</li>
-    <li>PR Reception: <%= @pr3_processing_time %> months</li>
-    <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
-  </ol>
-  <br>
-
-
 <!-- GET STARTED BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
-      <div class="container-cols">
-        <h2>Delay time insights from the community</h2>
-        <h4>Total journey time: <%= @total_processing_time %></h4>
-      <div class="container-cols">
-        <p class="card-task">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p class="card-task">PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p class="card-task">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p class="card-task">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p class="card-task">PR Processing Time: <%= @total_av_processing_time %> months</p>
-      </div>
+      <div class="banner">
+        <h2>Insights from the community</h2>
+        <h4>Estimated time to <strong><%= @current_user.path_type.capitalize %></strong>: <%= @total_processing_time %></h4>
+        <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
+        <p class="card-milestone">PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
+        <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
+        <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
+        <p class="card-milestone">PR Processing Time: <%= @total_av_processing_time %> months</p>
     <% end %>
       </div>
   </div>
-
-
-
 
   <!-- IF THE USER IS ADVISOR DISPLAY ADVISOR BOOKINGS -->
   <% if @current_user.user_type == "advisor" %>
@@ -198,6 +177,22 @@
     <% end %>
   <% else %>
   <% end %>
+
+
+
+  <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
+  <p>User' processing time: <%= @total_processing_time %></p>
+  <ol>
+    <li>CSQ Reception: <%= @csq_processing_time %> months</li>
+    <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
+    <li>Medical Exam: <%= @pr2_processing_time %> months</li>
+    <li>PR Reception: <%= @pr3_processing_time %> months</li>
+    <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
+  </ol>
+  <br>
+
+
+
 
 </div>
 
