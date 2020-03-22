@@ -1,5 +1,11 @@
 <%= render 'shared/navbar' %>
-<h1>Inbox</h1>
+<div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
+  <div class="banner">
+    <h1 style="margin-bottom: 5px;"><%= @current_user.first_name %> messages</h1>
+    <p>Messages from your friends, family and advisors.</p>
+  </div>
+</div>
+<div class="main-container">
 <!-- //SHOWS ONLY THE UNREAD MESSAGES -->
 <h2>Unread Messages</h2>
 <ul>
@@ -23,3 +29,4 @@
     <% end %>
   <% end %>
 </ul>
+</div>
