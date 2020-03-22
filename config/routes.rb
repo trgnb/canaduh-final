@@ -23,6 +23,7 @@ end
   patch 'tasks/:id/add_to_checklist', to: 'tasks#add_to_checklist', as: :add_to_checklist
 
   resources :milestones, only: [:edit, :update]
+  patch 'miletoness/:id/', to: 'milestoness#update'
 
   get "dashboard", to: "pages#dashboard"
   delete "dashboard", to: "pages#destroy"

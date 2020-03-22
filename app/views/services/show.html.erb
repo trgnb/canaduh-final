@@ -79,7 +79,7 @@
                 <p><%= review.content %> - <em><%= review.user.first_name %></em></p>
               </div>
             </div>
-                <p><%= review.user.first_name %> <%= review.created_at %></p>
+                <p>from <strong><%= review.user.first_name %></strong> on <%= review.created_at.strftime('%B %e, %Y')  %></p>
               </div>
             <% end %>
 
