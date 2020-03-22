@@ -7,7 +7,6 @@
 </div>
 
 <div class="main-container">
-
   <!-- JOURNEY AND MILESTONES -->
   <div class="slice-container">
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
@@ -16,7 +15,6 @@
         <h4>Journey progress: </h4>
         <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
       </div>
-
     <!-- COMPLETED MILESTONES    -->
     <div class="container-cols">
       <% @milestones.each do |milestone| %>
@@ -31,10 +29,10 @@
           </div>
           <div class="task-actions">
             <% if milestone.achieved == true %>
-            <%= milestone.milestone_date.to_time.strftime('%B %e') %>
-            <!-- <#% milestone.achieved %> -->
+              <%= milestone.milestone_date.to_time.strftime('%B %e') %>
+              <!-- <#% milestone.achieved %> -->
             <% else %>
-            In progress
+              In progress
             <% end %>
           </div>
         </div>
@@ -42,47 +40,46 @@
     </div>
   </div>
 
-<!-- TASK REMINDER -->
-<div class="slice-container">
-  <div class="row">
-    <h4>Path planner</h4>
-  </div>
-  <% if @high_priority_tasks.empty? %>
+  <!-- TASK REMINDER -->
+  <div class="slice-container">
     <div class="row">
-      <p>No outstanding high priority tasks</p>
+      <h4>Path planner</h4>
     </div>
-  <% else %>
-    <% @high_priority_tasks.each do |task| %>
-      <div class="card-task">
-        <div class="task-details">
-        <!-- TASK NAME -->
-        <div id="task-name">
-        <p><strong><%= task.task_name%></strong></p>
-        </div>
-        </div>
-        <!-- TASK ACTIONS -->
-        <div class="task-actions">
-          <!-- TASK PRIORITY -->
-          <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
-          <!-- TASK EDIT -->
-          <div id="task-action"><%= link_to edit_task_path(task) do %>
-            <i class="fa fa-edit"></i>
-            <% end %>
-          </div>
-          <!-- TASK DELETE -->
-          <!-- TODO REDIRECT STAYS ON DASHBOARD -->
-          <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fa fa-trash"></i>
-            <% end %>
-          </div>
-        </div>
+    <% if @high_priority_tasks.empty? %>
+      <div class="row">
+        <p>No outstanding high priority tasks</p>
       </div>
+    <% else %>
+      <% @high_priority_tasks.each do |task| %>
+        <div class="card-task">
+          <div class="task-details">
+            <!-- TASK NAME -->
+            <div id="task-name">
+              <p><strong><%= task.task_name%></strong></p>
+            </div>
+          </div>
+          <!-- TASK ACTIONS -->
+          <div class="task-actions">
+            <!-- TASK PRIORITY -->
+            <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+            <!-- TASK EDIT -->
+            <div id="task-action"><%= link_to edit_task_path(task) do %>
+              <i class="fa fa-edit"></i>
+              <% end %>
+            </div>
+            <!-- TASK DELETE -->
+            <!-- TODO REDIRECT STAYS ON DASHBOARD -->
+            <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-    <br>
-  <%= link_to "Full list", "/tasks", class: "btn-cta" %>
-   </div>
-
+      <br>
+    <%= link_to "Full list", "/tasks", class: "btn-cta" %>
+  </div>
 
   <!-- USER APPOINTMENTS -->
   <div class="slice-container">
@@ -90,18 +87,29 @@
       <h4>Upcoming appointments</h4>
       <% if @appointments.empty? %>
         <p>No scheduled appointments</p>
+        <br>
+        <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
         <% @appointments.each do |appointment| %>
           <div class="card-inline-appointment">
-            <div class="appointment-details">
-              <div id="appointment-type"><strong><%= Service.find(appointment.service_id).service_type.upcase %></strong></div>
-              <div id="advisor-name">with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></div>
-              <!-- TODO ADD CONNECT AND MESSAGE BUTTONS -->
+            <div class="row">
+              <%= image_tag Service.find(appointment.service_id).user.imgUrl, class: "avatar" %>
+              <div class="appointment-details">
+                <div id="appointment-type"><strong><%= Service.find(appointment.service_id).service_type.upcase %></strong></div>
+                <div class="row">
+                  <div id="advisor-name">with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %>
+                  </div>
+                  <div id="chat-icon">
+                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Service.find(appointment.service_id).user.id), method: :post do %>
+                    <i class="far fa-comment-alt"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
-
             <div class="appointment-schedule">
               <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e at %l:%M %p')  %></div>
-              <div id="appointment-status"><strong><%= appointment.status.capitalize %></strong></div>
+              <div id="appointment-status"><strong>Status: </strong><%= appointment.status.capitalize %></div>
               <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
             </div>
           </div>
@@ -114,11 +122,13 @@
     <% end %>
   </div>
 
-<!-- GET STARTED BANNER -->
+
+<!-- COMMUNITY INSIGHTS BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
       <div class="banner">
         <h2>Insights from the community</h2>
         <h4>Estimated time to <strong><%= @current_user.path_type.capitalize %></strong>: <%= @total_processing_time %></h4>
+        <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
         <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
         <p class="card-milestone">PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
         <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
@@ -130,36 +140,61 @@
 
   <!-- IF THE USER IS ADVISOR DISPLAY ADVISOR BOOKINGS -->
   <% if @current_user.user_type == "advisor" %>
+    <div class="slice-container">
     <!-- // ADVISOR BOOKINGS -->
-    <h2>Bookings and appointments</h2>
-    <% if @advisor_appointments.empty? %>
-      <p>No appointments scheduled yet</p>
-    <% else %>
-      <% @advisor_appointments.each do |appointment| %>
-        <div class="card-appointment">
-          <% service = Service.find(appointment.service_id) %>
-          <h1><%= service.service_type.upcase %></h1>
-          <div class="image">
-            <img src="<%= service.user.imgUrl %>">
-          </div>
-          <p><strong>Advisor:</strong> <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %></p>
-          <p><strong>Immigration path:</strong> <%= service.path %></p>
-          <p><strong>Date:</strong> <%= appointment.date %></p>
-          <p id="appointment-status"><strong>Status:</strong> <%= appointment.status.capitalize %></p>
-          <% if appointment.status == 'declined' %>
-            <pre><%= link_to "Delete", service_appointment_path(service, appointment), method: :delete %></pre>
-          <% end %>
-          <% if appointment.status == 'pending confirmation' %>
-            <div class="appointment-actions">
-             <button class="btn-appointment"> <%= link_to "Confirm", service_appointment_path(service, appointment, status: :confirmed), method: :patch %> </button>
-             <button class="btn-appointment"> <%= link_to 'Decline', service_appointment_path(service, appointment, status: :declined), method: :patch %> </button>
+      <h2>Scheduled appointments</h2>
+      <% if @advisor_appointments.empty? %>
+        <p>No appointments scheduled yet</p>
+      <% else %>
+        <% @advisor_appointments.each do |appointment| %>
+          <div class="card-inline-appointment">
+            <div class="row">
+              <%= image_tag User.find(appointment.user_id).imgUrl, class: "avatar" %>
+            <div class="appointment-details">
+              <div id="appointment-type">
+                <strong><%= Service.find(appointment.service_id).service_type.upcase %></strong>
+              </div>
+              <div id="advisor-name">
+                with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
+              </div>
             </div>
-          <% end %>
-        </div>
-      <% end %>
+            </div>
+            <div class="appointment-schedule">
+              <div id="appointment-date">
+                <strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e at %l:%M %p')  %>
+              </div>
+              <div id="appointment-status">
+                <strong>Status:</strong> <%= appointment.status.capitalize %>
+              </div>
+              <% if appointment.status == 'declined' %>
+
+              <!-- TO DO NEEDS TO BE FIXED -->
+
+                <!-- <pre><#%= link_to "Delete", service_appointment_path(service, appointment), method: :delete %></pre> -->
+
+              <% end %>
+              <% if appointment.status == 'pending confirmation' %>
+                <div class="appointment-actions">
+
+                  <!-- TODO NEEDS TO BE FIXED -->
+
+                  <!-- <button class="btn-cta"> <#%= link_to "Confirm", service_appointment_path(service, appointment, status: :confirmed), method: :patch %> </button> -->
+                  <!-- <button class="btn-appointment"> <#%= link_to 'Decline', service_appointment_path(service, appointment, status: :declined), method: :patch %> </button> -->
+
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+    </div>
   <% end %>
 
+<!-- TODO SEND TO PROFILE PAGE -->
+<br>
+<br>
+<br>
   <!-- // CONFIGURED ADVISOR SERVICES -->
+  <div class="slice-container">
     <h2>Your active services</h2>
     <% if @services.empty? %>
       <p>No services</p>
@@ -177,6 +212,7 @@
     <% end %>
   <% else %>
   <% end %>
+  </div>
 
 
 
@@ -190,9 +226,5 @@
     <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
   </ol>
   <br>
-
-
-
-
 </div>
 

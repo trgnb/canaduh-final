@@ -16,4 +16,20 @@
 
 .nav-item {
   margin: 0px 14px;
+  position: relative;
+}
+
+#notifications-count {
+  position: absolute;
+  top: 8px;
+  left: 70px;
+  color: $white;
+  background-color: $red;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  justify-content: center;
+  text-align: center;
+  font-size: 8px;
+
 }
