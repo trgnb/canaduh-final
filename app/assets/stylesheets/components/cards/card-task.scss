@@ -12,15 +12,17 @@
   opacity: 0.9;
   transition: $transition;
 
-    &:hover {
-      opacity: 1;
-    }
+  &:hover {
+    opacity: 1;
+  }
 
     a {
       color: $black;
+
+      &:hover {
+        color: $red;
+      }
     }
-
-
 
   .task-details {
     display: flex;

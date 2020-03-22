@@ -24,9 +24,9 @@
             <% if milestone.achieved == true %>
               <i class="fas fa-check" id="status"></i>
             <% else %>
-              <i class="fas fa-times" id="status"></i>
+              <i class="fas fa-times" id="status" style="color: black;"></i>
             <% end %>
-            <div id="status"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></div>
+            <div id="milestone"><strong><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></strong></div>
           </div>
           <div class="task-actions">
             <% if milestone.achieved == true %>
