@@ -1,21 +1,32 @@
 <%= render 'shared/navbar' %>
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
-    <h1 style="margin-bottom: 5px;"><%= @current_user.first_name %> messages</h1>
+    <h1 style="margin-bottom: 5px;"><%= @current_user.first_name %>'s messages</h1>
     <p>Messages from your friends, family and advisors.</p>
   </div>
 </div>
 <div class="main-container">
 <!-- //SHOWS ONLY THE UNREAD MESSAGES -->
-<h2>Unread Messages</h2>
-<ul>
-  <% @conversations.each do |conversation| %>
-      <% if !conversation.unread_private_message_count(current_user).zero? %>
-          <li> <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
-        (<%= conversation.unread_private_message_count(current_user) %>)
-      <% end %> </li>
-  <% end %>
-</ul>
+<div class="slice-container">
+  <h2>Unread messages</h2>
+
+    <% @conversations.each do |conversation| %>
+        <!-- <#% if !conversation.unread_private_message_count(current_user).zero? %> -->
+          <div class="card-unreadmessage">
+            <div class="message-details">
+              <div class="row">
+                <div class="avatar">
+                  <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
+                </div>
+                <div id="message-preview"><%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name + ' says ' + '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation) %>
+                (<%= conversation.unread_private_message_count(current_user) %>)
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- <#% end %> -->
+    <% end %>
+</div>
 
 <!-- //SHOWS ONLY THE USERS YOU STARTED A CHAT WITH -->
 <!-- // FILTERS CONNECTIONS for users; you can only see people who you messaged/who messaged you-->

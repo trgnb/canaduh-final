@@ -1,0 +1,61 @@
+.card-unreadmessage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0px 16px;
+  margin-bottom: 8px;
+  background: $white;
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .avatar {
+    margin-right: 20px;
+  }
+
+  .message-details {
+    display: flex;
+    flex-direction: column;
+
+    #message-preview {
+      color: $black;
+    }
+
+    #appointment-type {
+
+    }
+
+    #advisor-name {
+
+    }
+
+    // p {
+    //   margin: 0;
+    // }
+  }
+
+  .appointment-schedule {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #appointment-date {
+      margin-right: 20px;
+    }
+
+    #appointment-status {
+
+    }
+  }
+
+  i {
+      color: $red;
+    }
+}
