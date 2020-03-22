@@ -1,7 +1,6 @@
-.card-inline-appointment {
+.card-connection {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   height: 64px;
   padding: 0px 16px;
@@ -17,38 +16,21 @@
   }
 
   .avatar {
-    margin-right: 20px;
+    margin-right: 8px;
     align-self: center;
   }
 
-  .appointment-details {
+  .connection-details {
     display: flex;
     flex-direction: column;
 
-    #appointment-type {
-
+    .row {
+      justify-content: flex-start;
     }
 
-    #advisor-name {
-
-    }
-  }
-
-  .appointment-schedule {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    #appointment-date {
-      margin-right: 20px;
-    }
-
-    #appointment-status {
-
+    #recipient-name {
+      font-weight: bold;
+      color: $black;
     }
   }
-
-  i {
-      color: $red;
-    }
 }

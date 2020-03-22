@@ -1,55 +1,72 @@
 <%= render 'shared/navbar' %>
+<!-- MESSGE BANNER -->
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;"><%= @current_user.first_name %>'s messages</h1>
     <p>Messages from your friends, family and advisors.</p>
   </div>
 </div>
+
 <div class="main-container">
-<!-- //SHOWS ONLY THE UNREAD MESSAGES -->
-<div class="slice-container">
-  <h2>Unread messages</h2>
+<!-- //SHOWS UNREAD MESSAGES -->
+  <div class="slice-container">
+    <h2>Unread messages</h2>
+      <% @conversations.each do |conversation| %>
+        <!-- <#% if !conversation.unread_private_message_count(current_user).zero? %> -->
+          <div class="card-unreadmessage">
+            <div class="message-details">
+              <div class="row">
+                <div class="avatar">
+                  <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
+                </div>
+                <div id="message-preview">
+                  <div class="col">
+                    <div class="row">
+                      <div id="recipient-name">
+                        <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                      </div>
+                      <div id="new-tag">
+                        NEW
+                      </div>
+                    </div>
+                    <%= link_to '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation), id: "last-message" %>
+                  </div>
+                </div>
+                <!-- <div id="message-count">
+                  (<%#= conversation.unread_private_message_count(current_user) %>)
+                </div> -->
+              </div>
+            </div>
+          </div>
+        <!-- <#% end %> -->
+      <% end %>
+  </div>
+
+  <!-- //SHOWS USERS YOU STARTED A CHAT WITH -->
+  <div class="slice-container">
+    <h2>My connections</h2>
     <% @conversations.each do |conversation| %>
-      <!-- <#% if !conversation.unread_private_message_count(current_user).zero? %> -->
-        <div class="card-unreadmessage">
-          <div class="message-details">
-            <div class="row">
+      <div class="card-connection">
+        <div class="connection-details">
+          <div class="row">
+            <% if conversation.receiver_id == current_user.id %>
               <div class="avatar">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
               </div>
-              <div id="message-preview">
-                <div class="col">
-                  <div class="row">
-                    <div id="recipient-name">
-                      <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
-                    </div>
-                    <div id="new-tag">
-                      NEW
-                    </div>
-                  </div>
-                  <%= link_to '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation), id: "last-message" %>
-                </div>
+              <div id="recipient-name">
+                <%= link_to User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name, conversations_path(sender_id: conversation.sender_id, receiver_id: current_user.id), method: :post %>
               </div>
-              <!-- <div id="message-count">
-                (<%#= conversation.unread_private_message_count(current_user) %>)
-              </div> -->
-            </div>
+            <% else %>
+              <div class="avatar">
+                <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
+              </div>
+              <div id="recipient-name">
+                <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
+              </div>
+            <% end %>
           </div>
         </div>
-      <!-- <#% end %> -->
+      </div>
     <% end %>
-</div>
-
-<!-- //SHOWS ONLY THE USERS YOU STARTED A CHAT WITH -->
-<!-- // FILTERS CONNECTIONS for users; you can only see people who you messaged/who messaged you-->
-<h2>Your Connections</h2>
-<ul>
-  <% @conversations.each do |conversation| %>
-    <% if conversation.receiver_id == current_user.id %>
-      <%= link_to User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name, conversations_path(sender_id: conversation.sender_id, receiver_id: current_user.id), method: :post %>
-    <% else %>
-      <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
-    <% end %>
-  <% end %>
-</ul>
+  </div>
 </div>
