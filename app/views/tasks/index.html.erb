@@ -1,5 +1,6 @@
 <%= render 'shared/navbar' %>
-<div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
+
+<div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;"><%= @current_user.first_name %>'s path planner</h1>
     <p>Here you can manage and keep track of tasks you'll need to complete to get where your going.</p>
@@ -14,6 +15,7 @@
       <!-- RECOMMENDED TASK CARDS -->
       <% @recommended_tasks.each do |recommended_task| %>
         <div class="card-task">
+
           <strong><%= recommended_task.task_name%></strong>
           <%= link_to add_to_checklist_path(recommended_task), method: :patch do %>
             <i class="fa fa-plus"></i>
@@ -21,6 +23,7 @@
         </div>
       <% end %>
     <% end %>
+
 </div>
 
 <div class="slice-container">
@@ -160,39 +163,5 @@
 </div>
 
 </div>
-
-
-<!-- USER JOURNEY -->
-    <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-      <h1>My Journey</h1>
-      <div class="row">
-        <h3>Percentage of completion: </h3>
-        <h3><strong><%= (@percent_completion.round(1) * 100).to_i %>%</strong></h3>
-      </div>
-
-      <!-- COMPLETED MILESTONES    -->
-      <div class="container-cols">
-        <% @milestones.each do |milestone| %>
-          <div class="row">
-            <p>
-              <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
-              <%= milestone.milestone_date %>
-              <% milestone.achieved %>
-            </p>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- DYNAMIC PROCESSING TIMES -->
-      <h2>Real time processing times</h2>
-      <p>Total journey time: <%= @total_processing_time %></p>
-      <div class="container-cols">
-        <p>CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p>PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p>Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p>PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p>PR Processing Time: <%= @total_av_processing_time %> months</p>
-      </div>
-    <% end %>
 
 </div>
