@@ -164,38 +164,4 @@
 
 </div>
 
-
-<!-- USER JOURNEY -->
-    <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-      <h1>My Journey</h1>
-      <div class="row">
-        <h3>Percentage of completion: </h3>
-        <h3><strong><%= (@percent_completion.round(1) * 100).to_i %>%</strong></h3>
-      </div>
-
-      <!-- COMPLETED MILESTONES    -->
-      <div class="container-cols">
-        <% @milestones.each do |milestone| %>
-          <div class="row">
-            <p>
-              <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %>
-              <%= milestone.milestone_date %>
-              <% milestone.achieved %>
-            </p>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- DYNAMIC PROCESSING TIMES -->
-      <h2>Real time processing times</h2>
-      <p>Total journey time: <%= @total_processing_time %></p>
-      <div class="container-cols">
-        <p>CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p>PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p>Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p>PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p>PR Processing Time: <%= @total_av_processing_time %> months</p>
-      </div>
-    <% end %>
-
 </div>
