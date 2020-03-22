@@ -1,4 +1,5 @@
 <%= render 'shared/navbar' %>
+
 <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;">Welcome to your path planner</h1>
@@ -14,6 +15,7 @@
       <!-- RECOMMENDED TASK CARDS -->
       <% @recommended_tasks.each do |recommended_task| %>
         <div class="card-task">
+
           <strong><%= recommended_task.task_name%></strong>
           <%= link_to add_to_checklist_path(recommended_task), method: :patch do %>
             <i class="fa fa-plus"></i>
@@ -21,6 +23,7 @@
         </div>
       <% end %>
     <% end %>
+
 </div>
 
 <div class="slice-container">
