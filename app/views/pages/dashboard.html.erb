@@ -7,30 +7,39 @@
 </div>
 
 <div class="main-container">
+
+  <!-- JOURNEY AND MILESTONES -->
   <div class="slice-container">
-  <!-- JOURNEY -->
   <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
     <div class="row">
       <h4>Percentage of completion: </h4>
       <h4><strong><%= (@percent_completion.round(1) * 100).to_i %>%</strong></h4>
     </div>
 
-      <!-- COMPLETED MILESTONES    -->
-      <div class="container-cols">
-        <% @milestones.each do |milestone| %>
-          <div class="card-task">
-            <div class="task-details">
+    <!-- COMPLETED MILESTONES    -->
+    <div class="container-cols">
+      <% @milestones.each do |milestone| %>
+        <div class="card-task">
+          <div class="task-details">
+            <% if milestone.achieved == true %>
               <i class="fas fa-check" id="status"></i>
-              <div id="status"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></div>
-            </div>
-            <div class="task-actions">
-              <%= milestone.milestone_date.to_time.strftime('%B %e') %>
-              <% milestone.achieved %>
-            </div>
+            <% else %>
+              <i class="fas fa-times" id="status"></i>
+            <% end %>
+            <div id="status"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></div>
           </div>
-        <% end %>
-      </div>
+          <div class="task-actions">
+            <% if milestone.achieved == true %>
+            <%= milestone.milestone_date.to_time.strftime('%B %e') %>
+            <!-- <#% milestone.achieved %> -->
+            <% else %>
+            In progress
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
+  </div>
 
       <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
       <p>User' processing time: <%= @total_processing_time %></p>
@@ -46,15 +55,15 @@
 
 <!-- GET STARTED BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
-      <div class="banner">
-        <h2>Approximate times based on community</h2>
-      <p>Total journey: <%= @total_processing_time %></p>
       <div class="container-cols">
-        <p>CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p>PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p>Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p>PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p>PR Processing Time: <%= @total_av_processing_time %> months</p>
+        <h2>Delay time insights from the community</h2>
+        <h4>Total journey time: <%= @total_processing_time %></h4>
+      <div class="container-cols">
+        <p class="card-task">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
+        <p class="card-task">PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
+        <p class="card-task">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
+        <p class="card-task">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
+        <p class="card-task">PR Processing Time: <%= @total_av_processing_time %> months</p>
       </div>
     <% end %>
       </div>
