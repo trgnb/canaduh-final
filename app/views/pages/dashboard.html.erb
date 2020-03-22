@@ -101,7 +101,7 @@
 
             <div class="appointment-schedule">
               <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e at %l:%M %p')  %></div>
-              <div id="appointment-status"><%= appointment.status %></div>
+              <div id="appointment-status"><strong><%= appointment.status.capitalize %></strong></div>
               <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
             </div>
           </div>
