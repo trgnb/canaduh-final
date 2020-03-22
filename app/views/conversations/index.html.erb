@@ -9,22 +9,36 @@
 <!-- //SHOWS ONLY THE UNREAD MESSAGES -->
 <div class="slice-container">
   <h2>Unread messages</h2>
-
     <% @conversations.each do |conversation| %>
-        <!-- <#% if !conversation.unread_private_message_count(current_user).zero? %> -->
-          <div class="card-unreadmessage">
-            <div class="message-details">
-              <div class="row">
-                <div class="avatar">
-                  <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
-                </div>
-                <div id="message-preview"><%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name + ' says ' + '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation) %>
-                (<%= conversation.unread_private_message_count(current_user) %>)
+      <!-- <#% if !conversation.unread_private_message_count(current_user).zero? %> -->
+        <div class="card-unreadmessage">
+          <div class="message-details">
+            <div class="row">
+              <div class="avatar">
+                <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
+              </div>
+              <div id="message-preview">
+                <div class="col">
+                  <div class="row" >
+                    <div id="recipient-name">
+                      <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                    </div>
+                    <div id="new-tag">
+                      NEW
+                    </div>
+                  </div>
+                  <div id="last-message">
+                    <%= link_to '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation) %>
+                  </div>
                 </div>
               </div>
+              <!-- <div id="message-count">
+                (<%#= conversation.unread_private_message_count(current_user) %>)
+              </div> -->
             </div>
           </div>
-        <!-- <#% end %> -->
+        </div>
+      <!-- <#% end %> -->
     <% end %>
 </div>
 

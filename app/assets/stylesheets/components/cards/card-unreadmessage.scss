@@ -1,7 +1,6 @@
 .card-unreadmessage {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   height: 64px;
   padding: 0px 16px;
@@ -24,38 +23,35 @@
     display: flex;
     flex-direction: column;
 
+    .col {
+
+    }
+
+    #recipient-name {
+      font-weight: bold;
+    }
+
+
     #message-preview {
       color: $black;
     }
 
-    #appointment-type {
-
-    }
-
-    #advisor-name {
-
-    }
-
-    // p {
-    //   margin: 0;
-    // }
-  }
-
-  .appointment-schedule {
+    #new-tag {
     display: flex;
-    flex-direction: row;
     align-items: center;
-
-    #appointment-date {
-      margin-right: 20px;
+    justify-content: center;
+    align-self: center;
+    width: 30px;
+    height: 15px;
+    background: $red;
+    color: $white;
+    font-size: 0.1em;
+    margin-left: 5px;
+    border-radius: 2px;
     }
 
-    #appointment-status {
+    #message-count {
 
     }
   }
-
-  i {
-      color: $red;
-    }
 }
