@@ -93,10 +93,13 @@
       <% else %>
         <% @appointments.each do |appointment| %>
           <div class="card-inline-appointment">
-            <div class="appointment-details">
-              <div id="appointment-type"><strong><%= Service.find(appointment.service_id).service_type.upcase %></strong></div>
-              <div id="advisor-name">with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></div>
-              <!-- TODO ADD CONNECT AND MESSAGE BUTTONS -->
+            <div class="row">
+              <%= image_tag Service.find(appointment.service_id).user.imgUrl, class: "avatar" %>
+              <div class="appointment-details">
+                <div id="appointment-type"><strong><%= Service.find(appointment.service_id).service_type.upcase %></strong></div>
+                <div id="advisor-name">with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></div>
+                <!-- TODO ADD CONNECT AND MESSAGE BUTTONS -->
+              </div>
             </div>
 
             <div class="appointment-schedule">
