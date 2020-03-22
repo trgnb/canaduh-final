@@ -19,7 +19,7 @@
               </div>
               <div id="message-preview">
                 <div class="col">
-                  <div class="row" >
+                  <div class="row">
                     <div id="recipient-name">
                       <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
                     </div>
@@ -27,9 +27,7 @@
                       NEW
                     </div>
                   </div>
-                  <div id="last-message">
-                    <%= link_to '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation) %>
-                  </div>
+                  <%= link_to '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                 </div>
               </div>
               <!-- <div id="message-count">

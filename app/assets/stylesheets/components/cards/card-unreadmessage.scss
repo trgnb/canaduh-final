@@ -16,15 +16,16 @@
   }
 
   .avatar {
-    margin-right: 20px;
+    margin-right: 8px;
+    align-self: center;
   }
 
   .message-details {
     display: flex;
     flex-direction: column;
 
-    .col {
-
+    .row {
+      justify-content: flex-start;
     }
 
     #recipient-name {
@@ -49,6 +50,11 @@
     margin-left: 5px;
     border-radius: 2px;
     }
+
+    #last-message {
+      color: $black;
+    }
+
 
     #message-count {
 
