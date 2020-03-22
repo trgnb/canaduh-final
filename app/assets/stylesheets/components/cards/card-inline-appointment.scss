@@ -1,0 +1,53 @@
+.card-inline-appointment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0px 16px;
+  margin-bottom: 8px;
+  background: $white;
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .appointment-details {
+    display: flex;
+    flex-direction: column;
+
+    #appointment-type {
+
+    }
+
+    #advisor-name {
+
+    }
+
+    // p {
+    //   margin: 0;
+    // }
+  }
+
+  .appointment-schedule {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #appointment-date {
+      margin-right: 20px;
+    }
+
+    #appointment-status {
+
+    }
+  }
+
+  i {
+      color: $red;
+    }
+}

@@ -10,11 +10,12 @@
 
   <!-- JOURNEY AND MILESTONES -->
   <div class="slice-container">
-  <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-    <div class="row">
-      <h4>Percentage of completion: </h4>
-      <h4><strong><%= (@percent_completion.round(1) * 100).to_i %>%</strong></h4>
-    </div>
+    <!-- TODO ADD LOGIC FOR ALL PATHS -->
+    <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
+      <div class="row">
+        <h4>Journey progress: </h4>
+        <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
+      </div>
 
     <!-- COMPLETED MILESTONES    -->
     <div class="container-cols">
@@ -41,16 +42,92 @@
     </div>
   </div>
 
-      <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
-      <p>User' processing time: <%= @total_processing_time %></p>
-      <ol>
-        <li>CSQ Reception: <%= @csq_processing_time %> months</li>
-        <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
-        <li>Medical Exam: <%= @pr2_processing_time %> months</li>
-        <li>PR Reception: <%= @pr3_processing_time %> months</li>
-        <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
-      </ol>
-      <br>
+<!-- TASK REMINDER -->
+<div class="slice-container">
+  <div class="row">
+    <h4>Path planner</h4>
+  </div>
+  <% if @high_priority_tasks.empty? %>
+    <div class="row">
+      <p>No outstanding high priority tasks</p>
+    </div>
+  <% else %>
+    <% @high_priority_tasks.each do |task| %>
+      <div class="card-task">
+        <div class="task-details">
+        <!-- TASK NAME -->
+        <div id="task-name">
+        <p><strong><%= task.task_name%></strong></p>
+        </div>
+        </div>
+        <!-- TASK ACTIONS -->
+        <div class="task-actions">
+          <!-- TASK PRIORITY -->
+          <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+          <!-- TASK EDIT -->
+          <div id="task-action"><%= link_to edit_task_path(task) do %>
+            <i class="fa fa-edit"></i>
+            <% end %>
+          </div>
+          <!-- TASK DELETE -->
+          <!-- TODO REDIRECT STAYS ON DASHBOARD -->
+          <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+    <br>
+  <%= link_to "Full list", "/tasks", class: "btn-cta" %>
+   </div>
+
+
+  <!-- USER APPOINTMENTS -->
+  <div class="slice-container">
+    <% if @current_user.user_type == "user" %>
+      <h4>Upcoming appointments</h4>
+      <% if @appointments.empty? %>
+        <p>No scheduled appointments</p>
+      <% else %>
+        <% @appointments.each do |appointment| %>
+          <div class="card-inline-appointment">
+            <div class="appointment-details">
+              <div id="appointment-type"><strong><%= Service.find(appointment.service_id).service_type.upcase %></strong></div>
+              <div id="advisor-name">with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></div>
+              <!-- TODO ADD CONNECT AND MESSAGE BUTTONS -->
+            </div>
+
+            <div class="appointment-schedule">
+              <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e at %l:%M %p')  %></div>
+              <div id="appointment-status"><%= appointment.status %></div>
+              <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
+            </div>
+          </div>
+        <% end %>
+        <br>
+        <%= link_to "Book now", "/services", class: "btn-cta-border" %>
+      <% end %>
+    <% else %>
+    <!-- NO ELSE STATEMENT? -->
+    <% end %>
+  </div>
+
+
+
+
+
+  <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
+  <p>User' processing time: <%= @total_processing_time %></p>
+  <ol>
+    <li>CSQ Reception: <%= @csq_processing_time %> months</li>
+    <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
+    <li>Medical Exam: <%= @pr2_processing_time %> months</li>
+    <li>PR Reception: <%= @pr3_processing_time %> months</li>
+    <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
+  </ol>
+  <br>
 
 
 <!-- GET STARTED BANNER -->
@@ -71,34 +148,6 @@
 
 
 
-
-
-
-      <!-- DYNAMIC PROCESSING TIMES -->
-
-
-  <!-- USER APPOINTMENTS -->
-  <% if @current_user.user_type == "user" %>
-      <h1>Appointments</h1>
-      <% if @appointments.empty? %>
-        <p>No appointments scheduled yet</p>
-      <% else %>
-        <% @appointments.each do |appointment| %>
-          <div class="row">
-            <div class="dashboard-appointment-container">
-              <h1><%= Service.find(appointment.service_id).service_type.upcase %></h1>
-              <h2><strong>Immigration path:</strong> <%= Service.find(appointment.service_id).path %></h2>
-              <p><strong>Advisor:</strong> <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></p>
-              <p><strong>Date:</strong><%= appointment.date %></p>
-              <p id="appointment-status"><strong>Status:</strong> <%= appointment.status %></p>
-              <pre><%= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-  <% else %>
-  <!-- NO ELSE STATEMENT? -->
-  <% end %>
 
   <!-- IF THE USER IS ADVISOR DISPLAY ADVISOR BOOKINGS -->
   <% if @current_user.user_type == "advisor" %>
@@ -150,52 +199,5 @@
   <% else %>
   <% end %>
 
-<!-- TASK REMINDER -->
-  <div class="dashboard-row">
-    <h1>Reminder</h1>
-  </div>
-  <% if @high_priority_tasks.empty? %>
-    <div class="dashboard-row">
-      <p>No urgent tasks</p>
-    </div>
-  <% else %>
+</div>
 
-    <% @high_priority_tasks.each do |task| %>
-      <div class="card-task">
-        <div class="task-details">
-        <!-- TASK CHECKBOX -->
-        <!-- <div id="status">
-          <#%= link_to mark_task_path(task), method: :patch do %>
-            <#% if task.task_status %>
-              <i class="fa fa-check-square"></i>
-            <#% else %>
-              <i class="fa fa-square"></i>
-            <#% end %>
-          <#% end %>
-        </div> -->
-        <!-- TASK NAME -->
-        <div id="task-name">
-        <p><strong><%= task.task_name%></strong></p>
-        </div>
-        </div>
-        <!-- TASK ACTIONS -->
-        <div class="task-actions">
-          <!-- TASK PRIORITY -->
-          <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
-          <!-- TASK EDIT -->
-          <div id="task-action"><%= link_to edit_task_path(task) do %>
-            <i class="fa fa-edit"></i>
-            <% end %>
-          </div>
-          <!-- TASK DELETE -->
-          <div id="task-action"><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fa fa-trash"></i>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-
-  <%= link_to "Planner", "/tasks", class: "btn-cta" %>
-   </div>
