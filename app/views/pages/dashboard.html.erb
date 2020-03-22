@@ -87,6 +87,8 @@
       <h4>Upcoming appointments</h4>
       <% if @appointments.empty? %>
         <p>No scheduled appointments</p>
+        <br>
+        <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
         <% @appointments.each do |appointment| %>
           <div class="card-inline-appointment">
@@ -112,13 +114,14 @@
     <!-- NO ELSE STATEMENT? -->
     <% end %>
   </div>
-</div>
 
-<!-- GET STARTED BANNER -->
+
+<!-- COMMUNITY INSIGHTS BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
       <div class="banner">
         <h2>Insights from the community</h2>
         <h4>Estimated time to <strong><%= @current_user.path_type.capitalize %></strong>: <%= @total_processing_time %></h4>
+        <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
         <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
         <p class="card-milestone">PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
         <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
