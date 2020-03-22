@@ -167,12 +167,20 @@
                 <strong>Status:</strong> <%= appointment.status.capitalize %>
               </div>
               <% if appointment.status == 'declined' %>
-                <pre><%= link_to "Delete", service_appointment_path(service, appointment), method: :delete %></pre>
+
+              <!-- TO DO NEEDS TO BE FIXED -->
+
+                <!-- <pre><#%= link_to "Delete", service_appointment_path(service, appointment), method: :delete %></pre> -->
+
               <% end %>
               <% if appointment.status == 'pending confirmation' %>
                 <div class="appointment-actions">
-                  <button class="btn-appointment"> <%= link_to "Confirm", service_appointment_path(service, appointment, status: :confirmed), method: :patch %> </button>
-                  <button class="btn-appointment"> <%= link_to 'Decline', service_appointment_path(service, appointment, status: :declined), method: :patch %> </button>
+
+                  <!-- TODO NEEDS TO BE FIXED -->
+
+                  <!-- <button class="btn-cta"> <#%= link_to "Confirm", service_appointment_path(service, appointment, status: :confirmed), method: :patch %> </button> -->
+                  <!-- <button class="btn-appointment"> <#%= link_to 'Decline', service_appointment_path(service, appointment, status: :declined), method: :patch %> </button> -->
+
                 </div>
               <% end %>
             </div>
