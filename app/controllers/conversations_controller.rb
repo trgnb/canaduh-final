@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @appointments = current_user.appointments
     @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
     @users = User.where.not(id: current_user.id)
   end

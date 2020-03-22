@@ -21,6 +21,7 @@ gem 'faker'
 gem 'pg_search'
 gem 'notifications'
 gem 'time_difference'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

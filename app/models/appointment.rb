@@ -21,5 +21,4 @@ class Appointment < ApplicationRecord
       notification.second_target = self.service
     end
   end
-
 end

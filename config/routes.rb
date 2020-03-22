@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'conversations/index'
   get 'chat_rooms/index'
   mount Notifications::Engine => "/notifications"
+
   devise_for :users, controllers: { registrations: 'registrations'}
   devise_scope :user do
    get '/users/sign_out' => 'devise/sessions#destroy'
