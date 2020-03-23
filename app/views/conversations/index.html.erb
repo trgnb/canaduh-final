@@ -29,7 +29,7 @@
                         NEW
                       </div>
                     </div>
-                    <%= link_to '"' + conversation.private_messages.last.body + '"', conversation_private_messages_path(conversation), id: "last-message" %>
+                      <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                   </div>
                 </div>
                 <!-- <div id="message-count">
