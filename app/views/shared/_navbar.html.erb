@@ -18,27 +18,38 @@
           <li class="nav-item">
             <%= link_to "Find an advisor", "/advisor_homepage", class: "nav-link" %>
           </li>
-
-          <li class="nav-item">
-            <%= link_to "Carpool", "#", class: "nav-link" %>
-          </li>
         <!-- <#% end %> -->
 
         <li class="nav-item">
-          <% if current_user.user_type == "user" %>
-            <%= link_to "Dashboard", "/dashboard", class: "nav-link"%>
-          <% else %>
+          <!-- <#% if current_user.user_type == "user" %> -->
+            <!-- <#%= link_to "Dashboard", "/dashboard", class: "nav-link"%> -->
+          <!-- <#% else %> -->
+
+
             <% if Notification.unread_count(current_user) == 0 %>
-                <%= link_to "Dashboard", "/dashboard", method: :delete, class: "nav-link", id:"notifications-count"%>
+                <%= link_to "Dashboard", "/dashboard", method: :delete, class: "nav-link"%>
               <% else %>
-                <%= link_to "Dashboard #{Notification.unread_count(current_user)}", "/dashboard", method: :delete, class: "nav-link", id:"notifications-count"%>
+
+              <div class="row" style="align-items: center;">
+                <%= link_to "Dashboard ", "/dashboard", class: "nav-link"%>
+                <%= link_to "#{Notification.unread_count(current_user)}", "/dashboard", method: :delete, id:"notifications-count"%>
+
                 <%= link_to "","#", method: :delete, class: "nav-link", id:"clean-notifications"%>
+              </div>
+
             <% end %>
-          <% end %>
+          <!-- <#% end %> -->
         </li>
 
+<!-- <li class="nav-item">
+    <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;">1</span>your badge -->
+    <!-- <a class="nav-link" href="messages">Messages <span class="sr-only">(current)</span></a> -->
+<!-- </li> -->
+
+
+
         <li class="nav-item">
-          <%= link_to "Messages", "/dashboard", class: "nav-link" %>
+          <%= link_to "Messages", conversations_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item dropdown">

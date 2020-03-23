@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'conversations/index'
   get 'chat_rooms/index'
   mount Notifications::Engine => "/notifications"
+
   devise_for :users, controllers: { registrations: 'registrations'}
   devise_scope :user do
    get '/users/sign_out' => 'devise/sessions#destroy'
@@ -17,14 +18,15 @@ end
   end
 
   resources :tasks, only: [:index, :new, :create, :edit, :update, :destroy]
+  delete 'tasks/:id', to: "tasks#destroy"
   get 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
   get 'tasks/:id/add_to_checklist', to: 'tasks#add_to_checklist', as: :add_to_checklist
-  get 'tasks/:id/mark_as_achieved', to: 'tasks#mark_as_achieved', as: :mark_milestone
 
   resources :milestones, only: [:edit, :update]
 
   get "dashboard", to: "pages#dashboard"
   delete "dashboard", to: "pages#destroy"
+
   get "profile", to: "pages#profile"
   get "advisor_homepage", to: "pages#advisor_homepage"
 

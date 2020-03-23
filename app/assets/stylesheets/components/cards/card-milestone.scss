@@ -1,0 +1,15 @@
+.card-milestone {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  padding: 0px 16px;
+  margin-bottom: 8px;
+  color: $white;
+  border-radius: $cardradius;
+  border: 1px solid $white;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
+}
