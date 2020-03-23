@@ -1,0 +1,63 @@
+.card-unreadmessage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 64px;
+  padding: 0px 16px;
+  margin-bottom: 8px;
+  background: $white;
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .avatar {
+    margin-right: 8px;
+    align-self: center;
+  }
+
+  .message-details {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      justify-content: flex-start;
+    }
+
+    #recipient-name {
+      font-weight: bold;
+    }
+
+
+    #message-preview {
+      color: $black;
+    }
+
+    #new-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 30px;
+    height: 15px;
+    background: $red;
+    color: $white;
+    font-size: 0.1em;
+    margin-left: 5px;
+    border-radius: 2px;
+    }
+
+    #last-message {
+      color: $black;
+    }
+
+
+    #message-count {
+
+    }
+  }
+}
