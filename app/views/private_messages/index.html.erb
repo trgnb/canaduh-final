@@ -26,3 +26,9 @@
 
 <%= link_to "Back", conversations_path, class: "btn-cta-border" %>
 </div>
+
+<% content_for :after_js do %>
+  <script>
+    scrollLastPrivateMessageIntoView();
+  </script>
+<% end %>

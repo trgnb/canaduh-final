@@ -9,10 +9,10 @@
 
 <div class="main-container">
 <!-- //SHOWS UNREAD MESSAGES -->
-  <div class="slice-container">
+  <div class="slice-container-bottom">
     <h2>Unread messages</h2>
       <% @conversations.each do |conversation| %>
-        <!-- <#% if !conversation.unread_private_message_count(current_user).zero? %> -->
+        <% if !conversation.unread_private_message_count(current_user).zero? %>
           <div class="card-unreadmessage">
             <div class="message-details">
               <div class="row">
@@ -32,16 +32,14 @@
                       <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                   </div>
                 </div>
-                <!-- <div id="message-count">
-                  (<%#= conversation.unread_private_message_count(current_user) %>)
-                </div> -->
               </div>
             </div>
           </div>
-        <!-- <#% end %> -->
+        <% else %>
+          <p> All caught up! You have no unread messages </p>
+        <% end %>
       <% end %>
   </div>
-
   <!-- //SHOWS USERS YOU STARTED A CHAT WITH -->
   <div class="slice-container">
     <h2>My connections</h2>
