@@ -22,7 +22,17 @@ class PagesController < ApplicationController
     @high_priority_tasks = tasks.filter do |task|
       task.priority == "high"
     end
+
+    # MILESTONES #
+    @previous_milestones = []
+    @milestones.each do |milestone|
+      previous_milestone_order = milestone.order - 1
+      previous_milestone = @milestones.where(order: previous_milestone_order)
+      @previous_milestones << previous_milestone
+    end
   end
+
+
 
   def profile
     @user = current_user

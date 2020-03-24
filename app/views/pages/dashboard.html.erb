@@ -8,39 +8,46 @@
 
 <div class="main-container">
 
-  <!-- JOURNEY AND MILESTONES -->
-  <div class="slice-container">
-    <!-- TODO ADD LOGIC FOR ALL PATHS -->
-    <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-      <div class="row">
-        <h4>Journey progress: </h4>
-        <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
-      </div>
+<!-- JOURNEY AND MILESTONES -->
+<div class="slice-container">
+  <!-- TODO ADD LOGIC FOR ALL PATHS -->
+  <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
+    <div class="row">
+      <h4>Journey progress </h4>
+      <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
+    </div>
 
-    <!-- COMPLETED MILESTONES    -->
-    <div class="container-cols">
-      <% @milestones.each do |milestone| %>
-        <div class="card-task">
-          <div class="task-details">
-            <% if milestone.achieved == true %>
-              <i class="fas fa-check" id="status"></i>
-            <% else %>
-              <i class="fas fa-times" id="status" style="color: black;"></i>
-            <% end %>
-            <div id="milestone"><strong><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></strong></div>
-          </div>
-          <div class="task-actions">
-            <% if milestone.achieved == true %>
-            <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %>
-            <!-- <#% milestone.achieved %> -->
-            <% else %>
-            In progress
+  <!-- COMPLETED MILESTONES    -->
+  <div class="container-cols">
+    <% @milestones.each do |milestone| %>
+      <div class="card-task">
+        <div class="task-details">
+          <% if milestone.achieved == true %>
+            <i class="fas fa-check" id="status"></i>
+          <% else %>
+            <i class="fas fa-times" id="status" style="color: black;"></i>
+          <% end %>
+          <div id="milestone"><strong><%= link_to milestone.milestone_title, dashboard_path %></strong></div>
+          <div id="milestone-input-form">
+            <% form_for(milestone) do |f| %>
+              <% f.text_field :milestone_date, class: 'datepicker' %>
+              <% f.hidden_field :achieved, value: 1 %>
+            <%= f.submit "Add", class: "btn btn-primary"%>
             <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
+        <div class="task-actions">
+          <% if milestone.achieved == true %>
+          <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %>
+          <!-- <#% milestone.achieved %> -->
+          <% else %>
+          In progress
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
+</div>
 
 <!-- TASK REMINDER -->
 <div class="slice-container">
@@ -63,7 +70,16 @@
         <!-- TASK ACTIONS -->
         <div class="task-actions">
           <!-- TASK PRIORITY -->
-          <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+          <!-- <div id="task-action"><strong>Priority: <%#= task.priority %></strong></div> -->
+          <% form_for(task) do |f| %>
+            <%= f.select :priority, ["high", "medium", "low"], :prompt => "Select" %>
+          <% end %>
+
+
+
+
+
+
           <!-- TASK EDIT -->
           <div id="task-action"><%= link_to edit_task_path(task) do %>
             <i class="fa fa-edit"></i>
@@ -95,12 +111,12 @@
           <div class="card-inline-appointment">
             <div class="appointment-details">
               <div id="appointment-type"><strong><%= Service.find(appointment.service_id).service_type.upcase %></strong></div>
-              <div id="advisor-name">with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></div>
+              <div id="advisor-name">with <strong><%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %></strong></div>
               <!-- TODO ADD CONNECT AND MESSAGE BUTTONS -->
             </div>
 
             <div class="appointment-schedule">
-              <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e at %l:%M %p')  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong><%= appointment.status.capitalize %></strong></div>
               <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
             </div>
@@ -118,7 +134,7 @@
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
       <div class="banner">
         <h2>Insights from the community</h2>
-        <h4>Estimated time to <strong><%= @current_user.path_type.capitalize %></strong>: <%= @total_processing_time %></h4>
+        <h4>Estimated time to <strong><%= @current_user.path_type.split.map(&:capitalize).join(' ') %></strong>: <%= @total_processing_time %></h4>
         <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
         <p class="card-milestone">PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
         <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
@@ -190,9 +206,5 @@
     <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
   </ol>
   <br>
-
-
-
-
 </div>
 
