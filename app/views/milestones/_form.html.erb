@@ -1,4 +1,4 @@
-<%= form_for(@milestone, remote: true) do |f| %>
+<%= form_for(@milestone) do |f| %>
   <%= f.text_field :milestone_date, class: 'datepicker' %>
   <%= f.hidden_field :achieved, value: 1 %>
 

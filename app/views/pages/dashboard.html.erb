@@ -29,7 +29,7 @@
           </div>
           <div class="task-actions">
             <% if milestone.achieved == true %>
-              <%= milestone.milestone_date.to_time.strftime('%B %e') %>
+              <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %>
               <!-- <#% milestone.achieved %> -->
             <% else %>
               In progress
