@@ -16,4 +16,12 @@ class Conversation < ApplicationRecord
   def unread_private_message_count(current_user)
     self.private_messages.where("user_id != ? AND read = ?", current_user.id, false).count
   end
+
+  def show_last_message(current_user, conversation)
+    if User.find(conversation.sender_id) == current_user
+      conversation.private_messages.where("user_id != ?", sender_id).last.body
+    else
+      conversation.private_messages.where("user_id != ?", receiver_id).last.body
+    end
+  end
 end

@@ -30,3 +30,9 @@
     font-size: $h2;
   }
 }
+  .slice-container-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}

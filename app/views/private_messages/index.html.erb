@@ -7,7 +7,6 @@
   <% @private_messages.each do |private_message| %>
       <% if private_message.body %>
         <div class= "card-message">
-          <!-- <h4><#%= private_message.user.first_name %></h4> -->
           <div id="message-avatar"><%= image_tag private_message.user.imgUrl, class: "avatar" %></div>
           <div id="message-body"><%= private_message.body %></div>
         </div>
@@ -26,3 +25,9 @@
 
 <%= link_to "Back", conversations_path, class: "btn-cta-border" %>
 </div>
+
+<% content_for :after_js do %>
+  <script>
+    scrollLastPrivateMessageIntoView();
+  </script>
+<% end %>
