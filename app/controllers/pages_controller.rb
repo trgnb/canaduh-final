@@ -30,6 +30,8 @@ class PagesController < ApplicationController
       previous_milestone = @milestones.where(order: previous_milestone_order)
       @previous_milestones << previous_milestone
     end
+
+
   end
 
 

@@ -27,7 +27,7 @@
           <% else %>
             <i class="fas fa-times" id="status" style="color: black;"></i>
           <% end %>
-          <div id="milestone"><strong><%= link_to milestone.milestone_title, dashboard_path %></strong></div>
+          <div id="milestone"><strong><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></strong></div>
           <div id="milestone-input-form">
             <% form_for(milestone) do |f| %>
               <% f.text_field :milestone_date, class: 'datepicker' %>
@@ -62,6 +62,16 @@
     <% @high_priority_tasks.each do |task| %>
       <div class="card-task">
         <div class="task-details">
+        <!-- TASK CHECKBOX -->
+        <div id="status">
+          <%= link_to mark_task_path(task), method: :patch do %>
+            <% if task.task_status %>
+              <i class="fa fa-check-square"></i>
+            <% else %>
+              <i class="fa fa-square"></i>
+            <% end %>
+          <% end %>
+          </div>
         <!-- TASK NAME -->
         <div id="task-name">
         <p><strong><%= task.task_name%></strong></p>
