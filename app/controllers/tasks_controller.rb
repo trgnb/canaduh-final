@@ -55,7 +55,8 @@ class TasksController < ApplicationController
     @task.toggle(:task_status)
     @task.priority = "low"
     @task.save
-    redirect_to tasks_path
+    # redirect_to tasks_path
+    redirect_back(fallback_location: root_path)
   end
 
   def add_to_checklist

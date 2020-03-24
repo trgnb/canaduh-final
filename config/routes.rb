@@ -19,8 +19,8 @@ end
 
   resources :tasks, only: [:index, :new, :create, :edit, :update, :destroy]
   delete 'tasks/:id', to: "tasks#destroy"
-  get 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
-  get 'tasks/:id/add_to_checklist', to: 'tasks#add_to_checklist', as: :add_to_checklist
+  patch 'tasks/:id/mark_as_done', to: 'tasks#mark_as_done', as: :mark_task
+  patch 'tasks/:id/add_to_checklist', to: 'tasks#add_to_checklist', as: :add_to_checklist
 
   resources :milestones, only: [:edit, :update]
 
