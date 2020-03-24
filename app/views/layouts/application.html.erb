@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Welcome to Canaduh</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
@@ -22,6 +23,6 @@
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
     <%= yield :after_js %>
-
+    <%= yield :js %>
   </body>
 </html>

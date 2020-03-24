@@ -9,6 +9,7 @@
 </div>
 
 <div class="main-container">
+
     <!-- ADVISOR REVIEWS -->
   <div class="slice-container">
     <!-- HEADER  -->
@@ -17,25 +18,25 @@
     <!-- REVIEW CARDS -->
     <div class="row">
       <div class="card-review">
-        <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242431/John_Doe_advisor.jpg">
+        <img src=<%= image_path 'John_Doe_advisor.jpg' %>>
         <h1>John Doe</h1>
         <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
         <p>"Completely surpassed our expectations."</p>
       </div>
       <div class="card-review">
-        <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242430/Trevor_McGill_advisor.jpg">
+        <img src=<%= image_path 'Trevor_McGill_advisor.jpg' %>>
         <h1>Trevor McGill</h1>
         <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
-        <p>"The advisor impressed me on so many levels."</p>
+        <p>"He impressed me on so many levels."</p>
       </div>
       <div class="card-review">
-        <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242674/Lisa_Goodwill_advisor.jpg">
+        <img src=<%= image_path 'Lisa_Goodwill_advisor.jpg' %>>
         <h1>Lisa Goodwill</h1>
         <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
         <p>"The advisor was extremely helpful!"</p>
       </div>
       <div class="card-review">
-        <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242674/Alice_Fraser_advisor.jpg">
+        <img src=<%= image_path 'Alice_Fraser_advisor.jpg' %>>
         <h1>Alice Fraser</h1>
         <p id="rating-stars"><% 5.times do %><i class="fas fa-star"></i><% end %>
         <p>"Just what I was looking for. She's is the real deal."</p>
@@ -86,19 +87,19 @@
   <div class="slice-container">
     <h2>Browse services by path</h2>
     <div class="row">
-      <a class="card-path" href="/services.15?query=student+visa&commit=Search" style="background-image: url(<%= image_path 'student-visa-path.jpg' %>)">
+      <a class="card-path" href="/services.15?query=student+visa&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'student-visa-path.jpg' %>)">
         <hr>
         <h1>STUDENT VISA</h1>
       </a>
-      <a class="card-path" href="/services.15?query=work+visa&commit=Search" style="background-image: url(<%= image_path 'work-visa-path.jpg' %>)">
+      <a class="card-path" href="/services.15?query=work+visa&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'work-visa-path.jpg' %>)">
         <hr>
         <h1>WORK VISA</h1>
       </a>
-      <a class="card-path" href="/services.15?query=permanent+residency&commit=Search" style="background-image: url(<%= image_path 'permanent-residency-path.jpg' %>)">
+      <a class="card-path" href="/services.15?query=permanent+residency&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'permanent-residency-path.jpg' %>)">
         <hr>
         <h1>PERMANENT RESIDENCY</h1>
       </a>
-      <a class="card-path" href="/services.15?query=canadian+citizenship&commit=Search" style="background-image: url(<%= image_path 'citizenship-path.jpg' %>)">
+      <a class="card-path" href="/services.15?query=canadian+citizenship&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'citizenship-path.jpg' %>)">
         <hr>
         <h1>CANADIAN CITIZENSHIP</h1>
       </a>

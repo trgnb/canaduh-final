@@ -1,21 +1,33 @@
-<h1>PrivateMessages#index</h1>
-<p>Find me in app/views/private_messages/index.html.erb</p>
+<%= render 'shared/navbar' %>
+<div class="main-container">
+<h1>Messenger</h1>
+<h2>Your Chat with <%= User.find(@conversation.receiver_id).first_name %></h2>
 
-<ul>
-  <% @private_messages.each do |message| %>
-    <% if private_message.body %>
-      <li>
-        <h4><%= private_message.user.username %></h4>
-        <p><%= private_message.body %></p>
-      </li>
-    <% end %>
+  <div class="container-conversation">
+  <% @private_messages.each do |private_message| %>
+      <% if private_message.body %>
+        <div class= "card-message">
+          <div id="message-avatar"><%= image_tag private_message.user.imgUrl, class: "avatar" %></div>
+          <div id="message-body"><%= private_message.body %></div>
+        </div>
+      <% end %>
   <% end %>
-</ul>
+  </div>
+
 
 <%= form_for [@conversation, @private_message] do |f| %>
   <div class="field">
-    <%= f.text_area :body, placeholder: "Your message" %>
+    <%= f.text_area :body, placeholder: "Type a message" %>
   </div>
 
-  <%= f.submit "Send" %>
+  <%= f.submit "Send", class: "btn-cta" %>
+<% end %>
+
+<%= link_to "Back", conversations_path, class: "btn-cta-border" %>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    scrollLastPrivateMessageIntoView();
+  </script>
 <% end %>

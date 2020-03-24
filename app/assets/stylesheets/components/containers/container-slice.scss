@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // min-height: 40vh;
   margin-bottom: $bottom;
 
 .row {
     justify-content: space-between;
-    margin-bottom: ($bottom / 3)
+    margin-bottom: ($bottom / 3);
+    margin: 0px 0px;
 }
 
 
@@ -29,4 +29,10 @@
     font-family: Helvetica, sans-serif;
     font-size: $h2;
   }
+}
+  .slice-container-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }

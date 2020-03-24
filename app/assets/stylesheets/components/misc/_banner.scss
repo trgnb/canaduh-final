@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-items: center;
   justify-content: center;
-  margin: 0px $sides $bottom;
+  margin: $vert $sides;
   color: $offwhite;
 
     h1 {
@@ -12,6 +12,9 @@
       font-size: $jumbo;
       font-weight: bold;
       text-shadow: $dropshadow;
+    }
+    p {
+      max-width: 66%;
     }
 }
 

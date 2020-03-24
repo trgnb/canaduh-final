@@ -1,6 +1,6 @@
 <%= render 'shared/advisor_navbar' %>
 <!-- HOMEPAGE BANNER WITH BUTTON -->
-<div class="fullwidth-container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/p-m-b/image/upload/v1582387301/canaduh/banner_dyx0ad.png);">
+<div class="fullwidth-container" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/p-m-b/image/upload/v1582387301/canaduh/banner_dyx0ad.png);">
   <div class="banner">
     <h1>Plan your journey and connect    with expert advisors to guide you    on the path to a new life.</h1>
     <div class="banner-search">
@@ -25,15 +25,15 @@
             <hr>
             <h1>STUDENT VISA</h1>
           </a>
-          <a class="card-path" href="/services.15?query=work+visa&commit=Search" style="background-image: url(<%= image_path 'work-visa-path.jpg' %>)">
+          <a class="card-path" href="/services.15?query=work+visa&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'work-visa-path.jpg' %>)">
             <hr>
             <h1>WORK VISA</h1>
           </a>
-          <a class="card-path" href="/services.15?query=permanent+residency&commit=Search" style="background-image: url(<%= image_path 'permanent-residency-path.jpg' %>)">
+          <a class="card-path" href="/services.15?query=permanent+residency&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'permanent-residency-path.jpg' %>)">
             <hr>
             <h1>PERMANENT RESIDENCY</h1>
           </a>
-          <a class="card-path" href="/services.15?query=canadian+citizenship&commit=Search" style="background-image: url(<%= image_path 'citizenship-path.jpg' %>)">
+          <a class="card-path" href="/services.15?query=canadian+citizenship&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'citizenship-path.jpg' %>)">
             <hr>
             <h1>CANADIAN CITIZENSHIP</h1>
           </a>
@@ -45,15 +45,15 @@
   <div class="slice-container">
     <h1>Get expert advice</h1>
       <div class="row">
-        <a class="card-service" href="/services.15?query=general+consultation&commit=Search" style="background-image: url(<%= image_path 'general-consultation-service.jpg' %>)">
+        <a class="card-service" href="/services.15?query=general+consultation&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'general-consultation-service.jpg' %>)">
           <hr>
           <h1>General consultation</h1>
         </a>
-        <a class="card-service" href="/services.15?query=test+prep&commit=Search" style="background-image: url(<%= image_path 'test-prep-service.jpg' %>)" >
+        <a class="card-service" href="/services.15?query=test+prep&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'test-prep-service.jpg' %>)" >
           <hr>
           <h1>Test preparation</h1>
         </a>
-        <a class="card-service" href="/services.15?query=ongoing+assistance&commit=Search" style="background-image:url(<%= image_path 'complete-care-service.jpg' %>)">
+        <a class="card-service" href="/services.15?query=ongoing+assistance&commit=Search" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_path 'complete-care-service.jpg' %>)">
           <hr>
           <h1>Comprehensive assistance</h1>
         </a>
@@ -66,25 +66,25 @@
     <h1>Connect with advisors</h1>
       <div class="row">
         <div class="card-advisor">
-          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242431/John_Doe_advisor.jpg">
+          <img src=<%= image_path 'John_Doe_advisor.jpg' %>>
           <h1>John Doe</h1>
           <p>Immigration specialist located in Montreal, Quebec.</p>
           <button class="btn-flat">Connect</button>
         </div>
          <div class="card-advisor">
-          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242430/Trevor_McGill_advisor.jpg">
+          <img src=<%= image_path 'Trevor_McGill_advisor.jpg' %>>
           <h1>Trevor McGill</h1>
           <p>Law professor located in Montreal, Quebec.</p>
           <button class="btn-flat">Connect</button>
         </div>
          <div class="card-advisor">
-          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242674/Lisa_Goodwill_advisor.jpg">
+          <img src=<%= image_path 'Lisa_Goodwill_advisor.jpg' %>>
           <h1>Lisa Goodwill</h1>
           <p>Certificed ESL instructor located in Montreal, Quebec.</p>
           <button class="btn-flat">Connect</button>
         </div>
          <div class="card-advisor">
-          <img src="https://res.cloudinary.com/drgcg7n83/image/upload/v1582242674/Alice_Fraser_advisor.jpg">
+          <img src=<%= image_path 'Alice_Fraser_advisor.jpg' %>>
           <h1>Alice Fraser</h1>
           <p>Immigration specialist located in Montreal, Quebec.</p>
           <button class="btn-flat">Connect</button>

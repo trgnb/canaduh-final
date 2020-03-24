@@ -21,6 +21,7 @@ gem 'faker'
 gem 'pg_search'
 gem 'notifications'
 gem 'time_difference'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -34,4 +35,3 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
-
