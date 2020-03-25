@@ -134,9 +134,9 @@
         <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
         <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
         <p class="card-milestone">PR Processing Time: <%= @total_av_processing_time %> months</p>
-    <% end %>
       </div>
   </div>
+<% end %>
 
   <!-- IF THE USER IS ADVISOR DISPLAY ADVISOR BOOKINGS -->
   <% if @current_user.user_type == "advisor" %>

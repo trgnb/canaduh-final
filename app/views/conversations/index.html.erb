@@ -66,12 +66,14 @@
                 <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
               </div>
             <% else %>
-
               <div class="avatar">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
               </div>
-              <div id="recipient-name">
-                <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
+              <div class="col">
+                <div id="recipient-name">
+                  <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                </div>
+                <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
               </div>
             <% end %>
           </div>
