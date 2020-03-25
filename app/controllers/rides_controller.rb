@@ -2,7 +2,6 @@ class RidesController < ApplicationController
   before_action :find_ride, only: %i(show edit update destroy)
 
   def index
-    @user = current_user
     @user_type = current_user.user_type
     @user_path = current_user.path_type
     @all_rides = Ride.all

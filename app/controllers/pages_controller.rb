@@ -12,7 +12,6 @@ class PagesController < ApplicationController
   def dashboard
     # USER #
     @appointments = current_user.appointments
-    @rides = current_user.rides
 
     # ADVISOR #
     @services = current_user.services

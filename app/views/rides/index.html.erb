@@ -20,15 +20,22 @@
           <!-- RIDE ACTIONS -->
           <div class="task-actions">
             <!-- EDIT RIDE -->
-            <div id="task-action"><%= link_to edit_ride_path(ride) do %>
-              <i class="fa fa-edit"></i>
+            <% if current_user.id == ride.user_id %>
+              <div id="task-action"><%= link_to edit_ride_path(ride) do %>
+                <i class="fa fa-edit"></i>
+                <% end %>
+              </div>
+              <!-- DELETE RIDE -->
+              <div id="task-action"><%= link_to ride_path(ride), method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-trash"></i>
+                <% end %>
+              </div>
+            <% else %>
+              <div id="task-action"><%= link_to rides_path do %>
+                <i class="fas fa-car"></i>
               <% end %>
-            </div>
-            <!-- DELETE RIDE -->
-            <div id="task-action"><%= link_to ride_path(ride), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash"></i>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
