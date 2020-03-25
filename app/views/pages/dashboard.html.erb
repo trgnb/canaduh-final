@@ -185,8 +185,8 @@
               <% if appointment.status == 'pending confirmation' %>
                 <div class="appointment-actions">
 
-                  <button class="btn-cta"> <#%= link_to "Confirm", service_appointment_path(@service_link, appointment.id, status: :confirmed), method: :patch %> </button>
-                  <button class="btn-appointment"> <#%= link_to 'Decline', service_appointment_path(@service_link, appointment, status: :declined), method: :patch %> </button>
+                  <button class="btn-cta"> <%= link_to "Confirm", service_appointment_path(@service_link, appointment.id, status: :confirmed), method: :patch %> </button>
+                  <!-- <button class="btn-appointment"> <#%= link_to 'Decline', service_appointment_path(@service_link, appointment, status: :declined), method: :patch %> </button> -->
 
                 </div>
               <% end %>
