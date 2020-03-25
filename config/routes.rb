@@ -42,4 +42,7 @@ end
 
   resources :rides
   delete 'rides/:id', to: "rides#destroy"
+
+  resources :bookings
+  delete 'bookings/:id', to: "bookings#destroy"
 end
