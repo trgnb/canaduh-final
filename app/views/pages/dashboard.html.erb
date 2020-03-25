@@ -179,7 +179,9 @@
 
               <% if appointment.status == 'declined' %>
                 <% @service_link = Service.find(appointment.service_id) %>
-                <pre><%= link_to "Delete", service_appointment_path(@service_link, appointment), method: :delete %></pre>
+                <%= link_to service_appointment_path(@service_link, appointment), method: :delete do %>
+                  <i class="fas fa-times" style="margin-left: 8px"></i>
+                <% end %>
               <% end %>
 
               <% if appointment.status == 'pending confirmation' %>
