@@ -160,14 +160,14 @@
           <div class="card-inline-appointment">
             <div class="row">
               <%= image_tag User.find(appointment.user_id).imgUrl, class: "avatar" %>
-            <div class="appointment-details">
-              <div id="appointment-type">
-                <strong><%= Service.find(appointment.service_id).service_type.upcase %></strong>
+              <div class="appointment-details">
+                <div id="appointment-type">
+                  <strong><%= Service.find(appointment.service_id).service_type.upcase %></strong>
+                </div>
+                <div id="advisor-name">
+                  with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
+                </div>
               </div>
-              <div id="advisor-name">
-                with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
-              </div>
-            </div>
             </div>
             <div class="appointment-schedule">
               <div id="appointment-date">
@@ -176,18 +176,17 @@
               <div id="appointment-status">
                 <strong>Status:</strong> <%= appointment.status.capitalize %>
               </div>
+
               <% if appointment.status == 'declined' %>
                 <% @service_link = Service.find(appointment.service_id) %>
-
                 <pre><%= link_to "Delete", service_appointment_path(@service_link, appointment), method: :delete %></pre>
-
               <% end %>
+
               <% if appointment.status == 'pending confirmation' %>
+                <% @service_link = Service.find(appointment.service_id) %>
                 <div class="appointment-actions">
-
-                  <button class="btn-cta"> <%= link_to "Confirm", service_appointment_path(@service_link, appointment.id, status: :confirmed), method: :patch %> </button>
-                  <!-- <button class="btn-appointment"> <#%= link_to 'Decline', service_appointment_path(@service_link, appointment, status: :declined), method: :patch %> </button> -->
-
+                  <%= link_to "Accept", service_appointment_path(@service_link, appointment.id, status: :confirmed), method: :patch, class: "btn-accept" %>
+                  <%= link_to 'Decline', service_appointment_path(@service_link, appointment, status: :declined), method: :patch, class: "btn-decline" %>
                 </div>
               <% end %>
             </div>

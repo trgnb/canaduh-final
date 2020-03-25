@@ -9,11 +9,15 @@
   text-align: center;
   opacity: 0.9;
   transition: opacity 0.1s ease;
-  text-decoration: none;
+  // text-decoration: none;
 
   &:hover {
     opacity: 1;
     color: $white;
+  }
+
+  .btn-accept {
+    margin-left: 8px;
   }
 }
 
@@ -28,12 +32,16 @@
   text-align: center;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-  text-decoration: none;
+  // text-decoration: none;
 
   &:hover {
     opacity: 1;
     color: $white;
     background: $red;
+  }
+
+  .btn-decline {
+    margin-left: 8px;
   }
 }
 
