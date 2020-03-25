@@ -29,7 +29,7 @@
           </div>
           <div class="task-actions">
             <% if milestone.achieved == true %>
-              <%= milestone.milestone_date.to_time.strftime('%B %e') %>
+              <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %>
               <!-- <#% milestone.achieved %> -->
             <% else %>
               In progress
@@ -53,6 +53,16 @@
       <% @high_priority_tasks.each do |task| %>
         <div class="card-task">
           <div class="task-details">
+            <!-- TASK CHECKBOX -->
+            <div id="status">
+              <%= link_to mark_task_path(task), method: :patch do %>
+                <% if task.task_status %>
+                  <i class="fa fa-check-square"></i>
+                <% else %>
+                  <i class="fa fa-square"></i>
+                <% end %>
+              <% end %>
+              </div>
             <!-- TASK NAME -->
             <div id="task-name">
               <p><strong><%= task.task_name%></strong></p>
@@ -167,19 +177,16 @@
                 <strong>Status:</strong> <%= appointment.status.capitalize %>
               </div>
               <% if appointment.status == 'declined' %>
+                <% @service_link = Service.find(appointment.service_id) %>
 
-              <!-- TO DO NEEDS TO BE FIXED -->
-
-                <!-- <pre><#%= link_to "Delete", service_appointment_path(service, appointment), method: :delete %></pre> -->
+                <pre><%= link_to "Delete", service_appointment_path(@service_link, appointment), method: :delete %></pre>
 
               <% end %>
               <% if appointment.status == 'pending confirmation' %>
                 <div class="appointment-actions">
 
-                  <!-- TODO NEEDS TO BE FIXED -->
-
-                  <!-- <button class="btn-cta"> <#%= link_to "Confirm", service_appointment_path(service, appointment, status: :confirmed), method: :patch %> </button> -->
-                  <!-- <button class="btn-appointment"> <#%= link_to 'Decline', service_appointment_path(service, appointment, status: :declined), method: :patch %> </button> -->
+                  <button class="btn-cta"> <%= link_to "Confirm", service_appointment_path(@service_link, appointment.id, status: :confirmed), method: :patch %> </button>
+                  <button class="btn-appointment"> <%= link_to 'Decline', service_appointment_path(@service_link, appointment, status: :declined), method: :patch %> </button>
 
                 </div>
               <% end %>
