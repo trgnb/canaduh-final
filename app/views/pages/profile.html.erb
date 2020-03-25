@@ -15,6 +15,21 @@
           <p><strong>Specialty:</strong> <%= @specialty %></p>
         <% end %>
 
+  <!-- // CONFIGURED ADVISOR SERVICES -->
+  <div class="slice-container">
+    <h2>Your active services</h2>
+      <!-- <pre><%#= link_to "Add", "#" %></pre> -->
+      <% @user.services.each do |service| %>
+        <div class="dashboard-service-container">
+          <h1><%= service.service_type.upcase %></h1>
+          <h2><strong>Immigration path:</strong> <%= service.path %></h2>
+          <p><strong>Description:</strong> <%= service.description %></p>
+          <p><strong>Pricing:</strong> $<%= service.price %>/hour</p>
+          <pre><%= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre>
+        </div>
+      <% end %>
+  </div>
+
 
 
       <pre><%= link_to "Edit profile",  edit_user_registration_path %></pre>
