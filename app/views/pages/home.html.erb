@@ -1,5 +1,3 @@
-<%= render 'shared/navbar' %>
-
 <!-- HEREO BANNER WITH ONBOARDING FORM -->
 <div class="hero-container" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)), url(<%= image_path 'herobanner.png' %>);">
   <div class="banner">
@@ -77,12 +75,19 @@
 
   <!-- GET STARTED BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/p-m-b/image/upload/v1582387301/canaduh/banner_dyx0ad.png);">
-      <div class="banner">
-        <h2 style="margin-bottom: 5px;">Plan your journey to a new life.</h2>
-        <p>What's your path?</p>
-        <br>
-        <a class="btn-cta-outline" href="/dashboard">Get started</a>
+    <div class="banner">
+      <h1>Plan your journey and connect    with expert advisors to guide you    on the path to a new life.</h1>
+      <div class="banner-search">
+          <%= form_tag services_path(current_user), method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "search-field",
+            placeholder: 'Try "general consultation"'
+            %>
+            <%= submit_tag "Get started", id: "banner-link", class: "btn btn-banner"%>
+            <% end %>
       </div>
+    </div>
   </div>
 
   <!-- SERVICES BY PATH CARDS -->
