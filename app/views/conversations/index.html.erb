@@ -59,15 +59,21 @@
               <div class="avatar">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
               </div>
-              <div id="recipient-name">
-                <%= link_to User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name, conversations_path(sender_id: conversation.sender_id, receiver_id: current_user.id), method: :post %>
+              <div class="col">
+                <div id="recipient-name">
+                  <%= User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name %>
+                </div>
+                <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
               </div>
             <% else %>
               <div class="avatar">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
               </div>
-              <div id="recipient-name">
-                <%= link_to conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name, conversation_private_messages_path(conversation) %>
+              <div class="col">
+                <div id="recipient-name">
+                  <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                </div>
+                <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
               </div>
             <% end %>
           </div>
