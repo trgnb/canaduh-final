@@ -8,7 +8,9 @@
   </div>
 </div>
 
-<%#= render 'shared/onboarding_form' %>
+<% if user_signed_in? %>
+  <%= render 'shared/onboarding_form' %>
+<% end %>
 
 <div class="main-container">
 
