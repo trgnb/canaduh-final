@@ -1,33 +1,42 @@
 <%= render 'shared/navbar' %>
 <div class="main-container">
-<h1>Messenger</h1>
-<h2>Your Chat with <%= User.find(@conversation.receiver_id).first_name %></h2>
-
-  <div class="container-conversation">
-  <% @private_messages.each do |private_message| %>
-      <% if private_message.body %>
-        <div class= "card-message">
-          <div id="message-avatar"><%= image_tag private_message.user.imgUrl, class: "avatar" %></div>
-          <div id="message-body"><%= private_message.body %></div>
-        </div>
-      <% end %>
-  <% end %>
+  <!-- MESSENGER HEADER -->
+  <div class="sticky-top-bar">
+    <%= link_to conversations_path do %>
+      <i class="fas fa-arrow-left sticky-bar-item"></i>
+    <% end %>
+    <div class="sticky-bar-item" id="message-avatar ">
+      <%= image_tag User.find(@conversation.receiver_id).imgUrl, class: "avatar" %>
+    </div>
+    <div class="sticky-bar-item">
+      <h4><%= User.find(@conversation.receiver_id).first_name %> <%= User.find(@conversation.receiver_id).last_name %></h4>
+    </div>
   </div>
+  <br>
 
+  <!-- CONVERSATION TABLE -->
+  <div class="container-conversation">
+    <% @private_messages.each do |private_message| %>
+    <div class="row">
+        <% if private_message.body %>
+          <div class= "card-message">
+            <div id="message-avatar"><%= image_tag private_message.user.imgUrl, class: "avatar" %></div>
+            <div id="message-body"><%= private_message.body %></div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
 <%= form_for [@conversation, @private_message] do |f| %>
-  <div class="field">
-    <%= f.text_area :body, placeholder: "Type a message" %>
+  <div class="row">
+    <%= f.text_area :body, placeholder: "Type a message", class: "message-input" %>
+  <%= f.submit "Send", class: "btn-send-message" %>
   </div>
-
-  <%= f.submit "Send", class: "btn-cta" %>
 <% end %>
-
-<%= link_to "Back", conversations_path, class: "btn-cta-border" %>
-</div>
-
 <% content_for :after_js do %>
   <script>
     scrollLastPrivateMessageIntoView();
   </script>
 <% end %>
+  </div>
+</div>

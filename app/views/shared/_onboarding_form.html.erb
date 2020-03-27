@@ -1,0 +1,12 @@
+<%= simple_form_for(:user, url: user_path(current_user), html: { method: :patch }) do |f| %>
+  <div class="form-inputs">
+  <!-- if statement needed to find out if user already set their path -->
+    <%= f.label "User Type" %>
+    <%= f.select :user_type, ['Client', 'Advisor'], {}, {class: "form-control"} %>
+    <%= f.label "Path Type" %>
+    <%= f.select :path_type, ['Student Visa', 'Work Visa','Permanent Residency','Canadian Citizenship'], {}, {class: "form-control"} %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Update" %>
+  </div>
+<% end %>

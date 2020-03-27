@@ -1,0 +1,15 @@
+.sticky-top-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .sticky-bar-item {
+    margin-left: 10px;
+    color: $black;
+
+  h4 {
+    margin: 0px;
+  }
+
+  }
+}

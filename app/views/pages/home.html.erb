@@ -8,6 +8,10 @@
   </div>
 </div>
 
+<% if user_signed_in? %>
+  <%= render 'shared/onboarding_form' %>
+<% end %>
+
 <div class="main-container">
 
     <!-- ADVISOR REVIEWS -->
