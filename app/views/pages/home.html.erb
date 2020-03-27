@@ -2,13 +2,17 @@
 <div class="hero-container" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)), url(<%= image_path 'herobanner.png' %>);">
   <div class="banner">
     <div class="hero-form">
-      <%= render 'shared/onboarding_form' %>
+      <% if user_signed_in? %>
+  <%= render 'shared/onboarding_form' %>
+<% end %>
     </div>
   </div>
 </div>
 
-<div class="main-container">
 
+
+
+<div class="main-container">
     <!-- ADVISOR REVIEWS -->
   <div class="slice-container">
     <!-- HEADER  -->

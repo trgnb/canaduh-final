@@ -10,74 +10,87 @@
   <!-- //SHOWS UNREAD MESSAGES -->
   <div class="slice-container">
     <h2>Unread messages</h2>
-    <div class = "js-refresh">
-      <% @conversations.each do |conversation| %>
-        <% if !conversation.unread_private_message_count(current_user).zero? %>
-          <div class="card-unreadmessage">
-            <div class="message-details">
-              <div class="row">
-                <div class="avatar">
-                  <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
-                </div>
-                <div id="message-preview">
-                  <div class="col">
+
+      <div class = "js-refresh">
+        <% if @conversations.exists? %>
+          <% @conversations.each do |conversation| %>
+              <% if !conversation.unread_private_message_count(current_user).zero? %>
+                <div class="card-unreadmessage">
+                  <div class="message-details">
                     <div class="row">
-                      <div id="recipient-name">
-                        <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                      <div class="avatar">
+                        <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
                       </div>
-                      <div id="new-tag">
-                        NEW
+                      <div id="message-preview">
+                        <div class="col">
+                          <div class="row">
+                            <div id="recipient-name">
+                              <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                            </div>
+                            <div id="new-tag">
+                              NEW
+                            </div>
+                          </div>
+                            <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
+                        </div>
+
                       </div>
                     </div>
                       <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+
+              <% else %>
+                <% content_for :js do %>
+                  <script type="text/javascript">
+                    $(document).ready(function() {
+                      $( ".js-refresh" ).html("<p> All caught up! You have no unread messages</p>");
+                    });
+                  </script>
+                <% end %>
+              <% end %>
+            <% end %>
         <% else %>
-          <% content_for :js do %>
-            <script type="text/javascript">
-              $(document).ready(function() {
-                $( ".js-refresh" ).html("<p> All caught up! You have no unread messages</p>");
-              });
-            </script>
-          <% end %>
+          <p> Your unread messages will appear here. </p>
         <% end %>
-      <% end %>
+
     </div>
   </div>
   <!-- //SHOWS USERS YOU STARTED A CHAT WITH -->
   <div class="slice-container">
     <h2>My connections</h2>
-    <% @conversations.each do |conversation| %>
-      <div class="card-connection">
-        <div class="connection-details">
-          <div class="row">
-            <% if conversation.receiver_id == current_user.id %>
-              <div class="avatar">
-                <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
-              </div>
-              <div class="col">
-                <div id="recipient-name">
-                  <%= User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name %>
+    <% if @conversations.exists? %>
+      <% @conversations.each do |conversation| %>
+        <div class="card-connection">
+          <div class="connection-details">
+            <div class="row">
+              <% if conversation.receiver_id == current_user.id %>
+                <div class="avatar">
+                  <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
                 </div>
-                <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
-              </div>
-            <% else %>
-              <div class="avatar">
-                <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
-              </div>
-              <div class="col">
-                <div id="recipient-name">
-                  <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                <div class="col">
+                  <div id="recipient-name">
+                    <%= User.find(conversation.sender_id).first_name + " " + User.find(conversation.sender_id).last_name %>
+                  </div>
+                  <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                 </div>
-                <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
-              </div>
-            <% end %>
+              <% else %>
+                <div class="avatar">
+                  <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
+                </div>
+                <div class="col">
+                  <div id="recipient-name">
+                    <%= conversation.recipient(current_user).first_name + ' ' + conversation.recipient(current_user).last_name %>
+                  </div>
+                  <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
+    <% else %>
+      <p> Your connections will appear here. </p>
     <% end %>
-  </div>
+    </div>
 </div>
