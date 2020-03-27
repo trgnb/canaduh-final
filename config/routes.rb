@@ -41,4 +41,9 @@ end
   resources :conversations, only: [:index, :create] do
     resources :private_messages, only: [:index, :create]
   end
+
+  resources :rides do
+    resources :bookings, only: [:create, :edit, :update, :destroy]
+  end
+  delete 'rides/:id', to: "rides#destroy"
 end
