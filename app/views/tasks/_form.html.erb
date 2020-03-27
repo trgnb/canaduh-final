@@ -1,10 +1,18 @@
-<%= form_for(@task) do |f| %>
-  <%= f.label "Task" %>
-  <%= f.text_field :task_name %>
-
-  <%= f.label "Priority" %>
-  <%= f.select :priority, ["high", "medium", "low"], :prompt => "Select" %>
-  <%= f.hidden_field :recommended_task, value: 0 %>
-
-  <%= f.submit "Add", class: "btn btn-primary"%>
-<% end %>
+<div class="task-form">
+  <h1>Add a new task to the list</h1>
+  <%= form_for(@task) do |f| %>
+    <div class="container">
+      <div class="col" style="padding: 0px;">
+        <h2><%= f.label "Task description" %></h2>
+        <%= f.text_field :task_name, class: "form-control" %>
+      </div>
+      <div class="col" style="padding: 0px;">
+        <h2><%= f.label "Priority" %></h2>
+        <%= f.select :priority, ["High", "Medium", "Low"], :prompt => "Select", class: "form-control" %>
+        <%= f.hidden_field :recommended_task, value: 0 %>
+      </div>
+      <br>
+      <%= f.submit "Add", class: "btn-cta"%>
+    </div>
+  <% end %>
+</div>

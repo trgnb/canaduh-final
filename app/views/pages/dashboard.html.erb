@@ -1,4 +1,3 @@
-<%= render 'shared/navbar' %>
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;">Welcome to your dashboard <%= @current_user.first_name %></h1>
@@ -43,11 +42,11 @@
   <!-- TASK REMINDER -->
   <div class="slice-container">
     <div class="row">
-      <h4>Path planner</h4>
+      <h4>Planner</h4>
     </div>
     <% if @high_priority_tasks.empty? %>
       <div class="row">
-        <p>No outstanding high priority tasks</p>
+        <p>No outstanding high priority tasks.</p>
       </div>
     <% else %>
       <% @high_priority_tasks.each do |task| %>
@@ -57,9 +56,9 @@
             <div id="status">
               <%= link_to mark_task_path(task), method: :patch do %>
                 <% if task.task_status %>
-                  <i class="fa fa-check-square"></i>
+                  <i class="far fa-check-square"></i>
                 <% else %>
-                  <i class="fa fa-square"></i>
+                  <i class="far fa-square"></i>
                 <% end %>
               <% end %>
               </div>
@@ -96,7 +95,7 @@
     <% if @current_user.user_type == "user" %>
       <h4>Upcoming appointments</h4>
       <% if @appointments.empty? %>
-        <p>No scheduled appointments</p>
+        <p>No scheduled appointments.</p>
         <br>
         <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
@@ -164,8 +163,15 @@
                 <div id="appointment-type">
                   <strong><%= Service.find(appointment.service_id).service_type.upcase %></strong>
                 </div>
-                <div id="advisor-name">
-                  with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
+                <div class="row">
+                  <div id="advisor-name">
+                    with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
+                  </div>
+                  <div id="chat-icon">
+                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Service.find(appointment.service_id).user.id), method: :post do %>
+                    <i class="far fa-comment-alt"></i>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -202,7 +208,7 @@
       </div>
       <% if @high_priority_tasks.empty? %>
         <div class="row">
-          <p>No outstanding high priority tasks</p>
+          <p>No outstanding high priority tasks.</p>
         </div>
       <% else %>
         <% @high_priority_tasks.each do |task| %>
@@ -254,9 +260,8 @@
 
 <% end %>
 
-
   <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
-  <p>User' processing time: <%= @total_processing_time %></p>
+<!--   <p>User' processing time: <%= @total_processing_time %></p>
   <ol>
     <li>CSQ Reception: <%= @csq_processing_time %> months</li>
     <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
@@ -264,8 +269,6 @@
     <li>PR Reception: <%= @pr3_processing_time %> months</li>
     <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
   </ol>
-  <br>
+  <br> -->
 </div>
-
 </div>
-

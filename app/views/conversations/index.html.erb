@@ -1,4 +1,3 @@
-<%= render 'shared/navbar' %>
 <!-- MESSGE BANNER -->
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
@@ -8,9 +7,10 @@
 </div>
 
 <div class="main-container">
-<!-- //SHOWS UNREAD MESSAGES -->
-  <div class="slice-container-bottom">
+  <!-- //SHOWS UNREAD MESSAGES -->
+  <div class="slice-container">
     <h2>Unread messages</h2>
+
       <div class = "js-refresh">
         <% if @conversations.exists? %>
           <% @conversations.each do |conversation| %>
@@ -33,15 +33,17 @@
                           </div>
                             <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                         </div>
+
                       </div>
                     </div>
+                      <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                   </div>
                 </div>
               <% else %>
                 <% content_for :js do %>
                   <script type="text/javascript">
                     $(document).ready(function() {
-                      $( ".js-refresh" ).html("<p> All caught up! You have no unread messages</p>");
+                      $( ".js-refresh" ).html("<p> All caught up! You have no unread messages.</p>");
                     });
                   </script>
                 <% end %>
@@ -50,6 +52,7 @@
         <% else %>
           <p> Your unread messages will appear here. </p>
         <% end %>
+
     </div>
   </div>
   <!-- //SHOWS USERS YOU STARTED A CHAT WITH -->
