@@ -19,9 +19,9 @@ class Conversation < ApplicationRecord
 
   def show_last_message(current_user, conversation)
     if User.find(conversation.sender_id) == current_user
-      conversation.private_messages.where("user_id != ?", sender_id).last.body
+      conversation.private_messages.where(user_id: sender_id).last.body
     else
-      conversation.private_messages.where("user_id != ?", receiver_id).last.body
+      Conversation.where(receiver_id: current_user, id: conversation).last.private_messages.last.body
     end
   end
 end
