@@ -133,6 +133,84 @@
   </div>
 
 
+  <!-- USER RIDES BOOKINGS -->
+    <div class="slice-container">
+        <h4>Upcoming rides</h4>
+
+        <!-- IF CURRENT USER IS THE RIDER -->
+        <% if @rider_bookings.empty? && @user_bookings.empty? %>
+          <p>No scheduled rides</p>
+          <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
+        <% else %>
+          <!-- IF CURRENT USER IS THE RIDER -->
+          <% @rider_bookings.each do |booking| %>
+            <div class="row">
+              <%= image_tag booking.user.imgUrl, class: "avatar" %>
+              <div class="appointment-details">
+                <div class="row">
+                  <div id="advisor-name">with <%= booking.user.first_name %> <%= booking.user.last_name %>
+                  </div>
+                  <div id="chat-icon">
+                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: booking.user.id), method: :post do %>
+                    <i class="far fa-comment-alt"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="appointment-schedule">
+              <div id="appointment-date"><strong>From: </strong><%= Ride.find(booking.ride_id).departure_address  %></div>
+              <div id="appointment-date"><strong>To: </strong><%= Ride.find(booking.ride_id).destination_address  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e at %l:%M %p')  %></div>
+              <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
+              <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
+
+              <% if booking.booking_status == 'pending' %>
+                <% @ride_link = Ride.find(booking.ride_id) %>
+                <div class="appointment-actions">
+                  <%= link_to "Confirm", ride_booking_path(@ride_link, booking.id, booking_status: :booked), method: :patch, class: "btn-accept" %>
+                  <%= link_to 'Decline', ride_booking_path(@ride_link, booking, booking_status: :declined), method: :patch, class: "btn-decline" %>
+                </div>
+              <% end %>
+
+              <% if booking.booking_status == 'declined' %>
+                <% @ride_link = Ride.find(booking.ride_id) %>
+                <%= link_to ride_booking_path(@ride_link, booking), method: :delete do %>
+                  <i class="fas fa-times" style="margin-left: 8px"></i>
+                <% end %>
+              <% end %>
+              <%= link_to "Delete", ride_booking_path(Ride.find(booking.ride_id), booking), method: :delete %>
+            </div>
+          <% end %>
+
+          <% @user_bookings.each do |booking| %>
+            <div class="row">
+              <%= image_tag Ride.find(booking.ride_id).user.imgUrl, class: "avatar" %>
+              <div class="appointment-details">
+                <div class="row">
+                  <div id="advisor-name">with <%= Ride.find(booking.ride_id).user.first_name %> <%= Ride.find(booking.ride_id).user.last_name %>
+                  </div>
+                  <div id="chat-icon">
+                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Ride.find(booking.ride_id).user.id), method: :post do %>
+                    <i class="far fa-comment-alt"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="appointment-schedule">
+              <div id="appointment-date"><strong>From: </strong><%= Ride.find(booking.ride_id).departure_address  %></div>
+              <div id="appointment-date"><strong>To: </strong><%= Ride.find(booking.ride_id).destination_address  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e at %l:%M %p')  %></div>
+              <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
+              <%= link_to "Delete", ride_booking_path(Ride.find(booking.ride_id), booking), method: :delete %>
+            </div>
+          <% end %>
+        <br>
+        <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
+        <% end %>
+    </div>
+
 <!-- COMMUNITY INSIGHTS BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
       <div class="banner">
@@ -140,7 +218,7 @@
         <h4>Estimated time to <strong><%= @current_user.path_type.capitalize %></strong>: <%= @total_processing_time %></h4>
         <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
         <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p class="card-milestone">PR Apppcation Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
+        <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
         <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
         <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
         <p class="card-milestone">PR Processing Time: <%= @total_av_processing_time %> months</p>
@@ -253,7 +331,6 @@
 <br>
 
 <% end %>
-
 
   <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
   <p>User' processing time: <%= @total_processing_time %></p>

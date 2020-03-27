@@ -42,9 +42,8 @@ end
     resources :private_messages, only: [:index, :create]
   end
 
-  resources :rides
+  resources :rides do
+    resources :bookings, only: [:create, :edit, :update, :destroy]
+  end
   delete 'rides/:id', to: "rides#destroy"
-
-  resources :bookings
-  delete 'bookings/:id', to: "bookings#destroy"
 end

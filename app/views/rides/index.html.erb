@@ -14,7 +14,7 @@
             <p><strong>When: </strong><%= ride.ride_date %></p>
             <p><strong>Price: </strong><%= ride.ride_price %></p>
             <p><strong>Capacity: </strong><%= ride.ride_capacity %></p>
-            <p><strong>Ride with: </strong><%= ride.user_id %></p>
+            <p><strong>Ride with: </strong><%= User.find_by_id(ride.user_id).first_name %></p>
           </div>
 
           <!-- RIDE ACTIONS -->
@@ -40,11 +40,6 @@
               <div id="task-action"><%= link_to ride_path(ride) do %>
                 <i class="fas fa-car"></i>
                 <% end %>
-              </div>
-              <!-- BOOK RIDE -->
-              <div id="task-action"><%= link_to rides_path do %>
-                <i class="far fa-calendar-check"></i>
-              <% end %>
               </div>
             <% end %>
           </div>

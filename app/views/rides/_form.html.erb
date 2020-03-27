@@ -6,13 +6,13 @@
   <%= f.text_field :destination_address %>
 
   <%= f.label "When" %>
-  <%= f.text_field :ride_date, class: 'datepicker' %>
+  <%= f.text_field :ride_date %>
 
   <%= f.label "Price" %>
   <%= f.text_field :ride_price %>
 
-  <%= f.label "Car capacity" %>
+  <%= f.label "Capacity" %>
   <%= f.text_field :ride_capacity %>
 
-  <%= f.submit "Add a new ride", class: "btn btn-primary"%>
+  <%= f.submit "Add", class: "btn btn-primary"%>
 <% end %>

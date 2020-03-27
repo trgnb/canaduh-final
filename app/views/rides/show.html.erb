@@ -36,10 +36,14 @@
         <% end %>
       </div>
       <!-- BOOK RIDE -->
-      <div id="task-action"><%= link_to rides_path do %>
-          <i class="fas fa-car"></i>
-        <% end %>
-      </div>
+<!--       <div id="task-action"><%#= link_to new_ride_booking_path(@ride) do %>
+          <i class="fas fa-calendar-alt"></i>
+        <%# end %>
+      </div> -->
+      <%=form_for [@ride, @booking] do |f| %>
+        <%= f.submit "Book", class: "btn btn-primary", id: "sweet-alert2"%>
+        <%= link_to "", dashboard_path, id: "book-ride", class: "hidden" %>
+      <% end %>
     <% end %>
   </div>
 </div>

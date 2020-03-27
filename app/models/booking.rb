@@ -1,9 +1,11 @@
 class Booking < ApplicationRecord
+  BOOKING_OPTIONS = ["pending", "booked", "declined"]
+
   belongs_to :ride
   belongs_to :user
 
   validates :booking_status, presence: true
-  validates :status, presence: true
+  validates_inclusion_of :booking_status, in: BOOKING_OPTIONS
 
   # after_commit :create_notifications, on: :create
 
