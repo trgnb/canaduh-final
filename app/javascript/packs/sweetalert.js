@@ -12,3 +12,17 @@ initSweetalert('#sweet-alert', {
     link.click();
   }
 });
+
+
+initSweetalert('#sweet-alert2', {
+  title: "Your ride is booked.",
+  text: "Check dashboard for confirmation",
+  icon: "success"
+}, (value) => {
+  console.log(value);
+
+  if (value) {
+    const link = document.querySelector('#book-ride')
+    link.click();
+  }
+});

@@ -1,0 +1,49 @@
+<%= render 'shared/navbar' %>
+
+<div class="main-container">
+  <div class="slice-container">
+    <!-- SHOW RIDE -->
+    <!-- RIDES DETAILS -->
+    <h1>Ride with <%= User.find_by_id(@ride.user_id).first_name %></h1>
+    <br>
+    <p><strong>From: </strong><%= @ride.departure_address %></p>
+    <p><strong>To: </strong><%= @ride.destination_address %></p>
+    <p><strong>When: </strong><%= @ride.ride_date %></p>
+    <p><strong>Price: </strong><%= @ride.ride_price %></p>
+    <p><strong>Capacity: </strong><%= @ride.ride_capacity %></p>
+
+    <!-- RIDE ACTIONS -->
+    <% if current_user.id == @ride.user_id %>
+      <!-- RETURN TO RIDES -->
+      <div id="task-action"><%= link_to rides_path do %>
+          <i class="fas fa-arrow-left"></i>
+        <% end %>
+      </div>
+      <!-- EDIT RIDE -->
+      <div id="task-action"><%= link_to edit_ride_path(@ride) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- DELETE RIDE -->
+      <div id="task-action"><%= link_to ride_path(@ride), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <!-- RETURN TO RIDES -->
+      <div id="task-action"><%= link_to rides_path do %>
+          <i class="fas fa-arrow-left"></i>
+        <% end %>
+      </div>
+      <!-- BOOK RIDE -->
+<!--       <div id="task-action"><%#= link_to new_ride_booking_path(@ride) do %>
+          <i class="fas fa-calendar-alt"></i>
+        <%# end %>
+      </div> -->
+      <%=form_for [@ride, @booking] do |f| %>
+        <%= f.submit "Book", class: "btn btn-primary", id: "sweet-alert2"%>
+        <%= link_to "", dashboard_path, id: "book-ride", class: "hidden" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

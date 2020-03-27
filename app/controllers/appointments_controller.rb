@@ -1,7 +1,6 @@
 class AppointmentsController < ApplicationController
-  before_action :set_service, only: %i(create)
-  # NEW: In the service controller? #
-  # GET #
+  before_action :set_service, only: %i(new create)
+
   def new
     @service = Service.find(params[:service_id])
     @appointment = Appointment.new

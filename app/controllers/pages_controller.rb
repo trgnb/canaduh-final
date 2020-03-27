@@ -12,6 +12,9 @@ class PagesController < ApplicationController
   def dashboard
     # USER #
     @appointments = current_user.appointments
+    @user_type = current_user.user_type
+    @user_path = current_user.path_type
+    # @bookings = current_user.bookings
 
     # ADVISOR #
     @services = current_user.services
@@ -21,6 +24,20 @@ class PagesController < ApplicationController
     tasks = current_user.tasks
     @high_priority_tasks = tasks.filter do |task|
       task.priority == "high"
+    end
+
+    # RIDES #
+    @rides = Ride.all.where(user_id: current_user.id)
+
+    # BOOKINGS #
+    @bookings = Booking.all
+    @user_bookings = Booking.where(user_id: current_user.id)
+
+    @rider_bookings = []
+    @bookings.each do |booking|
+      if Ride.find(booking.ride_id).user_id == current_user.id
+        @rider_bookings << booking
+      end
     end
   end
 
