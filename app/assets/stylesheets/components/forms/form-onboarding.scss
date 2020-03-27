@@ -1,9 +1,6 @@
 .onboarding-form {
   padding: 30px 30px;
   background: $offwhite;
-  // min-height: 390px;
-  // max-height: 390px;
-  // min-width: 400px;
   max-width: 400px;
   border-radius: 5px;
 
@@ -21,9 +18,15 @@
 
 
   .form-control {
-    border: none;
+    border: 1px solid #DEDEDE;
     margin-bottom: $bottom/2;
     max-width: 240px;
+    border-radius: 1px;
+    border-opacity: 0.8;
+  }
+
+  &:focus {
+    box-shadow: none;
   }
 
 
