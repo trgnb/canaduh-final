@@ -39,12 +39,11 @@
                       <%= link_to '"' + conversation.show_last_message(current_user, conversation) + '"', conversation_private_messages_path(conversation), id: "last-message" %>
                   </div>
                 </div>
-
               <% else %>
                 <% content_for :js do %>
                   <script type="text/javascript">
                     $(document).ready(function() {
-                      $( ".js-refresh" ).html("<p> All caught up! You have no unread messages</p>");
+                      $( ".js-refresh" ).html("<p> All caught up! You have no unread messages.</p>");
                     });
                   </script>
                 <% end %>

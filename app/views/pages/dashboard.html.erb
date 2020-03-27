@@ -163,8 +163,15 @@
                 <div id="appointment-type">
                   <strong><%= Service.find(appointment.service_id).service_type.upcase %></strong>
                 </div>
-                <div id="advisor-name">
-                  with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
+                <div class="row">
+                  <div id="advisor-name">
+                    with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
+                  </div>
+                  <div id="chat-icon">
+                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Service.find(appointment.service_id).user.id), method: :post do %>
+                    <i class="far fa-comment-alt"></i>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -201,7 +208,7 @@
       </div>
       <% if @high_priority_tasks.empty? %>
         <div class="row">
-          <p>No outstanding high priority tasks</p>
+          <p>No outstanding high priority tasks.</p>
         </div>
       <% else %>
         <% @high_priority_tasks.each do |task| %>
