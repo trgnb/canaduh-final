@@ -1,6 +1,30 @@
-.hero-form {
-  min-height: 390px;
-  max-height: 390px;
-  min-width: 400px;
+.onboarding-form {
+  padding: 30px 30px;
+  background: $offwhite;
+  // min-height: 390px;
+  // max-height: 390px;
+  // min-width: 400px;
   max-width: 400px;
+  border-radius: 5px;
+
+  h1 {
+    max-width: 80vw !important;
+    color: $black;
+    text-shadow: none !important;
+    opacity: 0.8px !important;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: $black;
+  }
+
+
+  .form-control {
+    border: none;
+    margin-bottom: $bottom/2;
+    max-width: 240px;
+  }
+
+
 }

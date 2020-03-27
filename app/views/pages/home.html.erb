@@ -1,12 +1,13 @@
 <!-- HEREO BANNER WITH ONBOARDING FORM -->
 <div class="hero-container" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)), url(<%= image_path 'herobanner.png' %>);">
   <div class="banner">
-    <div class="hero-form" style="background-image: url(<%= image_path 'tempform.png' %>);">
+    <div class="hero-form">
+      <%= render 'shared/onboarding_form' %>
     </div>
   </div>
 </div>
 
-<%#= render 'shared/onboarding_form' %>
+
 
 <div class="main-container">
 
