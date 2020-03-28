@@ -20,7 +20,16 @@
     border: 0px;
   }
 
+  #add-task-description {
+    border-radius: 5px;
+    width: 500px;
+    margin-left: 15px;
+    margin-right: 15px;
 
+    &:focus {
+      border: 1px solid #eeeeee;
+    }
+  }
 
     a {
       color: $black;
@@ -34,6 +43,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    #add-task-priority {
+     margin-left: 15px;
+     height: 36px;
+
+      &:focus {
+        border: 1px solid #eeeeee;
+      }
+    }
 
     #status {
       margin-right: 40px;

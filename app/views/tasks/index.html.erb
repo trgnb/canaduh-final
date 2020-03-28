@@ -147,29 +147,34 @@
           <% end %>
         </div>
       <% end %>
-      <!-- ADD TASK -->
+
     <br>
-    <h1>Add a new task</h1>
+    <div class="slice-container">
+    <h3>Create a task</h3>
         <%= form_for Task.new do |f| %>
-        <div class="card-task"  style="height: 100px";>
+        <div class="card-task" style="height: 60px;">
 
-          <div class="row">
-            <%= f.label "Task description" %>
-            <%= f.text_field :task_name, class: "form-control" %>
+          <div class="task-details">
+            <p><strong>Description: </strong></p>
+            <%= f.text_field :task_name, class: "form-control", id: "add-task-description" %>
+            <%= f.select :priority, ["High", "Medium", "Low"], :prompt => "Priority", class: "form-control", id: "add-task-priority" %>
           </div>
-          <div class="row">
-                <%= f.label "Priority" %>
-                <%= f.select :priority, ["High", "Medium", "Low"], :prompt => "Select", class: "form-control" %>
-                <%= f.hidden_field :recommended_task, value: 0 %>
+          <div class="task-actions">
+            <div class="task-details">
+
+              <%= button_tag type: 'submit', id: "add-task" do %>
+                <div class="btn-cta">Submit</div>
+
+                <!-- <i class="fa fa-plus" ></i> -->
+              <% end %>
+            </div>
           </div>
 
-        <%= button_tag type: 'submit', id: "add-task" do %>
-            <i class="fa fa-plus" ></i>
-        <% end %>
+        </div>
         </div>
 
         <% end %>
 
-
+</div>
   </div>
 </div>
