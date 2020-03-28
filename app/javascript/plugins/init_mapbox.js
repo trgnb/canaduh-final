@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 
 // Init Mapbox //
-var initMapbox = () => {
+const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
