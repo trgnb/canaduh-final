@@ -43,6 +43,11 @@ class BookingsController < ApplicationController
 
   def confirm_or_not_booking
     @booking.booking_status = params[:booking_status]
+    if @booking.booking_status == "booked"
+      ride = Ride.find_by_id(@booking.ride.id)
+      ride.ride_capacity = ride.ride_capacity - 1
+      ride.save!
+    end
     redirect_to dashboard_path if @booking.save!
   end
 

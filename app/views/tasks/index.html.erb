@@ -147,11 +147,30 @@
           <% end %>
         </div>
       <% end %>
-      <!-- ADD TASK BUTTON -->
+
+      <!-- ADD TASK -->
       <br>
       <div>
-        <%= link_to new_task_path  do %>
-          <div class="btn-cta">Add a task</div>
+        <%#= link_to new_task_path  do %>
+<!--           <div class="btn-cta">Add a task</div> -->
+        <%# end %>
+      </div>
+      <div class="task-form">
+        <h1>Add a new task to the list</h1>
+        <%= form_for Task.new do |f| %>
+          <div class="container">
+            <div class="col" style="padding: 0px;">
+              <h2><%= f.label "Task description" %></h2>
+              <%= f.text_field :task_name, class: "form-control" %>
+            </div>
+            <div class="col" style="padding: 0px;">
+              <h2><%= f.label "Priority" %></h2>
+              <%= f.select :priority, ["High", "Medium", "Low"], :prompt => "Select", class: "form-control" %>
+              <%= f.hidden_field :recommended_task, value: 0 %>
+            </div>
+            <br>
+            <%= f.submit "Add", class: "btn-cta"%>
+          </div>
         <% end %>
       </div>
   </div>
