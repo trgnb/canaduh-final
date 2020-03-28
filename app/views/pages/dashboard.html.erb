@@ -104,9 +104,12 @@
             <div class="row">
               <%= image_tag Service.find(appointment.service_id).user.imgUrl, class: "avatar" %>
               <div class="appointment-details">
-                <div id="appointment-type"><strong><%= Service.find(appointment.service_id).service_type.upcase %></strong></div>
+                <div id="appointment-type">
+                  <strong><%= Service.find(appointment.service_id).service_type.upcase %></strong>
+                </div>
                 <div class="row">
-                  <div id="advisor-name">with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %>
+                  <div id="advisor-name">
+                    with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %>
                   </div>
                   <div id="chat-icon">
                     <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Service.find(appointment.service_id).user.id), method: :post do %>
