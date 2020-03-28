@@ -1,5 +1,6 @@
 <div class="slice-container">
   <h1>Set milestone completion date</h1>
+  <p>We use completion times to generate realtime community insights.</p>
   <%= form_for(@milestone) do |f| %>
     <%= f.text_field :milestone_date, class: 'datepicker' %>
     <%= f.hidden_field :achieved, value: 1 %>
