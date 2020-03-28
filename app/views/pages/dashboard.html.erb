@@ -117,7 +117,7 @@
               </div>
             </div>
             <div class="appointment-schedule">
-              <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e at %l:%M %p')  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong>Status: </strong><%= appointment.status.capitalize %></div>
               <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
             </div>
@@ -160,7 +160,7 @@
             <div class="appointment-schedule">
               <div id="appointment-date"><strong>From: </strong><%= Ride.find(booking.ride_id).departure_address  %></div>
               <div id="appointment-date"><strong>To: </strong><%= Ride.find(booking.ride_id).destination_address  %></div>
-              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e at %l:%M %p')  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
               <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
 
@@ -200,9 +200,12 @@
             <div class="appointment-schedule">
               <div id="appointment-date"><strong>From: </strong><%= Ride.find(booking.ride_id).departure_address  %></div>
               <div id="appointment-date"><strong>To: </strong><%= Ride.find(booking.ride_id).destination_address  %></div>
-              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e at %l:%M %p')  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
-              <%= link_to "Delete", ride_booking_path(Ride.find(booking.ride_id), booking), method: :delete %>
+              <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
+              <% if booking.booking_status == 'declined' %>
+                <%= link_to "Delete", ride_booking_path(Ride.find(booking.ride_id), booking), method: :delete %>
+              <% end %>
             </div>
           <% end %>
         <br>
@@ -255,7 +258,7 @@
             </div>
             <div class="appointment-schedule">
               <div id="appointment-date">
-                <strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e at %l:%M %p')  %>
+                <strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e, %Y at %l:%M %p')  %>
               </div>
               <div id="appointment-status">
                 <strong>Status:</strong> <%= appointment.status.capitalize %>
@@ -350,3 +353,4 @@
   <br> -->
 </div>
 </div>
+<script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>

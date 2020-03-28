@@ -37,6 +37,11 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    if @booking.booking_status == "booked"
+      ride = Ride.find_by_id(@booking.ride.id)
+      ride.ride_capacity = ride.ride_capacity + 1
+      ride.save!
+    end
     @booking.destroy
     redirect_to dashboard_path
   end
