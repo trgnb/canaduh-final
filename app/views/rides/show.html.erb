@@ -39,7 +39,7 @@
         <%# end %>
       </div> -->
 
-      <% if Booking.where(ride_id: @ride.id, user_id: current_user.id).nil? %>
+      <% if Booking.where(ride_id: @ride.id, user_id: current_user.id).empty? %>
         <%=form_for [@ride, @booking] do |f| %>
           <%= f.submit "Book", class: "btn btn-primary", id: "sweet-alert2"%>
           <%= link_to "", dashboard_path, id: "book-ride", class: "hidden" %>
