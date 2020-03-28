@@ -11,14 +11,6 @@ import "../plugins/flatpickr"
 import "./sweetalert"
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-require("flickity")
-import "flickity/dist/flickity.min.css";
-
-$(".main-carousel").flickity({
-  contain: true
-});
-
-
 // MAPBOX //
 import mapboxgl from 'mapbox-gl';
 
