@@ -601,7 +601,7 @@ recommended_task3_belis1 = Task.create!(
 recommended_task4_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "Fill-out the Use of a Representative Form",
+  task_name: "Use of a Representative Form",
   recommended_task: true,
   priority: "low",
 )
@@ -619,6 +619,36 @@ recommended_task6_belis1 = Task.create!(
   recommended_task: true,
   priority: "low",
 )
+recommended_task7_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "Immigration Advisor Certificate (if assisted in your application)",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task8_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "Regulated work Declaration of the candidate (Form: A-0527-JF)",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task9_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "Former and actual employers attestations",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task10_belis1 = Task.create!(
+  user: belis1,
+  task_path: belis1.path_type,
+  task_name: "Immigration Advisor Certificate (if assisted in your application)",
+  recommended_task: true,
+  priority: "low",
+)
+
+
 
 ### Belis 2 ###
 recommended_task1_belis2 = Task.create!(
@@ -653,6 +683,41 @@ recommended_task5_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Up-to-date curriculum vitæ",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task6_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "Academic transcripts and diplomas",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task7_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "Immigration Advisor Certificate (if assisted in your application)",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task8_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "Regulated work Declaration of the candidate (Form: A-0527-JF)",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task9_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "Former and actual employers attestations",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task10_belis2 = Task.create!(
+  user: belis2,
+  task_path: belis2.path_type,
+  task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
   priority: "low",
 )
@@ -693,6 +758,43 @@ recommended_task5_belis3 = Task.create!(
   recommended_task: true,
   priority: "low",
 )
+recommended_task6_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "Academic transcripts and diplomas",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task7_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "Immigration Advisor Certificate (if assisted in your application)",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task8_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "Regulated work Declaration of the candidate (Form: A-0527-JF)",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task9_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis3.path_type,
+  task_name: "Former and actual employers attestations",
+  recommended_task: true,
+  priority: "low",
+)
+recommended_task10_belis3 = Task.create!(
+  user: belis3,
+  task_path: belis1.path_type,
+  task_name: "Immigration Advisor Certificate (if assisted in your application)",
+  recommended_task: true,
+  priority: "low",
+)
+
+# ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
 ## belis1' TO DO list ##
 belis1_task1 = Task.create!(
@@ -862,6 +964,7 @@ belis3_task10 = Task.create!(
   recommended_task: false,
 )
 
+# ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
 #testing for chatroom
 
@@ -890,12 +993,6 @@ message_4 = Message.create!(
   chat_room: chat_room,
   user: victor
 )
-
-
-
-## belis2' TO DO list ##
-
-## belis3' TO DO list ##
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
