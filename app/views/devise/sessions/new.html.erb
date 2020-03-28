@@ -1,23 +1,28 @@
 <div class="main-container">
-  <div class="form-container">
-      <h1>Log in to Canaduh</h1>
-      <p>Don't have an account? <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-        <%= link_to "Sign up", new_registration_path(resource_name) %>
+  <div class="form-login">
+    <div class="header">
+      <%= image_tag "https://res.cloudinary.com/p-m-b/image/upload/v1582383940/canaduh/_Logo_r38qps.png", class: "logo" %>
+      <h3>Log in to Canaduh</h3>
+      <p>Don't have an account?
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "Sign up", new_registration_path(resource_name) %>
         <% end %>
-        </p>
-
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      required: false,
-                      input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
+      </p>
+    </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+      <div class="row-btn">
         <%= f.button :submit, "Log in", class: "btn-cta" %>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

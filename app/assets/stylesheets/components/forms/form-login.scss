@@ -1,0 +1,35 @@
+.form-login {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px;
+    background: $offwhite;
+    max-width: 600px;
+    min-width: 400px;
+    border-radius: 5px;
+    align-self: center;
+    box-shadow: $modalshadow;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      text-align: center;
+
+      .logo {
+        width: 120px;
+        height: 120px;
+        align-self: center;
+        margin-bottom: 8px;
+      }
+    }
+
+    .form-inputs {
+
+    }
+
+    .row-btn {
+      display: flex;
+      justify-content: flex-end;
+    }
+}
+

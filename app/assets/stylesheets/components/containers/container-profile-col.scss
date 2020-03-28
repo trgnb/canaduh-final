@@ -7,7 +7,6 @@
   background: $offwhite;
   box-shadow: $dropshadow;
 
-
   .profile-header {
     display: flex;
     flex-direction: column;
@@ -22,6 +21,14 @@
       box-shadow: 0 1px 2px rgba(0,0,0,0.2);
       background: white;
       border: white 1px solid;
+    }
+
+    i {
+      color: $red;
+    }
+
+    p {
+      margin-bottom: 4px;
     }
 
     #social-row {

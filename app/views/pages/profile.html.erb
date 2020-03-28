@@ -3,7 +3,13 @@
     <div class="row" style="justify-content: space-between;">
       <div class="container-profile-col">
         <div class="profile-header">
+          <div style="position: relative;">
+          <%= link_to edit_user_registration_path do %>
+          <i class="far fa-edit" style="font-size:21px; position: absolute; top: 10px; right: 250px; color: $black; opacity: 0.8;"></i>
+          <% end %>
+          </div>
           <img src="<%= @user.imgUrl %>">
+
           <h2><strong><%= @first_name %> <%= @last_name %></strong></h2>
           <% if @user_type == "advisor" %>
             <p><strong>Specialty:</strong> <%= @specialty.capitalize %></p>
@@ -22,7 +28,7 @@
         <div class="profile-details">
           <p><strong>Biography:</strong></p>
           <p><%= @bio %></p>
-          <%= link_to "Edit profile",  edit_user_registration_path, class: "btn-cta-border" %>
+
         </div>
         <br>
         <% if @user_type == "advisor" %>
