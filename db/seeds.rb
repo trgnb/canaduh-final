@@ -582,70 +582,70 @@ recommended_task1_belis1 = Task.create!(
   task_path: belis1.path_type,
   task_name: "Valid passport or other travel documents",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task2_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Criminal record check",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task3_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Pay the fees",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task4_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Use of a Representative Form",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task5_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Civil union contract or a civil union certificate",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task6_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Academic transcripts and diplomas",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task7_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task8_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Regulated work Declaration of the candidate (Form: A-0527-JF)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task9_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Former and actual employers attestations",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task10_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
   task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 
 
@@ -656,70 +656,70 @@ recommended_task1_belis2 = Task.create!(
   task_path: belis2.path_type,
   task_name: "Copy of Certificat de sélection du Québec",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task2_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Get valid passport or other travel documents",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task3_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Reference letters from previous and current employers",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task4_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Financial proofs (loan payments, bank references, bank statements)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task5_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Up-to-date curriculum vitæ",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task6_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Academic transcripts and diplomas",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task7_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task8_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Regulated work Declaration of the candidate (Form: A-0527-JF)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task9_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Former and actual employers attestations",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task10_belis2 = Task.create!(
   user: belis2,
   task_path: belis2.path_type,
   task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 
 # ### Belis 3 ###
@@ -728,70 +728,70 @@ recommended_task1_belis3 = Task.create!(
   task_path: belis3.path_type,
   task_name: "Up-to-date curriculum vitæ",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task2_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Reference letters from previous and current employers",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task3_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Travel documents and passports",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task4_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Schedule 4: Economic Classes",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task5_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Civil union contract or a civil union certificate",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task6_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Academic transcripts and diplomas",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task7_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task8_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Regulated work Declaration of the candidate (Form: A-0527-JF)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task9_belis3 = Task.create!(
   user: belis3,
   task_path: belis3.path_type,
   task_name: "Former and actual employers attestations",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 recommended_task10_belis3 = Task.create!(
   user: belis3,
   task_path: belis1.path_type,
   task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
-  priority: "low",
+  priority: "Low",
 )
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
@@ -800,39 +800,39 @@ recommended_task10_belis3 = Task.create!(
 belis1_task1 = Task.create!(
   user: belis1,
   task_name: "Meet with my Immigration Advisor",
-  priority: "medium",
+  priority: "Medium",
   task_status: true,
   recommended_task: false,
 )
 belis1_task2 = Task.create!(
   user: belis1,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
-  priority: "medium",
+  priority: "Medium",
   recommended_task: false,
 )
 belis1_task3 = Task.create!(
   user: belis1,
   task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
-  priority: "high",
+  priority: "High",
   recommended_task: false,
 )
 belis1_task4 = Task.create!(
   user: belis1,
   task_name: "Get Work Attestation and Proof of Legalty of Work Experience",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis1_task5 = Task.create!(
   user: belis1,
   task_name: "Pass evaluation of French language knowledge",
-  priority: "high",
+  priority: "High",
   recommended_task: false,
 )
 belis1_task6 = Task.create!(
   user: belis1,
   task_name: "Proof of Temporary Resident Status in Quebec",
-  priority: "low",
+  priority: "Low",
   recommended_task: false,
 )
 
@@ -840,55 +840,55 @@ belis1_task6 = Task.create!(
 belis2_task1 = Task.create!(
   user: belis2,
   task_name: "Meet with my Immigration Advisor",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis2_task2 = Task.create!(
   user: belis2,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis2_task3 = Task.create!(
   user: belis2,
   task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis2_task4 = Task.create!(
   user: belis2,
   task_name: "Get Work Attestation and Proof of Legalty of Work Experience",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis2_task5 = Task.create!(
   user: belis2,
   task_name: "Pass evaluation of French language knowledge",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis2_task6 = Task.create!(
   user: belis2,
   task_name: "Proof of Temporary Resident Status in Quebec",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis2_task7 = Task.create!(
   user: belis2,
   task_name: "Activate Temporary work visa",
-  priority: "high",
+  priority: "High",
   recommended_task: false,
 )
 belis2_task7 = Task.create!(
   user: belis2,
   task_name: "Get all PR required documents",
-  priority: "high",
+  priority: "High",
   recommended_task: false,
 )
 
@@ -896,28 +896,28 @@ belis2_task7 = Task.create!(
 belis3_task1 = Task.create!(
   user: belis3,
   task_name: "Fill-out Application Form (IMM008)",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis3_task2 = Task.create!(
   user: belis3,
   task_name: "Copy of Certificat de sélection du Québec",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis3_task3 = Task.create!(
   user: belis3,
   task_name: "Fill-out My Travels Form (IMM5562)",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis3_task4 = Task.create!(
   user: belis3,
   task_name: "Schedule 5: Declaration of intent to reside in Quebec",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
@@ -931,21 +931,21 @@ belis3_task5 = Task.create!(
 belis3_task6 = Task.create!(
   user: belis3,
   task_name: "2 photos",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis3_task7 = Task.create!(
   user: belis3,
   task_name: "Birth certificates",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis3_task8 = Task.create!(
   user: belis3,
   task_name: "Police certificates",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
@@ -959,7 +959,7 @@ belis3_task9 = Task.create!(
 belis3_task10 = Task.create!(
   user: belis3,
   task_name: "Send forms",
-  priority: "low",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
