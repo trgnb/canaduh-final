@@ -38,9 +38,6 @@ class RidesController < ApplicationController
     redirect_to rides_path
   end
 
-  def full
-  end
-
   private
 
   def ride_params

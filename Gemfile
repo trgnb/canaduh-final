@@ -22,6 +22,7 @@ gem 'pg_search'
 gem 'notifications'
 gem 'time_difference'
 gem 'jquery-rails'
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
