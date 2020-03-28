@@ -1,4 +1,4 @@
-.card-inline-appointment {
+.card-inline-service {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -16,34 +16,15 @@
     opacity: 1;
   }
 
-  .avatar {
-    margin-right: 20px;
-    align-self: center;
-  }
-
-  .appointment-details {
+  .service-details {
     display: flex;
     flex-direction: column;
     min-width: 200px;
 
-    #appointment-type {
+    #service-type {
     }
 
     #advisor-name {
-
-    }
-  }
-
-  .appointment-schedule {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    #appointment-date {
-      margin-right: 20px;
-    }
-
-    #appointment-status {
 
     }
   }

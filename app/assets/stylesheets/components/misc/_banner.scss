@@ -25,4 +25,8 @@
       padding: 8px 24px;
       border-radius: 5px;
       opacity: 1;
+
+      &:focus {
+        border: 1px solid #f9fafb !important;
+      }
   }
