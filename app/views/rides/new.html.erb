@@ -1,0 +1,18 @@
+<%= form_for(@ride) do |f| %>
+  <%= f.label "From" %>
+  <%= f.text_field :departure_address %>
+
+  <%= f.label "To" %>
+  <%= f.text_field :destination_address %>
+
+  <%= f.label "When" %>
+  <%= f.text_field :ride_date %>
+
+  <%= f.label "Price" %>
+  <%= f.text_field :ride_price %>
+
+  <%= f.label "Capacity" %>
+  <%= f.text_field :ride_capacity %>
+
+  <%= f.submit "Edit", class: "btn btn-primary"%>
+<% end %>
