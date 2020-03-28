@@ -157,16 +157,14 @@
           <div class="task-details">
             <p><strong>Description: </strong></p>
             <%= f.text_field :task_name, class: "form-control", id: "add-task-description" %>
-            <%= f.select :priority, ["High", "Medium", "Low"], :prompt => "Priority", class: "form-control", id: "add-task-priority" %>
+            <%= f.select :priority, ["High", "Medium", "Low"], :required => true, :prompt => "Priority", class: "form-control", id: "add-task-priority" %>
           </div>
           <div class="task-actions">
             <div class="task-details">
-
               <%= button_tag type: 'submit', id: "add-task" do %>
                 <div class="btn-cta">Submit</div>
-
-                <!-- <i class="fa fa-plus" ></i> -->
               <% end %>
+
             </div>
           </div>
 
