@@ -3,6 +3,11 @@
   <div class="slice-container">
 
     <!-- MAP -->
+    <h1>Find a ride</h1>
+      <% @available_rides_destinations.each do |destination| %>
+        <p><strong><%= destination.address %></strong>: Lat: <%= destination.latitude %> | Lng: <%= destination.longitude %> </p>
+      <% end %>
+
     <div
       id="map"
       style="width: 100%;
@@ -10,15 +15,17 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
-
+    <br>
+    <br>
+    <br>
     <!-- ALL RIDES -->
       <% @all_rides.each do |ride| %>
         <div class="card-task">
 
           <!-- RIDES DETAILS -->
           <div class="task-details">
-            <p><strong>From: </strong><%= ride.departure_address %></p>
-            <p><strong>To: </strong><%= ride.destination_address %></p>
+            <p><strong>From: </strong><%= ride.departure_address.address %></p>
+            <p><strong>To: </strong><%= ride.destination_address.address %></p>
             <p><strong>When: </strong><%= ride.ride_date %></p>
             <p><strong>Price: </strong><%= ride.ride_price %></p>
             <p><strong>Capacity: </strong><%= ride.ride_capacity %></p>
@@ -52,6 +59,7 @@
             <% end %>
           </div>
         </div>
+        <br>
       <% end %>
   </div>
 
@@ -74,7 +82,7 @@
     <%= f.text_field :ride_price %>
 
     <%= f.label "Capacity" %>
-    <%= f.text_field :ride_capacity %>
+    <%= f.select :ride_capacity, [1, 2, 4, 5, 6, 7], :prompt => "Select", class: "form-control" %>
 
     <%= f.submit "Add a new ride", class: "btn btn-primary"%>
   <% end %>

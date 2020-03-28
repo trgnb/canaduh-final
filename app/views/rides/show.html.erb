@@ -10,6 +10,10 @@
     <p><strong>Price: </strong><%= @ride.ride_price %></p>
     <p><strong>Capacity: </strong><%= @ride.ride_capacity %></p>
 
+    <h1>You wil be sharing the ride with: <%#= User.find_by_id(@ride.user_id).first_name %></h1>
+
+
+
     <!-- RIDE ACTIONS -->
     <% if current_user.id == @ride.user_id %>
       <!-- RETURN TO RIDES -->
