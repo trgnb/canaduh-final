@@ -3,9 +3,10 @@
   <div class="slice-container">
 
     <!-- MAP -->
-
-
-
+    <h1>Find a ride</h1>
+    <% @addresses.each do |address| %>
+    <p><strong><%= address.name %></strong>: Lat: <%= address.latitude %> | Lng: <%= address.longitude %> </p>
+    <% end %>
 
     <div
       id="map"

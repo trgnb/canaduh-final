@@ -963,36 +963,133 @@ belis3_task10 = Task.create!(
   task_status: true,
   recommended_task: false,
 )
+# ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
+
+
+### CHATROOMS ###
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
-#testing for chatroom
 
-chat_room = ChatRoom.create!(name: "general")
+# Chatroom 1 - PR #
+chat_room = ChatRoom.create!(name: "PR Application Question")
 
 message_1 = Message.create!(
-  content: "Hello",
+  content: "Hey Canaduh Community, I need your help regarding my PR Application!
+   Mostly regarding the payment fees.",
   chat_room: chat_room,
   user: belis1
 )
-
 message_2 = Message.create!(
-  content: "Hello again",
+  content: "Hi Belis, yes that's what our community is made for! tell me how could I help you?",
   chat_room: chat_room,
-  user: belis1
+  user: pablo
 )
-
 message_3 = Message.create!(
-  content: "Good to see you",
+  content: "Thanks Pablo, ok here is the thing... On the quebec Immigration
+  Website, it says that the fees are 812$, but on the Form A0520GF_2020,
+  it's written 3243$... What's the eact solution?",
+  chat_room: chat_room,
+  user: belis1
+)
+message_4 = Message.create!(
+  content: "Ok, no trouble the right amount is 812$",
+  chat_room: chat_room,
+  user: pablo
+)
+message_5 = Message.create!(
+  content: "hi Belis, Pablo is right. The 3243$ written on the document are the
+  total amount you NEED to have on your Bank Account, if Border Agents want to
+  check your informations.",
+  chat_room: chat_room,
+  user: jackie
+)
+message_6 = Message.create!(
+  content: "Thank you Pablo and Jackie! Such a relief I thought that the fees
+  had been increased! Let's go PR!!! ",
+  chat_room: chat_room,
+  user: belis1
+)
+message_7 = Message.create!(
+  content: "You are welcome Belis, good luck for your process.",
+  chat_room: chat_room,
+  user: jackie
+)
+message_8 = Message.create!(
+  content: "Good luck Belis!",
+  chat_room: chat_room,
+  user: pablo
+)
+
+# Chatroom 2 - A75 #
+chat_room = ChatRoom.create!(name: "A75 Work Permit Application Question")
+
+message_1 = Message.create!(
+  content: "Hey Canaduh Community, I need your help regarding my A75 Work Permit Activation!
+  Is there a possibility to do it Online? or is it best to go to the border for a Flagpole?",
+  chat_room: chat_room,
+  user: belis1
+)
+message_2 = Message.create!(
+  content: "Hi Belis, regarding your options to activite your A75 you can use both.
+  But just for you to know, the online process might take up to 3 months.
+  Also, going to the border doesn't assure you neither to receive your documents
+  if the Border Agent doesn't want to.",
+  chat_room: chat_room,
+  user: mariepier
+)
+message_3 = Message.create!(
+  content: "mmmm.... ok I'm going to start with going for a flagpole then.
+  Bc if I remember well, while waiting my permit I can't leave Canada right?",
+  chat_room: chat_room,
+  user: belis1
+)
+message_4 = Message.create!(
+  content: "You are right Belis, activiting your document online will create a
+  - pending situation - and you won't be able to leave Canada until you receive your permit.",
+  chat_room: chat_room,
+  user: mariepier
+)
+message_5 = Message.create!(
+  content: "ok, thank you very much for your time and comments Mariepier",
   chat_room: chat_room,
   user: belis1
 )
 
-message_4 = Message.create!(
-  content: "Sorry I missed your message",
+# Chatroom 3 - CSQ #
+chat_room = ChatRoom.create!(name: "CSQ Application Question")
+
+message_1 = Message.create!(
+  content: "Hey Canaduh Community, I got a question on my CSQ Application and
+  the total time worked/week! Anyone to help me?",
   chat_room: chat_room,
-  user: victor
+  user: belis1
 )
+message_2 = Message.create!(
+  content: "Hi Belis and Welcome to Canaduh! Of course, wht's your exact question?",
+  chat_room: chat_room,
+  user: brad
+)
+message_3 = Message.create!(
+  content: "Hey Brad, thanks for your time. I was wondering when I have a
+  payslip of 28h but in this week had a public holiday of 7h. May I had that
+  payslip in the total weeks for the CSQ?",
+  chat_room: chat_room,
+  user: belis1
+)
+message_4 = Message.create!(
+  content: "Yes, whenever you had a paid holiday, public holiday, you can add
+  them in the total/week, meaning you have one week more with 30h+",
+  chat_room: chat_room,
+  user: brad
+)
+message_5 = Message.create!(
+  content: "So great, I got the 52 weeks total to apply to the CSQ right now!
+  thank you so much Brad for your help, really appreciated :)",
+  chat_room: chat_room,
+  user: belis1
+)
+
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
