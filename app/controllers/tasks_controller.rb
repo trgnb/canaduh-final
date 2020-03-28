@@ -10,14 +10,14 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.order('updated_at asc')
     @user_tasks = @tasks.where(recommended_task: false)
     @high_priority_tasks = @user_tasks.filter do |task|
-      task.priority == "high"
+      task.priority == "High"
     end
 
     @medium_priority_tasks = @user_tasks.filter do |task|
-      task.priority == "medium"
+      task.priority == "Medium"
     end
     @low_priority_tasks = @user_tasks.filter do |task|
-      task.priority == "low"
+      task.priority == "Low"
     end
 
     # RECOMMENDED TASKS #
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
 
   def mark_as_done
     @task.toggle(:task_status)
-    @task.priority = "low"
+    @task.priority = "Low"
     @task.save
     # redirect_to tasks_path
     redirect_back(fallback_location: root_path)
@@ -61,7 +61,7 @@ class TasksController < ApplicationController
 
   def add_to_checklist
     @task.recommended_task = false
-    @task.priority = "low"
+    @task.priority = "Low"
     @task.save!
     redirect_to tasks_path
   end
