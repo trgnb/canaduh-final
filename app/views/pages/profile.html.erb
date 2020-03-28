@@ -1,39 +1,51 @@
 <div class="main-container">
-    <h1>Welcome <strong><%= @first_name %></strong></h1>
-    <div class="profile-card-image">
-      <img src="<%= @user.imgUrl %>">
-    </div>
-    <div class="profile-info">
-      <p><strong>First Name:</strong> <%= @first_name %></p></pre>
-      <p><strong>Last Name:</strong> <%= @last_name %></p>
-      <p><strong>Location:</strong> <%= @location%></p>
-      <p><strong>Biography:</strong> <%= @bio %></p>
-      <p><strong>Email:</strong> <%= @email%></p>
-      <p><strong>User Path:</strong> <%= @path_type%></p>
-
-        <% if @user_type == "advisor" %>
-          <h2>Advisor properties</h2>
-          <p><strong>Specialty:</strong> <%= @specialty %></p>
-        <% end %>
-
-  <!-- // CONFIGURED ADVISOR SERVICES -->
-  <div class="slice-container">
-    <h2>Your active services</h2>
-      <!-- <pre><%#= link_to "Add", "#" %></pre> -->
-      <% @user.services.each do |service| %>
-        <div class="dashboard-service-container">
-          <h1><%= service.service_type.upcase %></h1>
-          <h2><strong>Immigration path:</strong> <%= service.path %></h2>
-          <p><strong>Description:</strong> <%= service.description %></p>
-          <p><strong>Pricing:</strong> $<%= service.price %>/hour</p>
-          <pre><%= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre>
+  <div class="container">
+    <div class="row" style="justify-content: space-between;">
+      <div class="container-profile-col">
+        <div class="profile-header">
+          <img src="<%= @user.imgUrl %>">
+          <h2><strong><%= @first_name %> <%= @last_name %></strong></h2>
+          <% if @user_type == "advisor" %>
+            <p><strong>Specialty:</strong> <%= @specialty.capitalize %></p>
+          <% else %>
+            <p><strong>User Path:</strong> <%= @path_type%></p>
+          <% end %>
+          <p><strong>Location:</strong> <%= @location%></p>
+          <div class="row" id="social-row">
+            <i class="fab fa-linkedin" id="social-icon"></i>
+            <i class="fab fa-instagram" id="social-icon"></i>
+            <i class="fab fa-facebook-square" id="social-icon"></i>
+            <i class="fas fa-home" id="social-icon"></i>
+          </div>
         </div>
-      <% end %>
-  </div>
-
-
-
-      <pre><%= link_to "Edit profile",  edit_user_registration_path %></pre>
-      <pre><%= link_to "Add a service", "/services/new" %></pre>
+        <br>
+        <div class="profile-details">
+          <p><strong>Biography:</strong></p>
+          <p><%= @bio %></p>
+          <%= link_to "Edit profile",  edit_user_registration_path, class: "btn-cta-border" %>
+        </div>
+        <br>
+        <% if @user_type == "advisor" %>
+          <div class="profile-services">
+            <h4>Configured services</h4>
+            <% @user.services.each do |service| %>
+              <div class="card-inline-service">
+                <div class="col">
+                  <strong><%= service.service_type.capitalize %></strong>
+                  <%= service.path %>
+                </div>
+                <div class="row">
+                  $<%= service.price %>/hour
+                    <div><%= link_to "Edit", "#" %></div>
+                    <div><%= link_to "Delete", "#", method: :delete %></div>
+                </div>
+              </div>
+            <% end %>
+            <br>
+            <%= link_to "Add a service", "/services/new", class: "btn-cta" %>
+          </div>
+        <% end %>
+      </div>
     </div>
+  </div>
 </div>

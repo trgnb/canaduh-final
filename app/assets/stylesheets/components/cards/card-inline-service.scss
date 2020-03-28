@@ -1,0 +1,35 @@
+.card-inline-service {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0px 16px;
+  margin-bottom: 8px;
+  background: $white;
+  border-radius: $cardradius;
+  box-shadow: $dropshadow;
+  opacity: 0.9;
+  transition: $transition;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .service-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+
+    #service-type {
+    }
+
+    #advisor-name {
+
+    }
+  }
+
+  i {
+      color: $red;
+    }
+}
