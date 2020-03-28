@@ -6,10 +6,10 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
 import "bootstrap";
 import "../plugins/flatpickr"
 import "./sweetalert"
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 require("flickity")
 import "flickity/dist/flickity.min.css";
@@ -34,10 +34,6 @@ const initMapbox = () => {
   }
 };
 
-export { initMapbox };
+// export { initMapbox };
 
-import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
-
-import { initMapbox } from '../plugins/init_mapbox';
-
-initMapbox();
+// initMapbox();
