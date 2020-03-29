@@ -11,10 +11,14 @@
     <p><strong>To: </strong><%= destination_address %></p>
     <p><strong>Leaving on: </strong><%= @ride.ride_date.to_time.strftime('%B %e, %Y') %></p>
     <p><strong>Price: </strong><%= @ride.ride_price %></p>
-    <p><strong>Available seats: </strong><%= @ride.ride_capacity %></p>
+    <% if @ride.ride_capacity == 0%>
+      <p>No seats available</p>
+    <% else %>
+      <p><strong>Available seats: </strong><%= @ride.ride_capacity %></p>
+    <% end %>
 
     <h1>You will be sharing the ride with: </h1>
-    <% Booking.where(ride_id: ride_id).each do |booking| %>
+    <% Booking.where(ride_id: ride_id, booking_status: "booked").each do |booking| %>
       <ul>
         <li>
           <%= image_tag booking.user.imgUrl, class: "avatar" %>

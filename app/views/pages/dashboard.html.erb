@@ -158,9 +158,13 @@
               </div>
             </div>
             <div class="appointment-schedule">
-              <div id="appointment-date"><strong>From: </strong><%= Ride.find(booking.ride_id).departure_address  %></div>
-              <div id="appointment-date"><strong>To: </strong><%= Ride.find(booking.ride_id).destination_address  %></div>
-              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
+              <% ride = Ride.find(booking.ride_id) %>
+              <% ride_id = Ride.find(booking.ride_id).id %>
+              <% departure_address =  @departure_addresses.find_by(ride_id: ride_id) %>
+              <% destination_address =  @destination_addresses.find_by(ride_id: ride_id) %>
+              <div id="appointment-date"><strong>From: </strong><%= departure_address.address %></div>
+              <div id="appointment-date"><strong>To: </strong><%= destination_address.address  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= ride.ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
               <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
 

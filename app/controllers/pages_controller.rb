@@ -39,6 +39,11 @@ class PagesController < ApplicationController
         @rider_bookings << booking
       end
     end
+
+    # ADDRESSES #
+    @all_addresses = Address.geocoded
+    @departure_addresses = @all_addresses.where(name: "departure")
+    @destination_addresses = @all_addresses.where(name: "destination")
   end
 
   def profile
