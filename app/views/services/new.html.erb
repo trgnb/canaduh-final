@@ -1,11 +1,14 @@
-<%= render 'shared/advisor_navbar' %>
-<div class="container">
-  <h1>Add a new service</h1>
-  <%= simple_form_for @service do |f| %>
-    <%= f.input :service_type, collection: ['General Consultation', 'Test Prep', 'Ongoing Assistance'], required:true %>
-    <%= f.input :description %>
-    <%= f.input :price, label:'Price/hour' %>
-    <%= f.submit "Add a new service" %>
-  <% end %>
-<button type='button'>Back to list</button>
-</div>\
+<div class="main-container">
+  <div class="slice-container">
+    <h1>Configre a service</h1>
+    <%= simple_form_for @service do |f| %>
+      <%= f.input :service_type, collection: ['General Consultation', 'Test Prep', 'Ongoing Assistance'], required:true %>
+      <%= f.input :description %>
+      <%= f.input :price, label:'Price/hour' %>
+      <div class="row" style="justify-content: right;">
+        <%= f.submit "Save", class: "btn-cta" %>
+        <a href="/profile" class="btn-cta-border" style="margin-left: 10px;">Cancel</a>
+      </div>
+    <% end %>
+  </div>
+</div>

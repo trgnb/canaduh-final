@@ -1,7 +1,6 @@
 
 //= require_tree .
 
-
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
@@ -15,10 +14,3 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 initAutocomplete();
 initMapbox();
-
-// require("flickity")
-// import "flickity/dist/flickity.min.css";
-
-// $(".main-carousel").flickity({
-//   contain: true
-// });
