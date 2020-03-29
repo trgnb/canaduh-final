@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="slice-container">
-    <div class="form-container">
-      <h2>Edit profile</h2>
+    <div class="form-edit-profile">
+      <h3>Edit profile</h3>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
@@ -49,9 +49,10 @@
                       required: false,
                       input_html: { autocomplete: "current-password" } %>
         </div>
-        <div class="row" id="btn-row">
-          <%= f.button :submit, "Save", class: "btn-cta" %>
-          <%= link_to "Cancel", :back, class: "btn-cta-border" %>
+        <br>
+        <div class="row-btn">
+          <div class="form-btn"><%= f.button :submit, "Save", class: "btn-cta" %></div>
+          <div class="form-btn"><%= link_to "Cancel", :back, class: "btn-cta-border" %></div>
         </div>
       <% end %>
     </div>
