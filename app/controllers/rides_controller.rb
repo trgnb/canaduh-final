@@ -9,31 +9,32 @@ class RidesController < ApplicationController
     @available_rides = @all_rides.where.not(ride_capacity: 0)
 
     # MAP #
+    ## All addresses ##
+    @all_addresses = Address.geocoded #returns addresses with coordinates
+
     # Departure addresses #
-    @available_rides_departures = []
-      @available_rides.each do |ride|
-      @available_rides_departures << ride.departure_address
-    end
+    @departure_addresses = @all_addresses.where(name: "departure")
 
     # Destination Addresses #
-    @available_rides_destinations = []
-      @available_rides.each do |ride|
-        @available_rides_destinations << ride.destination_address
-      end
+    @destination_addresses = @all_addresses.where(name: "destination")
 
     ## All addresses ##
     @all_addresses = Address.geocoded #returns addresses with coordinates
 
     ## Markers ##
-    @markers = @available_rides_destinations.map do |address|
+    @markers = @destination_addresses.map do |location|
       {
-        lat: address.latitude,
-        lng: address.longitude
+        lat: location.latitude,
+        lng: location.longitude,
+        infowindow: render_to_string(partial: "info_window", locals: { ride_id: location.ride_id, departure_address: @departure_addresses.find_by(ride_id: location.ride_id).address })
       }
     end
   end
 
   def show
+    @all_addresses = Address.geocoded
+    @departure_addresses = @all_addresses.where(name: "departure")
+    @destination_addresses = @all_addresses.where(name: "destination")
     @booking = Booking.new
   end
 
@@ -44,8 +45,8 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     @ride.user = current_user
-    @ride.departure_address = Address.create(address: params[:ride][:departure_address])
-    @ride.destination_address = Address.create(address: params[:ride][:destination_address])
+    @ride.departure_address = Address.create(address: params[:ride][:departure_address], name: "departure")
+    @ride.destination_address = Address.create(address: params[:ride][:destination_address], name: "destination")
     if @ride.save!
       redirect_to rides_path
     else
