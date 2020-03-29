@@ -26,7 +26,7 @@ class RidesController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
-        infowindow: render_to_string(partial: "info_window", locals: { ride_id: location.ride_id, departure_address: @departure_addresses.find_by(ride_id: location.ride_id).address })
+        infowindow: render_to_string(partial: "info_window", locals: { ride_id: location.ride_id, departure_address: @departure_addresses.find_by(ride_id: location.ride_id).address, destination: location}),
       }
     end
   end
