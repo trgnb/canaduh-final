@@ -1,0 +1,37 @@
+.form-edit-service {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px;
+    background: $offwhite;
+    max-width: 800px;
+    min-width: 600px;
+    border-radius: 5px;
+    align-self: center;
+    box-shadow: $modalshadow;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      align-self: center;
+      margin-bottom: 8px;
+    }
+  }
+
+  .row-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .form-btn {
+      display: flex;
+      margin-left: 10px;
+      align-self: center;
+    }
+  }
+}

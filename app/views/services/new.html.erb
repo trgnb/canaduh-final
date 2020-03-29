@@ -1,16 +1,18 @@
 <div class="main-container">
   <div class="slice-container">
-    <div class="form-login">
-    <h1>Configre a service</h1>
-    <%= simple_form_for @service do |f| %>
-      <%= f.input :service_type, collection: ['General Consultation', 'Test Prep', 'Ongoing Assistance'], required:true %>
-      <%= f.input :description %>
-      <%= f.input :price, label:'Price/hour' %>
-      <div class="row-btn">
-        <%= f.submit "Save", class: "btn-cta" %>
-        <a href="/profile" class="btn-cta-border" style="margin-left: 10px;">Cancel</a>
-      </div>
-    <% end %>
+    <div class="form-edit-service">
+      <h3>Configure a service</h3>
+      <%= simple_form_for @service do |f| %>
+        <div class="form-inputs">
+          <%= f.input :service_type, collection: ['General Consultation', 'Test Prep', 'Ongoing Assistance'], required:true %>
+          <%= f.input :description %>
+          <%= f.input :price, label:'Hourly rate' %>
+        </div>
+        <div class="row-btn">
+          <div class="form-btn"><%= f.submit "Save", class: "btn-cta" %></div>
+          <div class="form-btn"><a href="/profile" class="btn-cta-border" style="margin-left: 10px;">Cancel</a></div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

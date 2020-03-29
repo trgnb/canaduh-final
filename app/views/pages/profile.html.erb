@@ -1,11 +1,11 @@
 <div class="main-container">
-  <div class="container">
+  <div class="slice-container">
     <div class="row" style="justify-content: space-between;">
       <div class="container-profile-col">
         <div class="profile-header">
           <div style="position: relative;">
           <%= link_to edit_user_registration_path do %>
-          <i class="far fa-edit" style="font-size:21px; position: absolute; top: 10px; right: 250px; color: $black; opacity: 0.8;"></i>
+            <i class="far fa-edit" style="font-size:21px; position: absolute; top: 10px; right: 250px; color: $black; opacity: 0.8;"></i>
           <% end %>
           </div>
           <img src="<%= @user.imgUrl %>">
@@ -40,10 +40,10 @@
                   <strong><%= service.service_type.capitalize %></strong>
                   <%= service.path %>
                 </div>
-                <div class="row">
-                  $<%= service.price %>/hour
-                    <div><%= link_to "Edit", "#" %></div>
-                    <div><%= link_to "Delete", "#", method: :delete %></div>
+                <div class="row-btn">
+                  $<%= service.price %>/hr
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash"></i>
                 </div>
               </div>
             <% end %>

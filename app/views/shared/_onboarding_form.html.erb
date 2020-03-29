@@ -1,17 +1,20 @@
- <div class="onboarding-form" style="">
+ <div class="form-onboarding">
+
     <h1>Find a path and start your journey today.</h1>
   <%= simple_form_for(:user, url: user_path(current_user), html: { method: :patch }) do |f| %>
 
     <div class="form-inputs">
       <!-- if statement needed to find out if user already set their path -->
-      <h2><%= f.label "What brings you to Canaduh today?" %></h2>
+      <h2><%= f.label "What brings you today?" %></h2>
       <%= f.select :user_type, ['Client', 'Advisor'], {}, {class: "form-control"} %>
       <h2><%= f.label "What's your path?" %></h2>
       <%= f.select :path_type, ['Student Visa', 'Work Visa','Permanent Residency','Canadian Citizenship'], {}, {class: "form-control"} %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Get started", class: "btn-cta" %>
+    <div class="row-btn">
+      <div class="form-btn">
+        <%= f.button :submit, "Get started", class: "btn-cta" %>
+      </div>
     </div>
   <% end %>
   </div>
