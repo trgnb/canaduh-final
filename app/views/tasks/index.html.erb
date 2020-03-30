@@ -1,9 +1,51 @@
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;"><%= @current_user.first_name %>'s planner</h1>
-    <p>Here you can manage and keep track of tasks you'll need to complete to get where your going.</p>
+    <p>Here you can manage and keep track of tasks you'll need to complete to get where you're going.</p>
   </div>
 </div>
+
+  <h3>Milestones for <%=current_user.path_type.titleize %> Path </h3>
+  <ul class="timeline" id="timeline">
+    <li class="li complete">
+      <div class="timestamp">
+        <span class="author">Individual Task</span>
+        <span class="date"> <%= Time.now.strftime("%d/%m/%Y") %><span>
+      </div>
+      <div class="status">
+        <h4> Apply for CSQ </h4>
+      </div>
+    </li>
+    <li class="li complete">
+      <div class="timestamp">
+        <span class="author">Employer-Sponsored Task</span>
+        <span class="date"> Pending <span>
+      </div>
+      <div class="status">
+        <h4> Apply for A75 Work Permit </h4>
+      </div>
+    </li>
+    <li class="li">
+      <div class="timestamp">
+        <span class="author">Aaron Rodgers</span>
+        <span class="date"> Pending <span>
+      </div>
+      <div class="status">
+        <h4>Flagpole for Status Change</h4>
+      </div>
+    </li>
+    <li class="li">
+      <div class="timestamp">
+        <span class="author">PAM Admin</span>
+        <span class="date">Pending<span>
+      </div>
+      <div class="status">
+        <h4> Apply for PR</h4>
+      </div>
+    </li>
+  </ul>
+  <button id="toggleButton">Toggle</button>
+
 
 <div class="main-container">
   <!-- RECOMMENDED TASKS -->
