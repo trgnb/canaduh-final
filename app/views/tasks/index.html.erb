@@ -200,6 +200,7 @@
             <p><strong>Description: </strong></p>
             <%= f.text_field :task_name, class: "form-control", id: "add-task-description" %>
             <%= f.select :priority, ["High", "Medium", "Low"], :required => true, :prompt => "Priority", class: "form-control", id: "add-task-priority" %>
+            <%= f.hidden_field :recommended_task, value: 0 %>
           </div>
           <div class="task-actions">
             <div class="task-details">

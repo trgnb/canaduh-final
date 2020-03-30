@@ -2,17 +2,26 @@
   <div class="slice-container">
     <!-- SHOW RIDE -->
     <!-- RIDES DETAILS -->
-    <h1>Ride with <%= User.find_by_id(@ride.user_id).first_name %></h1>
+    <h1>Ride with <strong><%= User.find_by_id(@ride.user_id).first_name%> <%= image_tag User.find_by_id(@ride.user_id).imgUrl, class: "avatar" %></strong></h1>
     <br>
-    <p><strong>From: </strong><%= @ride.departure_address %></p>
-    <p><strong>To: </strong><%= @ride.destination_address %></p>
-    <p><strong>When: </strong><%= @ride.ride_date %></p>
+    <% ride_id = @ride.departure_address.ride_id %>
+    <% departure_address =  @departure_addresses.find_by(ride_id: ride_id).address %>
+    <% destination_address =  @destination_addresses.find_by(ride_id: ride_id).address %>
+    <p><strong>From: </strong><%= departure_address %></p>
+    <p><strong>To: </strong><%= destination_address %></p>
+    <p><strong>Leaving on: </strong><%= @ride.ride_date.to_time.strftime('%B %e, %Y') %></p>
     <p><strong>Price: </strong><%= @ride.ride_price %></p>
-    <p><strong>Capacity: </strong><%= @ride.ride_capacity %></p>
+    <p><strong>Available seats: </strong><%= @ride.ride_capacity %></p>
 
-    <h1>You wil be sharing the ride with: <%#= User.find_by_id(@ride.user_id).first_name %></h1>
-
-
+    <h1>You will be sharing the ride with: </h1>
+    <% Booking.where(ride_id: ride_id).each do |booking| %>
+      <ul>
+        <li>
+          <%= image_tag booking.user.imgUrl, class: "avatar" %>
+          <%= booking.user.first_name %>
+        </li>
+      </ul>
+    <% end %>
 
     <!-- RIDE ACTIONS -->
     <% if current_user.id == @ride.user_id %>
@@ -38,11 +47,6 @@
         <% end %>
       </div>
       <!-- BOOK RIDE -->
-<!--       <div id="task-action"><%#= link_to new_ride_booking_path(@ride) do %>
-          <i class="fas fa-calendar-alt"></i>
-        <%# end %>
-      </div> -->
-
       <% if Booking.where(ride_id: @ride.id, user_id: current_user.id).empty? %>
         <%=form_for [@ride, @booking] do |f| %>
           <%= f.submit "Book", class: "btn btn-primary", id: "sweet-alert2"%>

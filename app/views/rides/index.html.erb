@@ -1,13 +1,8 @@
 <div class="main-container">
 
   <div class="slice-container">
-
     <!-- MAP -->
-    <h1>Find a ride</h1>
-      <% @available_rides_destinations.each do |destination| %>
-        <p><strong><%= destination.address %></strong>: Lat: <%= destination.latitude %> | Lng: <%= destination.longitude %> </p>
-      <% end %>
-
+    <h1>Find a ride available near you</h1>
     <div
       id="map"
       style="width: 100%;
@@ -16,57 +11,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
     <br>
-    <br>
-    <br>
-    <!-- ALL RIDES -->
-      <% @all_rides.each do |ride| %>
-        <div class="card-task">
-
-          <!-- RIDES DETAILS -->
-          <div class="task-details">
-            <p><strong>From: </strong><%= ride.departure_address.address %></p>
-            <p><strong>To: </strong><%= ride.destination_address.address %></p>
-            <p><strong>When: </strong><%= ride.ride_date %></p>
-            <p><strong>Price: </strong><%= ride.ride_price %></p>
-            <p><strong>Capacity: </strong><%= ride.ride_capacity %></p>
-            <p><strong>Ride with: </strong><%= User.find_by_id(ride.user_id).first_name %></p>
-          </div>
-
-          <!-- RIDE ACTIONS -->
-          <div class="task-actions">
-            <% if current_user.id == ride.user_id %>
-              <!-- SHOW RIDE -->
-              <div id="task-action"><%= link_to ride_path(ride) do %>
-                <i class="fas fa-car"></i>
-                <% end %>
-              </div>
-              <!-- EDIT RIDE -->
-              <div id="task-action"><%= link_to edit_ride_path(ride) do %>
-                <i class="fa fa-edit"></i>
-                <% end %>
-              </div>
-              <!-- DELETE RIDE -->
-              <div id="task-action"><%= link_to ride_path(ride), method: :delete, data: { confirm: "Are you sure?" } do %>
-                <i class="fa fa-trash"></i>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- SHOW RIDE -->
-              <div id="task-action"><%= link_to ride_path(ride) do %>
-                <i class="fas fa-car"></i>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <br>
-      <% end %>
-  </div>
-
   <!-- ADD A NEW RIDE -->
-  <%#= link_to new_ride_path  do %>
-<!--     <i class="fa fa-plus"></i> -->
-  <%# end %>
   <p>Add a new ride</p>
   <%= form_for Ride.new do |f| %>
     <%= f.label "From" %>
