@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     # TASK REMINDER #
     tasks = current_user.tasks
     @high_priority_tasks = tasks.filter do |task|
-      task.priority == "high"
+      task.priority == "High"
     end
 
     # RIDES #
