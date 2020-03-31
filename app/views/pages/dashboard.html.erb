@@ -6,6 +6,7 @@
 </div>
 
 <div class="main-container">
+
   <!-- JOURNEY AND MILESTONES -->
   <div class="slice-container">
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
@@ -165,7 +166,6 @@
     <div class="slice-container">
         <h4>Upcoming rides</h4>
 
-        <!-- IF CURRENT USER IS THE RIDER -->
         <% if @rider_bookings.empty? && @user_bookings.empty? %>
           <p>No scheduled rides</p>
           <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
@@ -187,9 +187,13 @@
               </div>
             </div>
             <div class="appointment-schedule">
-              <div id="appointment-date"><strong>From: </strong><%= Ride.find(booking.ride_id).departure_address  %></div>
-              <div id="appointment-date"><strong>To: </strong><%= Ride.find(booking.ride_id).destination_address  %></div>
-              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
+              <% ride = Ride.find(booking.ride_id) %>
+              <% ride_id = Ride.find(booking.ride_id).id %>
+              <% departure_address =  @departure_addresses.find_by(ride_id: ride_id) %>
+              <% destination_address =  @destination_addresses.find_by(ride_id: ride_id) %>
+              <div id="appointment-date"><strong>From: </strong><%= departure_address.address %></div>
+              <div id="appointment-date"><strong>To: </strong><%= destination_address.address  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= ride.ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
               <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
 
@@ -211,6 +215,7 @@
             </div>
           <% end %>
 
+          <!-- IF CURRENT USER IS NOT THE RIDER -->
           <% @user_bookings.each do |booking| %>
             <div class="row">
               <%= image_tag Ride.find(booking.ride_id).user.imgUrl, class: "avatar" %>
@@ -227,8 +232,12 @@
               </div>
             </div>
             <div class="appointment-schedule">
-              <div id="appointment-date"><strong>From: </strong><%= Ride.find(booking.ride_id).departure_address  %></div>
-              <div id="appointment-date"><strong>To: </strong><%= Ride.find(booking.ride_id).destination_address  %></div>
+              <% ride = Ride.find(booking.ride_id) %>
+              <% ride_id = Ride.find(booking.ride_id).id %>
+              <% departure_address =  @departure_addresses.find_by(ride_id: ride_id) %>
+              <% destination_address =  @destination_addresses.find_by(ride_id: ride_id) %>
+              <div id="appointment-date"><strong>From: </strong><%= departure_address.address  %></div>
+              <div id="appointment-date"><strong>To: </strong><%= destination_address.address  %></div>
               <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
               <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
@@ -246,7 +255,7 @@
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
       <div class="banner">
         <h2>Insights from the community</h2>
-        <h4>Estimated time to <strong><%= @current_user.path_type.capitalize %></strong>: <%= @total_processing_time %></h4>
+        <h4>Estimated time to <strong><%= @current_user.path_type.titleize %></strong>: <%= @total_processing_time %></h4>
         <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
         <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
         <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
