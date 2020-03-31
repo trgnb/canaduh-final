@@ -178,28 +178,44 @@ class PagesController < ApplicationController
       @db_pr_milestones2.each do |db_pr_milestone2|
         @db_csq_processing_time += db_pr_milestone2.processing_time
       end
-      @av_db_csq_processing_time = @db_csq_processing_time / @db_pr_milestones2.count
+      if @db_pr_milestones2.count == 0
+        @av_db_csq_processing_time = 0
+      else
+        @av_db_csq_processing_time = @db_csq_processing_time / @db_pr_milestones2.count
+      end
 
       ## AVERAGE PR1 ##
       @db_pr1_processing_time = 0
       @db_pr_milestones5.each do |db_pr_milestone5|
         @db_pr1_processing_time += db_pr_milestone5.processing_time
       end
-      @av_db_pr1_processing_time = @db_pr1_processing_time / @db_pr_milestones5.count
+      if @db_pr_milestones5.count == 0
+        @av_db_pr1_processing_time = 0
+      else
+        @av_db_pr1_processing_time = @db_pr1_processing_time / @db_pr_milestones5.count
+      end
 
       ## AVERAGE PR2 ##
       @db_pr2_processing_time = 0
       @db_pr_milestones6.each do |db_pr_milestone6|
         @db_pr2_processing_time += db_pr_milestone6.processing_time
       end
-      @av_db_pr2_processing_time = @db_pr2_processing_time / @db_pr_milestones6.count
+      if @db_pr_milestones6.count == 0
+        @av_db_pr2_processing_time = 0
+      else
+        @av_db_pr2_processing_time = @db_pr2_processing_time / @db_pr_milestones6.count
+      end
 
       ## AVERAGE PR3 ##
       @db_pr3_processing_time = 0
       @db_pr_milestones7.each do |db_pr_milestone7|
         @db_pr3_processing_time += db_pr_milestone7.processing_time
       end
-      @av_db_pr3_processing_time = @db_pr3_processing_time / @db_pr_milestones7.count
+      if @db_pr_milestones7.count == 0
+        @av_db_pr3_processing_time = 0
+      else
+        @av_db_pr3_processing_time = @db_pr3_processing_time / @db_pr_milestones7.count
+      end
 
       ## AVERAGE PR ##
       @total_av_processing_time = @av_db_csq_processing_time + @av_db_pr1_processing_time + @av_db_pr2_processing_time + @av_db_pr3_processing_time
