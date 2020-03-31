@@ -42,7 +42,7 @@ mickael = User.create!(
   username: "mickaelm",
   location: "Montreal",
 
-  user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate",
+  user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate.",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243295/Mickael_advisor.jpg',
   specialty: "work visa",
   featured: true
