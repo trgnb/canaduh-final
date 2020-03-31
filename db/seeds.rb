@@ -40,7 +40,7 @@ mickael = User.create!(
   user_type: "advisor",
   username: "mickaelm",
   location: "Montreal",
-  user_bio: "Hey, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. As a former immigrant that faced those issues, I wanted to help and advise all the new student facing that administrative nightmare! I am mostly specialized in helping Students to get their working visa, but don't hesitate in contacting me for any information you may need.",
+  user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243295/Mickael_advisor.jpg',
   specialty: "work visa",
   featured: true
@@ -57,7 +57,7 @@ peter = User.create!(
   By rehearsing their answers to align with what interviewers are looking for, offering feedback about body language, eye contact, smiles, etc. my clients feel more confident about the process and do better in the interview as a result.",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243263/user5female_aazn9s.jpg',
   specialty: "student visa",
-  featured: true
+  featured: false
 )
 alex = User.create!(
   first_name:"Alex",
@@ -99,7 +99,7 @@ guy = User.create!(
   I currently tutor adults in a local ESL literacy program and online interactive platforms. I help them with reading, speaking, writing and listening skills through conversation, pronunciation, reading and skill-building exercises. We work on job readiness, study skills and interviewing skills. I also help them with test prep for the IELTS and TOEFL and practicing for the Canadian Citizenship test.",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243262/user2male_yyqhio.jpg',
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
-  featured: true
+  featured: false
 )
 victor = User.create!(
   first_name:"Victor",
@@ -129,7 +129,7 @@ paul = User.create!(
   I recommend specific strategies, such as, watching English speaking movies on television, at the movie theater, or through a streaming service to ESL Learners. I also recommend watching English speaking news and talk shows, and reading novels written in English language. Engaging in conversations using the English language can also increase the ESL Learner's ability to write and speak fluently.",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243261/user5male_m6scsw.jpg',
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
-  featured: true
+  featured: false
 )
 benjamin = User.create!(
   first_name:"Benjamin",
@@ -143,7 +143,7 @@ benjamin = User.create!(
   I have been tutoring law students on various courses, including but not limited to: civil procedure, business law, Constitutional law, and legal writing, I also tutor undergraduate students with political science courses such as Canadian Government, Pre-law, business law, Canadian federalism, and constitutional law.",
   imgUrl: 'https://ca.slack-edge.com/T02NE0241-ULA1N2X46-293938af097f-512',
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
-  featured: true
+  featured: false
 )
 travis = User.create!(
   first_name:"Travis",
@@ -344,165 +344,69 @@ harry = User.create!(
 Service.destroy_all
 puts 'Creating "Services"...'
 
-## mickael ##
+## Permanent Residency ##
 service1 = Service.create!(
   user: mickael,
   service_type: "General Consultation",
   path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
+  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
   price: "175"
 )
 service2 = Service.create!(
-  user: mickael,
-  service_type: "Test Prep",
+  user: alex,
+  service_type: "General Consultation",
   path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "99"
+  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
+  price: "150"
 )
 service3 = Service.create!(
+  user: peter,
+  service_type: "Test Prep",
+  path: "Permanent Residency",
+  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
+  price: "70"
+)
+service4 = Service.create!(
+  user: alex,
+  service_type: "Test Prep",
+  path: "Permanent Residency",
+  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
+  price: "99"
+)
+service5 = Service.create!(
   user: mickael,
   service_type: "Ongoing Assistance",
   path: "Permanent Residency",
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "140"
 )
-
-## peter ##
-service4 = Service.create!(
-  user: peter,
-  service_type: "General Consultation",
-  path: "Student Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "175"
-)
-service5 = Service.create!(
-  user: peter,
-  service_type: "Test Prep",
-  path: "Student Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "99"
-)
 service6 = Service.create!(
-  user: peter,
+  user: celine,
   service_type: "Ongoing Assistance",
-  path: "Student Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "140"
+  description: "Assistance from start to finish in helping you prepare documentation for your Canadian student visa application process. Pre-planned and scheduled follow-up appointments give you the checkpoints along the way to ensure you are confident and stress free. This service guarantees a tailor fit solution to your immigration needs.",
+  path: "Permanent Residency",
+  price: "250"
 )
-
-## alex ##
 service7 = Service.create!(
-  user: alex,
+  user: guy,
   service_type: "General Consultation",
   path: "Permanent Residency",
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "175"
+  price: "250"
 )
 service8 = Service.create!(
-  user: alex,
+  user: victor,
   service_type: "Test Prep",
   path: "Permanent Residency",
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
   price: "99"
 )
 service9 = Service.create!(
-  user: alex,
-  service_type: "Ongoing Assistance",
+  user: paul,
+  service_type: "General Consultation",
   path: "Permanent Residency",
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "140"
-)
-
-## celine ##
-service10 = Service.create!(
-  user: celine,
-  service_type: "Ongoing Assistance",
-  description: "Assistance from start to finish in helping you prepare documentation for your Canadian student visa application process. Pre-planned and scheduled follow-up appointments give you the checkpoints along the way to ensure you are confident and stress free. This service guarantees a tailor fit solution to your immigration needs.",
-  path: "Canadian Citizenship",
-  price: "250"
-)
-service11 = Service.create!(
-  user: celine,
-  service_type: "Test Prep",
-  description: "Assistance from start to finish in helping you prepare documentation for your Canadian student visa application process. Pre-planned and scheduled follow-up appointments give you the checkpoints along the way to ensure you are confident and stress free. This service guarantees a tailor fit solution to your immigration needs.",
-  path: "Canadian Citizenship",
-  price: "200"
-)
-service12 = Service.create!(
-  user: celine,
-  service_type: "General Consultation",
-  description: "Assistance from start to finish in helping you prepare documentation for your Canadian student visa application process. Pre-planned and scheduled follow-up appointments give you the checkpoints along the way to ensure you are confident and stress free. This service guarantees a tailor fit solution to your immigration needs.",
-  path: "Canadian Citizenship",
-  price: "300"
-)
-
-## guy ##
-service13 = Service.create!(
-  user: guy,
-  service_type: "General Consultation",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "175"
-)
-service14 = Service.create!(
-  user: guy,
-  service_type: "Test Prep",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "99"
-)
-service15 = Service.create!(
-  user: guy,
-  service_type: "Ongoing Assistance",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "140"
-)
-
-## victor ##
-service16 = Service.create!(
-  user: victor,
-  service_type: "General Consultation",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "175"
-)
-service17 = Service.create!(
-  user: victor,
-  service_type: "Test Prep",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "99"
-)
-service18 = Service.create!(
-  user: victor,
-  service_type: "Ongoing Assistance",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "140"
-)
-
-## paul ##
-service19 = Service.create!(
-  user: paul,
-  service_type: "General Consultation",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "175"
-)
-service20 = Service.create!(
-  user: paul,
-  service_type: "Test Prep",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "99"
-)
-service21 = Service.create!(
-  user: paul,
-  service_type: "Ongoing Assistance",
-  path: "Work Visa",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "140"
+  price: "100"
 )
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
@@ -510,14 +414,6 @@ service21 = Service.create!(
 # APPOINTMENTS #
 Appointment.destroy_all
 puts 'Creating "Appointments"...'
-
-## mickael ##
-appointment1 = Appointment.create!(
-  date: Faker::Date.in_date_period,
-  status: "confirmed",
-  service: service1,
-  user: diana,
-)
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
 
@@ -1242,9 +1138,6 @@ belis2_milestone7 = Milestone.create!(
   user: belis3,
   milestone_title: "PR Reception",
   milestone_path: belis3.path_type,
-  milestone_date: "2020-04-04 12:00:00",
-  achieved: true,
-  processing_time: 3,
   order: 7,
 )
 
@@ -1293,7 +1186,7 @@ diana_milestone7 = Milestone.create!(
 )
 
 
-# DB Milstones#
+# DB Milstones #
 ## jean ##
 jean_milestone1 = Milestone.create!(
   user: jean,
