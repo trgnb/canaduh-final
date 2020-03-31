@@ -1,7 +1,7 @@
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;">Welcome to your dashboard <%= @current_user.first_name %></h1>
-    <p>Here you can manage and keep track of tasks you'll need to complete to get where your going.</p>
+    <p>Here you can manage and keep track of tasks you'll need to complete to get where you're going.</p>
   </div>
 </div>
 
@@ -15,6 +15,25 @@
         <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
       </div>
     <!-- COMPLETED MILESTONES    -->
+
+    <ul class="timeline" id="timeline">
+      <% @milestones.each do |milestone| %>
+          <li class="li" id="CSQ">
+            <div class="timestamp">
+              <span class="author"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></span>
+            </div>
+            <div class="status">
+              <% if milestone.achieved == true %>
+                  <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %>
+              <% else %>
+                  In progress
+              <% end %>
+            </div>
+          </li>
+      <% end %>
+      </ul>
+
+
     <div class="container-cols">
       <% @milestones.each do |milestone| %>
         <div class="card-task">
@@ -24,7 +43,7 @@
             <% else %>
               <i class="fas fa-times" id="status" style="color: black;"></i>
             <% end %>
-            <div id="milestone"><strong><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></strong></div>
+            <div id="milestone"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></div>
           </div>
           <div class="task-actions">
             <% if milestone.achieved == true %>
