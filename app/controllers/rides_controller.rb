@@ -6,7 +6,7 @@ class RidesController < ApplicationController
     @user_type = current_user.user_type
     @user_path = current_user.path_type
     @all_rides = Ride.all
-    @available_rides = @all_rides.where.not(ride_capacity: 0)
+    @available_rides = @all_rides
 
     # MAP #
     ## All addresses ##
@@ -26,7 +26,7 @@ class RidesController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
-        infowindow: render_to_string(partial: "info_window", locals: { ride_id: location.ride_id, departure_address: @departure_addresses.find_by(ride_id: location.ride_id).address })
+        infowindow: render_to_string(partial: "info_window", locals: { ride_id: location.ride_id, departure_address: @departure_addresses.find_by(ride_id: location.ride_id).address, destination: location}),
       }
     end
   end

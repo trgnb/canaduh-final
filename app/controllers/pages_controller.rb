@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     # TASK REMINDER #
     tasks = current_user.tasks
     @high_priority_tasks = tasks.filter do |task|
-      task.priority == "high"
+      task.priority == "High"
     end
 
     # RIDES #
@@ -39,6 +39,11 @@ class PagesController < ApplicationController
         @rider_bookings << booking
       end
     end
+
+    # ADDRESSES #
+    @all_addresses = Address.geocoded
+    @departure_addresses = @all_addresses.where(name: "departure")
+    @destination_addresses = @all_addresses.where(name: "destination")
   end
 
   def profile

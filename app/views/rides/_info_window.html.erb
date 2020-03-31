@@ -1,7 +1,13 @@
 <% ride = @available_rides.find(ride_id) %>
-<p>Leaving on <strong><%= ride.ride_date.to_time.strftime('%B %e, %Y') %></strong> from <strong><%= departure_address %></strong> </p>
-<p>Price:<%= ride.ride_price%></p>
-<p><%= ride.ride_capacity %> seats available</p>
+<p>Leaving on <strong><%= ride.ride_date.to_time.strftime('%B %e, %Y') %></strong></p>
+<p>From <strong><%= departure_address %></strong></p>
+<p>To <strong><%= destination.address %></strong></p>
+<p>Price: $<%= ride.ride_price%></p>
+<% if ride.ride_capacity == 0%>
+  <p>No seats available</p>
+<% else %>
+  <p><%= ride.ride_capacity %> seats available </p>
+<% end %>
 
 <div class="task-actions">
   <% if current_user.id == ride.user_id %>
