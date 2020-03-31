@@ -32,6 +32,7 @@ admin = User.create!(
 )
 
 ## Advisors ##
+#going to change my picture, but need to take one. Will add Patrick and Rosemarie Pictures in the chatroom##
 mickael = User.create!(
   first_name:"Mickael",
   last_name:"Merle",
@@ -40,6 +41,7 @@ mickael = User.create!(
   user_type: "advisor",
   username: "mickaelm",
   location: "Montreal",
+
   user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243295/Mickael_advisor.jpg',
   specialty: "work visa",
@@ -55,7 +57,7 @@ peter = User.create!(
   location: "Toronto",
   user_bio: "I coach clients who are preparing for interviews. Some of these clients are unaccustomed to the interview process in their countries.
   By rehearsing their answers to align with what interviewers are looking for, offering feedback about body language, eye contact, smiles, etc. my clients feel more confident about the process and do better in the interview as a result.",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243263/user5female_aazn9s.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585520856/advisor4_vofpf7.png',
   specialty: "student visa",
   featured: false
 )
@@ -69,7 +71,7 @@ alex = User.create!(
   location: "Ottawa",
   user_bio: "I have been teaching for more than 11 years. As a result, I learned more about people and the importance motivations have on the ability to learn, retain and feel confident communicating and living in the culture of English speaking communities.
   I have experience with cultures and customs from little known provinces, as well as familiarity with the more prominent immigrant and refugee language learning communities.",
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UD4L8PN67-fd496d39f43b-512',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585520857/advisor10_xd7cpe.png',
   specialty: "permanent residency",
   featured: false
 )
@@ -83,7 +85,7 @@ celine = User.create!(
   location: "Montreal",
   user_bio: "I am a licensed attorney who attended law school at the Sorbonne University, Paris, and practiced in Belgium before moving to Montreal, where I have been practicing since 2003. I am also licensed to practice in the United Kingdom. I have experience in the French, Belgian, and Canadian legal systems.
   With a B.A. in French and a diploma in French Phonetics from University College, London, and a certification in teaching English as a Second Language, I lived and taught English as a Second Language in France for 15 years in the public school system, the University system, and professional training schools for judges and lawyers.",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243262/user1female_chsci0.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585520856/advisor7_z5iyyo.png',
   specialty: "canadian citizenship",
   featured: false
 )
@@ -97,7 +99,7 @@ guy = User.create!(
   location: "Montreal",
   user_bio: "I have a Bachelor’s Degree in Business from Humber College, a 120-hour TESOL certificate, an IELTS Specialist certificate and I am trained to teach the Canadian Citizenship test. I have taught English online to students (ages 5 to 12). I helped them learn English by speaking, reading and listening skills in a fun and engaging online learning platform. We worked on building their understanding of the English language using interactive games, TPR and fun characters.
   I currently tutor adults in a local ESL literacy program and online interactive platforms. I help them with reading, speaking, writing and listening skills through conversation, pronunciation, reading and skill-building exercises. We work on job readiness, study skills and interviewing skills. I also help them with test prep for the IELTS and TOEFL and practicing for the Canadian Citizenship test.",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243262/user2male_yyqhio.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585520855/advisor3_tuepc8.png',
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: false
 )
@@ -112,7 +114,7 @@ victor = User.create!(
   user_bio: "I am a dedicated and earnest individual with a passion for helping others achieve their educational goals. I have a B.A. in English and have my Graduate TESOL Certification from Cleveland State University. I am currently getting my Masters in Early Childhood Education (Pre-K - 3) and together with my TESOL training, I have multiple strategies and methods for successful early childhood and ESL instruction.
   I enjoy working with all ages and backgrounds in both TESOL, ELA, USCIS, Reading, Writing, and Speaking . I have 2+ years of classroom experience teaching both children and adults.
   I believe that respect, patience, and open communication are key to successful teaching and learning. Establishing a strong relationship with the individuals I tutor sets me apart and allows me to create personalized lesson plans and activities to fit specific educational needs.",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582391682/victor%20bianchi.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585520855/advisor1_udlpec.png',
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: false
 )
@@ -127,7 +129,7 @@ paul = User.create!(
   user_bio: "I tutor ESL Learners across a diverse range of age and work experience, such as, high school and college students, and business professionals. While working at P&G, I helped co-workers improve their English language skills and increase their confidence when speaking and listening to English.
   One colleague I tutored was preparing for the Canadian citizenship test and another was beginning a 6-month work assignment in my department. Both students’ native language was Japanese.
   I recommend specific strategies, such as, watching English speaking movies on television, at the movie theater, or through a streaming service to ESL Learners. I also recommend watching English speaking news and talk shows, and reading novels written in English language. Engaging in conversations using the English language can also increase the ESL Learner's ability to write and speak fluently.",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243261/user5male_m6scsw.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585520856/advisor4_vofpf7.png',
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: false
 )
@@ -155,7 +157,7 @@ travis = User.create!(
   location: "Toronto",
   user_bio: "I'm a college student (legal major) who loves to teach others. I’m a native Spanish speaker, two times winner of the Real Academia Española National Championship in Cuba. I will be more than happy to become a Spanish Tutor for those in need of learning the beautiful language of Castellano (Español).
   I have full experience in tutoring Español, and its grammar. Back in my country of birth, Cuba, I was one of the top students in Spanish Literature, and Spanish Grammar. I had participated in several competitions while attending high school in Santiago de Cuba, winning first place, and second place respectively. I was one of the ten students elected to be part of the national championship in 2008 to compete with other regions of the country (Cuba).",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243261/user1male_ne28ng.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585520858/advisor8_lpnilp.png',
   specialty: ["student visa", "work visa", "permanent residency", "canadian citizenship"].sample,
   featured: false
 )
@@ -877,12 +879,12 @@ message_1 = Message.create!(
   user: belis1
 )
 message_2 = Message.create!(
-  content: "Hi Belis, yes that's what our community is made for! tell me how could I help you?",
+  content: "Hi Belis, yes that's what our community is made for! Tell me how could I help you?",
   chat_room: chat_room,
-  user: pablo
+  user: rmb
 )
 message_3 = Message.create!(
-  content: "Thanks Pablo, ok here is the thing... On the quebec Immigration
+  content: "Thanks Rose-Marie, ok here is the thing... On the quebec Immigration
   Website, it says that the fees are 812$, but on the Form A0520GF_2020,
   it's written 3243$... What's the eact solution?",
   chat_room: chat_room,
@@ -891,17 +893,17 @@ message_3 = Message.create!(
 message_4 = Message.create!(
   content: "Ok, no trouble the right amount is 812$",
   chat_room: chat_room,
-  user: pablo
+  user: rmb
 )
 message_5 = Message.create!(
-  content: "hi Belis, Pablo is right. The 3243$ written on the document are the
+  content: "hi Belis, Rose-Marie is right. The 3243$ written on the document are the
   total amount you NEED to have on your Bank Account, if Border Agents want to
   check your informations.",
   chat_room: chat_room,
-  user: jackie
+  user: patrick
 )
 message_6 = Message.create!(
-  content: "Thank you Pablo and Jackie! Such a relief I thought that the fees
+  content: "Thank you Rose-Marie and Patrick! Such a relief I thought that the fees
   had been increased! Let's go PR!!! ",
   chat_room: chat_room,
   user: belis1
@@ -909,12 +911,12 @@ message_6 = Message.create!(
 message_7 = Message.create!(
   content: "You are welcome Belis, good luck for your process.",
   chat_room: chat_room,
-  user: jackie
+  user: rmb
 )
 message_8 = Message.create!(
   content: "Good luck Belis!",
   chat_room: chat_room,
-  user: pablo
+  user: patrick
 )
 
 # Chatroom 2 - A75 #
