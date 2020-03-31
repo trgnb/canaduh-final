@@ -2,7 +2,7 @@
 
   <div class="slice-container">
     <!-- MAP -->
-    <h1>Find a ride available near you</h1>
+    <h1>Find a ride available nearby</h1>
     <div
       id="map"
       style="width: 100%;
@@ -15,10 +15,10 @@
   <p>Add a new ride</p>
   <%= form_for Ride.new do |f| %>
     <%= f.label "From" %>
-    <%= f.text_field :departure_address %>
+    <%= f.text_field :departure_address, id: "from_address" %>
 
     <%= f.label "To" %>
-    <%= f.text_field :destination_address %>
+    <%= f.text_field :destination_address, id: "to_address" %>
 
     <%= f.label "When" %>
     <%= f.text_field :ride_date, class: 'datepicker' %>
@@ -27,7 +27,7 @@
     <%= f.text_field :ride_price %>
 
     <%= f.label "Capacity" %>
-    <%= f.select :ride_capacity, [1, 2, 4, 5, 6, 7], :prompt => "Select", class: "form-control" %>
+    <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control" %>
 
     <%= f.submit "Add a new ride", class: "btn btn-primary"%>
   <% end %>
