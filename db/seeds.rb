@@ -1200,9 +1200,9 @@ jean_milestone2 = Milestone.create!(
   user: jean,
   milestone_title: "CSQ Reception",
   milestone_path: jean.path_type,
-  milestone_date: "2019-02-01 12:00:00",
+  milestone_date: "2019-04-01 12:00:00",
   achieved: true,
-  processing_time: 1,
+  processing_time: 4,
   order: 2,
 )
 jean_milestone3 = Milestone.create!(
@@ -1261,9 +1261,9 @@ mariepier_milestone2 = Milestone.create!(
   user: mariepier,
   milestone_title: "CSQ Reception",
   milestone_path: mariepier.path_type,
-  milestone_date: "2019-02-01 12:00:00",
+  milestone_date: "2019-04-01 12:00:00",
   achieved: true,
-  processing_time: 1,
+  processing_time: 4,
   order: 2,
 )
 mariepier_milestone3 = Milestone.create!(
@@ -1322,9 +1322,9 @@ sarah_milestone2 = Milestone.create!(
   user: sarah,
   milestone_title: "CSQ Reception",
   milestone_path: sarah.path_type,
-  milestone_date: "2019-02-01 12:00:00",
+  milestone_date: "2019-04-01 12:00:00",
   achieved: true,
-  processing_time: 1,
+  processing_time: 4,
   order: 2,
 )
 sarah_milestone3 = Milestone.create!(
@@ -1383,9 +1383,9 @@ pablo_milestone2 = Milestone.create!(
   user: pablo,
   milestone_title: "CSQ Reception",
   milestone_path: pablo.path_type,
-  milestone_date: "2019-02-01 12:00:00",
+  milestone_date: "2019-04-01 12:00:00",
   achieved: true,
-  processing_time: 1,
+  processing_time: 4,
   order: 2,
 )
 pablo_milestone3 = Milestone.create!(
@@ -1426,189 +1426,6 @@ pablo_milestone7 = Milestone.create!(
   user: pablo,
   milestone_title: "PR Reception",
   milestone_path: pablo.path_type,
-  milestone_date: "2020-04-04 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 7,
-)
-## jackie ##
-jackie_milestone1 = Milestone.create!(
-  user: jackie,
-  milestone_title: "CSQ Application",
-  milestone_path: jackie.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
-  order: 1,
-)
-jackie_milestone2 = Milestone.create!(
-  user: jackie,
-  milestone_title: "CSQ Reception",
-  milestone_path: jackie.path_type,
-  milestone_date: "2019-02-01 12:00:00",
-  achieved: true,
-  processing_time: 1,
-  order: 2,
-)
-jackie_milestone3 = Milestone.create!(
-  user: jackie,
-  milestone_title: "Temporary Work Visa Activation",
-  milestone_path: jackie.path_type,
-  milestone_date: "2019-02-07 12:00:00",
-  achieved: true,
-  order: 3,
-)
-jackie_milestone4 = Milestone.create!(
-  user: jackie,
-  milestone_title:  "PR Application",
-  milestone_path: jackie.path_type,
-  milestone_date: "2019-03-01 12:00:00",
-  achieved: true,
-  order: 4,
-)
-jackie_milestone5 = Milestone.create!(
-  user: jackie,
-  milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: jackie.path_type,
-  milestone_date: "2019-06-01 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 5,
-)
-jackie_milestone6 = Milestone.create!(
-  user: jackie,
-  milestone_title: "Medical Exam",
-  milestone_path: jackie.path_type,
-  milestone_date: "2020-01-01 12:00:00",
-  achieved: true,
-  processing_time: 7,
-  order: 6,
-)
-jackie_milestone7 = Milestone.create!(
-  user: jackie,
-  milestone_title: "PR Reception",
-  milestone_path: jackie.path_type,
-  milestone_date: "2020-04-04 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 7,
-)
-## brad ##
-brad_milestone1 = Milestone.create!(
-  user: brad,
-  milestone_title: "CSQ Application",
-  milestone_path: brad.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
-  order: 1,
-)
-brad_milestone2 = Milestone.create!(
-  user: brad,
-  milestone_title: "CSQ Reception",
-  milestone_path: brad.path_type,
-  milestone_date: "2019-02-01 12:00:00",
-  achieved: true,
-  processing_time: 1,
-  order: 2,
-)
-brad_milestone3 = Milestone.create!(
-  user: brad,
-  milestone_title: "Temporary Work Visa Activation",
-  milestone_path: brad.path_type,
-  milestone_date: "2019-02-07 12:00:00",
-  achieved: true,
-  order: 3,
-)
-brad_milestone4 = Milestone.create!(
-  user: brad,
-  milestone_title:  "PR Application",
-  milestone_path: brad.path_type,
-  milestone_date: "2019-03-01 12:00:00",
-  achieved: true,
-  order: 4,
-)
-brad_milestone5 = Milestone.create!(
-  user: brad,
-  milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: brad.path_type,
-  milestone_date: "2019-06-01 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 5,
-)
-brad_milestone6 = Milestone.create!(
-  user: brad,
-  milestone_title: "Medical Exam",
-  milestone_path: brad.path_type,
-  milestone_date: "2020-01-01 12:00:00",
-  achieved: true,
-  processing_time: 7,
-  order: 6,
-)
-brad_milestone7 = Milestone.create!(
-  user: brad,
-  milestone_title: "PR Reception",
-  milestone_path: brad.path_type,
-  milestone_date: "2020-04-04 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 7,
-)
-## harry ##
-harry_milestone1 = Milestone.create!(
-  user: harry,
-  milestone_title: "CSQ Application",
-  milestone_path: harry.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
-  order: 1,
-)
-harry_milestone2 = Milestone.create!(
-  user: harry,
-  milestone_title: "CSQ Reception",
-  milestone_path: harry.path_type,
-  milestone_date: "2019-02-01 12:00:00",
-  achieved: true,
-  processing_time: 1,
-  order: 2,
-)
-harry_milestone3 = Milestone.create!(
-  user: harry,
-  milestone_title: "Temporary Work Visa Activation",
-  milestone_path: harry.path_type,
-  milestone_date: "2019-02-07 12:00:00",
-  achieved: true,
-  order: 3,
-)
-harry_milestone4 = Milestone.create!(
-  user: harry,
-  milestone_title:  "PR Application",
-  milestone_path: harry.path_type,
-  milestone_date: "2019-03-01 12:00:00",
-  achieved: true,
-  order: 4,
-)
-harry_milestone5 = Milestone.create!(
-  user: harry,
-  milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: harry.path_type,
-  milestone_date: "2019-06-01 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 5,
-)
-harry_milestone6 = Milestone.create!(
-  user: harry,
-  milestone_title: "Medical Exam",
-  milestone_path: harry.path_type,
-  milestone_date: "2020-01-01 12:00:00",
-  achieved: true,
-  processing_time: 7,
-  order: 6,
-)
-harry_milestone7 = Milestone.create!(
-  user: harry,
-  milestone_title: "PR Reception",
-  milestone_path: harry.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
   processing_time: 3,
