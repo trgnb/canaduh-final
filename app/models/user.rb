@@ -14,7 +14,6 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :milestones, dependent: :destroy
   has_many :messages, dependent: :destroy
-  has_many :bookings, through: :rides, dependent: :destroy
   has_many :private_messages, dependent: :destroy
   has_many :rides, dependent: :destroy
   has_many :chat_rooms, dependent: :destroy, through: :messages
