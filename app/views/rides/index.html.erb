@@ -1,34 +1,54 @@
-<div class="main-container">
+<div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
+  <div class="banner">
+    <h1 style="margin-bottom: 5px;">Find carpooling to the border near you.</h1>
+    <p>Hitch a ride for your next visa renewal.</p>
+  </div>
+</div>
 
+<div class="main-container">
   <div class="slice-container">
     <!-- MAP -->
-    <h1>Find a ride available nearby</h1>
-    <div
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-    <br>
-  <!-- ADD A NEW RIDE -->
-  <p>Add a new ride</p>
-  <%= form_for Ride.new do |f| %>
-    <%= f.label "From" %>
-    <%= f.text_field :departure_address, id: "from_address" %>
-
-    <%= f.label "To" %>
-    <%= f.text_field :destination_address, id: "to_address" %>
-
-    <%= f.label "When" %>
-    <%= f.text_field :ride_date, class: 'datepicker' %>
-
-    <%= f.label "Price" %>
-    <%= f.text_field :ride_price %>
-
-    <%= f.label "Capacity" %>
-    <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control" %>
-
-    <%= f.submit "Add a new ride", class: "btn btn-primary"%>
-  <% end %>
+  <div class="row">
+    <div class="col">
+      <div class="form-container">
+        <div class="col">
+          <h1>Going to the border?</h1>
+          <p>Help out the community by offering a lift.</p>
+          <%= form_for Ride.new do |f| %>
+            <strong><%= f.label "Enter pickup location" %></strong>
+            <%= f.text_field :departure_address, id: "from_address" %>
+              <br>
+              <br>
+            <strong><%= f.label "Where to?" %></strong>
+            <%= f.text_field :destination_address, id: "to_address" %>
+              <br>
+              <br>
+            <strong><%= f.label "Number of available seats" %></strong>
+            <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control" %>
+              <br>
+              <br>
+              <strong><%= f.label "Price" %></strong>
+              <%= f.text_field :ride_price %>
+              <br>
+              <br>
+              <div><%= f.text_field :ride_date, class: 'datepicker' %></div>
+              <br>
+              <%= f.submit "Offer ride", class: "btn-cta"%>
+        <% end %>
+        </div>
+        </div>
+    </div>
+    <div class="col">
+      <div
+        id="map"
+        style="width: 100%;
+        height: 100%;
+        "
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        >
+      </div>
+    </div>
+  </div>
+</div>
 </div>
