@@ -11,35 +11,41 @@
   <div class="slice-container">
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
     <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-      <div class="row">
-        <h4>Journey progress: </h4>
-        <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
-      </div>
     <!-- COMPLETED MILESTONES    -->
 
      <ul class="timeline" id="timeline">
-    <% @milestones.each do |milestone| %>
-      <% if milestone.achieved == true %>
-        <li class="li complete">
-          <div class="timestamp">
-            <span class="author"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></span>
-          </div>
-          <div class="status">
-             <p> <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p>
-          </div>
-        </li>
-      <% else %>
-        <li class="li">
-          <div class="timestamp">
-            <span class="author"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></span>
-          </div>
-          <div class="status">
-             <p> In progress </p>
-          </div>
-        </li>
-      <% end %>
-    <% end %>
-    </ul>
+      <div class='dashboard-container'>
+      <% @milestones.each do |milestone| %>
+        <% if milestone.achieved == true %>
+            <div class='flex'>
+              <li class="li complete">
+                <div class="timestamp">
+                  <p class="author"> <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %> </p>
+                </div>
+                <div class="status">
+                   <p> <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p>
+                </div>
+              </li>
+            </div>
+        <% else %>
+            <div class='flex'>
+              <li class="li">
+                <div class="timestamp">
+                  <p class="author"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></p>
+                </div>
+                <div class="status">
+                   <p> In Progress </p>
+                </div>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </ul>
+    <div class="row">
+      <h4>Journey progress: </h4>
+      <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
+    </div>
 
 
     <div class="container-cols">
@@ -148,7 +154,7 @@
             </div>
             <div class="appointment-schedule">
               <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
-              <div id="appointment-status"><strong>Status: </strong><%= appointment.status.capitalize %></div>
+              <div id="appointment-status"> <strong>Status: </strong><%= appointment.status.capitalize %></div>
               <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
             </div>
           </div>
