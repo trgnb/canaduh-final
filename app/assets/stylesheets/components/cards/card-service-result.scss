@@ -14,15 +14,15 @@
   .image {
   display: flex;
   justify-content: center;
-  width: 33vw;
-  height: $longcard;
+  width: 24vw;
+  height: 240px;
   border-radius: $border-radius;
-  background: $offwhite;
+  background: $white;
   box-shadow: $dropshadow;
 
     img {
-      width: 240px;
-      height: 240px;
+      width: 160px;
+      height: 160px;
       align-self: center;
       border-radius: 50%;
       box-shadow: $dropshadow;
@@ -38,7 +38,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 840px;
-    height: $longcard;
+    height: 240px;
     padding: 10px;
     margin-left: 20px;
   }
