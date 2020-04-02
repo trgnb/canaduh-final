@@ -13,3 +13,12 @@ flatpickr(".datepicker",
     position: "above",
   }
 )
+
+flatpickr(".datepicker1",
+  {
+    dateFormat: "Y-m-d H:i",
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+  }
+)
