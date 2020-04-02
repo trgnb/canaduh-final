@@ -24,14 +24,15 @@
               <br>
               <br>
             <strong><%= f.label "Number of available seats" %></strong>
-            <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control" %>
+            <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control", placeholder: "Select a date" %>
               <br>
               <br>
-              <strong><%= f.label "Price" %></strong>
+              <strong><%= f.label "Price $" %></strong>
               <%= f.text_field :ride_price %>
               <br>
               <br>
-              <div><%= f.text_field :ride_date, class: 'datepicker' %></div>
+              <strong><%= f.label "Leaving on" %></strong>
+              <div><%= f.text_field :ride_date, class: 'datepicker2' %></div>
               <br>
               <%= f.submit "Offer ride", class: "btn-cta"%>
         <% end %>

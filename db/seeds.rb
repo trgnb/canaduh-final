@@ -42,7 +42,7 @@ mickael = User.create!(
   username: "mickaelm",
   location: "Montreal",
 
-  user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate",
+  user_bio: "Hello, I am Mickael! I am a certified immigration adviser and I have been offering my services on Canaduh for about 2 years now. I am mostly specialized in Permanent Residency applications with 99.9% success rate",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243295/Mickael_advisor.jpg',
   specialty: "work visa",
   featured: true
@@ -351,63 +351,63 @@ service1 = Service.create!(
   user: mickael,
   service_type: "General Consultation",
   path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
+  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to your Permanent Residency. During a one-hout consultation we will build a detailed plan for your journey.",
   price: "175"
 )
 service2 = Service.create!(
   user: alex,
   service_type: "General Consultation",
   path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
+  description: "Get professional advice from a licenced immigration advisor. During the General Consultation we will build a custom plan to your specific situation.",
   price: "150"
 )
 service3 = Service.create!(
   user: peter,
   service_type: "Test Prep",
-  path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
+  path: "Canadian Citizenship",
+  description: "To become a citizen, you'll need to take a Canadian Citizenship test to meet the knowledge requirement for citizenship. This Service will help you master Canada's history, geography, political system, national symbols, identity and values, and of the rights and responsibilities of citizenship.",
   price: "70"
 )
 service4 = Service.create!(
-  user: alex,
-  service_type: "Test Prep",
-  path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to you Permanent Residency. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed plan is delivered to you digitaly within 5 business days.",
-  price: "99"
-)
-service5 = Service.create!(
   user: mickael,
   service_type: "Ongoing Assistance",
   path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "140"
+  description: "From establishing your personal plan to the reception of your Permanent Resident card, I am offering a 24/7 assistance for any question, validation or moral support during your immigration process.",
+  price: "400"
+)
+service5 = Service.create!(
+  user: alex,
+  service_type: "Test Prep",
+  path: "Permanent Residency",
+  description: "If you don't understand what 'Test d'Évaluation du Français' means, you definitely need to book a test preparation for the Mandatory French Exam!",
+  price: "99"
 )
 service6 = Service.create!(
   user: celine,
   service_type: "Ongoing Assistance",
-  description: "Assistance from start to finish in helping you prepare documentation for your Canadian student visa application process. Pre-planned and scheduled follow-up appointments give you the checkpoints along the way to ensure you are confident and stress free. This service guarantees a tailor fit solution to your immigration needs.",
+  description: "Ongoing assistance during your immigration is essential to do reach each milestone of your immigration process. I will guide you every steps of the way, providing you best pratices that have been proven successful!",
   path: "Permanent Residency",
-  price: "250"
+  price: "500"
 )
 service7 = Service.create!(
+  user: mickael,
+  service_type: "Ongoing Assistance",
+  path: "Work Visa",
+  description: "From establishing your personal plan to the activation of your Work Visa, I am offering a 24/7 assistance for any question, validation or moral support during your immigration process.",
+  price: "140"
+)
+service8 = Service.create!(
   user: guy,
   service_type: "General Consultation",
   path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "250"
-)
-service8 = Service.create!(
-  user: victor,
-  service_type: "Test Prep",
-  path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
-  price: "99"
+  description: "Don't know where to start? Book a General Consultation to build your custom plan to a new life!",
+  price: "90"
 )
 service9 = Service.create!(
   user: paul,
   service_type: "General Consultation",
-  path: "Permanent Residency",
-  description: "Get professional advice and council from a certified immigration advisor to put you on the right path to citizenship. The service includes a personalized assesement and a tailored solution. Consultations can be conducted in person or remotely if a physical meeting is not possible. Appointments last 1 hour and a detailed citizenship plan is delivered to you digitaly within 5 business days.",
+  path: "Work Visa",
+  description: "Open work permit? Employer-specific work permit? You don't know which one applies to your current status? I am here to help! Book an hour consultation and everything will be crystal clear.",
   price: "100"
 )
 
@@ -429,42 +429,42 @@ review1 = Review.create!(
   service: service1,
   user: jean,
   rating: 5,
-  content: "My experience was wonderful with Canaduh! I would be lost without Mikael Merle. The advisor was extremely helpful and I got exactly what I needed. 5 stars and will continue on my journey!"
+  content: "My experience was wonderful with Canaduh! I would be lost without Mikael Merle. He was extremely helpful and I got exactly what I needed. 5 stars and will continue on my journey!"
 )
 review2 = Review.create!(
   title: "What an incredible experience",
   service: service1,
   user: mariepier,
   rating: 5,
-  content: "Canaduh has completely surpassed our expectations. Just what I was looking for. Canaduh is the real deal! Very easy to use. Canaduh did exactly what you said it does. I could probably go into sales for you. I'm good to go. I would like to personally thank you for your outstanding product. I wish I would have thought of it first. We're loving it."
+  content: "Canaduh has completely surpassed my expectations. Mickael was really helpfully and Canaduh made the process very useful and stressful-free. Thank You Mickael!"
 )
 review3 = Review.create!(
   title: "Time saver for sure",
   service: service1,
   user: sarah,
   rating: 5,
-  content: "I love your system. I like Canaduh more and more each day because it makes my life a lot easier. Canaduh is exactly what our business has been lacking. No matter where you go, Canaduh is the coolest, most happening thing around!"
+  content: "I used Canduh for my Citizenship application and I wish I had used Canaduh for my Permanent Residency application. Mickael was really involved and his planner is a gem!"
 )
 review4 = Review.create!(
-  title: "Quite possibly the simplest way to get",
+  title: "5 stars!",
   service: service1,
   user: pablo,
   rating: 5,
-  content: "The best on the net! The advisor impressed me on multiple levels. Thank you so much for your help."
+  content: "With Mickael nothing is impossible! Thank you so much for your help. Highly recommend to start with a General Consultation so you kick start your journey on the right path!"
 )
 review5 = Review.create!(
   title: "Great service!!",
   service: service1,
   user: jackie,
   rating: 5,
-  content: "My experience was wonderful with Canaduh! The advisor was extremely helpful and I got exactly what I needed. 5 stars and will continue on my journey!"
+  content: "My experience was wonderful with Canaduh! Mickael was extremely helpful and I got exactly what I needed. 5 stars and will continue on my journey!"
 )
 review6 = Review.create!(
-  title: "Great service!!",
+  title: "Recommended!!",
   service: service1,
   user: harry,
   rating: 5,
-  content: "I would also like to say thank you to all your staff. Advisors has completely surpassed our expectations. Advisors has got everything I need. "
+  content: "With Mickael I got my PR in only 9 months!"
 )
 
 # ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** #
@@ -541,80 +541,6 @@ recommended_task9_belis1 = Task.create!(
 recommended_task10_belis1 = Task.create!(
   user: belis1,
   task_path: belis1.path_type,
-  task_name: "Immigration Advisor Certificate (if assisted in your application)",
-  recommended_task: true,
-  priority: "Low",
-)
-
-
-
-### Belis 2 ###
-recommended_task1_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Copy of Certificat de sélection du Québec",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task2_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Get valid passport or other travel documents",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task3_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Reference letters from previous and current employers",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task4_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Financial proofs (loan payments, bank references, bank statements)",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task5_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Up-to-date curriculum vitæ",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task6_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Academic transcripts and diplomas",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task7_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Immigration Advisor Certificate (if assisted in your application)",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task8_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Regulated work Declaration of the candidate (Form: A-0527-JF)",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task9_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
-  task_name: "Former and actual employers attestations",
-  recommended_task: true,
-  priority: "Low",
-)
-recommended_task10_belis2 = Task.create!(
-  user: belis2,
-  task_path: belis2.path_type,
   task_name: "Immigration Advisor Certificate (if assisted in your application)",
   recommended_task: true,
   priority: "Low",
@@ -698,20 +624,22 @@ recommended_task10_belis3 = Task.create!(
 belis1_task1 = Task.create!(
   user: belis1,
   task_name: "Meet with my Immigration Advisor",
-  priority: "Medium",
+  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
 belis1_task2 = Task.create!(
   user: belis1,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
-  priority: "Medium",
+  priority: "Low",
+  task_status: true,
   recommended_task: false,
 )
 belis1_task3 = Task.create!(
   user: belis1,
   task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
-  priority: "High",
+  priority: "Low",
+  task_status: true,
   recommended_task: false,
 )
 belis1_task4 = Task.create!(
@@ -724,68 +652,32 @@ belis1_task4 = Task.create!(
 belis1_task5 = Task.create!(
   user: belis1,
   task_name: "Pass evaluation of French language knowledge",
-  priority: "High",
+  priority: "Low",
+  task_status: true,
   recommended_task: false,
 )
 belis1_task6 = Task.create!(
   user: belis1,
   task_name: "Proof of Temporary Resident Status in Quebec",
   priority: "Low",
-  recommended_task: false,
-)
-
-## belis2' TO DO list ##
-belis2_task1 = Task.create!(
-  user: belis2,
-  task_name: "Meet with my Immigration Advisor",
-  priority: "Low",
   task_status: true,
   recommended_task: false,
 )
-belis2_task2 = Task.create!(
-  user: belis2,
-  task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
-  priority: "Low",
-  task_status: true,
-  recommended_task: false,
-)
-belis2_task3 = Task.create!(
-  user: belis2,
-  task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
-  priority: "Low",
-  task_status: true,
-  recommended_task: false,
-)
-belis2_task4 = Task.create!(
-  user: belis2,
-  task_name: "Get Work Attestation and Proof of Legalty of Work Experience",
-  priority: "Low",
-  task_status: true,
-  recommended_task: false,
-)
-belis2_task5 = Task.create!(
-  user: belis2,
-  task_name: "Pass evaluation of French language knowledge",
-  priority: "Low",
-  task_status: true,
-  recommended_task: false,
-)
-belis2_task6 = Task.create!(
-  user: belis2,
-  task_name: "Proof of Temporary Resident Status in Quebec",
-  priority: "Low",
-  task_status: true,
-  recommended_task: false,
-)
-belis2_task7 = Task.create!(
-  user: belis2,
+belis1_task7 = Task.create!(
+  user: belis1,
   task_name: "Activate Temporary work visa",
   priority: "High",
   recommended_task: false,
 )
-belis2_task7 = Task.create!(
-  user: belis2,
+belis1_task8 = Task.create!(
+  user: belis1,
   task_name: "Get all PR required documents",
+  priority: "High",
+  recommended_task: false,
+)
+belis1_task9 = Task.create!(
+  user: belis1,
+  task_name: "Find a way to get to the border",
   priority: "High",
   recommended_task: false,
 )
@@ -997,6 +889,8 @@ belis1_milestone1 = Milestone.create!(
   user: belis1,
   milestone_title: "CSQ Application",
   milestone_path: belis1.path_type,
+  milestone_date: "2019-01-01 12:00:00",
+  achieved: true,
   order: 1,
 )
 belis1_milestone2 = Milestone.create!(
@@ -1033,52 +927,6 @@ belis1_milestone7 = Milestone.create!(
   user: belis1,
   milestone_title: "PR Reception",
   milestone_path: belis1.path_type,
-  order: 7,
-)
-
-## belis2 ##
-belis2_milestone1 = Milestone.create!(
-  user: belis2,
-  milestone_title: "CSQ Application",
-  milestone_path: belis2.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
-  order: 1,
-)
-belis2_milestone2 = Milestone.create!(
-  user: belis2,
-  milestone_title: "CSQ Reception",
-  milestone_path: belis2.path_type,
-  order: 2,
-)
-belis2_milestone3 = Milestone.create!(
-  user: belis2,
-  milestone_title: "Temporary Work Visa Activation",
-  milestone_path: belis2.path_type,
-  order: 3,
-)
-belis2_milestone4 = Milestone.create!(
-  user: belis2,
-  milestone_title:  "PR Application",
-  milestone_path: belis2.path_type,
-  order: 4,
-)
-belis2_milestone5 = Milestone.create!(
-  user: belis2,
-  milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: belis2.path_type,
-  order: 5,
-)
-belis2_milestone6 = Milestone.create!(
-  user: belis2,
-  milestone_title: "Medical Exam",
-  milestone_path: belis2.path_type,
-  order: 6,
-)
-belis2_milestone7 = Milestone.create!(
-  user: belis2,
-  milestone_title: "PR Reception",
-  milestone_path: belis2.path_type,
   order: 7,
 )
 
@@ -1141,51 +989,6 @@ belis2_milestone7 = Milestone.create!(
   milestone_path: belis3.path_type,
   order: 7,
 )
-
-## Diana ##
-diana_milestone1 = Milestone.create!(
-  user: diana,
-  milestone_title: "CSQ Application",
-  milestone_path: diana.path_type,
-  order: 1,
-)
-diana_milestone2 = Milestone.create!(
-  user: diana,
-  milestone_title: "CSQ Reception",
-  milestone_path: diana.path_type,
-  order: 2,
-)
-diana_milestone3 = Milestone.create!(
-  user: diana,
-  milestone_title: "Temporary Work Visa Activation",
-  milestone_path: belis1.path_type,
-  order: 3,
-)
-diana_milestone4 = Milestone.create!(
-  user: diana,
-  milestone_title:  "PR Application",
-  milestone_path: belis1.path_type,
-  order: 4,
-)
-diana_milestone5 = Milestone.create!(
-  user: diana,
-  milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: belis1.path_type,
-  order: 5,
-)
-diana_milestone6 = Milestone.create!(
-  user: diana,
-  milestone_title: "Medical Exam",
-  milestone_path: belis1.path_type,
-  order: 6,
-)
-diana_milestone7 = Milestone.create!(
-  user: diana,
-  milestone_title: "PR Reception",
-  milestone_path: belis1.path_type,
-  order: 7,
-)
-
 
 # DB Milstones #
 ## jean ##
@@ -1305,128 +1108,6 @@ mariepier_milestone7 = Milestone.create!(
   user: mariepier,
   milestone_title: "PR Reception",
   milestone_path: mariepier.path_type,
-  milestone_date: "2020-04-04 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 7,
-)
-## sarah ##
-sarah_milestone1 = Milestone.create!(
-  user: sarah,
-  milestone_title: "CSQ Application",
-  milestone_path: sarah.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
-  order: 1,
-)
-sarah_milestone2 = Milestone.create!(
-  user: sarah,
-  milestone_title: "CSQ Reception",
-  milestone_path: sarah.path_type,
-  milestone_date: "2019-04-01 12:00:00",
-  achieved: true,
-  processing_time: 4,
-  order: 2,
-)
-sarah_milestone3 = Milestone.create!(
-  user: sarah,
-  milestone_title: "Temporary Work Visa Activation",
-  milestone_path: sarah.path_type,
-  milestone_date: "2019-02-07 12:00:00",
-  achieved: true,
-  order: 3,
-)
-sarah_milestone4 = Milestone.create!(
-  user: sarah,
-  milestone_title:  "PR Application",
-  milestone_path: sarah.path_type,
-  milestone_date: "2019-03-01 12:00:00",
-  achieved: true,
-  order: 4,
-)
-sarah_milestone5 = Milestone.create!(
-  user: sarah,
-  milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: sarah.path_type,
-  milestone_date: "2019-06-01 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 5,
-)
-sarah_milestone6 = Milestone.create!(
-  user: sarah,
-  milestone_title: "Medical Exam",
-  milestone_path: sarah.path_type,
-  milestone_date: "2020-01-01 12:00:00",
-  achieved: true,
-  processing_time: 7,
-  order: 6,
-)
-sarah_milestone7 = Milestone.create!(
-  user: sarah,
-  milestone_title: "PR Reception",
-  milestone_path: sarah.path_type,
-  milestone_date: "2020-04-04 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 7,
-)
-## pablo ##
-pablo_milestone1 = Milestone.create!(
-  user: pablo,
-  milestone_title: "CSQ Application",
-  milestone_path: pablo.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
-  order: 1,
-)
-pablo_milestone2 = Milestone.create!(
-  user: pablo,
-  milestone_title: "CSQ Reception",
-  milestone_path: pablo.path_type,
-  milestone_date: "2019-04-01 12:00:00",
-  achieved: true,
-  processing_time: 4,
-  order: 2,
-)
-pablo_milestone3 = Milestone.create!(
-  user: pablo,
-  milestone_title: "Temporary Work Visa Activation",
-  milestone_path: pablo.path_type,
-  milestone_date: "2019-02-07 12:00:00",
-  achieved: true,
-  order: 3,
-)
-pablo_milestone4 = Milestone.create!(
-  user: pablo,
-  milestone_title:  "PR Application",
-  milestone_path: pablo.path_type,
-  milestone_date: "2019-03-01 12:00:00",
-  achieved: true,
-  order: 4,
-)
-pablo_milestone5 = Milestone.create!(
-  user: pablo,
-  milestone_title: "PR Application Receipt Confirmation",
-  milestone_path: pablo.path_type,
-  milestone_date: "2019-06-01 12:00:00",
-  achieved: true,
-  processing_time: 3,
-  order: 5,
-)
-pablo_milestone6 = Milestone.create!(
-  user: pablo,
-  milestone_title: "Medical Exam",
-  milestone_path: pablo.path_type,
-  milestone_date: "2020-01-01 12:00:00",
-  achieved: true,
-  processing_time: 7,
-  order: 6,
-)
-pablo_milestone7 = Milestone.create!(
-  user: pablo,
-  milestone_title: "PR Reception",
-  milestone_path: pablo.path_type,
   milestone_date: "2020-04-04 12:00:00",
   achieved: true,
   processing_time: 3,
