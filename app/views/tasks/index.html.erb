@@ -10,10 +10,10 @@
   <div class="slice-container">
       <% if @current_user.user_type == "user"%>
         <h3>Recommended tasks</h3>
+        <p>These are personalized recommendations based on your selected path.</p>
         <!-- RECOMMENDED TASK CARDS -->
         <% @recommended_tasks.each do |recommended_task| %>
           <div class="card-task">
-
             <strong><%= recommended_task.task_name%></strong>
             <%= link_to add_to_checklist_path(recommended_task), method: :patch do %>
               <i class="fa fa-plus"></i>
@@ -25,7 +25,7 @@
 
   <div class="slice-container">
     <!-- MY TASKS LIST -->
-    <h3>Task list</h3>
+    <h3>Planner</h3>
       <% if @user_tasks.empty? %>
         <p>Create a task you need to complete on your journey. High priority tasks will create reminders on your dashboard.</p>
       <% else %>
@@ -53,7 +53,8 @@
               <!-- TASK ACTIONS -->
               <div class="task-actions">
                 <!-- TASK PRIORITY -->
-                <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+                <p id="priority-tag"><strong>Priority: </strong></p>
+                <div id="task-priority-high"><%= task.priority %></div>
                 <!-- TASK EDIT -->
                 <div id="task-action"><%= link_to edit_task_path(task) do %>
                   <i class="fa fa-edit"></i>
@@ -92,7 +93,8 @@
               <!-- TASK ACTIONS -->
               <div class="task-actions">
                 <!-- TASK PRIORITY -->
-                <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+                <p id="priority-tag"><strong>Priority: </strong></p>
+                <div id="task-priority-medium"><%= task.priority %></div>
                 <!-- TASK EDIT -->
                 <div id="task-action"><%= link_to edit_task_path(task) do %>
                   <i class="fa fa-edit"></i>
@@ -131,7 +133,8 @@
               <!-- TASK ACTIONS -->
               <div class="task-actions">
                 <!-- TASK PRIORITY -->
-                <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+                <p id="priority-tag"><strong>Priority: </strong></p>
+                <div id="task-priority-low"><%= task.priority %></div>
                 <!-- TASK EDIT -->
                 <div id="task-action"><%= link_to edit_task_path(task) do %>
                   <i class="fa fa-edit"></i>

@@ -1,11 +1,14 @@
 .btn-filter {
   color: $black;
+  background-color: $white;
   padding: 6px 8px;
   border: 1px solid $black;
   margin-right: 5px;
   margin-bottom: 10px;
   border-radius: 20px;
   text-decoration: none;
+  transition: $transition;
+  box-shadow:  1px 1px 3px rgba(0,0,0,0.1);
 
   &:hover {
   color: $offwhite;

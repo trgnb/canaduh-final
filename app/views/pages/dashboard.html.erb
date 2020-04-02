@@ -72,6 +72,54 @@
     </div>
   </div>
 
+
+<!--TEST TEST  TEST TEST TEST TEST TEST-->
+    <div class="container-cols">
+      <% @milestones.each do |milestone| %>
+        <div class="card-task">
+          <div class="task-details">
+            <% if milestone.achieved == true %>
+              <i class="fas fa-check" id="status"></i>
+            <% else %>
+              <i class="fas fa-times" id="status" style="color: black;"></i>
+            <% end %>
+            <div id="milestone"><strong><%= milestone.milestone_title %></strong></div>
+          </div>
+          <div class="task-actions">
+            <% if milestone.achieved == true %>
+              <%= form_for(milestone) do |f| %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
+              <% end %>
+            <% else %>
+              <%= form_for(milestone) do |f| %>
+                <%= f.hidden_field :achieved, value: 1 %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();' %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+<!--TEST TEST  TEST TEST TEST TEST TEST-->
+
+
+
+<!-- COMMUNITY INSIGHTS BANNER -->
+  <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
+      <div class="banner">
+        <h2>Insights from the community</h2>
+        <h4>Estimated time to <strong><%= @current_user.path_type.titleize %></strong>: <%= @total_processing_time %></h4>
+        <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
+        <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
+        <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
+        <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
+        <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
+        <p class="card-milestone">PR Processing Time: <%= @total_av_processing_time %> months</p>
+      </div>
+  </div>
+
+
+
   <!-- TASK REMINDER -->
   <div class="slice-container">
     <div class="row">
@@ -103,7 +151,8 @@
           <!-- TASK ACTIONS -->
           <div class="task-actions">
             <!-- TASK PRIORITY -->
-            <div id="task-action"><strong>Priority: <%= task.priority %></strong></div>
+            <p id="priority-tag"><strong>Priority: </strong>
+            <div id="task-priority-high"><%= task.priority %></div>
             <!-- TASK EDIT -->
             <div id="task-action"><%= link_to edit_task_path(task) do %>
               <i class="fa fa-edit"></i>
@@ -256,20 +305,6 @@
         <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
         <% end %>
     </div>
-
-<!-- COMMUNITY INSIGHTS BANNER -->
-  <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
-      <div class="banner">
-        <h2>Insights from the community</h2>
-        <h4>Estimated time to <strong><%= @current_user.path_type.titleize %></strong>: <%= @total_processing_time %></h4>
-        <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
-        <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p class="card-milestone">PR Processing Time: <%= @total_av_processing_time %> months</p>
-      </div>
-  </div>
 <% end %>
 
   <!-- IF THE USER IS ADVISOR DISPLAY ADVISOR BOOKINGS -->
