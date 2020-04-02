@@ -41,14 +41,8 @@ mickael = User.create!(
   user_type: "advisor",
   username: "mickaelm",
   location: "Montreal",
-<<<<<<< HEAD
-  user_bio: "Hey, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. As a former immigrant that faced those issues, I wanted to help and advise all the new student facing that administrative nightmare! I am mostly specialized in helping Students to get their working visa, but don't hesitate in contacting me for any information you may need.",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585663541/Sans_titre_pemiih.png,
-=======
-
   user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243295/Mickael_advisor.jpg',
->>>>>>> 900ccbb18e0bfb21d79fed76854a43ba1e4e2c77
   specialty: "work visa",
   featured: true
 )
