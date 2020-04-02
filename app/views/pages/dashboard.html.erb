@@ -25,52 +25,23 @@
             <% else %>
               <i class="fas fa-times" id="status" style="color: black;"></i>
             <% end %>
-            <div id="milestone"><strong><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></strong></div>
-          </div>
-          <div class="task-actions">
-            <% if milestone.achieved == true %>
-              <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %>
-              <!-- <#% milestone.achieved %> -->
-            <% else %>
-              In progress
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-
-<!--TEST TEST  TEST TEST TEST TEST TEST-->
-    <div class="container-cols">
-      <% @milestones.each do |milestone| %>
-        <div class="card-task">
-          <div class="task-details">
-            <% if milestone.achieved == true %>
-              <i class="fas fa-check" id="status"></i>
-            <% else %>
-              <i class="fas fa-times" id="status" style="color: black;"></i>
-            <% end %>
             <div id="milestone"><strong><%= milestone.milestone_title %></strong></div>
           </div>
           <div class="task-actions">
             <% if milestone.achieved == true %>
               <%= form_for(milestone) do |f| %>
-                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();', id:"milestone-date" %>
               <% end %>
             <% else %>
               <%= form_for(milestone) do |f| %>
                 <%= f.hidden_field :achieved, value: 1 %>
-                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();' %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();', id:"milestone-date" %>
               <% end %>
             <% end %>
           </div>
         </div>
       <% end %>
     </div>
-<!--TEST TEST  TEST TEST TEST TEST TEST-->
-
-
 
 <!-- COMMUNITY INSIGHTS BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
