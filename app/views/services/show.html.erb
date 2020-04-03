@@ -1,23 +1,16 @@
-  <div class="main-container">
-
-      <h2>Service details</h2>
-      <!-- SERVICE CARD -->
-      <div class="service-result-card" style="opacity:1">
-        <div class="image" style="position: relative;">
-          <i class="far fa-heart" style="font-size:24px; position: absolute; top: 20px; left: 16px; color: $black;"></i>
-          <img src="<%= @service.user.imgUrl %>">
-        </div>
-          <div class="service-booking-advisor-info" style="width: 600px;">
-          <h2><strong><%= @service.user.first_name %> <%= @service.user.last_name %></strong></h2>
-          <p><strong>Biography:</strong> <%= @service.user.user_bio %></p>
-        </div>
+<div class="main-container">
+  <div class="slice-container">
+  <h2>Service details</h2>
+  <!-- SERVICE CARD -->
+    <div class="service-result-card" style="opacity:1">
+      <div class="image" style="position: relative;">
+        <i class="far fa-heart" style="font-size:24px; position: absolute; top: 20px; left: 16px; color: $black;"></i>
+        <img src="<%= @service.user.imgUrl %>">
       </div>
 
-
       <!-- APPOINTMENT DETAILS -->
-      <div class="service-result-card" style="width: 800px;  margin-right: 40px;">
-
-        <div class="info" style="height: 400px; margin-right: 80px;">
+      <div class="service-result-card" style="width: 800px; margin-right: 40px;">
+        <div class="info" style="height: 240px; margin-right: 80px;">
           <div class="row">
             <% if @service.user.featured == true %>
               <p class="feature-badge">FEATURED</p>
@@ -31,20 +24,26 @@
             <p><%= @service.description %></p>
           </div>
           <div class="service-price">
-            <p>$<%= @service.price %> CAD/hour</p>
+            <p style="margin-right:30px;">$<%= @service.price %> CAD/hour</p>
           </div>
         </div>
-
-<!--       <div class="service-booking-details-row"> -->
-        <!-- CALENDAR -->
-        <div class="booking-calendar-container">
-          <%= simple_form_for [@service, @appointment] do |f| %>
-            <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
-            <button id="sweet-alert" class="btn-cta">Confirm</button>
-            <%= link_to "", dashboard_path, id: "book-appointment", class: "hidden" %>
-          <% end %>
-        </div>
+      </div>
     </div>
+
+  <div class="row" style="justify-content: space-between;">
+     <div class="service-booking-advisor-info">
+        <h2><strong><%= @service.user.first_name %> <%= @service.user.last_name %></strong></h2>
+        <p><strong>Biography:</strong> <%= @service.user.user_bio %></p>
+      </div>
+
+      <%= simple_form_for [@service, @appointment] do |f| %>
+        <div class="col" style="padding-top: 25px; padding-right:130px; margin-right: 10px; justify-content: flex-end; align-items: bottom;">
+          <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker1"}, placeholder: "Select a date" %>
+          <button id="sweet-alert" class="btn-cta">Confirm</button>
+          <%= link_to "", dashboard_path, id: "book-appointment", class: "hidden" %>
+        </div>
+      <% end %>
+  </div>
 
 
   <!-- REVIEWS -->
@@ -85,5 +84,6 @@
           <i class="fas fa-pen"></i> Add a Review
         <% end %>
       <% end %>
+    </div>
 </div>
 </div>

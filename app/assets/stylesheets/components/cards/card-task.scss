@@ -82,6 +82,19 @@
     justify-content: center;
     align-items: center;
 
+    .datepicker1 {
+      background-color: $white;
+      border: none;
+      padding: 0px;
+      color: $black;
+      text-align: right;
+      font-family: $default;
+      font-weight: 700px !important;
+      cursor: pointer;
+      text-decoration: bold;
+    }
+
+
     #priority-tag {
       display: flex;
       justify-content: center;
