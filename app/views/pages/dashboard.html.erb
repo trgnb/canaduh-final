@@ -30,12 +30,12 @@
           <div class="task-actions">
             <% if milestone.achieved == true %>
               <%= form_for(milestone) do |f| %>
-                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();', id:"milestone-date" %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
               <% end %>
             <% else %>
               <%= form_for(milestone) do |f| %>
                 <%= f.hidden_field :achieved, value: 1 %>
-                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();', id:"milestone-date" %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
               <% end %>
             <% end %>
           </div>
@@ -43,6 +43,7 @@
       <% end %>
     </div>
 
+    <br>
 <!-- COMMUNITY INSIGHTS BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
       <div class="banner">
