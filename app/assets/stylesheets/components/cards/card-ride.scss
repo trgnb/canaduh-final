@@ -1,0 +1,53 @@
+.card-ride{
+  font: 10px/15px Helvetica Neue,Arial,Helvetica,sans-serif;
+  p {
+      margin-top: 0px;
+      margin-bottom: 0px;
+  }
+  .avatar {
+    width: 25px;
+    height: 25px;
+  }
+  a {
+    color: red;
+  }
+}
+
+.mapboxgl-popup-content {
+    width: 220px;
+}
+
+.ride-action{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-edit:before {
+  color: red;
+}
+
+.fa-trash:before {
+  color: red;
+}
+
+.btn-primary {
+    color: #FFFFFF;
+    background: #fd1237;
+    border: 1px solid #fd1237;
+    max-width: 140px;
+    max-height: 40px;
+    font-size: 10px;
+    padding: 8px 14px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0.9;
+    -webkit-transition: opacity 0.1s ease;
+    transition: opacity 0.1s ease;
+}
+.btn-primary:hover {
+  color: #FFFFFF;
+  background: #fd1237;
+  border: 1px solid #fd1237;
+}
