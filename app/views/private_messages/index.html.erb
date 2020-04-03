@@ -4,7 +4,7 @@
     <div class="settings-tray">
       <div class="sticky-top-bar">
         <div class="sticky-bar-item" id="message-avatar ">
-          <%= link_to conversations_path do %>
+          <%= link_to dashboard_path do %>
           <i class="fas fa-arrow-left sticky-bar-item"></i>
         <% end %>
         </div>
@@ -12,7 +12,7 @@
           <%= image_tag current_user.imgUrl, class: "avatar" %>
         </div>
         <div class="sticky-bar-item"  id="message-avatar">
-          <h6><%= "Back to all Conversations" %></h6>
+          <h6><%= "Back to dashboard" %></h6>
         </div>
       </div>
 
@@ -29,7 +29,7 @@
               <div class="friend-drawer friend-drawer--onhover">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
                 <div class="text">
-                <h6><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %></h6>
+                <h6> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong></h6>
                 <p> <%= link_to conversation.private_messages.last.body , conversation_private_messages_path(conversation)%> </p>
               </div>
               <span class="time text-muted small">13:21</span>
@@ -39,7 +39,7 @@
               <div class="friend-drawer friend-drawer--onhover">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
                 <div class="text">
-                <h6><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </h6>
+                <h6> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong> </h6>
                 <%= link_to '', conversation_private_messages_path(conversation)%>
                 </div>
               </div>
@@ -54,7 +54,7 @@
       <div class="friend-drawer no-gutters friend-drawer--grey">
         <%= image_tag @conversation.recipient(current_user).imgUrl, class: "avatar" %>
         <div class="text">
-          <h6><%= @conversation.recipient(current_user).first_name %> <%= @conversation.recipient(current_user).last_name %></h6>
+          <h6> <strong> <%= @conversation.recipient(current_user).first_name %> <%= @conversation.recipient(current_user).last_name %> </strong> </h6>
       </div>
     </div>
   </div>
@@ -64,16 +64,26 @@
                   <% if private_message.user_id == current_user.id %>
                     <div class="row no-gutters">
                     <div class="col-md-3 offset-md-9">
+                    <div class='bubble-container'>
                       <div class="chat-bubble chat-bubble--right">
                         <%= private_message.body %>
                       </div>
+                      <div>
+                        <%= image_tag current_user.imgUrl, class: "avatar" %>
+                      </div>
+                    </div>
                     </div>
                     </div>
                   <% else %>
                     <div class="row no-gutters">
                     <div class="col-md-3">
-                      <div class="chat-bubble chat-bubble--left">
-                        <%= private_message.body %>
+                      <div class='bubble-container'>
+                        <div>
+                          <%= image_tag @conversation.recipient(current_user).imgUrl, class: "avatar" %>
+                        </div>
+                        <div class="chat-bubble chat-bubble--left">
+                          <%= private_message.body %>
+                        </div>
                       </div>
                     </div>
                     </div>
