@@ -64,14 +64,9 @@
                   <% if private_message.user_id == current_user.id %>
                     <div class="row no-gutters">
                     <div class="col-md-3 offset-md-9">
-                    <div class='bubble-container'>
                       <div class="chat-bubble chat-bubble--right">
                         <%= private_message.body %>
                       </div>
-                      <div>
-                        <%= image_tag current_user.imgUrl, class: "avatar" %>
-                      </div>
-                    </div>
                     </div>
                     </div>
                   <% else %>
