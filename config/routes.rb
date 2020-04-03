@@ -44,7 +44,7 @@ end
 
   post 'appointments', to: "appointments#index"
 
-  resources :rides do
+  resources :rides, only: [:create, :edit, :update, :destroy] do
     resources :bookings, only: [:create, :edit, :update, :destroy]
   end
   delete 'rides/:id', to: "rides#destroy"
