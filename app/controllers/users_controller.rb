@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @user.update_attributes(user_params)
     @services = Service.all
     redirect_to dashboard_path
-    # redirect_to services_path(current_user, query: current_user.path_type)
   end
 
   def edit
