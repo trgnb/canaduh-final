@@ -22,11 +22,11 @@ class RidesController < ApplicationController
     @all_addresses = Address.geocoded #returns addresses with coordinates
 
     ## Markers ##
-    @markers = @destination_addresses.map do |location|
+    @markers = @departure_addresses.map do |location|
       {
         lat: location.latitude,
         lng: location.longitude,
-        infowindow: render_to_string(partial: "info_window", locals: { ride_id: location.ride_id, departure_address: @departure_addresses.find_by(ride_id: location.ride_id).address, destination: location}),
+        infowindow: render_to_string(partial: "info_window", locals: { ride_id: location.ride_id, destination_address: @destination_addresses.find_by(ride_id: location.ride_id).address, departure: location}),
       }
     end
   end
