@@ -8,13 +8,8 @@
 @import "config/index";
 @import "components/index";
 @import "pages/index";
-
-
-
-
-
-
-
+@import "timeline";
+@import "private_message";
 
 // .link {
 //   text-decoration: none !important;
@@ -24,8 +19,6 @@ body {
   background-color: $offwhite;
   font-family: $default;
 }
-
-
 
 a {
   text-decoration: none !important;

@@ -41,11 +41,11 @@ mickael = User.create!(
   user_type: "advisor",
   username: "mickaelm",
   location: "Montreal",
-  user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate",
+
   user_bio: "Hello, I am Mickael! I am a certified immigration adviser and I have been offering my services on Canaduh for about 2 years now. I am mostly specialized in Permanent Residency applications with 99.9% success rate",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585881475/me1_r7us6h.png
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585881475/me1_r7us6h.png',
   specialty: "work visa",
-  featured: true
+  featured: true,
 )
 peter = User.create!(
   first_name:"Peter",

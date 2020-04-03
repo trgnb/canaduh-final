@@ -1,6 +1,17 @@
 class AppointmentsController < ApplicationController
   before_action :set_service, only: %i(new create)
 
+  def index
+    confirmed_appointments = []
+    params[:appointments].each do |appointment_id|
+      appointment = Appointment.find(appointment_id)
+      if appointment.status == 'confirmed'
+        confirmed_appointments << appointment.id
+      end
+    end
+    render json: { appointments: confirmed_appointments }
+  end
+
   def new
     @service = Service.find(params[:service_id])
     @appointment = Appointment.new
