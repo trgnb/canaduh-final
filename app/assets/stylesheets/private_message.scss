@@ -72,21 +72,21 @@ body {
   }
 }
 
-// input {
-//   border: none;
-//   border-radius: 30px;
-//   width: 80%;
+.message-input {
+  border: none;
+  border-radius: 30px;
+  width: 80%;
 
-//   &::placeholder {
-//     color: #e3e3e3;
-//     font-weight: 300;
-//     margin-left: 20px;
-//   }
+  &::placeholder {
+    color: #e3e3e3;
+    font-weight: 300;
+    margin-left: 20px;
+  }
 
-//   &:focus {
-//     outline: none;
-//   }
-// }
+  &:focus {
+    outline: none;
+  }
+}
 
 .friend-drawer {
   padding: 10px 15px;
