@@ -322,7 +322,6 @@ brad = User.create!(
   location: "Montreal",
   user_bio: Faker::Quote.matz,
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869183/user-M-5_uilhoc.png',
->>>>>>> d01a5542fdd126736ac1e8457b6f7ac8b4bfd179
   path_type: "permanent residency"
 )
 harry = User.create!(
