@@ -12,6 +12,11 @@
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
     <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
     <!-- COMPLETED MILESTONES    -->
+    <div class="row">
+      <h4><strong>Journey progress</strong></h4>
+      <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
+    </div>
+
 
      <ul class="timeline" id="timeline">
       <div class='dashboard-container'>
@@ -20,10 +25,15 @@
             <div class='flex'>
               <li class="li complete">
                 <div class="timestamp">
-                  <p class="author"> <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %> </p>
+                  <p class="author"> <%= milestone.milestone_title %> </p>
                 </div>
                 <div class="status">
-                   <p> <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p>
+<!--                   <p> <%#= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p> -->
+                  <p>
+                    <%= form_for(milestone) do |f| %>
+                      <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
+                    <% end %>
+                  </p>
                 </div>
               </li>
             </div>
@@ -31,10 +41,16 @@
             <div class='flex'>
               <li class="li">
                 <div class="timestamp">
-                  <p class="author"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></p>
+                  <p class="author"><%= milestone.milestone_title %></p>
                 </div>
                 <div class="status">
-                   <p> In Progress </p>
+<!--                    <p> In Progress </p> -->
+                  <p>
+                  <%= form_for(milestone) do |f| %>
+                    <%= f.hidden_field :achieved, value: 1 %>
+                    <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
+                  <% end %>
+                  </p>
                 </div>
               </li>
             </div>
@@ -42,39 +58,34 @@
         <% end %>
     </div>
   </ul>
-    <div class="row">
-      <h4>Journey progress: </h4>
-      <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
-    </div>
 
-
-    <div class="container-cols">
-      <% @milestones.each do |milestone| %>
+<!--     <div class="container-cols">
+      <%# @milestones.each do |milestone| %>
         <div class="card-task">
           <div class="task-details">
-            <% if milestone.achieved == true %>
+            <%# if milestone.achieved == true %>
               <i class="fas fa-check" id="status"></i>
-            <% else %>
+            <%# else %>
               <i class="fas fa-times" id="status" style="color: black;"></i>
-            <% end %>
+            <%# end %>
 
-            <div id="milestone"><strong><%= milestone.milestone_title %></strong></div>
+            <div id="milestone"><strong><%#= milestone.milestone_title %></strong></div>
           </div>
           <div class="task-actions">
-            <% if milestone.achieved == true %>
-              <%= form_for(milestone) do |f| %>
-                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
-              <% end %>
-            <% else %>
-              <%= form_for(milestone) do |f| %>
-                <%= f.hidden_field :achieved, value: 1 %>
-                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
-              <% end %>
-            <% end %>
+            <%# if milestone.achieved == true %>
+              <%#= form_for(milestone) do |f| %>
+                <%#= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
+              <%# end %>
+            <%# else %>
+              <%#= form_for(milestone) do |f| %>
+                <%#= f.hidden_field :achieved, value: 1 %>
+                <%#= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
+              <%# end %>
+            <%# end %>
           </div>
         </div>
-      <% end %>
-    </div>
+      <%# end %>
+    </div> -->
 
     <br>
 <!-- COMMUNITY INSIGHTS BANNER -->
