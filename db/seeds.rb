@@ -222,7 +222,7 @@ lou = User.create!(
   username: "loulou",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869183/user-M-5_uilhoc.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869184/user-M-1_bhaprk.png',
   path_type: "canadian citizenship"
 )
 patrick = User.create!(
@@ -247,7 +247,7 @@ diana = User.create!(
   location: "Montreal",
   user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
   I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-5_tkvhkd.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868908/user-F-6_epktya.png',
   path_type: "permanent residency"
 )
 
@@ -285,7 +285,7 @@ sarah = User.create!(
   username: "sziani",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868908/user-F-2_nmfrzr.png',
+  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-5_tkvhkd.png',
   path_type: "permanent residency"
 )
 pablo = User.create!(
@@ -297,7 +297,7 @@ pablo = User.create!(
   username: "pescobar",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869181/user-M-2_zpna20.png',
+  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-m-7_zqeb0w.png',
   path_type: "permanent residency"
 )
 jackie = User.create!(
@@ -309,7 +309,7 @@ jackie = User.create!(
   username: "jchan",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869183/user-M-3_eihtqd.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869183/user-M-6_fjw6bl.png',
   path_type: "permanent residency"
 )
 brad = User.create!(
@@ -321,7 +321,8 @@ brad = User.create!(
   username: "bpitt",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-M-8_ypqmsr.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869183/user-M-5_uilhoc.png',
+>>>>>>> d01a5542fdd126736ac1e8457b6f7ac8b4bfd179
   path_type: "permanent residency"
 )
 harry = User.create!(
@@ -333,7 +334,7 @@ harry = User.create!(
   username: "hpotter",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-m-7_zqeb0w.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869181/user-M-2_zpna20.png',
   path_type: "permanent residency"
 )
 
@@ -350,86 +351,39 @@ service1 = Service.create!(
   user: mickael,
   service_type: "General Consultation",
   path: "Permanent Residency",
-<<<<<<< HEAD
-  description: "Got plans to come to Canada or extend your stay as a worker?
-  Mickaël Merle, a certified lawyer, can advise you on preparing your application,
-  plus he can inform you of your options for transitioning from temporary status
-  to permanent status. Get started by booking a consultation! If you choose to retain
-  his services, Canaduh will credit the cost of your consultation towards your
-  total services.",
-=======
   description: "Get professional advice and council from a certified immigration advisor to put you on the right path to your Permanent Residency. During a one-hout consultation we will build a detailed plan for your journey.",
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
   price: "175"
 )
 service2 = Service.create!(
   user: alex,
   service_type: "General Consultation",
-  description: "Get professional advice and council from Alex George, a certified
-  immigration advisor to put you on the right path to you Permanent Residency.
-  The service includes a personalized assesement and a tailored solution.
-  Consultations can be conducted in person or remotely if a physical meeting
-  is not possible. Appointments last 1 hour and a detailed plan is delivered to
-  you digitaly within 5 business days.",
-  path: "Permanent Residency",
-<<<<<<< HEAD
-=======
   description: "Get professional advice from a licenced immigration advisor. During the General Consultation we will build a custom plan to your specific situation.",
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
   price: "150"
 )
 service3 = Service.create!(
   user: peter,
   service_type: "Test Prep",
-<<<<<<< HEAD
-  path: "Permanent Residency",
-  description: "Our 60 minute Test Preparation are an excellent starting point for
-  those who want to fully explore their Canadian immigration options. Our Regulated
-  Canadian Immigration Consultant, Peter Segura, will go through all of your
-  possible Canadian immigration options as well as how each immigration process
-  works and what to expect from the process from the initial application up to
-  landing in Canada.",
-=======
   path: "Canadian Citizenship",
   description: "To become a citizen, you'll need to take a Canadian Citizenship test to meet the knowledge requirement for citizenship. This Service will help you master Canada's history, geography, political system, national symbols, identity and values, and of the rights and responsibilities of citizenship.",
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
   price: "70"
 )
 service4 = Service.create!(
   user: mickael,
   service_type: "Ongoing Assistance",
   path: "Permanent Residency",
-<<<<<<< HEAD
-  description: "Our 30 minute consultation is designed for those who know which
-  questions they would like answered and do not need an in-depth explanation of
-  the process. We offer you a Test Preparation to go deeper in your future path.",
-  price: '99'
-=======
   description: "From establishing your personal plan to the reception of your Permanent Resident card, I am offering a 24/7 assistance for any question, validation or moral support during your immigration process.",
   price: "400"
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
 )
 service5 = Service.create!(
   user: alex,
   service_type: "Test Prep",
   path: "Permanent Residency",
-<<<<<<< HEAD
-  description: "IRCC instructions are extremely detailed and not always easy to
-  understand the first or fifth time you have read them. You may not have the time
-  or desire to learn Canadian immigration laws and regulations, and how they apply
-  to your individual situation. Even if your application is straightforward, there
-  are so many details that can cause it to be returned or refused – a simple mistake
-  can cause you to lose months in your application.",
-  price: "140"
-=======
   description: "If you don't understand what 'Test d'Évaluation du Français' means, you definitely need to book a test preparation for the Mandatory French Exam!",
   price: "99"
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
 )
 service6 = Service.create!(
   user: celine,
   service_type: "Ongoing Assistance",
-<<<<<<< HEAD
   path: "Permanent Residency",
   description: "Assistance from start to finish in helping you prepare documentation
   for your Canadian student visa application process. Pre-planned and scheduled
@@ -439,61 +393,24 @@ service6 = Service.create!(
   price: "250"
 )
 service7 = Service.create!(
-  user: guy,
-  service_type: "General Consultation",
-  path: "Permanent Residency",
-  description: "Before you start on your path, be sure that you know what to
-  expect. Guy Lazarte can assist you by giving you a clear picture of the
-  immigration environment, your options and the steps to take. Once you have a
-  better understanding, then you can decide whether you want to hire our team to
-  assist you through one of our services. One of our licensed immigration
-  consultants can speak with you in person, online or on the phone about your
-  unique immigration situation and to give you a breakdown of your options and
-  a blueprint of your road ahead.",
-  price: "250"
-=======
-  description: "Ongoing assistance during your immigration is essential to do reach each milestone of your immigration process. I will guide you every steps of the way, providing you best pratices that have been proven successful!",
-  path: "Permanent Residency",
-  price: "500"
-)
-service7 = Service.create!(
   user: mickael,
   service_type: "Ongoing Assistance",
   path: "Work Visa",
   description: "From establishing your personal plan to the activation of your Work Visa, I am offering a 24/7 assistance for any question, validation or moral support during your immigration process.",
   price: "140"
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
 )
 service8 = Service.create!(
   user: guy,
   service_type: "General Consultation",
   path: "Permanent Residency",
-<<<<<<< HEAD
-  description: "Our 60 minute Test Preparation are an excellent starting point for
-  those who want to fully explore their Canadian immigration options. Our Regulated
-  Canadian Immigration Consultant, Peter Segura, will go through all of your
-  possible Canadian immigration options as well as how each immigration process
-  works and what to expect from the process from the initial application up to
-  landing in Canada.",
-  price: "99"
-=======
   description: "Don't know where to start? Book a General Consultation to build your custom plan to a new life!",
   price: "90"
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
 )
 service9 = Service.create!(
   user: paul,
   service_type: "General Consultation",
-<<<<<<< HEAD
-  path: "Permanent Residency",
-  description: "You know that Canadian immigration applications can be complicated,
-  time consuming, and downright frustrating. You know because you’ve experienced
-  it firsthand, which is why you’re considering working with a representative on
-  your immigration application.",
-=======
   path: "Work Visa",
   description: "Open work permit? Employer-specific work permit? You don't know which one applies to your current status? I am here to help! Book an hour consultation and everything will be crystal clear.",
->>>>>>> afe20a5db1e4e697c1b29b4ee09d3469a814ffef
   price: "100"
 )
 
