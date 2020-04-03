@@ -41,9 +41,9 @@ mickael = User.create!(
   user_type: "advisor",
   username: "mickaelm",
   location: "Montreal",
-
+  user_bio: "Hello, I am Mickael, I am working as an Advisor with Canaduh for about 2 years now. I am mostly specialized in Permanent Residency Applications wiht 99.9% success rate",
   user_bio: "Hello, I am Mickael! I am a certified immigration adviser and I have been offering my services on Canaduh for about 2 years now. I am mostly specialized in Permanent Residency applications with 99.9% success rate",
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243295/Mickael_advisor.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585881475/me1_r7us6h.png
   specialty: "work visa",
   featured: true
 )
@@ -173,7 +173,7 @@ belis1 = User.create!(
   location: "Montreal",
   user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
   I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-4-Belis_fjjkix.png',
   path_type: "permanent residency"
 )
 belis2 = User.create!(
@@ -186,7 +186,7 @@ belis2 = User.create!(
   location: "Montreal",
   user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
   I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-4-Belis_fjjkix.png',
   path_type: "permanent residency"
 )
 belis3 = User.create!(
@@ -199,7 +199,7 @@ belis3 = User.create!(
   location: "Montreal",
   user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
   I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-4-Belis_fjjkix.png',
   path_type: "permanent residency"
 )
 rmb = User.create!(
@@ -211,7 +211,7 @@ rmb = User.create!(
   username: "rmb",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP329CGQG-2cc8e859810d-512',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-3-rose-marie_h9jhwl.png',
   path_type: "student visa"
 )
 lou = User.create!(
@@ -223,7 +223,7 @@ lou = User.create!(
   username: "loulou",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1582243262/user3female_brq6od.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869184/user-M-1_bhaprk.png',
   path_type: "canadian citizenship"
 )
 patrick = User.create!(
@@ -235,7 +235,7 @@ patrick = User.create!(
   username: "patrickb",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T72Z71-ad292a4d361a-512',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869184/user-M-4-Patrick_bcvfmh.png',
   path_type: "permanent residency"
 )
 diana = User.create!(
@@ -248,7 +248,7 @@ diana = User.create!(
   location: "Montreal",
   user_bio: "I can help with learning English for those who either immigrated to an English speaking country or have re-located there to study for academic purposes. Classes typically focus on the four main skills, reading, writing, speaking and listening, involving a high degree of participation from students who must use the language in order to become familiar with it.
   I have experience of teaching all ages and abilities, from children to adult learners, at junior and high school, private language school and at university. I have taught general English, business English, and exam prep, in the Middle East, Europe, the U.S.A and Asia.",
-  imgUrl: 'https://ca.slack-edge.com/T02NE0241-UP4T26P55-8eb7b1b86ba5-72',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868908/user-F-6_epktya.png',
   path_type: "permanent residency"
 )
 
@@ -262,7 +262,7 @@ jean = User.create!(
   username: "jdujardin",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058923/leonel-hernandez-arteaga-jns8BPueAgU-unsplash_ghftkz.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869184/user-M-1_bhaprk.png',
   path_type: "permanent residency"
 )
 mariepier = User.create!(
@@ -274,7 +274,7 @@ mariepier = User.create!(
   username: "mpier",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058920/icons8-team-FcLyt7lW5wg-unsplash_xvvrjl.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-1_od61tk.png',
   path_type: "permanent residency"
 )
 sarah = User.create!(
@@ -286,7 +286,7 @@ sarah = User.create!(
   username: "sziani",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058918/john-torcasio-tgVm0tkbf1U-unsplash_hinxgz.jpg',
+  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-5_tkvhkd.png',
   path_type: "permanent residency"
 )
 pablo = User.create!(
@@ -298,7 +298,7 @@ pablo = User.create!(
   username: "pescobar",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058919/joseph-gonzalez-iFgRcqHznqg-unsplash_p6ep50.jpg',
+  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-m-7_zqeb0w.png',
   path_type: "permanent residency"
 )
 jackie = User.create!(
@@ -310,7 +310,7 @@ jackie = User.create!(
   username: "jchan",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058920/mihai-stefan-0_G9UHXy39c-unsplash_cmn2cg.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869183/user-M-6_fjw6bl.png',
   path_type: "permanent residency"
 )
 brad = User.create!(
@@ -322,7 +322,7 @@ brad = User.create!(
   username: "bpitt",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058919/davids-kokainis-wtaanJVi3Ig-unsplash_ocjuph.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869183/user-M-5_uilhoc.png',
   path_type: "permanent residency"
 )
 harry = User.create!(
@@ -334,7 +334,7 @@ harry = User.create!(
   username: "hpotter",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1584058918/eduardo-dutra-_cDUnoCOvMo-unsplash_qd4wc1.jpg',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585869181/user-M-2_zpna20.png',
   path_type: "permanent residency"
 )
 
