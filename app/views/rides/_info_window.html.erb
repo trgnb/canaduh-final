@@ -33,6 +33,7 @@
         <i class="fa fa-trash"></i>
       <% end %>
     </div>
+    <br>
     <% current_bookings =  Booking.where(ride_id: ride_id, booking_status: "booked") %>
     <% if current_bookings.empty? %>
     <% else %>
@@ -51,6 +52,7 @@
         <%= f.submit "Book", class: "btn btn-primary", id: "sweet-alert2"%>
         <%= link_to "", dashboard_path, id: "book-ride", class: "hidden" %>
       <% end %>
+    <br>
     <% else %>
       <%= link_to "See booking", dashboard_path%>
     <% end %>
