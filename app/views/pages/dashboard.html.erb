@@ -1,7 +1,7 @@
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;">Welcome to your dashboard <%= @current_user.first_name %></h1>
-    <p>Here you can manage and keep track of tasks you'll need to complete to get where your going.</p>
+    <p>Here you can manage and keep track of tasks you'll need to complete to get where you're going.</p>
   </div>
 </div>
 
@@ -11,11 +11,43 @@
   <div class="slice-container">
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
     <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-      <div class="row">
-        <h4>Journey progress: </h4>
-        <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
-      </div>
     <!-- COMPLETED MILESTONES    -->
+
+     <ul class="timeline" id="timeline">
+      <div class='dashboard-container'>
+      <% @milestones.each do |milestone| %>
+        <% if milestone.achieved == true %>
+            <div class='flex'>
+              <li class="li complete">
+                <div class="timestamp">
+                  <p class="author"> <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %> </p>
+                </div>
+                <div class="status">
+                   <p> <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p>
+                </div>
+              </li>
+            </div>
+        <% else %>
+            <div class='flex'>
+              <li class="li">
+                <div class="timestamp">
+                  <p class="author"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></p>
+                </div>
+                <div class="status">
+                   <p> In Progress </p>
+                </div>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </ul>
+    <div class="row">
+      <h4>Journey progress: </h4>
+      <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
+    </div>
+
+
     <div class="container-cols">
       <% @milestones.each do |milestone| %>
         <div class="card-task">
@@ -25,6 +57,7 @@
             <% else %>
               <i class="fas fa-times" id="status" style="color: black;"></i>
             <% end %>
+
             <div id="milestone"><strong><%= milestone.milestone_title %></strong></div>
           </div>
           <div class="task-actions">
@@ -122,7 +155,7 @@
         <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
         <% @appointments.each do |appointment| %>
-          <div class="card-inline-appointment">
+          <div data-appointment-id="<%= appointment.id%>" data-appointment-pending="<%= appointment.status%>" class="card-inline-appointment">
             <div class="row">
               <%= image_tag Service.find(appointment.service_id).user.imgUrl, class: "avatar" %>
               <div class="appointment-details">
@@ -143,7 +176,7 @@
             </div>
             <div class="appointment-schedule">
               <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
-              <div id="appointment-status"><strong>Status: </strong><%= appointment.status.capitalize %></div>
+              <div class="appointment-status"> <strong>Status: </strong><%= appointment.status.capitalize %></div>
               <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
             </div>
           </div>
@@ -274,7 +307,8 @@
                     with <strong><%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %></strong>
                   </div>
                   <div id="chat-icon">
-                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Service.find(appointment.service_id).user.id), method: :post do %>
+                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: appointment.user.id), method: :post do %>
+                    <%# conv %>
                     <i class="far fa-comment-alt"></i>
                     <% end %>
                   </div>
@@ -378,4 +412,5 @@
   <br> -->
 </div>
 </div>
-<script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>
+<!-- <script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>
+ -->

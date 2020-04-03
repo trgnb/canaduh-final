@@ -1,0 +1,19 @@
+.dashboard-container {
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+
+p.author {
+ a {
+  color: black;
+  &:hover {
+    text-decoration: none;
+  }
+ }
+}
+
+.status {
+  font-size: 12px;
+}

@@ -42,6 +42,8 @@ end
     resources :private_messages, only: [:index, :create]
   end
 
+  post 'appointments', to: "appointments#index"
+
   resources :rides do
     resources :bookings, only: [:create, :edit, :update, :destroy]
   end
