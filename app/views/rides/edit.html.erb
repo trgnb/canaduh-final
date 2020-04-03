@@ -1,1 +1,40 @@
-<%= render 'form', ride: @ride %>
+<div class="main-container">
+  <div class="slice-container">
+    <!-- MAP -->
+  <div class="row">
+    <div class="col">
+      <div class="form-container">
+        <div class="col">
+          <h1>Edit your ride</h1>
+            <%= form_for(@ride) do |f| %>
+              <strong><%= f.label "Pickup location" %></strong>
+              <%= f.text_field :departure_address, id: "from_address", autocomplete: 'off' %>
+                <br>
+                <br>
+              <strong><%= f.label "Where to?" %></strong>
+              <%= f.text_field :destination_address, id: "to_address", autocomplete: 'disabled'%>
+                <br>
+                <br>
+              <strong><%= f.label "Number of available seats" %></strong>
+              <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control", autocomplete: 'disabled'%>
+                <br>
+                <br>
+                <strong><%= f.label "Price $" %></strong>
+                <%= f.text_field :ride_price %>
+                <br>
+                <br>
+                <strong><%= f.label "Leaving on" %></strong>
+                <div><%= f.text_field :ride_date, class: 'datepicker2', placeholder: "Select a date", autocomplete: 'disabled'%></div>
+                <br>
+                <%= f.submit "Edit", class: "btn-cta"%>
+            <% end %>
+            <!-- RETURN TO RIDES -->
+            <div id="task-action"><%= link_to rides_path do %>
+                <i class="fas fa-arrow-left"></i>
+              <% end %>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
