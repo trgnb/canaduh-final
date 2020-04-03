@@ -5,6 +5,8 @@ class PrivateMessagesController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
   end
   def index
+    @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
+
     @private_messages = @conversation.private_messages
 
     @private_messages.where("user_id != ? AND read = ?", current_user.id, false).update_all(read: true)

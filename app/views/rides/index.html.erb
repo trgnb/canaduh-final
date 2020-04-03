@@ -15,24 +15,21 @@
           <h1>Going to the border?</h1>
           <p>Help out the community by offering a lift.</p>
           <%= form_for Ride.new do |f| %>
-            <strong><%= f.label "Enter pickup location" %></strong>
-            <%= f.text_field :departure_address, id: "from_address" %>
+            <%= f.text_field :departure_address, id: "from_address", placeholder: "Enter pickup location" %>
               <br>
               <br>
-            <strong><%= f.label "Where to?" %></strong>
-            <%= f.text_field :destination_address, id: "to_address" %>
+            <%= f.text_field :destination_address, id: "to_address", placeholder: "Where to?" %>
               <br>
               <br>
             <strong><%= f.label "Number of available seats" %></strong>
-            <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control", placeholder: "Select a date" %>
+            <%= f.select :ride_capacity, [1, 2, 3, 4, 5, 6, 7], :prompt => "Select", class: "form-control"%>
               <br>
               <br>
               <strong><%= f.label "Price $" %></strong>
               <%= f.text_field :ride_price %>
               <br>
               <br>
-              <strong><%= f.label "Leaving on" %></strong>
-              <div><%= f.text_field :ride_date, class: 'datepicker2' %></div>
+              <div><%= f.text_field :ride_date, class: 'datepicker2', placeholder: "Select a date" %></div>
               <br>
               <%= f.submit "Offer ride", class: "btn-cta"%>
         <% end %>

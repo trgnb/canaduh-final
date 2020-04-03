@@ -1,7 +1,7 @@
 <div class="fullwidth-container" style="min-height: 300px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>);">
   <div class="banner">
     <h1 style="margin-bottom: 5px;">Welcome to your dashboard <%= @current_user.first_name %></h1>
-    <p>Here you can manage and keep track of tasks you'll need to complete to get where your going.</p>
+    <p>Here you can manage and keep track of tasks you'll need to complete to get where you're going.</p>
   </div>
 </div>
 
@@ -11,37 +11,43 @@
   <div class="slice-container">
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
     <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
-      <div class="row">
-        <h4>Journey progress: </h4>
-        <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
-      </div>
     <!-- COMPLETED MILESTONES    -->
-    <div class="container-cols">
+
+     <ul class="timeline" id="timeline">
+      <div class='dashboard-container'>
       <% @milestones.each do |milestone| %>
-        <div class="card-task">
-          <div class="task-details">
-            <% if milestone.achieved == true %>
-              <i class="fas fa-check" id="status"></i>
-            <% else %>
-              <i class="fas fa-times" id="status" style="color: black;"></i>
-            <% end %>
-            <div id="milestone"><strong><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></strong></div>
-          </div>
-          <div class="task-actions">
-            <% if milestone.achieved == true %>
-              <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %>
-              <!-- <#% milestone.achieved %> -->
-            <% else %>
-              In progress
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+        <% if milestone.achieved == true %>
+            <div class='flex'>
+              <li class="li complete">
+                <div class="timestamp">
+                  <p class="author"> <%= link_to milestone.milestone_title, edit_milestone_path(milestone) %> </p>
+                </div>
+                <div class="status">
+                   <p> <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p>
+                </div>
+              </li>
+            </div>
+        <% else %>
+            <div class='flex'>
+              <li class="li">
+                <div class="timestamp">
+                  <p class="author"><%= link_to milestone.milestone_title, edit_milestone_path(milestone) %></p>
+                </div>
+                <div class="status">
+                   <p> In Progress </p>
+                </div>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
     </div>
-  </div>
+  </ul>
+    <div class="row">
+      <h4>Journey progress: </h4>
+      <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
+    </div>
 
 
-<!--TEST TEST  TEST TEST TEST TEST TEST-->
     <div class="container-cols">
       <% @milestones.each do |milestone| %>
         <div class="card-task">
@@ -51,6 +57,7 @@
             <% else %>
               <i class="fas fa-times" id="status" style="color: black;"></i>
             <% end %>
+
             <div id="milestone"><strong><%= milestone.milestone_title %></strong></div>
           </div>
           <div class="task-actions">
@@ -61,17 +68,15 @@
             <% else %>
               <%= form_for(milestone) do |f| %>
                 <%= f.hidden_field :achieved, value: 1 %>
-                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();' %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
               <% end %>
             <% end %>
           </div>
         </div>
       <% end %>
     </div>
-<!--TEST TEST  TEST TEST TEST TEST TEST-->
 
-
-
+    <br>
 <!-- COMMUNITY INSIGHTS BANNER -->
   <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
       <div class="banner">
@@ -137,7 +142,7 @@
       <% end %>
     <% end %>
       <br>
-    <%= link_to "Full list", "/tasks", class: "btn-cta" %>
+    <%= link_to "Full list", "/tasks", class: "btn-cta-border" %>
   </div>
 
   <!-- USER APPOINTMENTS -->
@@ -150,7 +155,7 @@
         <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
         <% @appointments.each do |appointment| %>
-          <div class="card-inline-appointment">
+          <div data-appointment-id="<%= appointment.id%>" data-appointment-pending="<%= appointment.status%>" class="card-inline-appointment">
             <div class="row">
               <%= image_tag Service.find(appointment.service_id).user.imgUrl, class: "avatar" %>
               <div class="appointment-details">
@@ -159,7 +164,7 @@
                 </div>
                 <div class="row">
                   <div id="advisor-name">
-                    with <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %>
+                    with <strong> <%= Service.find(appointment.service_id).user.first_name %> <%= Service.find(appointment.service_id).user.last_name %> </strong>
                   </div>
                   <div id="chat-icon">
                     <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Service.find(appointment.service_id).user.id), method: :post do %>
@@ -171,7 +176,7 @@
             </div>
             <div class="appointment-schedule">
               <div id="appointment-date"><strong>Date: </strong><%= appointment.date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
-              <div id="appointment-status"><strong>Status: </strong><%= appointment.status.capitalize %></div>
+              <div class="appointment-status"> <strong>Status: </strong><%= appointment.status.capitalize %></div>
               <!-- <pre><%#= link_to "Edit", "#" %> <%= link_to "Delete", "#", method: :delete %></pre> -->
             </div>
           </div>
@@ -195,11 +200,14 @@
         <% else %>
           <!-- IF CURRENT USER IS THE RIDER -->
           <% @rider_bookings.each do |booking| %>
+          <div class="card-inline-appointment">
             <div class="row">
               <%= image_tag booking.user.imgUrl, class: "avatar" %>
               <div class="appointment-details">
+                <br>
                 <div class="row">
-                  <div id="advisor-name">with <%= booking.user.first_name %> <%= booking.user.last_name %>
+                  <div id="advisor-name">
+                    with <strong> <%= booking.user.first_name %> <%= booking.user.last_name %> </strong>
                   </div>
                   <div id="chat-icon">
                     <%= link_to conversations_path(sender_id: current_user.id, receiver_id: booking.user.id), method: :post do %>
@@ -214,11 +222,10 @@
               <% ride_id = Ride.find(booking.ride_id).id %>
               <% departure_address =  @departure_addresses.find_by(ride_id: ride_id) %>
               <% destination_address =  @destination_addresses.find_by(ride_id: ride_id) %>
-              <div id="appointment-date"><strong>From: </strong><%= departure_address.address %></div>
-              <div id="appointment-date"><strong>To: </strong><%= destination_address.address  %></div>
-              <div id="appointment-date"><strong>Date: </strong><%= ride.ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
-              <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
-              <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
+              <div id="appointment-date"><strong>From: </strong> <%= departure_address.address %></div>
+              <div id="appointment-date"><strong>To: </strong> <%= destination_address.address  %></div>
+              <div id="appointment-date"><strong>Date: </strong> <%= ride.ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
+              <div id="appointment-status"><strong>Status: </strong> <%= booking.booking_status.capitalize %></div>
 
               <% if booking.booking_status == 'pending' %>
                 <% @ride_link = Ride.find(booking.ride_id) %>
@@ -236,15 +243,19 @@
               <% end %>
               <%= link_to "Delete", ride_booking_path(Ride.find(booking.ride_id), booking), method: :delete %>
             </div>
+          </div>
           <% end %>
 
           <!-- IF CURRENT USER IS NOT THE RIDER -->
           <% @user_bookings.each do |booking| %>
+          <div class="card-inline-appointment">
             <div class="row">
               <%= image_tag Ride.find(booking.ride_id).user.imgUrl, class: "avatar" %>
               <div class="appointment-details">
+                <br>
                 <div class="row">
-                  <div id="advisor-name">with <%= Ride.find(booking.ride_id).user.first_name %> <%= Ride.find(booking.ride_id).user.last_name %>
+                  <div id="advisor-name">
+                    with <strong><%= Ride.find(booking.ride_id).user.first_name %> <%= Ride.find(booking.ride_id).user.last_name %></strong>
                   </div>
                   <div id="chat-icon">
                     <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Ride.find(booking.ride_id).user.id), method: :post do %>
@@ -261,13 +272,13 @@
               <% destination_address =  @destination_addresses.find_by(ride_id: ride_id) %>
               <div id="appointment-date"><strong>From: </strong><%= departure_address.address  %></div>
               <div id="appointment-date"><strong>To: </strong><%= destination_address.address  %></div>
-              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
+              <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y')  %></div>
               <div id="appointment-status"><strong>Status: </strong><%= booking.booking_status.capitalize %></div>
-              <%= link_to "See details", ride_path(Ride.find(booking.ride_id)) %>
               <% if booking.booking_status == 'declined' %>
                 <%= link_to "Delete", ride_booking_path(Ride.find(booking.ride_id), booking), method: :delete %>
               <% end %>
             </div>
+          </div>
           <% end %>
         <br>
         <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
@@ -293,10 +304,11 @@
                 </div>
                 <div class="row">
                   <div id="advisor-name">
-                    with <%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %>
+                    with <strong><%= User.find(appointment.user_id).first_name %> <%= User.find(appointment.user_id).last_name %></strong>
                   </div>
                   <div id="chat-icon">
-                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: Service.find(appointment.service_id).user.id), method: :post do %>
+                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: appointment.user.id), method: :post do %>
+                    <%# conv %>
                     <i class="far fa-comment-alt"></i>
                     <% end %>
                   </div>
@@ -377,7 +389,7 @@
         <% end %>
       <% end %>
       <br>
-      <%= link_to "Full list", "/tasks", class: "btn-cta" %>
+      <%= link_to "Full list", "/tasks", class: "btn-cta-border"  %>
     </div>
   <% end %>
 
@@ -400,4 +412,5 @@
   <br> -->
 </div>
 </div>
-<script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>
+<!-- <script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>
+ -->

@@ -1,41 +1,114 @@
-<div class="main-container">
-  <!-- MESSENGER HEADER -->
-  <div class="sticky-top-bar">
-    <%= link_to conversations_path do %>
-      <i class="fas fa-arrow-left sticky-bar-item"></i>
-    <% end %>
-    <div class="sticky-bar-item" id="message-avatar ">
-      <%= image_tag User.find(@conversation.receiver_id).imgUrl, class: "avatar" %>
-    </div>
-    <div class="sticky-bar-item">
-      <h4><%= User.find(@conversation.receiver_id).first_name %> <%= User.find(@conversation.receiver_id).last_name %></h4>
-    </div>
-  </div>
-  <br>
-
-  <!-- CONVERSATION TABLE -->
-  <div class="container-conversation">
-    <% @private_messages.each do |private_message| %>
-    <div class="row">
-        <% if private_message.body %>
-          <div class= "card-message">
-            <div id="message-avatar"><%= image_tag private_message.user.imgUrl, class: "avatar" %></div>
-            <div id="message-body"><%= private_message.body %></div>
-          </div>
+<div class="private-message-container">
+  <div class="row no-gutters">
+    <div class="col-md-3 border-right">
+    <div class="settings-tray">
+      <div class="sticky-top-bar">
+        <div class="sticky-bar-item" id="message-avatar ">
+          <%= link_to dashboard_path do %>
+          <i class="fas fa-arrow-left sticky-bar-item"></i>
         <% end %>
+        </div>
+        <div class="sticky-bar-item" id="message-avatar ">
+          <%= image_tag current_user.imgUrl, class: "avatar" %>
+        </div>
+        <div class="sticky-bar-item"  id="message-avatar">
+          <h6><%= "Back to dashboard" %></h6>
+        </div>
       </div>
-    <% end %>
 
-<%= form_for [@conversation, @private_message] do |f| %>
-  <div class="row">
-    <%= f.text_area :body, placeholder: "Type a message", class: "message-input" %>
-  <%= f.submit "Send", class: "btn-send-message" %>
+    </div>
+    <div class="search-box">
+      <div class="input-wrapper">
+      <input placeholder="Search here" class="message-input" type="text">
+      </div>
+    </div>
+
+    <% if @conversations.exists? %>
+          <% @conversations.each do |conversation| %>
+            <% if conversation.private_messages.exists? %>
+              <div class="friend-drawer friend-drawer--onhover">
+                <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
+                <div class="text">
+                <h6> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong></h6>
+                <p> <%= link_to conversation.private_messages.last.body , conversation_private_messages_path(conversation)%> </p>
+              </div>
+              <span class="time text-muted small">13:21</span>
+              </div>
+              <hr>
+            <% else %>
+              <div class="friend-drawer friend-drawer--onhover">
+                <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
+                <div class="text">
+                <h6> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong> </h6>
+                <%= link_to '', conversation_private_messages_path(conversation)%>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+    <% end %>
+    </div>
+
+
+    <div class="col-md-9">
+    <div class="settings-tray">
+      <div class="friend-drawer no-gutters friend-drawer--grey">
+        <%= image_tag @conversation.recipient(current_user).imgUrl, class: "avatar" %>
+        <div class="text">
+          <h6> <strong> <%= @conversation.recipient(current_user).first_name %> <%= @conversation.recipient(current_user).last_name %> </strong> </h6>
+      </div>
+    </div>
   </div>
-<% end %>
-<% content_for :after_js do %>
+    <div class="chat-panel">
+       <% @private_messages.each do |private_message| %>
+              <% if private_message.body %>
+                  <% if private_message.user_id == current_user.id %>
+                    <div class="row no-gutters">
+                    <div class="col-md-3 offset-md-9">
+                    <div class='bubble-container'>
+                      <div class="chat-bubble chat-bubble--right">
+                        <%= private_message.body %>
+                      </div>
+                      <div>
+                        <%= image_tag current_user.imgUrl, class: "avatar" %>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                  <% else %>
+                    <div class="row no-gutters">
+                    <div class="col-md-3">
+                      <div class='bubble-container'>
+                        <div>
+                          <%= image_tag @conversation.recipient(current_user).imgUrl, class: "avatar" %>
+                        </div>
+                        <div class="chat-bubble chat-bubble--left">
+                          <%= private_message.body %>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <% end %>
+              <% end %>
+        <% end %>
+    </div>
+
+      <div class="row">
+      <div class="col-12">
+        <div class="chat-box-tray">
+        <%= form_for [@conversation, @private_message] do |f| %>
+            <div class="row">
+              <%= f.text_field :body, placeholder: "Type a message", class: "message-input" %>
+            </div>
+        <% end %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <% content_for :after_js do %>
   <script>
     scrollLastPrivateMessageIntoView();
   </script>
 <% end %>
-  </div>
-</div>
