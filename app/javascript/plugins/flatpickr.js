@@ -12,9 +12,9 @@ flatpickr(".datepicker",
     dateFormat: "Y-m-d",
     minTime: "09:00",
     maxTime: "17:00",
-    inline: true,
-    static: false,
-    position: "above",
+    // inline: true,
+    // static: false,
+    // position: "above",
   }
 )
 
