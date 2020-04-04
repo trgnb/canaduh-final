@@ -221,15 +221,17 @@
             <div class="row">
               <%= image_tag booking.user.imgUrl, class: "avatar" %>
               <div class="appointment-details">
-                <br>
-                <div class="row">
-                  <div id="advisor-name">
-                    with <strong> <%= booking.user.first_name %> <%= booking.user.last_name %> </strong>
-                  </div>
-                  <div id="chat-icon">
-                    <%= link_to conversations_path(sender_id: current_user.id, receiver_id: booking.user.id), method: :post do %>
-                    <i class="far fa-comment-alt"></i>
-                    <% end %>
+                <div class="col">
+                  <p>Car pooling</p>
+                  <div class="row">
+                    <div id="advisor-name">
+                      with <strong> <%= booking.user.first_name %> <%= booking.user.last_name %> </strong>
+                    </div>
+                    <div id="chat-icon">
+                      <%= link_to conversations_path(sender_id: current_user.id, receiver_id: booking.user.id), method: :post do %>
+                      <i class="far fa-comment-alt"></i>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -239,8 +241,10 @@
               <% ride_id = Ride.find(booking.ride_id).id %>
               <% departure_address =  @departure_addresses.find_by(ride_id: ride_id) %>
               <% destination_address =  @destination_addresses.find_by(ride_id: ride_id) %>
-              <div id="appointment-date"><strong>From: </strong> <%= departure_address.address %></div>
-              <div id="appointment-date"><strong>To: </strong> <%= destination_address.address  %></div>
+              <div class="col">
+                <div id="appointment-date"><strong>From: </strong> <%= departure_address.address %></div>
+                <div id="appointment-date"><strong>To: </strong> <%= destination_address.address  %></div>
+              </div>
               <div id="appointment-date"><strong>Date: </strong> <%= ride.ride_date.to_time.strftime('%B %e, %Y at %l:%M %p')  %></div>
               <div id="appointment-status"><strong>Status: </strong> <%= booking.booking_status.capitalize %></div>
 
@@ -269,8 +273,9 @@
             <div class="row">
               <%= image_tag Ride.find(booking.ride_id).user.imgUrl, class: "avatar" %>
               <div class="appointment-details">
-                <br>
-                <div class="row">
+                <div class="col">
+                  <p style="margin:0px;"><strong>Car pooling</strong></p>
+                     <div class="row">
                   <div id="advisor-name">
                     with <strong><%= Ride.find(booking.ride_id).user.first_name %> <%= Ride.find(booking.ride_id).user.last_name %></strong>
                   </div>
@@ -280,6 +285,8 @@
                     <% end %>
                   </div>
                 </div>
+                </div>
+
               </div>
             </div>
             <div class="appointment-schedule">
@@ -287,6 +294,7 @@
               <% ride_id = Ride.find(booking.ride_id).id %>
               <% departure_address =  @departure_addresses.find_by(ride_id: ride_id) %>
               <% destination_address =  @destination_addresses.find_by(ride_id: ride_id) %>
+
               <div id="appointment-date"><strong>From: </strong><%= departure_address.address  %></div>
               <div id="appointment-date"><strong>To: </strong><%= destination_address.address  %></div>
               <div id="appointment-date"><strong>Date: </strong><%= Ride.find(booking.ride_id).ride_date.to_time.strftime('%B %e, %Y')  %></div>
@@ -417,6 +425,7 @@
 
 <% end %>
 
+</div>
 </div>
 </div>
 <!-- <script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>
