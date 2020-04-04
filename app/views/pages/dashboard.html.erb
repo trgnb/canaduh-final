@@ -164,11 +164,11 @@
     <% if @current_user.user_type == "user" %>
       <h4><strong>Appointments</strong></h4>
       <% if @appointments.empty? %>
-        <p>Need some guidance? Book an appointment with Canaduh's licensed Advisors.</p>
+        <p>Need guidance? Book an appointment with Canaduh's certified advisors.</p>
         <br>
         <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
-        <p>Manage your upcoming appointments with your Advisor</p>
+        <p>Manage your upcoming appointments with your advisor.</p>
         <% @appointments.each do |appointment| %>
           <div data-appointment-id="<%= appointment.id%>" data-appointment-pending="<%= appointment.status%>" class="card-inline-appointment">
             <div class="row">
@@ -207,10 +207,10 @@
 
   <!-- USER RIDES BOOKINGS -->
     <div class="slice-container">
-        <h4><strong>Rides</strong></h4>
+        <h4><strong>Flagpoling rides</strong></h4>
 
         <% if @rider_bookings.empty? && @user_bookings.empty? %>
-          <p>Need a lift for your next Flagpoling? <br>Use Canaduh's carpooling service to hitch a ride to the border.</p>
+          <p>Use Canaduh's carpooling service to hitch a ride to the border.</p>
           <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
         <% else %>
           <!-- IF CURRENT USER IS THE RIDER -->
