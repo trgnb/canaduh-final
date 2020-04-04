@@ -101,17 +101,19 @@
       margin: 0px !important;
     }
 
-    i {
-      color: $black;
 
-      &:hover {
-        color: $red;
-      }
-    }
 
     #task-action {
       margin-left: 20px;
       color: $black;
+
+        i {
+          color: $black !important;
+
+        &:hover {
+          color: $red;
+        }
+      }
     }
 
     #task-priority-high {
@@ -133,7 +135,7 @@
       color: $white;
       padding: 1px 12px;
       border-radius: 20px;
-      background-color: green;
+      background-color: $green;
     }
   }
 

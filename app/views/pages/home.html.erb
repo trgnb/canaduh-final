@@ -4,7 +4,12 @@
     <div class="hero-form">
       <% if user_signed_in? %>
         <%= render 'shared/onboarding_form' %>
-        <% end %>
+      <% else %>
+        <div class="banner" style="margin-left:0px;">
+      <h1>Discover your path, plan the journey and connect    with expert advisors to guide you    to a new life.</h1>
+        <a class="btn-cta-white" href="/users/sign_up">Get started</a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
