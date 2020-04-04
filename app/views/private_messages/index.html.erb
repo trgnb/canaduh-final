@@ -1,8 +1,8 @@
 <div class="private-message-container">
   <div class="row no-gutters">
-    <div class="col-md-3 border-right">
-    <div class="settings-tray">
-      <div class="sticky-top-bar">
+    <div class="col-md-3 border-right" style="box-shadow: 1px 1px 3px rgba(0,0,0,0.2); border-radius: 7px;">
+    <div class="settings-tray" style="box-shadow: none;">
+      <div class="sticky-top-bar" style="display: flex; flex-direction: row; align-items: center;">
         <div class="sticky-bar-item" id="message-avatar ">
           <%= link_to dashboard_path do %>
           <i class="fas fa-arrow-left sticky-bar-item"></i>
@@ -12,34 +12,34 @@
           <%= image_tag current_user.imgUrl, class: "avatar" %>
         </div>
         <div class="sticky-bar-item"  id="message-avatar">
-          <h6><%= "Back to dashboard" %></h6>
+          <h6 style="margin: 0px;"><%= "Back to dashboard" %></h6>
         </div>
       </div>
 
     </div>
     <div class="search-box">
       <div class="input-wrapper">
-      <input placeholder="Search here" class="message-input" type="text">
+        <input placeholder="Search" class="search-input" type="text">
       </div>
     </div>
 
     <% if @conversations.exists? %>
           <% @conversations.each do |conversation| %>
             <% if conversation.private_messages.exists? %>
-              <div class="friend-drawer friend-drawer--onhover">
+              <div class="friend-drawer friend-drawer--onhover" style="display: flex; flex-direction: row; align-items: center;">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
                 <div class="text">
-                <h6> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong></h6>
+                <h6 style="margin:0px;"> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong></h6>
                 <p> <%= link_to conversation.private_messages.last.body , conversation_private_messages_path(conversation)%> </p>
               </div>
               <span class="time text-muted small">13:21</span>
               </div>
               <hr>
             <% else %>
-              <div class="friend-drawer friend-drawer--onhover">
+              <div class="friend-drawer friend-drawer--onhover" style="display: flex; flex-direction: row; align-items: center;">
                 <%= image_tag conversation.recipient(current_user).imgUrl, class: "avatar" %>
                 <div class="text">
-                <h6> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong> </h6>
+                <h6 style="margin: 0px;"> <strong><%= conversation.recipient(current_user).first_name %> <%= conversation.recipient(current_user).last_name %> </strong> </h6>
                 <%= link_to '', conversation_private_messages_path(conversation)%>
                 </div>
               </div>
@@ -49,7 +49,7 @@
     </div>
 
 
-    <div class="col-md-9">
+    <div class="col-md-9" style="justify-content: space-around;">
     <div class="settings-tray">
       <div class="friend-drawer no-gutters friend-drawer--grey">
         <%= image_tag @conversation.recipient(current_user).imgUrl, class: "avatar" %>
@@ -64,8 +64,14 @@
                   <% if private_message.user_id == current_user.id %>
                     <div class="row no-gutters">
                     <div class="col-md-3 offset-md-9">
+                      <div class='bubble-container'>
                       <div class="chat-bubble chat-bubble--right">
                         <%= private_message.body %>
+                      </div>
+                          <div>
+                          <%= image_tag current_user.imgUrl, class: "avatar" %>
+                        </div>
+
                       </div>
                     </div>
                     </div>
@@ -91,8 +97,8 @@
       <div class="col-12">
         <div class="chat-box-tray">
         <%= form_for [@conversation, @private_message] do |f| %>
-            <div class="row">
-              <%= f.text_field :body, placeholder: "Type a message", class: "message-input" %>
+            <div class="row" >
+              <%= f.text_field :body, placeholder: "Type a message", class: "message-input", style: "background-color: #f9fafb; border-radius:30px;" %>
             </div>
         <% end %>
         </div>
