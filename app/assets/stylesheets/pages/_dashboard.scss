@@ -6,6 +6,12 @@
 }
 
 p.author {
+    text-align: center;
+    // font-size: 15px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
  a {
   color: black;
   &:hover {
@@ -16,4 +22,9 @@ p.author {
 
 .status {
   font-size: 12px;
+  font-family: "Helvetica";
+}
+
+.timestamp {
+  margin-bottom: 0px !important,
 }

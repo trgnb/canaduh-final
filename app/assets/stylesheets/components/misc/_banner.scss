@@ -30,3 +30,26 @@
         border: 1px solid #f9fafb !important;
       }
   }
+
+
+  .insights-banner {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    // margin: $vert $sides;
+    color: $black;
+
+    h1 {
+      color: $black;
+      max-width: 66%;
+      margin-bottom: $bottom;
+      font-size: $jumbo;
+      font-weight: bold;
+      text-shadow: $dropshadow;
+    }
+    p {
+      color: $black;
+      max-width: 66%;
+    }
+  }

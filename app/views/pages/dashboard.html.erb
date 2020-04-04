@@ -12,28 +12,26 @@
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
     <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
     <!-- COMPLETED MILESTONES    -->
+
+  <div class="border-container" style="background-color: white; border: 1px solid $black !important; padding: 20px; border-radius: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
     <div class="row">
-      <h4><strong>Journey progress</strong></h4>
+      <h4><strong>Journey progress:</strong></h4>
       <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
     </div>
 
+    <p>The key milestones on the path to <strong><%= @current_user.path_type.titleize %></strong>.</p>
 
-     <ul class="timeline" id="timeline">
+     <ul class="timeline" id="timeline" style="padding:0px;">
       <div class='dashboard-container'>
       <% @milestones.each do |milestone| %>
         <% if milestone.achieved == true %>
             <div class='flex'>
               <li class="li complete">
                 <div class="timestamp">
-                  <p class="author"> <%= milestone.milestone_title %> </p>
+                  <p class="author"> <strong><%= milestone.milestone_title %></strong></p>
                 </div>
                 <div class="status">
-<!--                   <p> <%#= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p> -->
-                  <p>
-                    <%= form_for(milestone) do |f| %>
-                      <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
-                    <% end %>
-                  </p>
+                  <p> <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p>
                 </div>
               </li>
             </div>
@@ -41,16 +39,10 @@
             <div class='flex'>
               <li class="li">
                 <div class="timestamp">
-                  <p class="author"><%= milestone.milestone_title %></p>
+                  <p class="author"><strong><%= milestone.milestone_title %></strong></p>
                 </div>
                 <div class="status">
-<!--                    <p> In Progress </p> -->
-                  <p>
-                  <%= form_for(milestone) do |f| %>
-                    <%= f.hidden_field :achieved, value: 1 %>
-                    <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
-                  <% end %>
-                  </p>
+                  <p> In Progress </p>
                 </div>
               </li>
             </div>
@@ -58,62 +50,73 @@
         <% end %>
     </div>
   </ul>
+</div>
 
-<!--     <div class="container-cols">
-      <%# @milestones.each do |milestone| %>
+<br>
+
+    <div class="container-cols">
+      <% @milestones.each do |milestone| %>
         <div class="card-task">
           <div class="task-details">
-            <%# if milestone.achieved == true %>
+            <% if milestone.achieved == true %>
               <i class="fas fa-check" id="status"></i>
-            <%# else %>
+            <% else %>
               <i class="fas fa-times" id="status" style="color: black;"></i>
-            <%# end %>
+            <% end %>
 
-            <div id="milestone"><strong><%#= milestone.milestone_title %></strong></div>
+            <div id="milestone"><strong><%= milestone.milestone_title %></strong></div>
           </div>
           <div class="task-actions">
-            <%# if milestone.achieved == true %>
-              <%#= form_for(milestone) do |f| %>
-                <%#= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
-              <%# end %>
-            <%# else %>
-              <%#= form_for(milestone) do |f| %>
-                <%#= f.hidden_field :achieved, value: 1 %>
-                <%#= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
-              <%# end %>
-            <%# end %>
+            <% if milestone.achieved == true %>
+              <%= form_for(milestone) do |f| %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
+              <% end %>
+            <% else %>
+              <%= form_for(milestone) do |f| %>
+                <%= f.hidden_field :achieved, value: 1 %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
+              <% end %>
+            <% end %>
           </div>
         </div>
-      <%# end %>
-    </div> -->
+      <% end %>
+    </div>
 
     <br>
 <!-- COMMUNITY INSIGHTS BANNER -->
-  <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
-      <div class="banner">
-        <h2>Insights from the community</h2>
-        <h4>Estimated time to <strong><%= @current_user.path_type.titleize %></strong>: <%= @total_processing_time %></h4>
+  <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px;  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>); background-color: white; border: 1px solid $black !important; border-radius: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
+      <div class="banner" style="margin: 30px;">
+        <div class="row">
+          <div class="col" style="padding: 0px;">
+        <h4>Estimated times to <strong><%= @current_user.path_type.titleize %></strong>: <%= @total_processing_time %></h4>
+        <p>Based on community insights.</p>
         <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
-        <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p class="card-milestone">PR Processing Time: <%= @total_av_processing_time %> months</p>
+
+          <p class="card-milestone"><strong>Total time for PR path: <%= @total_av_processing_time %> months</strong></p>
+          <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
+          <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
+          <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
+          <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
+
+        </div>
+          <div style="width: 22vw; height: 22vw; align-self: center; margin-right: 50px; margin-top: 20px;"><%= image_tag 'waiting.svg' %></div>
+        </div>
+
       </div>
   </div>
-
 
 
   <!-- TASK REMINDER -->
   <div class="slice-container">
     <div class="row">
-      <h4>Planner</h4>
+      <h4><strong>Planner</strong></h4>
     </div>
     <% if @high_priority_tasks.empty? %>
       <div class="row">
-        <p>No outstanding high priority tasks.</p>
+        <p>No outstanding important tasks.</p>
       </div>
     <% else %>
+      <p>Here's a reminder of your most important tasks</p>
       <% @high_priority_tasks.each do |task| %>
         <div class="card-task">
           <div class="task-details">
@@ -159,12 +162,13 @@
   <!-- USER APPOINTMENTS -->
   <div class="slice-container">
     <% if @current_user.user_type == "user" %>
-      <h4>Upcoming appointments</h4>
+      <h4><strong>Appointments</strong></h4>
       <% if @appointments.empty? %>
-        <p>No scheduled appointments.</p>
+        <p>Need guidance? Book an appointment with Canaduh's certified advisors.</p>
         <br>
         <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
+        <p>Manage your upcoming appointments with your advisor.</p>
         <% @appointments.each do |appointment| %>
           <div data-appointment-id="<%= appointment.id%>" data-appointment-pending="<%= appointment.status%>" class="card-inline-appointment">
             <div class="row">
@@ -203,13 +207,14 @@
 
   <!-- USER RIDES BOOKINGS -->
     <div class="slice-container">
-        <h4>Upcoming rides</h4>
+        <h4><strong>Flagpoling rides</strong></h4>
 
         <% if @rider_bookings.empty? && @user_bookings.empty? %>
-          <p>No scheduled rides</p>
+          <p>Use Canaduh's carpooling service to hitch a ride to the border.</p>
           <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
         <% else %>
           <!-- IF CURRENT USER IS THE RIDER -->
+          <p>Manage your upcoming rides to the Border</p>
           <% @rider_bookings.each do |booking| %>
           <div class="card-inline-appointment">
             <div class="row">
@@ -411,16 +416,6 @@
 
 <% end %>
 
-  <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
-<!--   <p>User' processing time: <%= @total_processing_time %></p>
-  <ol>
-    <li>CSQ Reception: <%= @csq_processing_time %> months</li>
-    <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
-    <li>Medical Exam: <%= @pr2_processing_time %> months</li>
-    <li>PR Reception: <%= @pr3_processing_time %> months</li>
-    <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
-  </ol>
-  <br> -->
 </div>
 </div>
 <!-- <script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>
