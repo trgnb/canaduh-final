@@ -44,7 +44,7 @@ mickael = User.create!(
   user_bio: "Hello, I am Mickael! I am a certified immigration adviser and I have been offering my services on Canaduh for about 2 years now. I am mostly specialized in Permanent Residency applications with 99.9% success rate",
   imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585881475/me1_r7us6h.png',
   specialty: "work visa",
-  featured: true,
+  featured: true
 )
 peter = User.create!(
   first_name:"Peter",
@@ -285,7 +285,7 @@ sarah = User.create!(
   username: "sziani",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-5_tkvhkd.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-5_tkvhkd.png',
   path_type: "permanent residency"
 )
 pablo = User.create!(
@@ -297,7 +297,7 @@ pablo = User.create!(
   username: "pescobar",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-m-7_zqeb0w.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-m-7_zqeb0w.png',
   path_type: "permanent residency"
 )
 jackie = User.create!(
@@ -356,7 +356,6 @@ service1 = Service.create!(
 service2 = Service.create!(
   user: alex,
   service_type: "General Consultation",
-  path: "Permanent Residency",
   description: "Get professional advice from a licenced immigration advisor. During the General Consultation we will build a custom plan to your specific situation.",
   price: "150"
 )
@@ -384,9 +383,13 @@ service5 = Service.create!(
 service6 = Service.create!(
   user: celine,
   service_type: "Ongoing Assistance",
-  description: "Ongoing assistance during your immigration is essential to do reach each milestone of your immigration process. I will guide you every steps of the way, providing you best pratices that have been proven successful!",
   path: "Permanent Residency",
-  price: "500"
+  description: "Assistance from start to finish in helping you prepare documentation
+  for your Canadian student visa application process. Pre-planned and scheduled
+  follow-up appointments give you the checkpoints along the way to ensure you
+  are confident and stress free. This service guarantees a tailor fit solution
+  to your immigration needs.",
+  price: "250"
 )
 service7 = Service.create!(
   user: mickael,
