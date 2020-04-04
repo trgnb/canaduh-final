@@ -57,7 +57,7 @@
       <%= link_to "See booking", dashboard_path%>
     <% end %>
     <!-- SHARING RIDE WITH? -->
-    <% current_bookings =  Booking.where(ride_id: ride_id, booking_status: "booked") && Booking.where.not(user_id: current_user.id)%>
+    <% current_bookings =  Booking.where(ride_id: ride_id, booking_status: "booked")%>
     <% if current_bookings.empty? %>
     <% else %>
       <p>You will be sharing the ride with:</p>
@@ -67,6 +67,7 @@
             <%= booking.user.first_name %>
         </ul>
       <% end %>
+      <raise>
     <% end %>
   <% end %>
 </div>
