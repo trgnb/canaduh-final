@@ -634,14 +634,14 @@ belis1_task2 = Task.create!(
   user: belis1,
   task_name: "Fill-out Selection Certificate Form (A-0520-AA)",
   priority: "Low",
-  task_status: true,
+  task_status: false,
   recommended_task: false,
 )
 belis1_task3 = Task.create!(
   user: belis1,
   task_name: "Ask Mom for Birth Certificate, Diplomas and Transcripts",
   priority: "Low",
-  task_status: true,
+  task_status: false,
   recommended_task: false,
 )
 belis1_task4 = Task.create!(
@@ -655,34 +655,18 @@ belis1_task5 = Task.create!(
   user: belis1,
   task_name: "Pass evaluation of French language knowledge",
   priority: "Low",
-  task_status: true,
+  task_status: false,
   recommended_task: false,
 )
 belis1_task6 = Task.create!(
   user: belis1,
   task_name: "Proof of Temporary Resident Status in Quebec",
   priority: "Low",
-  task_status: true,
+  task_status: false,
   recommended_task: false,
 )
-belis1_task7 = Task.create!(
-  user: belis1,
-  task_name: "Activate Temporary work visa",
-  priority: "High",
-  recommended_task: false,
-)
-belis1_task8 = Task.create!(
-  user: belis1,
-  task_name: "Get all PR required documents",
-  priority: "High",
-  recommended_task: false,
-)
-belis1_task9 = Task.create!(
-  user: belis1,
-  task_name: "Find a way to get to the border",
-  priority: "High",
-  recommended_task: false,
-)
+
+
 
 ## belis3' TO DO list ##
 belis3_task1 = Task.create!(
@@ -891,8 +875,6 @@ belis1_milestone1 = Milestone.create!(
   user: belis1,
   milestone_title: "CSQ Application",
   milestone_path: belis1.path_type,
-  milestone_date: "2019-01-01 12:00:00",
-  achieved: true,
   order: 1,
 )
 belis1_milestone2 = Milestone.create!(
