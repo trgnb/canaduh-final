@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :private_messages, dependent: :destroy
   has_many :rides, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_many :chat_rooms, dependent: :destroy, through: :messages
   validates :username, uniqueness: true
   has_many :private_messages, dependent: :destroy
