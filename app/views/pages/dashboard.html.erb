@@ -12,11 +12,15 @@
     <!-- TODO ADD LOGIC FOR ALL PATHS -->
     <% if current_user.user_type == "user" && current_user.path_type == "permanent residency" %>
     <!-- COMPLETED MILESTONES    -->
+
+  <div class="border-container" style="background-color: white; border: 1px solid $black !important; padding: 10px; border-radius: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
     <div class="row">
-      <h4><strong>Journey progress</strong></h4>
+      <h4><strong>Journey progress:</strong></h4>
       <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
     </div>
+
     <p>Here are the key steps of your <strong><%= @current_user.path_type.titleize %></strong> journey.</p>
+
      <ul class="timeline" id="timeline">
       <div class='dashboard-container'>
       <% @milestones.each do |milestone| %>
@@ -46,6 +50,7 @@
         <% end %>
     </div>
   </ul>
+</div>
 
     <div class="container-cols">
       <% @milestones.each do |milestone| %>
