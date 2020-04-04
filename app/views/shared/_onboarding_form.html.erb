@@ -4,8 +4,8 @@
 
     <div class="form-inputs">
       <!-- if statement needed to find out if user already set their path -->
-      <h2><%= f.label "What brings you to Canaduh today?" %></h2>
-      <%= f.select :user_type, ['Client', 'Advisor'], {}, {class: "form-control"} %>
+      <h2> <%= f.label '', "What brings you to Canaduh today?" %> </h2>
+      <%= f.select :user_type, ['Looking for consultation', 'Connect with the community', 'Help with planning'], {}, {class: "form-control"} %>
       <h2><%= f.label "What's your path?" %></h2>
       <%= f.select :path_type, ['Student Visa', 'Work Visa','Permanent Residency','Canadian Citizenship'], {}, {class: "form-control"} %>
     </div>

@@ -21,6 +21,7 @@ flatpickr(".datepicker",
 // Milestones Calendar //
 flatpickr(".datepicker1",
   {
+    enableTime: true,
     dateFormat: "Y-m-d H:i",
     altInput: true,
     altFormat: "F j, Y",
