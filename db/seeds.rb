@@ -285,7 +285,7 @@ sarah = User.create!(
   username: "sziani",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-5_tkvhkd.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585868910/user-F-5_tkvhkd.png',
   path_type: "permanent residency"
 )
 pablo = User.create!(
@@ -297,7 +297,7 @@ pablo = User.create!(
   username: "pescobar",
   location: "Montreal",
   user_bio: Faker::Quote.matz,
-  imgUrl: 'hhttps://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-m-7_zqeb0w.png',
+  imgUrl: 'https://res.cloudinary.com/drgcg7n83/image/upload/v1585870030/user-m-7_zqeb0w.png',
   path_type: "permanent residency"
 )
 jackie = User.create!(
