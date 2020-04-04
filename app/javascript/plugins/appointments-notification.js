@@ -24,12 +24,10 @@ const  appNotification = () => {
             const appointment = document.querySelector(`.card-inline-appointment[data-appointment-id='${appointmentId}']`);
             appointment.querySelector(".appointment-status").innerHTML = "<strong>Status: </strong>Confirmed";
             const advisor = document.querySelector('#advisor-name').innerText;
-            const appStat = appointment.getAttribute('data-appointment-pending');
-            console.log(appStat);
-            if (appStat == 'confirmed') {
-              alert(`Your appointment ${advisor} is now confirmed.`);
-              appointment.setAttribute("data-appointment-pending", "pending confirmation");
-            }
+            // const appStat = appointment.getAttribute('data-appointment-pending');
+            // console.log(appStat);
+            alert(`Your appointment ${advisor} is now confirmed.`);
+            appointment.setAttribute("data-appointment-pending", "confirmed");
           })
           console.log(data);
         });
