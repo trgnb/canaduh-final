@@ -1,5 +1,9 @@
 $blue: #74b9ff;
 $offwhite: #f9fafb;
+$white: #FFFFFF;
+$black: #1a1a1a;
+$grey: #7c7d7d;
+$dropshadow: 1px 1px 3px rgba(0,0,0,0.2);
 
 body {
   //background-image: url('https://images.unsplash.com/photo-1560568082-c15188aa6510?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
@@ -33,12 +37,14 @@ body {
 }
 
 .settings-tray {
-  background: #eee;
+  background-color: $white;
   padding: 10px 15px;
   border-radius: 7px;
+  box-shadow: $dropshadow;
 
   .no-gutters {
     padding: 0;
+    background-color: $white;
   }
 
   &--right {
@@ -60,30 +66,46 @@ body {
 }
 
 .search-box {
-  background: #fafafa;
+  // background: $offwhite;
   padding: 10px 13px;
+  max-width: 40px;
 
   .input-wrapper {
     background: #fff;
     border-radius: 40px;
 
     i {
-      color: grey;
+      color: $black;
       margin-left: 7px;
       vertical-align: middle;
     }
   }
+
+  .search-input {
+  border-radius: 30px;
+  width: 250px;
+  background-color: $offwhite;
+
+  &::placeholder {
+    color: $grey;
+    font-weight: 300;
+    margin-left: 20px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
 }
 
 .message-input {
-  border: none;
   border-radius: 30px;
-  width: 500px;
+  width: 400px;
 
   &::placeholder {
-    color: #e3e3e3;
+    color: $grey;
     font-weight: 300;
-    margin-left: 20px;
+    margin-left: 20px !important;
   }
 
   &:focus {
@@ -95,7 +117,6 @@ body {
   padding: 10px 15px;
   display: flex;
   vertical-align: baseline;
-  background: #fff;
   transition: .3s ease;
 
   &--grey {
@@ -201,12 +222,11 @@ hr {
 }
 
 .chat-box-tray {
-  background: #eee;
   display: flex;
   align-items: baseline;
   padding: 10px 15px;
   align-items: center;
-  margin-top: 19px;
+  margin-top: 80px;
   bottom: 0;
   justify-content: flex-end;
 
@@ -219,10 +239,15 @@ hr {
   i {
     color: grey;
     font-size: 30px;
+    margin-left: 25px;
     vertical-align: middle;
 
     &:last-of-type {
       margin-left: 25px;
     }
   }
+}
+
+hr {
+  width: 300px;
 }
