@@ -84,16 +84,24 @@
 
     <br>
 <!-- COMMUNITY INSIGHTS BANNER -->
-  <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path "blankbanner.png" %>);">
-      <div class="banner">
-        <h2>Insights from the community</h2>
-        <h4>Estimated time to <strong><%= @current_user.path_type.titleize %></strong>: <%= @total_processing_time %></h4>
+  <div class="fullwidth-container" style="min-height: 300px; border-radius: 5px;  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(<%= image_path 'blankbanner.png' %>); background-color: white; border: 1px solid $black !important; border-radius: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
+      <div class="banner" style="margin: 30px;">
+        <div class="row">
+          <div class="col" style="padding: 0px;">
+        <h4>Estimated times to <strong><%= @current_user.path_type.titleize %></strong>: <%= @total_processing_time %></h4>
+        <p>Based on community insights.</p>
         <!-- TODO GENERATE MILESTONES BASED ON USER PATH -->
-        <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
-        <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
-        <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
-        <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
-        <p class="card-milestone">PR Processing Time: <%= @total_av_processing_time %> months</p>
+
+          <p class="card-milestone"><strong>Total time for PR path: <%= @total_av_processing_time %> months</strong></p>
+          <p class="card-milestone">CSQ Reception: <%= @av_db_csq_processing_time %> months</p>
+          <p class="card-milestone">PR Application Receipt Confirmation: <%= @av_db_pr1_processing_time %> months</p>
+          <p class="card-milestone">Medical Exam: <%= @av_db_pr2_processing_time %> months</p>
+          <p class="card-milestone">PR Reception: <%= @av_db_pr3_processing_time %> months</p>
+
+        </div>
+          <div style="width: 22vw; height: 22vw; align-self: center; margin-right: 50px; margin-top: 20px;"><%= image_tag 'waiting.svg' %></div>
+        </div>
+
       </div>
   </div>
 
@@ -202,7 +210,7 @@
         <h4><strong>Rides</strong></h4>
 
         <% if @rider_bookings.empty? && @user_bookings.empty? %>
-          <p>Need Flagpoling? Use Canaduh's carppoling service to find the next ride to the Border.</p>
+          <p>Need a lift for your next Flagpoling? <br>Use Canaduh's carpooling service to hitch a ride to the border.</p>
           <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
         <% else %>
           <!-- IF CURRENT USER IS THE RIDER -->
@@ -408,16 +416,6 @@
 
 <% end %>
 
-  <!-- FOR RM - DO NOT STYLE NOR REMOVE    -->
-<!--   <p>User' processing time: <%= @total_processing_time %></p>
-  <ol>
-    <li>CSQ Reception: <%= @csq_processing_time %> months</li>
-    <li>PR Application Receipt Confirmation: <%= @pr1_processing_time %> months</li>
-    <li>Medical Exam: <%= @pr2_processing_time %> months</li>
-    <li>PR Reception: <%= @pr3_processing_time %> months</li>
-    <li>PR Processing Time: <%= @total_pr_processing_time %> months</li>
-  </ol>
-  <br> -->
 </div>
 </div>
 <!-- <script language="javascript" type="text/javascript">setTimeout("location.reload();",20000);</script>
