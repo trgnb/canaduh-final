@@ -16,8 +16,7 @@
       <h4><strong>Journey progress</strong></h4>
       <h5><strong><%= (@percent_completion.round(1) * 100).to_i %>% complete</strong></h5>
     </div>
-
-
+    <p>Here are the key steps of your <strong><%= @current_user.path_type.titleize %></strong> journey.</p>
      <ul class="timeline" id="timeline">
       <div class='dashboard-container'>
       <% @milestones.each do |milestone| %>
@@ -25,15 +24,10 @@
             <div class='flex'>
               <li class="li complete">
                 <div class="timestamp">
-                  <p class="author"> <%= milestone.milestone_title %> </p>
+                  <p class="author"> <strong><%= milestone.milestone_title %></strong></p>
                 </div>
                 <div class="status">
-<!--                   <p> <%#= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p> -->
-                  <p>
-                    <%= form_for(milestone) do |f| %>
-                      <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
-                    <% end %>
-                  </p>
+                  <p> <%= milestone.milestone_date.to_time.strftime('%B %e, %Y') %> </p>
                 </div>
               </li>
             </div>
@@ -41,16 +35,10 @@
             <div class='flex'>
               <li class="li">
                 <div class="timestamp">
-                  <p class="author"><%= milestone.milestone_title %></p>
+                  <p class="author"><strong><%= milestone.milestone_title %></strong></p>
                 </div>
                 <div class="status">
-<!--                    <p> In Progress </p> -->
-                  <p>
-                  <%= form_for(milestone) do |f| %>
-                    <%= f.hidden_field :achieved, value: 1 %>
-                    <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
-                  <% end %>
-                  </p>
+                  <p> In Progress </p>
                 </div>
               </li>
             </div>
@@ -59,33 +47,33 @@
     </div>
   </ul>
 
-<!--     <div class="container-cols">
-      <%# @milestones.each do |milestone| %>
+    <div class="container-cols">
+      <% @milestones.each do |milestone| %>
         <div class="card-task">
           <div class="task-details">
-            <%# if milestone.achieved == true %>
+            <% if milestone.achieved == true %>
               <i class="fas fa-check" id="status"></i>
-            <%# else %>
+            <% else %>
               <i class="fas fa-times" id="status" style="color: black;"></i>
-            <%# end %>
+            <% end %>
 
-            <div id="milestone"><strong><%#= milestone.milestone_title %></strong></div>
+            <div id="milestone"><strong><%= milestone.milestone_title %></strong></div>
           </div>
           <div class="task-actions">
-            <%# if milestone.achieved == true %>
-              <%#= form_for(milestone) do |f| %>
-                <%#= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
-              <%# end %>
-            <%# else %>
-              <%#= form_for(milestone) do |f| %>
-                <%#= f.hidden_field :achieved, value: 1 %>
-                <%#= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
-              <%# end %>
-            <%# end %>
+            <% if milestone.achieved == true %>
+              <%= form_for(milestone) do |f| %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: milestone.milestone_date.to_time.strftime('%B %e, %Y'), onchange: 'this.form.submit();' %>
+              <% end %>
+            <% else %>
+              <%= form_for(milestone) do |f| %>
+                <%= f.hidden_field :achieved, value: 1 %>
+                <%= f.text_field :milestone_date, class: 'datepicker1', placeholder: "In progress", onchange: 'this.form.submit();'%>
+              <% end %>
+            <% end %>
           </div>
         </div>
-      <%# end %>
-    </div> -->
+      <% end %>
+    </div>
 
     <br>
 <!-- COMMUNITY INSIGHTS BANNER -->
@@ -103,17 +91,17 @@
   </div>
 
 
-
   <!-- TASK REMINDER -->
   <div class="slice-container">
     <div class="row">
-      <h4>Planner</h4>
+      <h4><strong>Planner</strong></h4>
     </div>
     <% if @high_priority_tasks.empty? %>
       <div class="row">
-        <p>No outstanding high priority tasks.</p>
+        <p>No outstanding important tasks.</p>
       </div>
     <% else %>
+      <p>Here's a reminder of your most important tasks</p>
       <% @high_priority_tasks.each do |task| %>
         <div class="card-task">
           <div class="task-details">
@@ -159,12 +147,13 @@
   <!-- USER APPOINTMENTS -->
   <div class="slice-container">
     <% if @current_user.user_type == "user" %>
-      <h4>Upcoming appointments</h4>
+      <h4><strong>Appointments</strong></h4>
       <% if @appointments.empty? %>
-        <p>No scheduled appointments.</p>
+        <p>Need some guidance? Book an appointment with Canaduh's licensed Advisors.</p>
         <br>
         <%= link_to "Book now", "/services", class: "btn-cta-border" %>
       <% else %>
+        <p>Manage your upcoming appointments with your Advisor</p>
         <% @appointments.each do |appointment| %>
           <div data-appointment-id="<%= appointment.id%>" data-appointment-pending="<%= appointment.status%>" class="card-inline-appointment">
             <div class="row">
@@ -203,13 +192,14 @@
 
   <!-- USER RIDES BOOKINGS -->
     <div class="slice-container">
-        <h4>Upcoming rides</h4>
+        <h4><strong>Rides</strong></h4>
 
         <% if @rider_bookings.empty? && @user_bookings.empty? %>
-          <p>No scheduled rides</p>
+          <p>Need Flagpoling? Use Canaduh's carppoling service to find the next ride to the Border.</p>
           <%= link_to "Find a ride", "/rides", class: "btn-cta-border" %>
         <% else %>
           <!-- IF CURRENT USER IS THE RIDER -->
+          <p>Manage your upcoming rides to the Border</p>
           <% @rider_bookings.each do |booking| %>
           <div class="card-inline-appointment">
             <div class="row">
