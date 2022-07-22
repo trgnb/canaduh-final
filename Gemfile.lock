@@ -217,7 +217,7 @@ GEM
     tilt (2.0.10)
     time_difference (0.5.0)
       activesupport
-    tzinfo (1.2.6)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
